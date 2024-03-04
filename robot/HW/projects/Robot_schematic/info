@@ -4,7 +4,7 @@
   "name": "Robot_schematic",
   "content": "",
   "created_at": "2024-03-04 14:53:26",
-  "updated_at": "2024-03-04 14:53:26",
+  "updated_at": "2024-03-04 16:33:40",
   "stick": "",
   "documents": [
     {
@@ -14,7 +14,10 @@
       "docType": "1",
       "master": "",
       "thumb": "/images/thumb-default.png",
-      "components": {},
+      "components": {
+        "5a7405edc457461c94e5f1e0fb96f8ac": 1,
+        "7bc6004ec15049759da153ee82cdb006": 2
+      },
       "BOM": [
         [
           "Value",
@@ -22,18 +25,52 @@
           "Package",
           "Components",
           "CustomPara"
+        ],
+        [
+          "Goldpin 2",
+          2,
+          "GOLDPIN2",
+          "G1,G2",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "Photon-t",
+            "spiceSymbolName": "Goldpin 2",
+            "puuid": "fdb1d15298404663b5f8c196a44ea560",
+            "uuid": "7bc6004ec15049759da153ee82cdb006"
+          }
+        ],
+        [
+          "ESP32-DEVKITC-32D",
+          1,
+          "COMM-SMD_ESP32-DEVKITC-32D",
+          "U1",
+          {
+            "Supplier": "LCSC",
+            "Supplier Part": "C571181",
+            "Manufacturer": "ESPRESSIF(乐鑫)",
+            "Manufacturer Part": "ESP32-DevKitC-32D",
+            "JLCPCB Part Class": "Extended Part",
+            "Contributor": "lcsc",
+            "spiceSymbolName": "ESP32-DEVKITC-32D",
+            "puuid": "b635e3ca514941a2a7b43b2ea88c6320",
+            "uuid": "5a7405edc457461c94e5f1e0fb96f8ac"
+          }
         ]
       ],
-      "updateTime": 1709560406,
+      "updateTime": 1709566420,
       "createTime": 1709560406,
       "histories": [],
       "created_at": "2024-03-04 14:53:26",
-      "updated_at": "2024-03-04 14:53:26"
+      "updated_at": "2024-03-04 16:33:40"
     }
   ],
   "sort": [],
   "title": "Robot_schematic",
   "foldername": "Robot_schematic",
   "schfilename": "Robot_schematic.json",
-  "schfilemtime": 1709560406555
+  "schfilemtime": 1709566420472
 }
