@@ -4,7 +4,7 @@
   "name": "Robot_schematic",
   "content": "",
   "created_at": "2024-03-04 14:53:26",
-  "updated_at": "2024-03-04 16:33:40",
+  "updated_at": "2024-03-04 17:29:10",
   "stick": "",
   "documents": [
     {
@@ -16,7 +16,13 @@
       "thumb": "/images/thumb-default.png",
       "components": {
         "5a7405edc457461c94e5f1e0fb96f8ac": 1,
-        "7bc6004ec15049759da153ee82cdb006": 2
+        "7bc6004ec15049759da153ee82cdb006": 2,
+        "c7781807ef7b41ab9d90d859219f2822": 1,
+        "7cf48778562b448cb1596ee904fd2522": 1,
+        "9669163051044703a07eaec8582464b6": 1,
+        "bfb3975229af4f3aa2013e62b02960c9": 3,
+        "8a557e1b17f44c419e9b92c85fb6e4a2": 1,
+        "9253cfdcdc1a4c1e850d6f08d15b0558": 2
       },
       "BOM": [
         [
@@ -25,6 +31,65 @@
           "Package",
           "Components",
           "CustomPara"
+        ],
+        [
+          "CC-100N",
+          2,
+          "C_DISC_5X2.5-2.5",
+          "C1,C2",
+          {
+            "Contributor": "Danensago",
+            "spiceSymbolName": "CC-100N",
+            "Manufacturer Part": "",
+            "puuid": "e97d30d660274d8f8db16d95022c1375",
+            "uuid": "bfb3975229af4f3aa2013e62b02960c9"
+          }
+        ],
+        [
+          "330nF",
+          1,
+          "C_DISC_5X2.5-2.5",
+          "C3",
+          {
+            "Contributor": "Danensago",
+            "spiceSymbolName": "CC-100N",
+            "Manufacturer Part": "",
+            "puuid": "e97d30d660274d8f8db16d95022c1375",
+            "uuid": "bfb3975229af4f3aa2013e62b02960c9"
+          }
+        ],
+        [
+          "10uF",
+          1,
+          "ELECTROLYTIC_CAPACITOR_THT_PITCH-2.5MM_SIZE-5MM",
+          "C4",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "Marek Štafl",
+            "spiceSymbolName": "CAPACITOR THT PITCH 2.5MM SIZE 5MM",
+            "puuid": "5d4163be2d80442aa5f1798c2db32f85",
+            "uuid": "8a557e1b17f44c419e9b92c85fb6e4a2"
+          }
+        ],
+        [
+          "470uF",
+          2,
+          "1UF CAPACITOR THT",
+          "C5,C6",
+          {
+            "Supplier": "",
+            "Supplier Part": "C442973",
+            "Manufacturer": "Ymin",
+            "Manufacturer Part": "LKMB0901H1R0MF",
+            "Contributor": "R.M.Venkatraj",
+            "spiceSymbolName": "1uF Capacitor THT",
+            "puuid": "8a15d027dc7741d389aea81db8d60efe",
+            "uuid": "9253cfdcdc1a4c1e850d6f08d15b0558"
+          }
         ],
         [
           "Goldpin 2",
@@ -59,18 +124,67 @@
             "puuid": "b635e3ca514941a2a7b43b2ea88c6320",
             "uuid": "5a7405edc457461c94e5f1e0fb96f8ac"
           }
+        ],
+        [
+          "DG127-5.08-02P-14-02A(H)",
+          1,
+          "CONN-TH_DG127-5.08-02P-14-02A",
+          "U2",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C691860",
+            "Manufacturer": "DEGSON（高正/高松）",
+            "Manufacturer Part": "DG127-5.08-02P-14-02A(H)",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "DG127-5.08-02P-14-02A(H)",
+            "puuid": "086f991eb99f47f394fec5f80c86e9ee",
+            "uuid": "c7781807ef7b41ab9d90d859219f2822"
+          }
+        ],
+        [
+          "LF33CV",
+          1,
+          "TO-220-3_L10.2-W4.5-P2.54-L",
+          "U3",
+          {
+            "Contributor": "lcsc",
+            "Supplier": "LCSC",
+            "Supplier Part": "C2832779",
+            "Manufacturer": "ST(意法半导体)",
+            "Manufacturer Part": "LF33CV",
+            "spiceSymbolName": "LF33CV",
+            "puuid": "1d17fb957a704dd4b47035b0f10d4493",
+            "uuid": "7cf48778562b448cb1596ee904fd2522"
+          }
+        ],
+        [
+          "L7805CV",
+          1,
+          "TO-220-3_L10.0-W4.5-P2.54-L",
+          "U4",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "ST(意法半导体)",
+            "Manufacturer Part": "L7805CV",
+            "Supplier Part": "C111887",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "L7805CV",
+            "puuid": "948e610cffd14df79f04c73832b1409b",
+            "uuid": "9669163051044703a07eaec8582464b6"
+          }
         ]
       ],
-      "updateTime": 1709566420,
+      "updateTime": 1709569750,
       "createTime": 1709560406,
       "histories": [],
       "created_at": "2024-03-04 14:53:26",
-      "updated_at": "2024-03-04 16:33:40"
+      "updated_at": "2024-03-04 17:29:10"
     }
   ],
   "sort": [],
   "title": "Robot_schematic",
   "foldername": "Robot_schematic",
   "schfilename": "Robot_schematic.json",
-  "schfilemtime": 1709566420472
+  "schfilemtime": 1709569750674
 }
