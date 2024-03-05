@@ -4,7 +4,7 @@
   "name": "Robot_schematic",
   "content": "",
   "created_at": "2024-03-04 14:53:26",
-  "updated_at": "2024-03-05 01:15:09",
+  "updated_at": "2024-03-05 01:19:41",
   "stick": "",
   "documents": [
     {
@@ -23,7 +23,7 @@
         "bfb3975229af4f3aa2013e62b02960c9": 5,
         "8a557e1b17f44c419e9b92c85fb6e4a2": 1,
         "9253cfdcdc1a4c1e850d6f08d15b0558": 4,
-        "97b6d962f7a543e7bd7dcd02262848aa": 4,
+        "97b6d962f7a543e7bd7dcd02262848aa": 6,
         "de965ddec8a647398d42ac7de1bc0391": 1,
         "8a6f8663d4324c22be0de2142632f8ad": 1
       },
@@ -278,18 +278,52 @@
             "puuid": "e402f4ccf6124a7eaaa5412388fc5d0b",
             "uuid": "de965ddec8a647398d42ac7de1bc0391"
           }
+        ],
+        [
+          "LEFT",
+          1,
+          "4XGOLDPIN",
+          "U11",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
+        ],
+        [
+          "RIGHT",
+          1,
+          "4XGOLDPIN",
+          "U12",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
         ]
       ],
-      "updateTime": 1709597709,
+      "updateTime": 1709597981,
       "createTime": 1709560406,
       "histories": [],
       "created_at": "2024-03-04 14:53:26",
-      "updated_at": "2024-03-05 01:15:09"
+      "updated_at": "2024-03-05 01:19:41"
     }
   ],
   "sort": [],
   "title": "Robot_schematic",
   "foldername": "Robot_schematic",
   "schfilename": "Robot_schematic.json",
-  "schfilemtime": 1709597709918
+  "schfilemtime": 1709597981444
 }
