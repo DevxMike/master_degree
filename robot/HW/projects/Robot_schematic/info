@@ -4,7 +4,7 @@
   "name": "Robot_schematic",
   "content": "",
   "created_at": "2024-03-04 14:53:26",
-  "updated_at": "2024-03-05 00:55:22",
+  "updated_at": "2024-03-05 01:15:09",
   "stick": "",
   "documents": [
     {
@@ -16,14 +16,16 @@
       "thumb": "/images/thumb-default.png",
       "components": {
         "5a7405edc457461c94e5f1e0fb96f8ac": 1,
-        "7bc6004ec15049759da153ee82cdb006": 2,
+        "7bc6004ec15049759da153ee82cdb006": 3,
         "c7781807ef7b41ab9d90d859219f2822": 1,
         "7cf48778562b448cb1596ee904fd2522": 1,
         "9669163051044703a07eaec8582464b6": 1,
-        "bfb3975229af4f3aa2013e62b02960c9": 3,
+        "bfb3975229af4f3aa2013e62b02960c9": 5,
         "8a557e1b17f44c419e9b92c85fb6e4a2": 1,
-        "9253cfdcdc1a4c1e850d6f08d15b0558": 2,
-        "97b6d962f7a543e7bd7dcd02262848aa": 4
+        "9253cfdcdc1a4c1e850d6f08d15b0558": 4,
+        "97b6d962f7a543e7bd7dcd02262848aa": 4,
+        "de965ddec8a647398d42ac7de1bc0391": 1,
+        "8a6f8663d4324c22be0de2142632f8ad": 1
       },
       "BOM": [
         [
@@ -35,9 +37,9 @@
         ],
         [
           "CC-100N",
-          2,
+          4,
           "C_DISC_5X2.5-2.5",
-          "C1,C2",
+          "C1,C2,C8,C10",
           {
             "Contributor": "Danensago",
             "spiceSymbolName": "CC-100N",
@@ -78,9 +80,9 @@
         ],
         [
           "470uF",
-          2,
+          4,
           "1UF CAPACITOR THT",
-          "C5,C6",
+          "C5,C6,C7,C9",
           {
             "Supplier": "",
             "Supplier Part": "C442973",
@@ -94,9 +96,9 @@
         ],
         [
           "Goldpin 2",
-          2,
+          3,
           "GOLDPIN2",
-          "G1,G2",
+          "G1,G2,G3",
           {
             "Manufacturer": "",
             "Manufacturer Part": "",
@@ -242,18 +244,52 @@
             "puuid": "790a510b762c4c5a992d10f48be406c8",
             "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
           }
+        ],
+        [
+          "goldpin_6",
+          1,
+          "GOLDPIN_6",
+          "U9",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "skaytrool",
+            "spiceSymbolName": "goldpin_6",
+            "puuid": "5a827db7bf5c447bb4d1c6d0511e90a8",
+            "uuid": "8a6f8663d4324c22be0de2142632f8ad"
+          }
+        ],
+        [
+          "GOLDPIN 8X1",
+          1,
+          "GOLDPIN 8X1",
+          "U10",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "qduaty",
+            "spiceSymbolName": "GOLDPIN 8X1",
+            "puuid": "e402f4ccf6124a7eaaa5412388fc5d0b",
+            "uuid": "de965ddec8a647398d42ac7de1bc0391"
+          }
         ]
       ],
-      "updateTime": 1709596522,
+      "updateTime": 1709597709,
       "createTime": 1709560406,
       "histories": [],
       "created_at": "2024-03-04 14:53:26",
-      "updated_at": "2024-03-05 00:55:22"
+      "updated_at": "2024-03-05 01:15:09"
     }
   ],
   "sort": [],
   "title": "Robot_schematic",
   "foldername": "Robot_schematic",
   "schfilename": "Robot_schematic.json",
-  "schfilemtime": 1709596522533
+  "schfilemtime": 1709597709918
 }
