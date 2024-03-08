@@ -4,7 +4,7 @@
   "name": "Robot_schematic",
   "content": "",
   "created_at": "2024-03-04 14:53:26",
-  "updated_at": "2024-03-08 15:06:12",
+  "updated_at": "2024-03-08 15:12:52",
   "stick": "",
   "documents": [
     {
@@ -26,7 +26,7 @@
         "97b6d962f7a543e7bd7dcd02262848aa": 6,
         "de965ddec8a647398d42ac7de1bc0391": 1,
         "8a6f8663d4324c22be0de2142632f8ad": 1,
-        "3ae71857120044ba8f596cb2360faeba": 2,
+        "3ae71857120044ba8f596cb2360faeba": 6,
         "bf6c7b9a0b434ff7a3f559b4c4e5b4c5": 3
       },
       "BOM": [
@@ -118,6 +118,22 @@
           2,
           "AXIAL-0.6",
           "R1,R2",
+          {
+            "Supplier": "LCSC",
+            "Supplier Part": "C348838",
+            "Manufacturer": "1",
+            "Manufacturer Part": "EWWR0001J20R0T9",
+            "Contributor": "osmancan.cidamar",
+            "spiceSymbolName": "1/2W RESISTOR",
+            "puuid": "85d7ca7898b14b1eb49ae5ce005e5407",
+            "uuid": "3ae71857120044ba8f596cb2360faeba"
+          }
+        ],
+        [
+          "10k",
+          4,
+          "AXIAL-0.6",
+          "R3,R4,R5,R6",
           {
             "Supplier": "LCSC",
             "Supplier Part": "C348838",
@@ -349,16 +365,16 @@
           }
         ]
       ],
-      "updateTime": 1709906772,
+      "updateTime": 1709907172,
       "createTime": 1709560406,
       "histories": [],
       "created_at": "2024-03-04 14:53:26",
-      "updated_at": "2024-03-08 15:06:12"
+      "updated_at": "2024-03-08 15:12:52"
     }
   ],
   "sort": [],
   "title": "Robot_schematic",
   "foldername": "Robot_schematic",
   "schfilename": "Robot_schematic.json",
-  "schfilemtime": 1709906772237
+  "schfilemtime": 1709907172358
 }
