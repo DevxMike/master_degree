@@ -4,7 +4,7 @@
   "name": "Robot_schematic",
   "content": "",
   "created_at": "2024-03-04 14:53:26",
-  "updated_at": "2024-03-11 01:21:23",
+  "updated_at": "2024-03-11 22:26:13",
   "stick": "",
   "documents": [
     {
@@ -16,7 +16,7 @@
       "thumb": "/images/thumb-default.png",
       "components": {
         "5a7405edc457461c94e5f1e0fb96f8ac": 1,
-        "7bc6004ec15049759da153ee82cdb006": 3,
+        "7bc6004ec15049759da153ee82cdb006": 4,
         "c7781807ef7b41ab9d90d859219f2822": 2,
         "7cf48778562b448cb1596ee904fd2522": 1,
         "9669163051044703a07eaec8582464b6": 1,
@@ -98,9 +98,9 @@
         ],
         [
           "Goldpin 2",
-          3,
+          4,
           "GOLDPIN2",
-          "G1,G2,G3",
+          "G1,G2,G3,G4",
           {
             "Manufacturer": "",
             "Manufacturer Part": "",
@@ -365,11 +365,11 @@
           }
         ]
       ],
-      "updateTime": 1710114388,
+      "updateTime": 1710192373,
       "createTime": 1709560406,
       "histories": [],
       "created_at": "2024-03-04 14:53:26",
-      "updated_at": "2024-03-11 00:46:28"
+      "updated_at": "2024-03-11 22:26:13"
     },
     {
       "uuid": "bf79f723b84996b93476bab5b5f0ed72",
@@ -407,5 +407,5 @@
   "title": "Robot_schematic",
   "foldername": "Robot_schematic",
   "schfilename": "Robot_schematic.json",
-  "schfilemtime": 1710114388769
+  "schfilemtime": 1710192373303
 }
