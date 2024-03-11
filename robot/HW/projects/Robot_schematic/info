@@ -4,7 +4,7 @@
   "name": "Robot_schematic",
   "content": "",
   "created_at": "2024-03-04 14:53:26",
-  "updated_at": "2024-03-11 00:46:28",
+  "updated_at": "2024-03-11 01:21:23",
   "stick": "",
   "documents": [
     {
@@ -370,6 +370,37 @@
       "histories": [],
       "created_at": "2024-03-04 14:53:26",
       "updated_at": "2024-03-11 00:46:28"
+    },
+    {
+      "uuid": "bf79f723b84996b93476bab5b5f0ed72",
+      "puuid": "69506c118e1b41f4f446891184605366",
+      "title": "PCB_Robot_schematic",
+      "filename": "PCB_Robot_schematic.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "e97d30d660274d8f8db16d95022c1375": 5,
+        "5d4163be2d80442aa5f1798c2db32f85": 1,
+        "8a15d027dc7741d389aea81db8d60efe": 4,
+        "fdb1d15298404663b5f8c196a44ea560": 3,
+        "85d7ca7898b14b1eb49ae5ce005e5407": 6,
+        "b635e3ca514941a2a7b43b2ea88c6320": 1,
+        "086f991eb99f47f394fec5f80c86e9ee": 2,
+        "1d17fb957a704dd4b47035b0f10d4493": 1,
+        "948e610cffd14df79f04c73832b1409b": 1,
+        "790a510b762c4c5a992d10f48be406c8": 6,
+        "5a827db7bf5c447bb4d1c6d0511e90a8": 1,
+        "e402f4ccf6124a7eaaa5412388fc5d0b": 1,
+        "b9d9e826613e481288649fd870400a18": 3
+      },
+      "BOM": [],
+      "updateTime": 1710116483,
+      "createTime": 1710116483,
+      "histories": [],
+      "created_at": "2024-03-11 01:21:23",
+      "updated_at": "2024-03-11 01:21:23"
     }
   ],
   "sort": [],
