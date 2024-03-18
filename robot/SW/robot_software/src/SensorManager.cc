@@ -2,7 +2,7 @@
 
 namespace Sensor{
 
-SensorManager::SensorManager(std::array<sensorPointer, numSensors>& s)
+SensorManager::SensorManager(std::array<sensorPointer, numSensors>&& s)
     : sensors{ std::move(s) } { }
 
 void SensorManager::init(){
@@ -11,10 +11,10 @@ void SensorManager::init(){
     }
 }
 
-const void* SensorManager::getReadings(SensorMapping s){
+const ISensor& SensorManager::getSensor(SensorMapping s){
     auto sensor_index = translate(s);
 
-    return sensors[sensor_index]->getReadings();
+    return *sensors[sensor_index];
 }
 
 void SensorManager::poolSensors(){
