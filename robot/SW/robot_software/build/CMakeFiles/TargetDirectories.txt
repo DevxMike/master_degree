@@ -1,0 +1,6 @@
+/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_comm.dir
+/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_driver.dir
+/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_motors.dir
+/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_sensors.dir
+/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/edit_cache.dir
+/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/rebuild_cache.dir
