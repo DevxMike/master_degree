@@ -413,8 +413,12 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
   /usr/local/include/gmock/gmock-more-actions.h \
   /usr/local/include/gmock/internal/custom/gmock-generated-actions.h \
   /usr/local/include/gmock/gmock-more-matchers.h \
-  /usr/local/include/gmock/gmock-nice-strict.h
+  /usr/local/include/gmock/gmock-nice-strict.h \
+  ../include/SensorManager.h \
+  ../include/interfaces/ISensor.h
 
+
+../include/interfaces/ISensor.h:
 
 /usr/local/include/gmock/gmock-more-matchers.h:
 
@@ -1077,6 +1081,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/bits/signum-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
+
+../include/SensorManager.h:
 
 /usr/include/sched.h:
 
