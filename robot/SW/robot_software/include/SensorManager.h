@@ -30,7 +30,7 @@ constexpr uint8_t translate(SensorMapping s){ // translate enum into uint
 class SensorManager{
 public:
     void init(); // needed due to arduino/platformio framework
-    SensorManager();
+    SensorManager(std::array<sensorPointer, numSensors>& s);
     void poolSensors();
     const void* getReadings(SensorMapping s);
 
