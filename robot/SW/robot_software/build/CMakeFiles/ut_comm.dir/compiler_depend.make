@@ -45,16 +45,17 @@ CMakeFiles/ut_comm.dir/src/SensorManager.cc.o: ../src/SensorManager.cc \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  /usr/include/c++/11/array \
+  ../include/array.h \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/move.h \
   /usr/include/c++/11/type_traits \
   /usr/include/c++/11/initializer_list \
+  /usr/include/c++/11/memory \
+  /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/exception_defines.h \
-  /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/cpp_type_traits.h \
   /usr/include/c++/11/ext/type_traits.h \
   /usr/include/c++/11/ext/numeric_traits.h \
@@ -66,8 +67,6 @@ CMakeFiles/ut_comm.dir/src/SensorManager.cc.o: ../src/SensorManager.cc \
   /usr/include/c++/11/bits/ptr_traits.h \
   /usr/include/c++/11/debug/debug.h \
   /usr/include/c++/11/bits/predefined_ops.h \
-  /usr/include/c++/11/bits/range_access.h \
-  /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
   /usr/include/c++/11/ext/new_allocator.h \
@@ -85,6 +84,8 @@ CMakeFiles/ut_comm.dir/src/SensorManager.cc.o: ../src/SensorManager.cc \
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/unique_ptr.h \
   /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/range_access.h \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_function.h \
   /usr/include/c++/11/backward/binders.h \
@@ -183,15 +184,15 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
-
-../src/MotorManager.cc:
-
-/usr/include/c++/11/bits/range_access.h:
+/usr/include/c++/11/bits/exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
-/usr/include/c++/11/bits/exception.h:
+/usr/include/c++/11/bits/range_access.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
+
+../src/MotorManager.cc:
 
 /usr/include/c++/11/bits/predefined_ops.h:
 
@@ -208,6 +209,8 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 /usr/include/c++/11/bits/stl_relops.h:
 
 /usr/include/c++/11/bits/unique_ptr.h:
+
+../include/array.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
@@ -292,6 +295,10 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 /usr/include/c++/11/ext/atomicity.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+../src/DCMotor.cc:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
@@ -454,7 +461,3 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 /usr/include/c++/11/bits/shared_ptr_base.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-../src/DCMotor.cc:
-
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:

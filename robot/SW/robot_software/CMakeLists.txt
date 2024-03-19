@@ -16,9 +16,11 @@ add_executable(ut_comm test/ut_comm.cc ${SOURCES})
 add_executable(ut_driver test/ut_driver.cc ${SOURCES})
 add_executable(ut_motors test/ut_motors.cc ${SOURCES})
 add_executable(ut_sensors test/ut_sensors.cc ${SOURCES})
+add_executable(ut_array test/ut_array.cc ${SOURCES})
 
 # Link Google Test libraries
 target_link_libraries(ut_comm ${GTEST_BOTH_LIBRARIES} pthread)
 target_link_libraries(ut_driver ${GTEST_BOTH_LIBRARIES} pthread)
 target_link_libraries(ut_motors ${GTEST_BOTH_LIBRARIES} pthread)
 target_link_libraries(ut_sensors ${GTEST_BOTH_LIBRARIES} pthread)
+target_link_libraries(ut_array ${GTEST_BOTH_LIBRARIES} pthread)

@@ -45,16 +45,17 @@ CMakeFiles/ut_sensors.dir/src/SensorManager.cc.o: ../src/SensorManager.cc \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  /usr/include/c++/11/array \
+  ../include/array.h \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/move.h \
   /usr/include/c++/11/type_traits \
   /usr/include/c++/11/initializer_list \
+  /usr/include/c++/11/memory \
+  /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/exception_defines.h \
-  /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/cpp_type_traits.h \
   /usr/include/c++/11/ext/type_traits.h \
   /usr/include/c++/11/ext/numeric_traits.h \
@@ -66,8 +67,6 @@ CMakeFiles/ut_sensors.dir/src/SensorManager.cc.o: ../src/SensorManager.cc \
   /usr/include/c++/11/bits/ptr_traits.h \
   /usr/include/c++/11/debug/debug.h \
   /usr/include/c++/11/bits/predefined_ops.h \
-  /usr/include/c++/11/bits/range_access.h \
-  /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
   /usr/include/c++/11/ext/new_allocator.h \
@@ -85,6 +84,8 @@ CMakeFiles/ut_sensors.dir/src/SensorManager.cc.o: ../src/SensorManager.cc \
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/unique_ptr.h \
   /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/range_access.h \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_function.h \
   /usr/include/c++/11/backward/binders.h \
@@ -550,7 +551,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
   /usr/local/include/gmock/gmock-more-matchers.h \
   /usr/local/include/gmock/gmock-nice-strict.h \
   ../include/SensorManager.h \
-  ../include/interfaces/ISensor.h
+  ../include/interfaces/ISensor.h \
+  ../include/array.h
 
 
 /usr/local/include/gmock/gmock-more-matchers.h:
@@ -727,17 +729,7 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/x86_64-linux-gnu/asm/posix_types.h:
 
-../src/DCMotor.cc:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
-
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
-
-/usr/include/time.h:
 
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
@@ -927,6 +919,16 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
+../src/DCMotor.cc:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
@@ -1063,6 +1065,10 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
+../include/array.h:
+
+/usr/include/c++/11/bits/vector.tcc:
+
 /usr/include/c++/11/any:
 
 /usr/include/c++/11/bits/unique_ptr.h:
@@ -1101,7 +1107,9 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/predefined_ops.h:
 
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
+../src/MotorManager.cc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 /usr/include/c++/11/iterator:
 
@@ -1109,9 +1117,7 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/range_access.h:
 
-../src/MotorManager.cc:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
@@ -1314,8 +1320,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/c++/11/bits/stl_bvector.h:
-
-/usr/include/c++/11/bits/vector.tcc:
 
 /usr/include/c++/11/stdlib.h:
 

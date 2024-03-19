@@ -67,6 +67,7 @@ all: CMakeFiles/ut_comm.dir/all
 all: CMakeFiles/ut_driver.dir/all
 all: CMakeFiles/ut_motors.dir/all
 all: CMakeFiles/ut_sensors.dir/all
+all: CMakeFiles/ut_array.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -78,6 +79,7 @@ clean: CMakeFiles/ut_comm.dir/clean
 clean: CMakeFiles/ut_driver.dir/clean
 clean: CMakeFiles/ut_motors.dir/clean
 clean: CMakeFiles/ut_sensors.dir/clean
+clean: CMakeFiles/ut_array.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -87,7 +89,7 @@ clean: CMakeFiles/ut_sensors.dir/clean
 CMakeFiles/ut_comm.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target ut_comm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20,21,22 "Built target ut_comm"
 .PHONY : CMakeFiles/ut_comm.dir/all
 
 # Build rule for subdir invocation for target.
@@ -113,7 +115,7 @@ CMakeFiles/ut_comm.dir/clean:
 CMakeFiles/ut_driver.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20,21,22 "Built target ut_driver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=23,24,25,26,27,28,29,30,31,32,33 "Built target ut_driver"
 .PHONY : CMakeFiles/ut_driver.dir/all
 
 # Build rule for subdir invocation for target.
@@ -139,7 +141,7 @@ CMakeFiles/ut_driver.dir/clean:
 CMakeFiles/ut_motors.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=23,24,25,26,27,28,29,30,31,32,33 "Built target ut_motors"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=34,35,36,37,38,39,40,41,42,43,44 "Built target ut_motors"
 .PHONY : CMakeFiles/ut_motors.dir/all
 
 # Build rule for subdir invocation for target.
@@ -165,7 +167,7 @@ CMakeFiles/ut_motors.dir/clean:
 CMakeFiles/ut_sensors.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=34,35,36,37,38,39,40,41,42,43,44 "Built target ut_sensors"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=45,46,47,48,49,50,51,52,53,54,55 "Built target ut_sensors"
 .PHONY : CMakeFiles/ut_sensors.dir/all
 
 # Build rule for subdir invocation for target.
@@ -183,6 +185,32 @@ ut_sensors: CMakeFiles/ut_sensors.dir/rule
 CMakeFiles/ut_sensors.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/clean
 .PHONY : CMakeFiles/ut_sensors.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ut_array.dir
+
+# All Build rule for target.
+CMakeFiles/ut_array.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target ut_array"
+.PHONY : CMakeFiles/ut_array.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ut_array.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ut_array.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles 0
+.PHONY : CMakeFiles/ut_array.dir/rule
+
+# Convenience name for target.
+ut_array: CMakeFiles/ut_array.dir/rule
+.PHONY : ut_array
+
+# clean rule for target.
+CMakeFiles/ut_array.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/clean
+.PHONY : CMakeFiles/ut_array.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

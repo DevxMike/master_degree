@@ -61,4 +61,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ut_driver.dir/DependInfo.cmake"
   "CMakeFiles/ut_motors.dir/DependInfo.cmake"
   "CMakeFiles/ut_sensors.dir/DependInfo.cmake"
+  "CMakeFiles/ut_array.dir/DependInfo.cmake"
   )
