@@ -2,6 +2,7 @@
 #include <gmock/gmock.h>
 
 #include "../include/SensorManager.h"
+#include "../include/DistanceSensor.h"
 
 class DummySensor : public Sensor::ISensor{
 public:
@@ -41,3 +42,16 @@ TEST(SensorTest, CanBuildInstance){
        delete s;
     }
 }
+
+TEST(SensorTest, CanReadDistanceSensor){
+    using Sensor::DistanceSensor;
+    using Sensor::test_value;
+
+    DistanceSensor d(1, 2);
+
+    auto reading = 
+        reinterpret_cast<const DistanceSensor::reading_t*>(d.getReadings());
+
+    EXPECT_EQ(test_value, *reading);
+}
+

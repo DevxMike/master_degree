@@ -8,7 +8,31 @@ CMakeFiles/ut_comm.dir/src/DCMotor.cc.o: ../src/DCMotor.cc \
   /usr/include/stdc-predef.h
 
 CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o: ../src/DistanceSensor.cc \
-  /usr/include/stdc-predef.h
+  /usr/include/stdc-predef.h \
+  ../include/DistanceSensor.h \
+  /usr/include/c++/11/cstdint \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
+  /usr/include/c++/11/pstl/pstl_config.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  ../include/interfaces/ISensor.h
 
 CMakeFiles/ut_comm.dir/src/Encoder.cc.o: ../src/Encoder.cc \
   /usr/include/stdc-predef.h
@@ -184,12 +208,6 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
-/usr/include/c++/11/bits/exception.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/usr/include/c++/11/bits/range_access.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 ../src/MotorManager.cc:
@@ -212,6 +230,44 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 
 ../include/array.h:
 
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/c++/11/type_traits:
+
+/usr/include/c++/11/tuple:
+
+/usr/include/c++/11/bits/stl_iterator.h:
+
+/usr/include/c++/11/new:
+
+/usr/include/c++/11/bits/ptr_traits.h:
+
+../src/IMU.cc:
+
+/usr/include/c++/11/bits/align.h:
+
+/usr/include/features-time64.h:
+
+/usr/include/stdint.h:
+
+/usr/include/c++/11/bits/concept_check.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+
+../src/driver.cc:
+
+../src/DistanceSensor.cc:
+
+/usr/include/c++/11/debug/debug.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/c++/11/iosfwd:
+
+/usr/include/c++/11/ext/aligned_buffer.h:
+
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/11/backward/auto_ptr.h:
@@ -226,69 +282,33 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 
 /usr/include/c++/11/bits/alloc_traits.h:
 
-/usr/include/c++/11/pstl/glue_memory_defs.h:
-
-/usr/include/c++/11/ext/type_traits.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
-
-/usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-/usr/include/c++/11/type_traits:
-
-/usr/include/c++/11/tuple:
-
-/usr/include/c++/11/bits/exception_defines.h:
-
-../include/interfaces/ISensor.h:
+../include/DistanceSensor.h:
 
 /usr/include/c++/11/debug/assertions.h:
 
-/usr/include/c++/11/bits/stl_iterator.h:
+../include/interfaces/ISensor.h:
 
-/usr/include/c++/11/new:
+/usr/include/c++/11/pstl/execution_defs.h:
 
-/usr/include/c++/11/bits/ptr_traits.h:
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/11/bits/atomic_base.h:
 
 /usr/include/c++/11/ext/numeric_traits.h:
 
-/usr/include/c++/11/utility:
-
 /usr/include/features.h:
+
+/usr/include/c++/11/utility:
 
 /usr/include/c++/11/bits/stl_function.h:
 
 /usr/include/stdc-predef.h:
 
-../src/IMU.cc:
+/usr/include/c++/11/pstl/glue_memory_defs.h:
 
-/usr/include/c++/11/bits/align.h:
+/usr/include/c++/11/ext/type_traits.h:
 
-/usr/include/c++/11/memory:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-../src/driver.cc:
-
-../src/DistanceSensor.cc:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
-
-/usr/include/c++/11/debug/debug.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
-/usr/include/c++/11/iosfwd:
-
-/usr/include/c++/11/ext/aligned_buffer.h:
-
-/usr/include/c++/11/bits/concept_check.h:
-
-/usr/include/stdint.h:
+/usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
 /usr/include/c++/11/bits/stl_pair.h:
 
@@ -316,33 +336,39 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 
 /usr/include/c++/11/bits/allocator.h:
 
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
+
 /usr/include/c++/11/bits/shared_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/c++/11/bits/move.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/c++/11/memory:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/c++/11/bits/exception.h:
+
+/usr/include/c++/11/bits/range_access.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/include/features-time64.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
-
-/usr/include/c++/11/pstl/execution_defs.h:
-
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+/usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/c++/11/bits/stl_construct.h:
 
@@ -390,6 +416,10 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 
 /usr/include/wchar.h:
 
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 ../src/SensorManager.cc:
@@ -427,10 +457,6 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.o: ../test/ut_comm.cc \
 /usr/include/c++/11/bits/allocated_ptr.h:
 
 /usr/include/c++/11/bits/refwrap.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/c++/11/ext/concurrence.h:
 
