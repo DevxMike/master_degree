@@ -3,7 +3,7 @@
 #include "interfaces/ISensor.h"
 
 #include <cstdint>
-#include <array>
+#include "array.h"
 #include <memory>
 
 namespace Sensor{
