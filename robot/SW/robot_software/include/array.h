@@ -17,16 +17,16 @@ public:
         }
     }
 
-    constexpr T& operator[](std::size_t i) noexcept { 
+    constexpr T& operator[](std::size_t i) { 
         if(is_in_bounds(i)){
             return m_array[i];
         }
         else{
-            throw "Wrong index";
+            throw;
         }
     }
 
-    constexpr const T& operator[](std::size_t i) const noexcept{
+    constexpr const T& operator[](std::size_t i) const{
         return (*this).operator[](i);
     }
 

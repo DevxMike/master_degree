@@ -2,7 +2,7 @@
 
 namespace Sensor{
 
-SensorManager::SensorManager(std::array<sensorPointer, numSensors>&& s)
+SensorManager::SensorManager(custom::array<sensorPointer, numSensors>&& s)
     : sensors{ std::move(s) } { }
 
 void SensorManager::init(){

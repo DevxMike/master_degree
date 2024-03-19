@@ -9,7 +9,7 @@
 namespace Sensor{
 
 constexpr uint8_t numSensors = 7;
-using sensorPointer = std::unique_ptr<ISensor>; // define pointer type
+using sensorPointer = ISensor*; // define pointer type
                                                 // in case of no STL support
 
 enum class SensorMapping : uint8_t{  // indexes in array of sensors and 
@@ -30,12 +30,12 @@ constexpr uint8_t translate(SensorMapping s){ // translate enum into uint
 class SensorManager{
 public:
     void init(); // needed due to arduino/platformio framework
-    SensorManager(std::array<sensorPointer, numSensors>&& s);
+    SensorManager(custom::array<sensorPointer, numSensors>&& s);
     void poolSensors();
     const ISensor& getSensor(SensorMapping s);
 
 private:
-    std::array<sensorPointer, numSensors> sensors;
+    custom::array<sensorPointer, numSensors> sensors;
 };
 
 }

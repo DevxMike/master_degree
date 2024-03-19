@@ -22,10 +22,10 @@ public:
 };
 
 TEST(SensorTest, CanBuildInstance){
-    std::array<Sensor::sensorPointer, Sensor::numSensors> sensors;
+    custom::array<Sensor::sensorPointer, Sensor::numSensors> sensors;
 
     for(auto& s : sensors){
-       s = std::make_unique<DummySensor>();
+       s = new DummySensor;
     }
 
     Sensor::SensorManager mgr(std::move(sensors));
@@ -35,5 +35,9 @@ TEST(SensorTest, CanBuildInstance){
 
         EXPECT_NE(&mgr.getSensor(index), nullptr);
         EXPECT_EQ(mgr.getSensor(index).State(), Sensor::SensorStates::SensorInit);
+    }
+
+    for(auto& s : sensors){
+       delete s;
     }
 }
