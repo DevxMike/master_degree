@@ -17,11 +17,11 @@ public:
         }
     }
 
-    constexpr T& operator[](std::size_t i) { 
+    constexpr T& operator[](std::size_t i) noexcept { 
         return m_array[i]; // assume that user handles indexes properly
     }
 
-    constexpr const T& operator[](std::size_t i) const{
+    constexpr const T& operator[](std::size_t i) const noexcept {
         return (*this).operator[](i);
     }
 
