@@ -8,8 +8,8 @@ namespace custom{
 template <typename T, std::size_t arr_len>
 class array{
 public:
-    array() : m_size{ arr_len } {};
-    array(array<T, arr_len>&& a) : m_size{ arr_len }{
+    constexpr array() : m_size{ arr_len } {};
+    constexpr array(array<T, arr_len>&& a) : m_size{ arr_len }{
         auto iter = begin();
         for(auto& x : a){
             *iter = std::move(x);
@@ -32,7 +32,7 @@ public:
     constexpr auto end() noexcept {
         return begin() + m_size;
     }
-    constexpr auto size(){
+    constexpr auto size() noexcept {
         return m_size;
     }
 
