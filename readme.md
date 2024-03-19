@@ -26,3 +26,12 @@ This repository contains the code and documentation for a master's thesis focuse
     thesis/: Contains my thesis.
 
 Each directory contains specific instructions and documentation regarding its usage and purpose.  
+
+# Dependencies
+
+    robot: to run unit tests you will need
+        - cmake 3.10 or higher
+        - GTest library
+
+    ROS2 system: 
+	TBD
