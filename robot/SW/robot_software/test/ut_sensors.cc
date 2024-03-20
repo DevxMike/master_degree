@@ -4,6 +4,7 @@
 #include "../include/SensorManager.h"
 #include "../include/DistanceSensor.h"
 #include "../include/Encoder.h"
+#include "../include/IMU.h"
 
 class DummySensor : public Sensor::ISensor{
 public:
@@ -85,4 +86,38 @@ TEST(SensorTest, CanResetEncoder){
         reinterpret_cast<const Encoder::reading_t*>(e.getReadings());
 
     EXPECT_EQ(0, *reading);
+}
+
+TEST(SensorTest, UseIntFalseByDefault){
+    using Sensor::IMU;
+
+    IMU imu(1,2);
+
+    EXPECT_EQ(imu.useInterrupts(), false);
+}
+
+TEST(SensorTest, CanEnableInterruptUse){
+    using Sensor::IMU;
+
+    IMU imu(1,2,3);
+
+    EXPECT_EQ(imu.useInterrupts(), true);
+}
+
+TEST(SensorTest, CanReadIMUAfterInit){
+    using Sensor::IMU;
+
+    IMU imu(1,2);
+
+    imu.init();
+
+    auto reading = 
+        reinterpret_cast<const IMU::reading_t*>(imu.getReadings());
+
+    float i {};
+
+    for(const auto& x: (*reading)){
+        EXPECT_EQ(i, x);
+        i += 1.0f;
+    }
 }

@@ -15,7 +15,7 @@ IMU::IMU(uint32_t sdaPin, uint32_t sclPin, uint32_t intPin) noexcept:
     } 
 
 void IMU::init() noexcept{
-    float i = 0;
+    float i{};
 
     for(auto& x: reading){
         x = i;

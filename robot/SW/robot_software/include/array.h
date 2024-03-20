@@ -32,6 +32,15 @@ public:
     constexpr auto end() noexcept {
         return begin() + m_size;
     }
+
+    constexpr const auto begin() const noexcept{
+        return &m_array[0];
+    }
+
+    constexpr const auto end() const noexcept{
+        return begin() + m_size;
+    }
+
     constexpr auto size() noexcept {
         return m_size;
     }
