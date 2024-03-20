@@ -35,7 +35,31 @@ CMakeFiles/ut_sensors.dir/src/DistanceSensor.cc.o: ../src/DistanceSensor.cc \
   ../include/interfaces/ISensor.h
 
 CMakeFiles/ut_sensors.dir/src/Encoder.cc.o: ../src/Encoder.cc \
-  /usr/include/stdc-predef.h
+  /usr/include/stdc-predef.h \
+  ../include/Encoder.h \
+  /usr/include/c++/11/cstdint \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
+  /usr/include/c++/11/pstl/pstl_config.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  ../include/interfaces/ISensor.h
 
 CMakeFiles/ut_sensors.dir/src/IMU.cc.o: ../src/IMU.cc \
   /usr/include/stdc-predef.h
@@ -577,7 +601,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
   ../include/SensorManager.h \
   ../include/interfaces/ISensor.h \
   ../include/array.h \
-  ../include/DistanceSensor.h
+  ../include/DistanceSensor.h \
+  ../include/Encoder.h
 
 
 /usr/local/include/gmock/gmock-more-matchers.h:
@@ -758,8 +783,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/asm-generic/int-ll64.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
-
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
@@ -771,12 +794,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/c++/11/bits/shared_ptr_base.h:
-
-/usr/include/c++/11/bits/basic_string.h:
 
 /usr/include/pthread.h:
 
@@ -795,6 +812,12 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/c++/11/ext/new_allocator.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/c++/11/bits/basic_string.h:
+
+/usr/include/c++/11/bits/shared_ptr_base.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
 
@@ -890,6 +913,20 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
+/usr/include/c++/11/tr1/beta_function.tcc:
+
+/usr/local/include/gtest/internal/gtest-port.h:
+
+/usr/include/c++/11/array:
+
+/usr/include/c++/11/bits/sstream.tcc:
+
+/usr/include/c++/11/new:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/c++/11/bits/stl_iterator.h:
+
 /usr/local/include/gtest/gtest-message.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
@@ -919,6 +956,12 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/c++/11/memory:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+../include/Encoder.h:
+
+/usr/include/stdio.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
@@ -1006,6 +1049,14 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 ../include/interfaces/ISensor.h:
 
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/c++/11/string_view:
+
 /usr/include/x86_64-linux-gnu/bits/struct_stat.h:
 
 /usr/include/c++/11/bits/stl_set.h:
@@ -1076,22 +1127,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/set:
 
-/usr/include/c++/11/bits/sstream.tcc:
-
-/usr/include/c++/11/new:
-
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-/usr/include/c++/11/bits/stl_iterator.h:
-
-/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
-
-/usr/include/c++/11/string_view:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
 /usr/include/c++/11/tuple:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
@@ -1126,15 +1161,17 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/functexcept.h:
 
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/asm-generic/types.h:
+
+/usr/include/c++/11/bits/concept_check.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
 /usr/local/include/gmock/gmock-function-mocker.h:
 
 /usr/include/c++/11/streambuf:
-
-/usr/include/c++/11/tr1/beta_function.tcc:
-
-/usr/local/include/gtest/internal/gtest-port.h:
-
-/usr/include/c++/11/array:
 
 ../src/DistanceSensor.cc:
 
@@ -1179,14 +1216,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/c++/11/limits:
 
 /usr/include/c++/11/bits/char_traits.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/c++/11/bits/concept_check.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-/usr/include/asm-generic/types.h:
 
 /usr/include/c++/11/bits/localefwd.h:
 
@@ -1251,8 +1280,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/c++/11/ciso646:
-
-/usr/include/stdio.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
@@ -1328,11 +1355,11 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/stl_multiset.h:
 
+/usr/include/c++/11/bits/ptr_traits.h:
+
 /usr/include/endian.h:
 
 /usr/include/stdint.h:
-
-/usr/include/c++/11/bits/ptr_traits.h:
 
 /usr/include/c++/11/bits/erase_if.h:
 

@@ -10,11 +10,11 @@ class DistanceSensor : public Sensor::ISensor{
 public:
     using reading_t = uint32_t;
 
-    ~DistanceSensor() { }
-    DistanceSensor(uint32_t echoPin, uint32_t trigPin);
-    void init() override;
-    Sensor::SensorStates poolSensor() override;
-    const void* getReadings() const;
+    ~DistanceSensor() noexcept { }
+    DistanceSensor(uint32_t echoPin, uint32_t trigPin) noexcept;
+    void init() noexcept override;
+    Sensor::SensorStates poolSensor() noexcept override;
+    const void* getReadings() const noexcept;
 private:
     reading_t reading;
     uint32_t m_trigPin;

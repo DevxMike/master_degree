@@ -3,21 +3,22 @@
 
 #include "../include/SensorManager.h"
 #include "../include/DistanceSensor.h"
+#include "../include/Encoder.h"
 
 class DummySensor : public Sensor::ISensor{
 public:
-    void init() override {
+    void init() noexcept override {
         State(Sensor::SensorStates::SensorInit);
     }
 
     ~DummySensor() override { }
     // DummySensor(){ }
 
-    Sensor::SensorStates poolSensor() { 
+    Sensor::SensorStates poolSensor() noexcept { 
         return Sensor::SensorStates::Timeout;
     }
 
-    const void* getReadings() const{
+    const void* getReadings() const noexcept{
         return nullptr;
     }
 };
@@ -55,3 +56,33 @@ TEST(SensorTest, CanReadDistanceSensor){
     EXPECT_EQ(test_value, *reading);
 }
 
+TEST(SensorTest, CanReadEncoder){
+    using Sensor::Encoder;
+    using Sensor::test_value_enc;
+
+    Encoder e(1, 2);
+
+    auto reading = 
+        reinterpret_cast<const Encoder::reading_t*>(e.getReadings());
+
+    EXPECT_EQ(test_value_enc, *reading);
+}
+
+TEST(SensorTest, CanResetEncoder){
+    using Sensor::Encoder;
+    using Sensor::test_value_enc;
+
+    Encoder e(1, 2);
+
+    auto reading = 
+        reinterpret_cast<const Encoder::reading_t*>(e.getReadings());
+
+    EXPECT_EQ(test_value_enc, *reading);
+
+    e.reset();
+
+    reading = 
+        reinterpret_cast<const Encoder::reading_t*>(e.getReadings());
+
+    EXPECT_EQ(0, *reading);
+}

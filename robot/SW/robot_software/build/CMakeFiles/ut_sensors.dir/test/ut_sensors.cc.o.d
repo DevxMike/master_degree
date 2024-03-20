@@ -318,4 +318,5 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: \
  /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/SensorManager.h \
  /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/interfaces/ISensor.h \
  /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/array.h \
- /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/DistanceSensor.h
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/DistanceSensor.h \
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/Encoder.h
