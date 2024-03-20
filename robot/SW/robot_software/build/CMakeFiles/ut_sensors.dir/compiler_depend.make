@@ -62,7 +62,38 @@ CMakeFiles/ut_sensors.dir/src/Encoder.cc.o: ../src/Encoder.cc \
   ../include/interfaces/ISensor.h
 
 CMakeFiles/ut_sensors.dir/src/IMU.cc.o: ../src/IMU.cc \
-  /usr/include/stdc-predef.h
+  /usr/include/stdc-predef.h \
+  ../include/IMU.h \
+  ../include/interfaces/ISensor.h \
+  ../include/array.h \
+  /usr/include/c++/11/cstdint \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
+  /usr/include/c++/11/pstl/pstl_config.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_pair.h \
+  /usr/include/c++/11/bits/move.h \
+  /usr/include/c++/11/type_traits \
+  /usr/include/c++/11/initializer_list
 
 CMakeFiles/ut_sensors.dir/src/MotorManager.cc.o: ../src/MotorManager.cc \
   /usr/include/stdc-predef.h
@@ -602,7 +633,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
   ../include/interfaces/ISensor.h \
   ../include/array.h \
   ../include/DistanceSensor.h \
-  ../include/Encoder.h
+  ../include/Encoder.h \
+  ../include/IMU.h
 
 
 /usr/local/include/gmock/gmock-more-matchers.h:
@@ -782,6 +814,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/c++/11/bits/stl_algo.h:
 
 /usr/include/asm-generic/int-ll64.h:
+
+/usr/include/x86_64-linux-gnu/asm/types.h:
 
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
@@ -963,12 +997,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/stdio.h:
 
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/include/c++/11/bits/hash_bytes.h:
-
-/usr/include/c++/11/bits/move.h:
-
 /usr/include/c++/11/bits/stl_construct.h:
 
 /usr/include/c++/11/bits/shared_ptr.h:
@@ -1127,15 +1155,7 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/set:
 
-/usr/include/c++/11/tuple:
-
-/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
-
-/usr/include/c++/11/type_traits:
-
-/usr/include/c++/11/bits/stl_tree.h:
-
-/usr/local/include/gtest/gtest-assertion-result.h:
+../include/IMU.h:
 
 ../include/array.h:
 
@@ -1151,9 +1171,25 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/stl_relops.h:
 
+/usr/include/c++/11/bits/hash_bytes.h:
+
+/usr/include/c++/11/bits/move.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/c++/11/type_traits:
+
+/usr/include/c++/11/tuple:
+
+/usr/include/c++/11/bits/stl_tree.h:
+
 /usr/include/c++/11/iosfwd:
 
 /usr/include/c++/11/initializer_list:
+
+/usr/local/include/gtest/gtest-assertion-result.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
@@ -1338,8 +1374,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
 
 /usr/include/c++/11/cwctype:
-
-/usr/include/x86_64-linux-gnu/asm/types.h:
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
