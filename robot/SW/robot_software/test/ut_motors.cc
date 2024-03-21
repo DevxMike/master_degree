@@ -6,7 +6,7 @@
 #include "../include/DCMotor.h"
 
 uint32_t dummyMapper(uint32_t v){
-    return v*10;
+    return v;
 }
 
 TEST(MotorTest, RotateLeftTest){

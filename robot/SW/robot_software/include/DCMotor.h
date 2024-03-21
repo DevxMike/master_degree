@@ -32,4 +32,14 @@ constexpr void MotorMapper(int32_t v, motorSignals& m, map_function_type f) noex
     m.pwm = f(static_cast<uint32_t>(v));
 }
 
+class DCMotor : public IDCMotor{
+public:
+    DCMotor(map_function_type fmap) noexcept;
+    void setSpeed(int32_t) noexcept override;
+    const motorSignals& getCurrentSpeed() const noexcept;
+private:
+    motorSignals m_signals;
+    map_function_type mapper;
+};
+
 }
