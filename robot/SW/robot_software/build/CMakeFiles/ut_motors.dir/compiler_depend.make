@@ -5,7 +5,31 @@ CMakeFiles/ut_motors.dir/src/CommManager.cc.o: ../src/CommManager.cc \
   /usr/include/stdc-predef.h
 
 CMakeFiles/ut_motors.dir/src/DCMotor.cc.o: ../src/DCMotor.cc \
-  /usr/include/stdc-predef.h
+  /usr/include/stdc-predef.h \
+  ../include/DCMotor.h \
+  ../include/interfaces/IDCMotor.h \
+  /usr/include/c++/11/cstdint \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
+  /usr/include/c++/11/pstl/pstl_config.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
 
 CMakeFiles/ut_motors.dir/src/DistanceSensor.cc.o: ../src/DistanceSensor.cc \
   /usr/include/stdc-predef.h \
@@ -633,8 +657,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
   ../include/interfaces/IDCMotor.h
 
 
-../include/interfaces/IDCMotor.h:
-
 /usr/local/include/gmock/gmock-more-matchers.h:
 
 /usr/local/include/gmock/gmock-more-actions.h:
@@ -815,6 +837,8 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/x86_64-linux-gnu/asm/types.h:
 
+/usr/include/linux/stat.h:
+
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
@@ -836,14 +860,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 /usr/include/linux/stddef.h:
 
 /usr/include/c++/11/bits/refwrap.h:
-
-/usr/include/c++/11/bits/allocated_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
-
-/usr/include/c++/11/ext/new_allocator.h:
 
 /usr/include/linux/limits.h:
 
@@ -872,12 +888,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-../src/SensorManager.cc:
-
-/usr/include/locale.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
@@ -919,6 +929,10 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/iostream:
 
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/c++/11/bits/allocated_ptr.h:
+
 /usr/include/c++/11/bits/unique_lock.h:
 
 /usr/include/c++/11/bits/uses_allocator.h:
@@ -959,8 +973,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/bits/stl_iterator.h:
 
-/usr/local/include/gtest/gtest-message.h:
-
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/c++/11/tr1/gamma.tcc:
@@ -977,16 +989,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/c++/11/memory:
-
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
@@ -994,6 +996,10 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 ../include/Encoder.h:
 
 /usr/include/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/c++/11/bits/stl_construct.h:
 
@@ -1043,13 +1049,15 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/bits/stl_pair.h:
 
+../include/interfaces/IDCMotor.h:
+
 /usr/include/c++/11/bits/locale_facets_nonio.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/environments.h:
+../src/SensorManager.cc:
 
-/usr/include/c++/11/bits/exception_defines.h:
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
+/usr/include/locale.h:
 
 /usr/include/c++/11/ext/type_traits.h:
 
@@ -1059,17 +1067,39 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/bits/stl_function.h:
 
-/usr/local/include/gmock/gmock-cardinalities.h:
+/usr/include/x86_64-linux-gnu/bits/locale.h:
 
-../src/WiFiManager.cc:
+/usr/include/x86_64-linux-gnu/bits/environments.h:
 
-/usr/include/errno.h:
+/usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
-/usr/include/features.h:
+/usr/include/c++/11/bits/exception_defines.h:
 
-/usr/include/c++/11/ext/numeric_traits.h:
+/usr/local/include/gtest/gtest-message.h:
 
-/usr/include/c++/11/bits/atomic_base.h:
+/usr/include/c++/11/any:
+
+/usr/include/c++/11/bits/unique_ptr.h:
+
+/usr/include/c++/11/ostream:
+
+/usr/include/limits.h:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
+/usr/include/c++/11/bits/hash_bytes.h:
+
+/usr/include/c++/11/bits/move.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/c++/11/type_traits:
+
+/usr/include/c++/11/tuple:
+
+/usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/c++/11/chrono:
 
@@ -1117,15 +1147,19 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/backward/auto_ptr.h:
 
+/usr/include/c++/11/ext/new_allocator.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
+/usr/include/c++/11/cctype:
+
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/c++/11/ctime:
-
-/usr/include/c++/11/cctype:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
@@ -1138,6 +1172,24 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 /usr/include/c++/11/debug/debug.h:
 
 /usr/include/features-time64.h:
+
+/usr/local/include/gmock/gmock-cardinalities.h:
+
+../src/WiFiManager.cc:
+
+/usr/include/errno.h:
+
+/usr/include/features.h:
+
+/usr/include/c++/11/ext/numeric_traits.h:
+
+/usr/include/c++/11/bits/atomic_base.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/c++/11/memory:
 
 /usr/include/c++/11/bits/align.h:
 
@@ -1157,33 +1209,13 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/bits/vector.tcc:
 
-/usr/include/c++/11/any:
-
-/usr/include/c++/11/bits/unique_ptr.h:
-
-/usr/include/c++/11/ostream:
-
-/usr/include/limits.h:
-
-/usr/include/c++/11/bits/stl_relops.h:
-
-/usr/include/c++/11/bits/hash_bytes.h:
-
-/usr/include/c++/11/bits/move.h:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
-
-/usr/include/c++/11/type_traits:
-
-/usr/include/c++/11/tuple:
-
-/usr/include/c++/11/bits/stl_tree.h:
-
 /usr/include/c++/11/iosfwd:
 
 /usr/include/c++/11/initializer_list:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
+
+../src/MotorManager.cc:
 
 /usr/local/include/gtest/gtest-assertion-result.h:
 
@@ -1214,10 +1246,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
 /usr/include/c++/11/bits/predefined_ops.h:
-
-../src/MotorManager.cc:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
@@ -1265,8 +1293,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/bits/ostream.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/locale.h:
-
 /usr/include/c++/11/locale:
 
 /usr/include/ctype.h:
@@ -1274,8 +1300,6 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 /usr/local/include/gmock/gmock.h:
 
 /usr/include/c++/11/bits/locale_classes.h:
-
-/usr/include/linux/stat.h:
 
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
@@ -1375,6 +1399,10 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
+/usr/include/linux/types.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
@@ -1434,7 +1462,3 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: ../test/ut_motors.cc \
 /usr/include/c++/11/bits/stl_algobase.h:
 
 /usr/include/x86_64-linux-gnu/bits/statx.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
-
-/usr/include/linux/types.h:

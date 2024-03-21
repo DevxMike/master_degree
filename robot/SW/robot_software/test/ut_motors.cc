@@ -91,3 +91,138 @@ TEST(MotorTest, RotateRightTest){
     }
 
 }
+
+auto cmp = [](const auto& m, auto v_ex, bool dir_ex){
+    EXPECT_EQ(m.dir, dir_ex);
+    EXPECT_EQ(m.pwm, v_ex);
+};
+
+const auto outputs = Motor::DCMotor::outputs{
+    1, 2, 3
+};
+
+TEST(MotorTest, CanCreateMotorInstance){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+
+    auto tmp = m.getCurrentSpeed();
+
+    EXPECT_EQ(tmp.dir, false);
+    EXPECT_EQ(tmp.pwm, 0);
+}
+
+
+
+TEST(MotorTest, CanSetMotorSpeed1){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = Motor::epsilon_abs;
+    const uint32_t expected_speed = 0;
+    const bool expected_dir = false;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
+TEST(MotorTest, CanSetMotorSpeed2){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = Motor::epsilon_abs + 1;
+    const uint32_t expected_speed = Motor::epsilon_abs + 1;
+    const bool expected_dir = false;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
+TEST(MotorTest, CanSetMotorSpeed3){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = Motor::max_absolute_v;
+    const uint32_t expected_speed = Motor::max_absolute_v;
+    const bool expected_dir = false;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
+TEST(MotorTest, CanSetMotorSpeed4){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = Motor::max_absolute_v + 1;
+    const uint32_t expected_speed = Motor::max_absolute_v;
+    const bool expected_dir = false;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
+TEST(MotorTest, CanSetMotorSpeed5){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = -Motor::epsilon_abs;
+    const uint32_t expected_speed = 0;
+    const bool expected_dir = false;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
+TEST(MotorTest, CanSetMotorSpeed6){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = -Motor::epsilon_abs - 1;
+    const uint32_t expected_speed = Motor::epsilon_abs + 1;
+    const bool expected_dir = true;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
+TEST(MotorTest, CanSetMotorSpeed7){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = -Motor::max_absolute_v;
+    const uint32_t expected_speed = Motor::max_absolute_v;
+    const bool expected_dir = true;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
+TEST(MotorTest, CanSetMotorSpeed8){
+    using Motor::DCMotor;
+
+    DCMotor m{ dummyMapper, outputs };
+    const int32_t v_in = -Motor::max_absolute_v - 1;
+    const uint32_t expected_speed = Motor::max_absolute_v;
+    const bool expected_dir = true;
+
+    m.setSpeed(v_in);
+    cmp(
+        m.getCurrentSpeed(), expected_speed, expected_dir
+    );
+}
+
