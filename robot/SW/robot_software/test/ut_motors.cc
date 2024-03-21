@@ -274,7 +274,7 @@ TEST(MotorTest, CanSetSpeedWithMotorManager){
         d != d_mgr->end() && c != c_mgr->end() && _d != desired.end();
         ++d, ++c, ++_d){
 
-        std::cerr << "d = " << *d << ", " << "c = " << *c << std::endl;
+        std::cerr << "[   MY LOG ]" << " d = " << *d << ", " << "c = " << *c << std::endl;
         EXPECT_EQ(*d, *_d);
         EXPECT_NE(*d, *c);
     }
