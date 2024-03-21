@@ -315,5 +315,7 @@ CMakeFiles/ut_motors.dir/test/ut_motors.cc.o: \
  /usr/local/include/gmock/internal/custom/gmock-generated-actions.h \
  /usr/local/include/gmock/gmock-more-matchers.h \
  /usr/local/include/gmock/gmock-nice-strict.h \
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/MotorManager.h \
  /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/DCMotor.h \
- /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/interfaces/IDCMotor.h
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/interfaces/IDCMotor.h \
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/array.h

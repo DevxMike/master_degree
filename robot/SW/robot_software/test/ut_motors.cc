@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "../include/DCMotor.h"
+#include "../include/MotorManager.h"
 
 uint32_t dummyMapper(uint32_t v){
     return v;
@@ -226,3 +226,55 @@ TEST(MotorTest, CanSetMotorSpeed8){
     );
 }
 
+TEST(MotorTest, CanCreateMotorManager){
+    using namespace Motor;
+
+    DCMotor left{ dummyMapper, outputs };
+    DCMotor right{ dummyMapper, outputs };
+    MotorManager::motor_array motors;
+    
+    motors[0] = &left;
+    motors[1] = &right;
+
+    MotorManager mgr{ std::move(motors) };
+    mgr.init();
+
+    EXPECT_EQ(mgr.InertiaCoef(), inertia_coef);
+}
+
+TEST(MotorTest, CanSetSpeedWithMotorManager){
+    using namespace Motor;
+
+    DCMotor left{ dummyMapper, outputs };
+    DCMotor right{ dummyMapper, outputs };
+    MotorManager::motor_array motors;
+    
+    motors[0] = &left;
+    motors[1] = &right;
+
+    MotorManager mgr{ std::move(motors) };
+
+    MotorManager::speed_array desired; 
+    desired[0] = 40;
+    desired[1] = -30;
+
+    mgr.init();
+
+    mgr.setSpeed(desired);
+    mgr.poolMotors();
+
+    auto d_mgr = mgr.DesiredSpeed();
+    auto c_mgr = mgr.CurrentSpeed();
+
+    auto d = d_mgr->begin();
+    auto c = c_mgr->begin();
+    auto _d = desired.begin();
+
+    for(;
+        d != d_mgr->end() && c != c_mgr->end() && _d != desired.end();
+        ++d, ++c, ++_d
+    ){
+        EXPECT_EQ(*d, *_d);
+        EXPECT_NE(*d, *c);
+    }
+}

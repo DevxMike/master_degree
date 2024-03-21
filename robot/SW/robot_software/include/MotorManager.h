@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../DCMotor.h"
-#include "../array.h"
+#include "DCMotor.h"
+#include "array.h"
 
 namespace Motor{
 
 constexpr uint32_t motor_num = 2;
-constexpr float inertia_coef = 0.85f;
+constexpr float inertia_coef = 0.9f;
 
 class MotorManager{
 public:
@@ -15,12 +15,12 @@ public:
 
     void init() noexcept;
     void setSpeed(const speed_array& speeds) noexcept;
-    MotorManager(const motor_array& m, float i = inertia_coef) noexcept;
+    MotorManager(motor_array&& m, float i = inertia_coef) noexcept;
     void InertiaCoef(float i) noexcept;
-    auto InertiaCoef() const noexcept;
+    float InertiaCoef() const noexcept;
     void poolMotors() noexcept;
-    const auto& CurrentSpeed() const noexcept;
-    const auto& DesiredSpeed() const noexcept;
+    const speed_array* CurrentSpeed() const noexcept;
+    const speed_array* DesiredSpeed() const noexcept;
 
 private:
     float m_inertiaCoef;
