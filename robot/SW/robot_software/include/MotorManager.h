@@ -10,9 +10,12 @@ constexpr float inertia_coef = 0.85f;
 
 class MotorManager{
 public:
+    using motor_array = custom::array<IDCMotor*, motor_num>;
+    using speed_array = custom::array<int32_t, motor_num>; 
+
     void init() noexcept;
-    void setSpeed(const custom::array<int32_t, motor_num>& speeds) noexcept;
-    MotorManager(float i = inertia_coef) noexcept;
+    void setSpeed(const speed_array& speeds) noexcept;
+    MotorManager(const motor_array& m, float i = inertia_coef) noexcept;
     void InertiaCoef(float i) noexcept;
     auto InertiaCoef() const noexcept;
     void poolMotors() noexcept;

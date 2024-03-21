@@ -7,8 +7,12 @@ enum{
     timeout
 };
 
-MotorManager::MotorManager(float i) noexcept:
-    m_inertiaCoef{ i } {}
+MotorManager::MotorManager(const motor_array& m, float i) noexcept:
+    m_inertiaCoef{ i } {
+        for(std::size_t i = 0; i < motor_num; ++i){
+            motors[i] = m[i];
+        }
+    }
 
 void MotorManager::init() noexcept{
     for(auto& m : motors){
@@ -24,7 +28,7 @@ void MotorManager::init() noexcept{
     }
 }
 
-void MotorManager::setSpeed(const custom::array<int32_t, motor_num>& speeds) noexcept{
+void MotorManager::setSpeed(const speed_array& speeds) noexcept{
     for(std::size_t i = 0; i < motor_num; ++i){
         current_speed[i] = speeds[i];
     }
