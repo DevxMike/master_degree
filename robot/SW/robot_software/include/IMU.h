@@ -7,6 +7,8 @@ namespace Sensor{
 
 constexpr uint32_t num_dimensions = 9;
 
+// SWE_3_010 | SWE_2_010
+
 class IMU : public ISensor{
 public: 
     using reading_t = custom::array<float, num_dimensions>;

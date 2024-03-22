@@ -6,6 +6,8 @@
 namespace Sensor{
 constexpr uint32_t test_value = 70;
 
+// SWE_3_010 | SWE_2_010
+
 class DistanceSensor : public Sensor::ISensor{
 public:
     using reading_t = uint32_t;

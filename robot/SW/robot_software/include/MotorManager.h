@@ -8,6 +8,8 @@ namespace Motor{
 constexpr uint32_t motor_num = 2;
 constexpr float inertia_coef = 0.9f;
 
+// SWE_2_030 | SWE_3_050
+
 class MotorManager{
 public:
     using motor_array = custom::array<IDCMotor*, motor_num>;

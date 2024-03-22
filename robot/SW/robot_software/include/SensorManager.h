@@ -8,6 +8,8 @@
 
 namespace Sensor{
 
+// SWE_2_010
+
 constexpr uint8_t numSensors = 7;
 using sensorPointer = ISensor*; // define pointer type
                                                 // in case of no STL support
