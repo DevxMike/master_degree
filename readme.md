@@ -27,6 +27,17 @@ This repository contains the code and documentation for a master's thesis focuse
 
 Each directory contains specific instructions and documentation regarding its usage and purpose.  
 
+# Main documentation files
+
+    robot/HW - robot/HW/HW_desc
+    robot/SW - robot/SW/SW_desc
+    ROS2 system - driver/DRIVER_desc
+    research - research/research_desc
+
+# Thesis location
+
+    thesis/weiszablon.pdf
+
 # Dependencies
 
     robot: to run unit tests you will need
