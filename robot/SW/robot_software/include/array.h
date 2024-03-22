@@ -8,13 +8,21 @@ namespace custom{
 template <typename T, std::size_t arr_len>
 class array{
 public:
-    constexpr array() : m_size{ arr_len } {};
-    constexpr array(array<T, arr_len>&& a) : m_size{ arr_len }{
+    constexpr array() noexcept : m_size{ arr_len } {};
+
+    constexpr array(array<T, arr_len>&& a) noexcept : m_size{ arr_len }{
         auto iter = begin();
         for(auto& x : a){
             *iter = std::move(x);
             ++iter;
         }
+    }
+
+    constexpr array(const array<T, arr_len>& a) noexcept : m_size{ arr_len }{
+            for(std::size_t i = 0; i < arr_len; ++i){
+                m_array[i] = a.m_array[i];
+            }
+
     }
 
     constexpr T& operator[](std::size_t i) noexcept { 
@@ -43,6 +51,36 @@ public:
 
     constexpr auto size() noexcept {
         return m_size;
+    }
+
+    constexpr auto operator==(const array<T, arr_len>& a) noexcept{
+        for(std::size_t i = 0; i < arr_len; ++i){
+            if(m_array[i] != a.m_array[i]){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    constexpr auto operator!=(const array<T, arr_len>& a) noexcept{
+        return !(*this == a);
+    }
+
+    constexpr auto& operator=(const array<T, arr_len>& a) noexcept{
+        for(std::size_t i = 0; i < arr_len; ++i){
+            m_array[i] = a.m_array[i];
+        }
+
+        return *this;
+    }
+
+    constexpr auto& operator=(array<T, arr_len>&& a) noexcept{
+        for(std::size_t i = 0; i < arr_len; ++i){
+            m_array[i] = std::move(a.m_array[i]);
+        }
+
+        return *this;
     }
 
 private:
