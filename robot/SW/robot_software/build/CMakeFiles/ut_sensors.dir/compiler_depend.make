@@ -154,6 +154,12 @@ CMakeFiles/ut_sensors.dir/src/MotorManager.cc.o: ../src/MotorManager.cc \
   /usr/include/c++/11/type_traits \
   /usr/include/c++/11/initializer_list
 
+CMakeFiles/ut_sensors.dir/src/Odometry.cc.o: ../src/Odometry.cc \
+  /usr/include/stdc-predef.h
+
+CMakeFiles/ut_sensors.dir/src/OdometryManager.cc.o: ../src/OdometryManager.cc \
+  /usr/include/stdc-predef.h
+
 CMakeFiles/ut_sensors.dir/src/SensorManager.cc.o: ../src/SensorManager.cc \
   /usr/include/stdc-predef.h \
   ../include/SensorManager.h \
@@ -875,6 +881,10 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/linux/stat.h:
 
+/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
+
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
@@ -922,8 +932,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/local/include/gtest/gtest-death-test.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
@@ -997,6 +1005,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
 /usr/include/c++/11/tr1/beta_function.tcc:
 
 /usr/local/include/gtest/internal/gtest-port.h:
@@ -1019,17 +1029,7 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/x86_64-linux-gnu/sys/stat.h:
 
-/usr/include/c++/11/iterator:
-
-/usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/c++/11/bits/range_access.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 ../include/Encoder.h:
 
@@ -1107,10 +1107,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/local/include/gtest/gtest-message.h:
 
-/usr/include/c++/11/bits/allocated_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
 /usr/include/c++/11/any:
 
 /usr/include/c++/11/bits/unique_ptr.h:
@@ -1175,6 +1171,12 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
+/usr/include/c++/11/bits/allocated_ptr.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+../src/MotorManager.cc:
+
 /usr/include/c++/11/ext/alloc_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
@@ -1202,6 +1204,18 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/c++/11/ctime:
+
+/usr/include/c++/11/iterator:
+
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/c++/11/bits/range_access.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+../src/OdometryManager.cc:
+
+/usr/include/c++/11/bits/basic_string.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
@@ -1259,8 +1273,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
-../src/MotorManager.cc:
-
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /usr/include/c++/11/bits/predefined_ops.h:
@@ -1287,9 +1299,13 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/c++/11/streambuf:
 
+../src/Odometry.cc:
+
 ../src/DistanceSensor.cc:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
@@ -1326,10 +1342,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/c++/11/bits/localefwd.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
-
-/usr/include/x86_64-linux-gnu/bits/stat.h:
 
 /usr/include/x86_64-linux-gnu/bits/sigstack.h:
 
@@ -1406,8 +1418,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/c++/11/bits/charconv.h:
-
-/usr/include/c++/11/bits/basic_string.tcc:
 
 /usr/include/c++/11/bits/locale_classes.tcc:
 

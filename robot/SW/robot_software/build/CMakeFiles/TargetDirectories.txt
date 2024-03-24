@@ -3,5 +3,6 @@
 /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_motors.dir
 /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_sensors.dir
 /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_array.dir
+/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/ut_stack.dir
 /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/edit_cache.dir
 /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles/rebuild_cache.dir

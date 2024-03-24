@@ -181,6 +181,19 @@ ut_array/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/build
 .PHONY : ut_array/fast
 
+#=============================================================================
+# Target rules for targets named ut_stack
+
+# Build rule for target.
+ut_stack: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ut_stack
+.PHONY : ut_stack
+
+# fast build rule for target.
+ut_stack/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/build
+.PHONY : ut_stack/fast
+
 src/CommManager.o: src/CommManager.cc.o
 .PHONY : src/CommManager.o
 
@@ -191,6 +204,7 @@ src/CommManager.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/CommManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/CommManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/CommManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/CommManager.cc.o
 .PHONY : src/CommManager.cc.o
 
 src/CommManager.i: src/CommManager.cc.i
@@ -203,6 +217,7 @@ src/CommManager.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/CommManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/CommManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/CommManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/CommManager.cc.i
 .PHONY : src/CommManager.cc.i
 
 src/CommManager.s: src/CommManager.cc.s
@@ -215,6 +230,7 @@ src/CommManager.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/CommManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/CommManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/CommManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/CommManager.cc.s
 .PHONY : src/CommManager.cc.s
 
 src/DCMotor.o: src/DCMotor.cc.o
@@ -227,6 +243,7 @@ src/DCMotor.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/DCMotor.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/DCMotor.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/DCMotor.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/DCMotor.cc.o
 .PHONY : src/DCMotor.cc.o
 
 src/DCMotor.i: src/DCMotor.cc.i
@@ -239,6 +256,7 @@ src/DCMotor.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/DCMotor.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/DCMotor.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/DCMotor.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/DCMotor.cc.i
 .PHONY : src/DCMotor.cc.i
 
 src/DCMotor.s: src/DCMotor.cc.s
@@ -251,6 +269,7 @@ src/DCMotor.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/DCMotor.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/DCMotor.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/DCMotor.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/DCMotor.cc.s
 .PHONY : src/DCMotor.cc.s
 
 src/DistanceSensor.o: src/DistanceSensor.cc.o
@@ -263,6 +282,7 @@ src/DistanceSensor.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/DistanceSensor.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/DistanceSensor.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/DistanceSensor.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/DistanceSensor.cc.o
 .PHONY : src/DistanceSensor.cc.o
 
 src/DistanceSensor.i: src/DistanceSensor.cc.i
@@ -275,6 +295,7 @@ src/DistanceSensor.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/DistanceSensor.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/DistanceSensor.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/DistanceSensor.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/DistanceSensor.cc.i
 .PHONY : src/DistanceSensor.cc.i
 
 src/DistanceSensor.s: src/DistanceSensor.cc.s
@@ -287,6 +308,7 @@ src/DistanceSensor.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/DistanceSensor.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/DistanceSensor.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/DistanceSensor.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/DistanceSensor.cc.s
 .PHONY : src/DistanceSensor.cc.s
 
 src/Encoder.o: src/Encoder.cc.o
@@ -299,6 +321,7 @@ src/Encoder.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/Encoder.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/Encoder.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/Encoder.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/Encoder.cc.o
 .PHONY : src/Encoder.cc.o
 
 src/Encoder.i: src/Encoder.cc.i
@@ -311,6 +334,7 @@ src/Encoder.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/Encoder.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/Encoder.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/Encoder.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/Encoder.cc.i
 .PHONY : src/Encoder.cc.i
 
 src/Encoder.s: src/Encoder.cc.s
@@ -323,6 +347,7 @@ src/Encoder.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/Encoder.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/Encoder.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/Encoder.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/Encoder.cc.s
 .PHONY : src/Encoder.cc.s
 
 src/IMU.o: src/IMU.cc.o
@@ -335,6 +360,7 @@ src/IMU.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/IMU.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/IMU.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/IMU.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/IMU.cc.o
 .PHONY : src/IMU.cc.o
 
 src/IMU.i: src/IMU.cc.i
@@ -347,6 +373,7 @@ src/IMU.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/IMU.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/IMU.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/IMU.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/IMU.cc.i
 .PHONY : src/IMU.cc.i
 
 src/IMU.s: src/IMU.cc.s
@@ -359,6 +386,7 @@ src/IMU.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/IMU.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/IMU.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/IMU.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/IMU.cc.s
 .PHONY : src/IMU.cc.s
 
 src/MotorManager.o: src/MotorManager.cc.o
@@ -371,6 +399,7 @@ src/MotorManager.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/MotorManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/MotorManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/MotorManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/MotorManager.cc.o
 .PHONY : src/MotorManager.cc.o
 
 src/MotorManager.i: src/MotorManager.cc.i
@@ -383,6 +412,7 @@ src/MotorManager.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/MotorManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/MotorManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/MotorManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/MotorManager.cc.i
 .PHONY : src/MotorManager.cc.i
 
 src/MotorManager.s: src/MotorManager.cc.s
@@ -395,7 +425,86 @@ src/MotorManager.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/MotorManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/MotorManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/MotorManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/MotorManager.cc.s
 .PHONY : src/MotorManager.cc.s
+
+src/Odometry.o: src/Odometry.cc.o
+.PHONY : src/Odometry.o
+
+# target to build an object file
+src/Odometry.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/Odometry.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/Odometry.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/Odometry.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/Odometry.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/Odometry.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/Odometry.cc.o
+.PHONY : src/Odometry.cc.o
+
+src/Odometry.i: src/Odometry.cc.i
+.PHONY : src/Odometry.i
+
+# target to preprocess a source file
+src/Odometry.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/Odometry.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/Odometry.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/Odometry.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/Odometry.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/Odometry.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/Odometry.cc.i
+.PHONY : src/Odometry.cc.i
+
+src/Odometry.s: src/Odometry.cc.s
+.PHONY : src/Odometry.s
+
+# target to generate assembly for a file
+src/Odometry.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/Odometry.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/Odometry.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/Odometry.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/Odometry.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/Odometry.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/Odometry.cc.s
+.PHONY : src/Odometry.cc.s
+
+src/OdometryManager.o: src/OdometryManager.cc.o
+.PHONY : src/OdometryManager.o
+
+# target to build an object file
+src/OdometryManager.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/OdometryManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/OdometryManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/OdometryManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/OdometryManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/OdometryManager.cc.o
+.PHONY : src/OdometryManager.cc.o
+
+src/OdometryManager.i: src/OdometryManager.cc.i
+.PHONY : src/OdometryManager.i
+
+# target to preprocess a source file
+src/OdometryManager.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/OdometryManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/OdometryManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/OdometryManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/OdometryManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/OdometryManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/OdometryManager.cc.i
+.PHONY : src/OdometryManager.cc.i
+
+src/OdometryManager.s: src/OdometryManager.cc.s
+.PHONY : src/OdometryManager.s
+
+# target to generate assembly for a file
+src/OdometryManager.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/OdometryManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/OdometryManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/OdometryManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/OdometryManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/OdometryManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/OdometryManager.cc.s
+.PHONY : src/OdometryManager.cc.s
 
 src/SensorManager.o: src/SensorManager.cc.o
 .PHONY : src/SensorManager.o
@@ -407,6 +516,7 @@ src/SensorManager.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/SensorManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/SensorManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/SensorManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/SensorManager.cc.o
 .PHONY : src/SensorManager.cc.o
 
 src/SensorManager.i: src/SensorManager.cc.i
@@ -419,6 +529,7 @@ src/SensorManager.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/SensorManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/SensorManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/SensorManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/SensorManager.cc.i
 .PHONY : src/SensorManager.cc.i
 
 src/SensorManager.s: src/SensorManager.cc.s
@@ -431,6 +542,7 @@ src/SensorManager.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/SensorManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/SensorManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/SensorManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/SensorManager.cc.s
 .PHONY : src/SensorManager.cc.s
 
 src/WiFiManager.o: src/WiFiManager.cc.o
@@ -443,6 +555,7 @@ src/WiFiManager.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/WiFiManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/WiFiManager.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/WiFiManager.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/WiFiManager.cc.o
 .PHONY : src/WiFiManager.cc.o
 
 src/WiFiManager.i: src/WiFiManager.cc.i
@@ -455,6 +568,7 @@ src/WiFiManager.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/WiFiManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/WiFiManager.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/WiFiManager.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/WiFiManager.cc.i
 .PHONY : src/WiFiManager.cc.i
 
 src/WiFiManager.s: src/WiFiManager.cc.s
@@ -467,6 +581,7 @@ src/WiFiManager.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/WiFiManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/WiFiManager.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/WiFiManager.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/WiFiManager.cc.s
 .PHONY : src/WiFiManager.cc.s
 
 src/driver.o: src/driver.cc.o
@@ -479,6 +594,7 @@ src/driver.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/driver.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/driver.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/driver.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/driver.cc.o
 .PHONY : src/driver.cc.o
 
 src/driver.i: src/driver.cc.i
@@ -491,6 +607,7 @@ src/driver.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/driver.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/driver.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/driver.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/driver.cc.i
 .PHONY : src/driver.cc.i
 
 src/driver.s: src/driver.cc.s
@@ -503,6 +620,7 @@ src/driver.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/driver.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/driver.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/driver.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/driver.cc.s
 .PHONY : src/driver.cc.s
 
 test/ut_array.o: test/ut_array.cc.o
@@ -625,6 +743,30 @@ test/ut_sensors.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.s
 .PHONY : test/ut_sensors.cc.s
 
+test/ut_stack.o: test/ut_stack.cc.o
+.PHONY : test/ut_stack.o
+
+# target to build an object file
+test/ut_stack.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/test/ut_stack.cc.o
+.PHONY : test/ut_stack.cc.o
+
+test/ut_stack.i: test/ut_stack.cc.i
+.PHONY : test/ut_stack.i
+
+# target to preprocess a source file
+test/ut_stack.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/test/ut_stack.cc.i
+.PHONY : test/ut_stack.cc.i
+
+test/ut_stack.s: test/ut_stack.cc.s
+.PHONY : test/ut_stack.s
+
+# target to generate assembly for a file
+test/ut_stack.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/test/ut_stack.cc.s
+.PHONY : test/ut_stack.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -638,6 +780,7 @@ help:
 	@echo "... ut_driver"
 	@echo "... ut_motors"
 	@echo "... ut_sensors"
+	@echo "... ut_stack"
 	@echo "... src/CommManager.o"
 	@echo "... src/CommManager.i"
 	@echo "... src/CommManager.s"
@@ -656,6 +799,12 @@ help:
 	@echo "... src/MotorManager.o"
 	@echo "... src/MotorManager.i"
 	@echo "... src/MotorManager.s"
+	@echo "... src/Odometry.o"
+	@echo "... src/Odometry.i"
+	@echo "... src/Odometry.s"
+	@echo "... src/OdometryManager.o"
+	@echo "... src/OdometryManager.i"
+	@echo "... src/OdometryManager.s"
 	@echo "... src/SensorManager.o"
 	@echo "... src/SensorManager.i"
 	@echo "... src/SensorManager.s"
@@ -680,6 +829,9 @@ help:
 	@echo "... test/ut_sensors.o"
 	@echo "... test/ut_sensors.i"
 	@echo "... test/ut_sensors.s"
+	@echo "... test/ut_stack.o"
+	@echo "... test/ut_stack.i"
+	@echo "... test/ut_stack.s"
 .PHONY : help
 
 
