@@ -5,6 +5,7 @@
 #include "../include/DistanceSensor.h"
 #include "../include/Encoder.h"
 #include "../include/IMU.h"
+#include "../include/AdvancedOdometry.h"
 
 class DummySensor : public Sensor::ISensor{
 public:
@@ -119,5 +120,72 @@ TEST(SensorTest, CanReadIMUAfterInit){
     for(const auto& x: (*reading)){
         EXPECT_EQ(i, x);
         i += 1.0f;
+    }
+}
+
+bool operator==(const Sensor::position& s1, const Sensor::position& s2){
+    return true;
+}
+
+TEST(OdometryTest, CanCreateInstanceOfSimpleOdometry){
+    Sensor::simpleOdometry odo;
+
+    auto result = odo.getPosition();
+    auto expected = Sensor::position{ .0f, .0f, .0f };
+
+    EXPECT_EQ(result == expected, true);
+}
+
+TEST(OdometryTest, CanCreateInstanceOfAdvancedOdometry){
+    Sensor::advancedOdometry odo;
+
+    auto result = odo.getPosition();
+    auto expected = Sensor::position{ .0f, .0f, .0f };
+
+    EXPECT_EQ(result == expected, true);
+}
+
+TEST(OdometryTest, CanCreateArrayOfIodometryObjects){
+    Sensor::simpleOdometry s_odo;
+    Sensor::advancedOdometry a_odo;
+
+    custom::array<Sensor::IOdometry*, 2> a;
+
+    a[0] = &s_odo;
+    a[1] = &a_odo;
+
+    for(const auto& o: a){
+        auto result = o->getPosition();
+        auto expected = Sensor::position{ .0f, .0f, .0f };
+
+        EXPECT_EQ(result == expected, true);
+    }
+}
+
+TEST(OdometryTest, CanSetAndResetPosition){
+    Sensor::simpleOdometry s_odo;
+    Sensor::advancedOdometry a_odo;
+
+    custom::array<Sensor::IOdometry*, 2> a;
+
+    a[0] = &s_odo;
+    a[1] = &a_odo;
+
+    for(const auto& o: a){
+        auto expected_reset = Sensor::position{ .0f, .0f, .0f };
+        auto expected_set = Sensor::position{ .1f, .2f, .3f };
+
+        auto result = o->getPosition();
+        EXPECT_EQ(result == expected_reset, true);
+
+        o->setPosition(expected_set);
+
+        result = o->getPosition();
+        EXPECT_EQ(result == expected_set, true);
+
+        o->resetPosition();
+
+        result = o->getPosition();
+        EXPECT_EQ(result == expected_reset, true);
     }
 }

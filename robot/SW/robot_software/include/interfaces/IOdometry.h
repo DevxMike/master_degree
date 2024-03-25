@@ -16,7 +16,7 @@ public:
     virtual void poolOdometry(SensorManager& s) noexcept = 0;
     
 
-    virtual void setOdometry(const position& p) noexcept final {
+    virtual void setPosition(const position& p) noexcept final {
         m_pos = p;
     }
     virtual void resetPosition() noexcept final {
