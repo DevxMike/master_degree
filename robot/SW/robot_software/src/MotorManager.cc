@@ -25,11 +25,14 @@ void MotorManager::init() noexcept{
 }
 
 void MotorManager::setSpeed(const speed_array& speeds) noexcept{
-    auto d = desired_speed.begin();
-    auto s = speeds.begin();
+    // auto d = desired_speed.begin();
+    // auto s = speeds.begin();
 
-    for(; s != speeds.end() && d != desired_speed.end(); s++, d++){
-        *d = *s;
+    // for(; s != speeds.end() && d != desired_speed.end(); s++, d++){
+    //     *d = *s;
+    // }
+    for(std::size_t i = 0; i < motor_num; ++i){
+        desired_speed[i] = speeds[i];
     }
 }
 

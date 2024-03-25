@@ -30,7 +30,7 @@ public:
     }
 
     constexpr const T& operator[](int i) const noexcept {
-        return (*this).operator[](i);
+        return m_array[i];
     }
 
     constexpr auto begin() noexcept {

@@ -33,12 +33,14 @@ void OdometryManager::setActiveOdometry(ActiveOdometry o) noexcept{
 void OdometryManager::updatePosition() noexcept{
     m_sensorMgr.poolSensors();
     // i dont know why, but when using operator[] i get memory dump
-    (*(m_odometryAgents.begin() + (m_active % availableAlgorithms)))->poolOdometry(m_sensorMgr);
+    // (*(m_odometryAgents.begin() + (m_active % availableAlgorithms)))->poolOdometry(m_sensorMgr);
+    m_odometryAgents[m_active]->poolOdometry(m_sensorMgr);
 }
 
 const position OdometryManager::getPosition() const noexcept{
     // i dont know why, but when using operator[] i get memory dump
-    return (*(m_odometryAgents.begin() + (m_active % availableAlgorithms)))->getPosition();
+    //return (*(m_odometryAgents.begin() + (m_active % availableAlgorithms)))->getPosition();
+    return m_odometryAgents[m_active]->getPosition();
 }
 
 }
