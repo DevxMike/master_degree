@@ -159,6 +159,7 @@ CMakeFiles/ut_sensors.dir/src/Odometry.cc.o: ../src/Odometry.cc \
 
 CMakeFiles/ut_sensors.dir/src/OdometryManager.cc.o: ../src/OdometryManager.cc \
   /usr/include/stdc-predef.h \
+  ../include/OdometryManager.h \
   ../include/AdvancedOdometry.h \
   ../include/SimpleOdometry.h \
   ../include/interfaces/IOdometry.h \
@@ -836,6 +837,7 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
   ../include/DistanceSensor.h \
   ../include/Encoder.h \
   ../include/IMU.h \
+  ../include/OdometryManager.h \
   ../include/AdvancedOdometry.h \
   ../include/SimpleOdometry.h \
   ../include/interfaces/IOdometry.h
@@ -1185,8 +1187,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
 ../include/Encoder.h:
 
 /usr/include/stdio.h:
@@ -1218,12 +1218,6 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
 ../src/DCMotor.cc:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
-
-/usr/include/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
@@ -1417,6 +1411,12 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/time.h:
+
 /usr/include/c++/11/bits/predefined_ops.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
@@ -1426,6 +1426,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
+
+../include/OdometryManager.h:
 
 /usr/include/c++/11/bits/functexcept.h:
 
@@ -1446,6 +1448,8 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: ../test/ut_sensors.cc \
 ../src/DistanceSensor.cc:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 

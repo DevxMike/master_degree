@@ -159,6 +159,7 @@ CMakeFiles/ut_driver.dir/src/Odometry.cc.o: ../src/Odometry.cc \
 
 CMakeFiles/ut_driver.dir/src/OdometryManager.cc.o: ../src/OdometryManager.cc \
   /usr/include/stdc-predef.h \
+  ../include/OdometryManager.h \
   ../include/AdvancedOdometry.h \
   ../include/SimpleOdometry.h \
   ../include/interfaces/IOdometry.h \
@@ -472,6 +473,8 @@ CMakeFiles/ut_driver.dir/test/ut_driver.cc.o: ../test/ut_driver.cc \
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
 /usr/include/c++/11/bits/functexcept.h:
@@ -479,6 +482,8 @@ CMakeFiles/ut_driver.dir/test/ut_driver.cc.o: ../test/ut_driver.cc \
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
@@ -586,6 +591,8 @@ CMakeFiles/ut_driver.dir/test/ut_driver.cc.o: ../test/ut_driver.cc \
 
 /usr/include/c++/11/bits/stl_relops.h:
 
+../include/OdometryManager.h:
+
 /usr/include/c++/11/bits/unique_ptr.h:
 
 /usr/include/c++/11/bits/exception_defines.h:
@@ -631,8 +638,6 @@ CMakeFiles/ut_driver.dir/test/ut_driver.cc.o: ../test/ut_driver.cc \
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
 ../include/Encoder.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
@@ -753,8 +758,6 @@ CMakeFiles/ut_driver.dir/test/ut_driver.cc.o: ../test/ut_driver.cc \
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-/usr/include/time.h:
 
 ../include/interfaces/IDCMotor.h:
 

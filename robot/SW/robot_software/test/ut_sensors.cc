@@ -5,7 +5,7 @@
 #include "../include/DistanceSensor.h"
 #include "../include/Encoder.h"
 #include "../include/IMU.h"
-#include "../include/AdvancedOdometry.h"
+#include "../include/OdometryManager.h"
 
 class DummySensor : public Sensor::ISensor{
 public:
@@ -188,4 +188,143 @@ TEST(OdometryTest, CanSetAndResetPosition){
         result = o->getPosition();
         EXPECT_EQ(result == expected_reset, true);
     }
+}
+
+TEST(OdometryTest, CanCreateInstanceOfOdometryManager){
+    using namespace Sensor;
+
+    custom::array<Sensor::IOdometry*, 2> algorithms;
+    simpleOdometry s_odo;
+    advancedOdometry a_odo;
+    algorithms[ActiveOdometry::SimpleOdo] = &s_odo;
+    algorithms[ActiveOdometry::AdvancedOdo] = &a_odo;
+
+
+    custom::array<ISensor*, numSensors> sensors;
+    Encoder enc1(1, 2), enc2(1, 2);
+    IMU imu(1, 2);
+    DistanceSensor d1(1, 2), d2(1, 2), d3(1, 3), d4(1, 2);
+
+
+    sensors[translate(SensorMapping::LEFT_Encoder)] = &enc1;
+    sensors[translate(SensorMapping::RIGHT_Encoder)] = &enc2;
+    sensors[translate(SensorMapping::DST_Front_1)] = &d1;
+    sensors[translate(SensorMapping::DST_Front_2)] = &d2;
+    sensors[translate(SensorMapping::DST_Front_3)] = &d3;
+    sensors[translate(SensorMapping::DST_Rear)] = &d4;
+    sensors[translate(SensorMapping::IMU)] = &imu;
+
+    SensorManager s_mgr(std::move(sensors));
+
+    OdometryManager o_mgr(
+        std::move(algorithms),
+        std::move(s_mgr)
+    );
+
+    auto result = o_mgr.getActiveOdometry();
+
+    EXPECT_EQ(result, ActiveOdometry::SimpleOdo);
+}
+
+TEST(OdometryTest, CanSwitchOdometry){
+    using namespace Sensor;
+
+    custom::array<Sensor::IOdometry*, 2> algorithms;
+    simpleOdometry s_odo;
+    advancedOdometry a_odo;
+    algorithms[ActiveOdometry::SimpleOdo] = &s_odo;
+    algorithms[ActiveOdometry::AdvancedOdo] = &a_odo;
+
+
+    custom::array<ISensor*, numSensors> sensors;
+    Encoder enc1(1, 2), enc2(1, 2);
+    IMU imu(1, 2);
+    DistanceSensor d1(1, 2), d2(1, 2), d3(1, 3), d4(1, 2);
+
+
+    sensors[translate(SensorMapping::LEFT_Encoder)] = &enc1;
+    sensors[translate(SensorMapping::RIGHT_Encoder)] = &enc2;
+    sensors[translate(SensorMapping::DST_Front_1)] = &d1;
+    sensors[translate(SensorMapping::DST_Front_2)] = &d2;
+    sensors[translate(SensorMapping::DST_Front_3)] = &d3;
+    sensors[translate(SensorMapping::DST_Rear)] = &d4;
+    sensors[translate(SensorMapping::IMU)] = &imu;
+
+    SensorManager s_mgr(std::move(sensors));
+
+    OdometryManager o_mgr(
+        std::move(algorithms),
+        std::move(s_mgr)
+    );
+
+    auto result = o_mgr.getActiveOdometry();
+
+    EXPECT_EQ(result, ActiveOdometry::SimpleOdo);
+
+    o_mgr.setActiveOdometry(ActiveOdometry::AdvancedOdo);
+
+    result = o_mgr.getActiveOdometry();
+
+    EXPECT_EQ(result, ActiveOdometry::AdvancedOdo);
+
+    const auto& pos = o_mgr.getPosition();
+    auto expected = position{ 0, 0, 0 };
+
+    EXPECT_EQ(pos == expected, true);
+}
+
+TEST(OdometryTest, CanPoolOdometry){
+    using namespace Sensor;
+
+    custom::array<Sensor::IOdometry*, 2> algorithms;
+    simpleOdometry s_odo;
+    advancedOdometry a_odo;
+    algorithms[ActiveOdometry::SimpleOdo] = &s_odo;
+    algorithms[ActiveOdometry::AdvancedOdo] = &a_odo;
+
+
+    custom::array<ISensor*, numSensors> sensors;
+    Encoder enc1(1, 2), enc2(1, 2);
+    IMU imu(1, 2);
+    DistanceSensor d1(1, 2), d2(1, 2), d3(1, 3), d4(1, 2);
+
+
+    sensors[translate(SensorMapping::LEFT_Encoder)] = &enc1;
+    sensors[translate(SensorMapping::RIGHT_Encoder)] = &enc2;
+    sensors[translate(SensorMapping::DST_Front_1)] = &d1;
+    sensors[translate(SensorMapping::DST_Front_2)] = &d2;
+    sensors[translate(SensorMapping::DST_Front_3)] = &d3;
+    sensors[translate(SensorMapping::DST_Rear)] = &d4;
+    sensors[translate(SensorMapping::IMU)] = &imu;
+
+    SensorManager s_mgr(std::move(sensors));
+
+    OdometryManager o_mgr(
+        std::move(algorithms),
+        std::move(s_mgr)
+    );
+
+    auto result = o_mgr.getActiveOdometry();
+
+    EXPECT_EQ(result, ActiveOdometry::SimpleOdo);
+
+    o_mgr.setActiveOdometry(ActiveOdometry::AdvancedOdo);
+
+    result = o_mgr.getActiveOdometry();
+
+    EXPECT_EQ(result, ActiveOdometry::AdvancedOdo);
+
+    const auto& pos = o_mgr.getPosition();
+    auto expected = position{ 0, 0, 0 };
+
+    EXPECT_EQ(pos == expected, true);
+
+    o_mgr.updatePosition();
+
+    o_mgr.setActiveOdometry(ActiveOdometry::SimpleOdo);
+
+    result = o_mgr.getActiveOdometry();
+    EXPECT_EQ(result, ActiveOdometry::SimpleOdo);
+    
+    o_mgr.updatePosition();
 }

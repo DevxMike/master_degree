@@ -321,6 +321,7 @@ CMakeFiles/ut_sensors.dir/test/ut_sensors.cc.o: \
  /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/DistanceSensor.h \
  /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/Encoder.h \
  /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/IMU.h \
- /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/AdvancedOdometry.h \
- /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/SimpleOdometry.h \
- /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/interfaces/IOdometry.h
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/OdometryManager.h \
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/../include/AdvancedOdometry.h \
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/../include/SimpleOdometry.h \
+ /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/../include/../include/interfaces/IOdometry.h
