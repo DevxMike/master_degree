@@ -14,23 +14,20 @@ public:
         max_elem{ stack_depth }, elem_count{ s.elem_count }, elements{ s.elements } {}
 
     constexpr stack(stack<T, stack_depth>&& s) noexcept:
-        max_elem{ stack_depth }, elem_count{ s.elem_count }, elements{ std::move(s.elements) } {}
+        max_elem{ stack_depth }, elem_count{ s.elem_count }, elements{ std::move(s.elements) } {
+            s.elem_count = 0;
+        }
 
     constexpr auto& operator=(const stack<T, stack_depth>& s) noexcept {
         elem_count = s.elem_count;
-        
-        for(std::size_t i = 0; i < s.elem_count; ++i){
-            elements[i] = s.elements[i];
-        }
+        elements = s.elements;
 
         return *this;
     }
     constexpr auto& operator=(stack<T, stack_depth>&& s) noexcept {
         elem_count = s.elem_count;
-        
-        for(std::size_t i = 0; i < s.elem_count; ++i){
-            elements[i] = std::move(s.elements[i]);
-        }
+        s.elem_count = 0;
+        elements = std::move(s.elements);
 
         return *this;
     }
@@ -75,17 +72,7 @@ public:
         return result;
     }
     constexpr bool operator==(const stack<T, stack_depth>& s) noexcept {
-        if(elem_count != s.elem_count){
-            return false;
-        }
-
-        for(std::size_t i = 0; i < elem_count; ++i){
-            if(s.elements[i] != elements[i]){
-                return false;
-            }
-        }
-
-        return true;
+        return elem_count == s.elem_count && elements == s.elements;
     }
     constexpr bool operator!=(const stack<T, stack_depth>& s) noexcept {
         return !(*this == s);
