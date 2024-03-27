@@ -1,5 +1,5 @@
 #include <Arduino.h>
-
+#include "WiFiManager.h"
 // put function declarations here:
 
 void setup() {
