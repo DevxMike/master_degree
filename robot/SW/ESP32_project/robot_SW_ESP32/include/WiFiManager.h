@@ -14,29 +14,53 @@ enum class NetworkStatus{
 template<class StringType>
 class WiFiManager{
 public:
-    WiFiManager(const StringType& ssid, const StringType& password) noexcept:
-        m_SSID{ ssid }, m_password{ password } {}
+    WiFiManager(const StringType& ssid, const StringType& password) noexcept: 
+        m_ssid{ ssid }, m_password{ password } {}
 
     NetworkStatus manageConnection() noexcept{
         static uint8_t state = Connecting;
-
+        static unsigned long timer;
+        
         switch(state){
             case Connecting:
-                WiFi.mode(WIFI_STA);
-                WiFi.begin(m_SSID, m_password);
-                
+                // m_w.mode(WIFI_STA);
+                WiFi.begin(m_ssid.c_str(), m_password.c_str());
+                timer = millis();        
+                state = Timeout;
+                return NetworkStatus::NotConnected;
+
+                break;
+
+            case Timeout:
+                if((millis() - timer >= 500)){
+                    state = CheckingStatus;
+                }
+                return NetworkStatus::NotConnected;
+
+                break;
+            
+            case CheckingStatus:
+                if(WiFi.status() == WL_CONNECTED){
+                    return NetworkStatus::Connected;
+                }
+                else{
+                    state = Connecting;
+                    return NetworkStatus::NotConnected;
+                }
+                break;
         }
+
+        return NetworkStatus::NotConnected;
     }
 
 private:
     enum : uint8_t{
         Connecting = 0,
         Timeout,
-        Connected,
         CheckingStatus
-    }
+    };
 
-    StringType m_SSID;
+    StringType m_ssid;
     StringType m_password;
 };
 
