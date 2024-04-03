@@ -1,0 +1,411 @@
+{
+  "uuid": "69506c118e1b41f4f446891184605366",
+  "path": "Offline/Robot_schematic",
+  "name": "Robot_schematic",
+  "content": "",
+  "created_at": "2024-03-04 14:53:26",
+  "updated_at": "2024-03-11 22:51:30",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "0a7e3ceac442731a788b715ceced53f1",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "5a7405edc457461c94e5f1e0fb96f8ac": 1,
+        "7bc6004ec15049759da153ee82cdb006": 4,
+        "c7781807ef7b41ab9d90d859219f2822": 2,
+        "7cf48778562b448cb1596ee904fd2522": 1,
+        "9669163051044703a07eaec8582464b6": 1,
+        "bfb3975229af4f3aa2013e62b02960c9": 5,
+        "8a557e1b17f44c419e9b92c85fb6e4a2": 1,
+        "9253cfdcdc1a4c1e850d6f08d15b0558": 4,
+        "97b6d962f7a543e7bd7dcd02262848aa": 6,
+        "de965ddec8a647398d42ac7de1bc0391": 1,
+        "8a6f8663d4324c22be0de2142632f8ad": 1,
+        "3ae71857120044ba8f596cb2360faeba": 6,
+        "bf6c7b9a0b434ff7a3f559b4c4e5b4c5": 3
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "CC-100N",
+          4,
+          "C_DISC_5X2.5-2.5",
+          "C1,C2,C8,C10",
+          {
+            "Contributor": "Danensago",
+            "spiceSymbolName": "CC-100N",
+            "Manufacturer Part": "",
+            "puuid": "e97d30d660274d8f8db16d95022c1375",
+            "uuid": "bfb3975229af4f3aa2013e62b02960c9"
+          }
+        ],
+        [
+          "330nF",
+          1,
+          "C_DISC_5X2.5-2.5",
+          "C3",
+          {
+            "Contributor": "Danensago",
+            "spiceSymbolName": "CC-100N",
+            "Manufacturer Part": "",
+            "puuid": "e97d30d660274d8f8db16d95022c1375",
+            "uuid": "bfb3975229af4f3aa2013e62b02960c9"
+          }
+        ],
+        [
+          "10uF",
+          1,
+          "ELECTROLYTIC_CAPACITOR_THT_PITCH-2.5MM_SIZE-5MM",
+          "C4",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "Marek Štafl",
+            "spiceSymbolName": "CAPACITOR THT PITCH 2.5MM SIZE 5MM",
+            "puuid": "5d4163be2d80442aa5f1798c2db32f85",
+            "uuid": "8a557e1b17f44c419e9b92c85fb6e4a2"
+          }
+        ],
+        [
+          "470uF",
+          4,
+          "1UF CAPACITOR THT",
+          "C5,C6,C7,C9",
+          {
+            "Supplier": "",
+            "Supplier Part": "C442973",
+            "Manufacturer": "Ymin",
+            "Manufacturer Part": "LKMB0901H1R0MF",
+            "Contributor": "R.M.Venkatraj",
+            "spiceSymbolName": "1uF Capacitor THT",
+            "puuid": "8a15d027dc7741d389aea81db8d60efe",
+            "uuid": "9253cfdcdc1a4c1e850d6f08d15b0558"
+          }
+        ],
+        [
+          "Goldpin 2",
+          4,
+          "GOLDPIN2",
+          "G1,G2,G3,G4",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "Photon-t",
+            "spiceSymbolName": "Goldpin 2",
+            "puuid": "fdb1d15298404663b5f8c196a44ea560",
+            "uuid": "7bc6004ec15049759da153ee82cdb006"
+          }
+        ],
+        [
+          "4k7",
+          2,
+          "AXIAL-0.6",
+          "R1,R2",
+          {
+            "Supplier": "LCSC",
+            "Supplier Part": "C348838",
+            "Manufacturer": "1",
+            "Manufacturer Part": "EWWR0001J20R0T9",
+            "Contributor": "osmancan.cidamar",
+            "spiceSymbolName": "1/2W RESISTOR",
+            "puuid": "85d7ca7898b14b1eb49ae5ce005e5407",
+            "uuid": "3ae71857120044ba8f596cb2360faeba"
+          }
+        ],
+        [
+          "10k",
+          4,
+          "AXIAL-0.6",
+          "R3,R4,R5,R6",
+          {
+            "Supplier": "LCSC",
+            "Supplier Part": "C348838",
+            "Manufacturer": "1",
+            "Manufacturer Part": "EWWR0001J20R0T9",
+            "Contributor": "osmancan.cidamar",
+            "spiceSymbolName": "1/2W RESISTOR",
+            "puuid": "85d7ca7898b14b1eb49ae5ce005e5407",
+            "uuid": "3ae71857120044ba8f596cb2360faeba"
+          }
+        ],
+        [
+          "ESP32-DEVKITC-32D",
+          1,
+          "COMM-SMD_ESP32-DEVKITC-32D",
+          "U1",
+          {
+            "Supplier": "LCSC",
+            "Supplier Part": "C571181",
+            "Manufacturer": "ESPRESSIF(乐鑫)",
+            "Manufacturer Part": "ESP32-DevKitC-32D",
+            "JLCPCB Part Class": "Extended Part",
+            "Contributor": "lcsc",
+            "spiceSymbolName": "ESP32-DEVKITC-32D",
+            "puuid": "b635e3ca514941a2a7b43b2ea88c6320",
+            "uuid": "5a7405edc457461c94e5f1e0fb96f8ac"
+          }
+        ],
+        [
+          "DG127-5.08-02P-14-02A(H)",
+          2,
+          "CONN-TH_DG127-5.08-02P-14-02A",
+          "U2,U13",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C691860",
+            "Manufacturer": "DEGSON（高正/高松）",
+            "Manufacturer Part": "DG127-5.08-02P-14-02A(H)",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "DG127-5.08-02P-14-02A(H)",
+            "puuid": "086f991eb99f47f394fec5f80c86e9ee",
+            "uuid": "c7781807ef7b41ab9d90d859219f2822"
+          }
+        ],
+        [
+          "LF33CV",
+          1,
+          "TO-220-3_L10.2-W4.5-P2.54-L",
+          "U3",
+          {
+            "Contributor": "lcsc",
+            "Supplier": "LCSC",
+            "Supplier Part": "C2832779",
+            "Manufacturer": "ST(意法半导体)",
+            "Manufacturer Part": "LF33CV",
+            "spiceSymbolName": "LF33CV",
+            "puuid": "1d17fb957a704dd4b47035b0f10d4493",
+            "uuid": "7cf48778562b448cb1596ee904fd2522"
+          }
+        ],
+        [
+          "L7805CV",
+          1,
+          "TO-220-3_L10.0-W4.5-P2.54-L",
+          "U4",
+          {
+            "Supplier": "LCSC",
+            "Manufacturer": "ST(意法半导体)",
+            "Manufacturer Part": "L7805CV",
+            "Supplier Part": "C111887",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "L7805CV",
+            "puuid": "948e610cffd14df79f04c73832b1409b",
+            "uuid": "9669163051044703a07eaec8582464b6"
+          }
+        ],
+        [
+          "REAR",
+          1,
+          "4XGOLDPIN",
+          "U5",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
+        ],
+        [
+          "FRONT1",
+          1,
+          "4XGOLDPIN",
+          "U6",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
+        ],
+        [
+          "FRONT2",
+          1,
+          "4XGOLDPIN",
+          "U7",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
+        ],
+        [
+          "FRONT3",
+          1,
+          "4XGOLDPIN",
+          "U8",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
+        ],
+        [
+          "goldpin_6",
+          1,
+          "GOLDPIN_6",
+          "U9",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "skaytrool",
+            "spiceSymbolName": "goldpin_6",
+            "puuid": "5a827db7bf5c447bb4d1c6d0511e90a8",
+            "uuid": "8a6f8663d4324c22be0de2142632f8ad"
+          }
+        ],
+        [
+          "GOLDPIN 8X1",
+          1,
+          "GOLDPIN 8X1",
+          "U10",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "qduaty",
+            "spiceSymbolName": "GOLDPIN 8X1",
+            "puuid": "e402f4ccf6124a7eaaa5412388fc5d0b",
+            "uuid": "de965ddec8a647398d42ac7de1bc0391"
+          }
+        ],
+        [
+          "LEFT",
+          1,
+          "4XGOLDPIN",
+          "U11",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
+        ],
+        [
+          "RIGHT",
+          1,
+          "4XGOLDPIN",
+          "U12",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "krzysztof.sawicki",
+            "spiceSymbolName": "4XGOLDPIN",
+            "puuid": "790a510b762c4c5a992d10f48be406c8",
+            "uuid": "97b6d962f7a543e7bd7dcd02262848aa"
+          }
+        ],
+        [
+          "BOB-12009",
+          3,
+          "BOB-12009",
+          "U14,U15,U16",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier": "",
+            "Supplier Part": "",
+            "link": "",
+            "Contributor": "obernal",
+            "spiceSymbolName": "BOB-12009",
+            "puuid": "b9d9e826613e481288649fd870400a18",
+            "uuid": "bf6c7b9a0b434ff7a3f559b4c4e5b4c5"
+          }
+        ]
+      ],
+      "updateTime": 1710192373,
+      "createTime": 1709560406,
+      "histories": [],
+      "created_at": "2024-03-04 14:53:26",
+      "updated_at": "2024-03-11 22:26:13"
+    },
+    {
+      "uuid": "bf79f723b84996b93476bab5b5f0ed72",
+      "puuid": "69506c118e1b41f4f446891184605366",
+      "title": "PCB_Robot_schematic",
+      "filename": "PCB_Robot_schematic.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "e97d30d660274d8f8db16d95022c1375": 5,
+        "5d4163be2d80442aa5f1798c2db32f85": 1,
+        "8a15d027dc7741d389aea81db8d60efe": 4,
+        "fdb1d15298404663b5f8c196a44ea560": 3,
+        "85d7ca7898b14b1eb49ae5ce005e5407": 6,
+        "b635e3ca514941a2a7b43b2ea88c6320": 1,
+        "086f991eb99f47f394fec5f80c86e9ee": 2,
+        "1d17fb957a704dd4b47035b0f10d4493": 1,
+        "948e610cffd14df79f04c73832b1409b": 1,
+        "790a510b762c4c5a992d10f48be406c8": 6,
+        "5a827db7bf5c447bb4d1c6d0511e90a8": 1,
+        "e402f4ccf6124a7eaaa5412388fc5d0b": 1,
+        "b9d9e826613e481288649fd870400a18": 3
+      },
+      "BOM": [],
+      "updateTime": 1710193890,
+      "createTime": 1710116483,
+      "histories": [],
+      "created_at": "2024-03-11 01:21:23",
+      "updated_at": "2024-03-11 22:51:30"
+    }
+  ],
+  "sort": [],
+  "title": "Robot_schematic",
+  "foldername": "Robot_schematic",
+  "schfilename": "Robot_schematic.json",
+  "schfilemtime": 1710192373303
+}
