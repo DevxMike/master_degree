@@ -21,7 +21,7 @@ public:
         WifiManager&& w, 
         const StringType& device_id, 
         const StringType& broker, 
-        StringType password
+        const StringType password
     ) noexcept:
         m_wifiMgr{ std::move(w) }, 
         m_messageStack{  }, 

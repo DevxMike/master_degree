@@ -11,40 +11,46 @@ enum class NetworkStatus{
     Connected
 };
 
+// using StringType = String;
+
 template<class StringType>
 class WiFiManager{
 public:
-    WiFiManager(const StringType& ssid, const StringType& password) noexcept: 
-        m_ssid{ ssid }, m_password{ password } {}
+    WiFiManager(const StringType& ssid, const StringType& password, WiFiClass& wifi_handle) noexcept: 
+        m_ssid{ ssid }, m_password{ password }, m_wifi_handle{ wifi_handle }, m_internal_state{ Connecting } 
+        {}
+
+    WiFiManager(WiFiManager<StringType>&& w) noexcept:
+        m_ssid{ std::move(w.m_ssid) }, m_password{ std::move(w.m_password) }, m_wifi_handle{ w.m_wifi_handle }, m_internal_state{ std::move(w.m_internal_state) }
+        {}
 
     NetworkStatus manageConnection() noexcept{
-        static uint8_t state = Connecting;
         static unsigned long timer;
         
-        switch(state){
+        switch(m_internal_state){
             case Connecting:
                 // m_w.mode(WIFI_STA);
-                WiFi.begin(m_ssid.c_str(), m_password.c_str());
+                m_wifi_handle.begin(m_ssid.c_str(), m_password.c_str());
                 timer = millis();        
-                state = Timeout;
+                m_internal_state = Timeout;
                 return NetworkStatus::NotConnected;
 
                 break;
 
             case Timeout:
                 if((millis() - timer >= 500)){
-                    state = CheckingStatus;
+                    m_internal_state = CheckingStatus;
                 }
                 return NetworkStatus::NotConnected;
 
                 break;
             
             case CheckingStatus:
-                if(WiFi.status() == WL_CONNECTED){
+                if(m_wifi_handle.status() == WL_CONNECTED){
                     return NetworkStatus::Connected;
                 }
                 else{
-                    state = Connecting;
+                    m_internal_state = Connecting;
                     return NetworkStatus::NotConnected;
                 }
                 break;
@@ -59,9 +65,10 @@ private:
         Timeout,
         CheckingStatus
     };
-
+    uint8_t m_internal_state; 
     StringType m_ssid;
     StringType m_password;
+    WiFiClass& m_wifi_handle;
 };
 
 }
