@@ -30,9 +30,12 @@ void setup() {
   while(commMgr.poolCommManager() != Comm::MQTT::MQTTStatus::BrokerConnected) { }
 
 #if MQTT_DEBUG
+  #define CREATE_MESSAGE(i) \
+    Comm::MQTT::CommManager<String>::createMessage("robot/debug", String("hello from robot ") + char('0' + i))
+
   Serial.println("Connected to MQTT broker");
-  commMgr.sendMessage(
-    Comm::MQTT::CommManager<String>::createMessage("robot/debug", "hello from robot")
+  for(int i = 0; i < 10; ++i) commMgr.sendMessage(
+    CREATE_MESSAGE(i)
   );
 #endif
 
