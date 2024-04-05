@@ -17,12 +17,7 @@ enum class MQTTStatus{
 template<class StringType>
 class CommManager{
 public:
-    CommManager(
-        WifiManager&& w, 
-        const StringType& device_id, 
-        const StringType& broker, 
-        const StringType password
-    ) noexcept:
+    CommManager(WiFiManager<StringType>&& w, const StringType& device_id, const StringType& broker, const StringType& password) noexcept:
         m_wifiMgr{ std::move(w) }, 
         m_messageStack{  }, 
         m_broker{ broker },
@@ -38,13 +33,13 @@ public:
         return m_messageStack.push(message);
     }
 
-private:
+
     NetworkStatus poolNetwork() noexcept {
-        // TBD
-        return NetworkStatus::NotConnected;
+        return m_wifiMgr.manageConnection();
     }
 
-    WiFiManager m_wifiMgr; // network management
+private:
+    WiFiManager<StringType> m_wifiMgr; // network management
     custom::stack<StringType, stack_depth> m_messageStack;
     StringType m_broker; // MQTT access
     StringType m_password;
