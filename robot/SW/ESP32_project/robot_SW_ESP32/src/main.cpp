@@ -9,10 +9,11 @@
 // static Comm::WiFiManager<String> wifiMgr(
 //   "M&N", "+q48uvdETJsT7c", WiFi
 // );
+WiFiClient espClient;
 
 static Comm::MQTT::CommManager<String> commMgr(
   Comm::WiFiManager<String>("M&N", "+q48uvdETJsT7c", WiFi), 
-  "dev_id", "broker", "pass"
+  "", "mqtt-dashboard.com", "", espClient
 );
 
 
@@ -20,14 +21,23 @@ void setup() {
   // // put your setup code here, to run once:
   Serial.begin(9600);
 
-  while(commMgr.poolNetwork() != Comm::NetworkStatus::Connected) { }
+  while(commMgr.poolCommManager() != Comm::MQTT::MQTTStatus::NetworkConnected) { }
 
 #if WIFI_DEBUG
   Serial.println("Connected to WiFi");
 #endif
 
+  while(commMgr.poolCommManager() != Comm::MQTT::MQTTStatus::BrokerConnected) { }
+
+#if MQTT_DEBUG
+  Serial.println("Connected to MQTT broker");
+  commMgr.sendMessage(
+    Comm::MQTT::CommManager<String>::createMessage("robot/debug", "hello from robot")
+  );
+#endif
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  commMgr.poolCommManager();
 }
