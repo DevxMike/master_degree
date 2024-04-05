@@ -2,6 +2,7 @@
 #define CommMgr_h
 
 #include <functional>
+#include <array>
 
 #include "PubSubClient.h"
 #include "WiFiManager.h"
@@ -20,16 +21,26 @@ enum class MQTTStatus{
     BrokerConnected
 };
 
-template<class StringType>
+template<class StringType, std::size_t topic_num>
 class CommManager{
 public:
     using messageType = std::tuple<StringType, StringType>;
-    
+    using onMsg_cb = std::function<void(char*, byte*, unsigned int)>;
+
     static messageType createMessage(const StringType& topic, const StringType& payload) noexcept {
         return messageType(topic, payload);
     }
 
-    CommManager(WiFiManager<StringType>&& w, const StringType& uname, const StringType& broker, const StringType& password, WiFiClient& c, const StringType& ID = "Robot") noexcept:
+    CommManager(
+        WiFiManager<StringType>&& w, 
+        const StringType& uname, 
+        const StringType& broker, 
+        const StringType& password, 
+        WiFiClient& c, 
+        std::array<StringType, topic_num>&& topics,
+        const onMsg_cb& cback,
+        const StringType& ID = "Robot"
+        ) noexcept:
         m_wifiMgr{ std::move(w) }, 
         m_messageStack{  }, 
         m_broker{ broker },
@@ -37,6 +48,8 @@ public:
         m_password{ password },
         m_ID{ ID },
         m_internalState { ConnectingNetwork },
+        m_topics{ std::move(topics) },
+        m_message_cb{ cback },
         m_mqttClient{ c } {}
 
     MQTTStatus poolCommManager() noexcept {
@@ -76,9 +89,10 @@ public:
                 if(m_mqttClient.connected()){
                     m_internalState = CheckingStatus;
                     
-                    // TODO
-                    // register callback
-                    // subscribe
+                    m_mqttClient.setCallback(m_message_cb);
+                    for(const auto& t: m_topics){
+                        m_mqttClient.subscribe(t.c_str());
+                    }
 
                     return MQTTStatus::BrokerConnected;
                 }
@@ -143,7 +157,9 @@ private:
     StringType m_password;
     StringType m_uname;
     StringType m_ID;
+    const std::array<StringType, topic_num> m_topics;
     PubSubClient m_mqttClient;
+    onMsg_cb m_message_cb;
 };
 
 } // MQTT

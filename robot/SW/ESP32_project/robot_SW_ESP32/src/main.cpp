@@ -11,9 +11,21 @@
 // );
 WiFiClient espClient;
 
-static Comm::MQTT::CommManager<String> commMgr(
+void MQTTcallback(char* topic, byte* payload, unsigned int length){
+  Serial.print("Received message on topic: \"");
+  Serial.print(topic);
+  Serial.println("\"");
+
+  for(unsigned int i = 0; i < length; ++i){
+    Serial.print((char)payload[i]);
+  }
+
+  Serial.println("");
+}
+
+static Comm::MQTT::CommManager<String, 1> commMgr(
   Comm::WiFiManager<String>("M&N", "+q48uvdETJsT7c", WiFi), 
-  "", "mqtt-dashboard.com", "", espClient
+  "", "mqtt-dashboard.com", "", espClient, std::array<String, 1>{{ "robot/debug/input" }} , MQTTcallback
 );
 
 
@@ -31,7 +43,7 @@ void setup() {
 
 #if MQTT_DEBUG
   #define CREATE_MESSAGE(i) \
-    Comm::MQTT::CommManager<String>::createMessage("robot/debug", String("hello from robot ") + char('0' + i))
+    Comm::MQTT::CommManager<String, 1>::createMessage("robot/debug", String("hello from robot ") + char('0' + i))
 
   Serial.println("Connected to MQTT broker");
   for(int i = 0; i < 10; ++i) commMgr.sendMessage(
