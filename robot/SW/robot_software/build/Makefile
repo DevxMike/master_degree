@@ -194,45 +194,6 @@ ut_stack/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/build
 .PHONY : ut_stack/fast
 
-src/CommManager.o: src/CommManager.cc.o
-.PHONY : src/CommManager.o
-
-# target to build an object file
-src/CommManager.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/CommManager.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/CommManager.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/CommManager.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/CommManager.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/CommManager.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/CommManager.cc.o
-.PHONY : src/CommManager.cc.o
-
-src/CommManager.i: src/CommManager.cc.i
-.PHONY : src/CommManager.i
-
-# target to preprocess a source file
-src/CommManager.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/CommManager.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/CommManager.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/CommManager.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/CommManager.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/CommManager.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/CommManager.cc.i
-.PHONY : src/CommManager.cc.i
-
-src/CommManager.s: src/CommManager.cc.s
-.PHONY : src/CommManager.s
-
-# target to generate assembly for a file
-src/CommManager.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_comm.dir/build.make CMakeFiles/ut_comm.dir/src/CommManager.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_driver.dir/build.make CMakeFiles/ut_driver.dir/src/CommManager.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_motors.dir/build.make CMakeFiles/ut_motors.dir/src/CommManager.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_sensors.dir/build.make CMakeFiles/ut_sensors.dir/src/CommManager.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_array.dir/build.make CMakeFiles/ut_array.dir/src/CommManager.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ut_stack.dir/build.make CMakeFiles/ut_stack.dir/src/CommManager.cc.s
-.PHONY : src/CommManager.cc.s
-
 src/DCMotor.o: src/DCMotor.cc.o
 .PHONY : src/DCMotor.o
 
@@ -781,9 +742,6 @@ help:
 	@echo "... ut_motors"
 	@echo "... ut_sensors"
 	@echo "... ut_stack"
-	@echo "... src/CommManager.o"
-	@echo "... src/CommManager.i"
-	@echo "... src/CommManager.s"
 	@echo "... src/DCMotor.o"
 	@echo "... src/DCMotor.i"
 	@echo "... src/DCMotor.s"

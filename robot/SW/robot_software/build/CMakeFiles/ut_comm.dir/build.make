@@ -83,24 +83,10 @@ CMakeFiles/ut_comm.dir/test/ut_comm.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ut_comm.dir/test/ut_comm.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/test/ut_comm.cc -o CMakeFiles/ut_comm.dir/test/ut_comm.cc.s
 
-CMakeFiles/ut_comm.dir/src/CommManager.cc.o: CMakeFiles/ut_comm.dir/flags.make
-CMakeFiles/ut_comm.dir/src/CommManager.cc.o: ../src/CommManager.cc
-CMakeFiles/ut_comm.dir/src/CommManager.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ut_comm.dir/src/CommManager.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/CommManager.cc.o -MF CMakeFiles/ut_comm.dir/src/CommManager.cc.o.d -o CMakeFiles/ut_comm.dir/src/CommManager.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/CommManager.cc
-
-CMakeFiles/ut_comm.dir/src/CommManager.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ut_comm.dir/src/CommManager.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/CommManager.cc > CMakeFiles/ut_comm.dir/src/CommManager.cc.i
-
-CMakeFiles/ut_comm.dir/src/CommManager.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ut_comm.dir/src/CommManager.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/CommManager.cc -o CMakeFiles/ut_comm.dir/src/CommManager.cc.s
-
 CMakeFiles/ut_comm.dir/src/DCMotor.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/DCMotor.cc.o: ../src/DCMotor.cc
 CMakeFiles/ut_comm.dir/src/DCMotor.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ut_comm.dir/src/DCMotor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ut_comm.dir/src/DCMotor.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/DCMotor.cc.o -MF CMakeFiles/ut_comm.dir/src/DCMotor.cc.o.d -o CMakeFiles/ut_comm.dir/src/DCMotor.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/DCMotor.cc
 
 CMakeFiles/ut_comm.dir/src/DCMotor.cc.i: cmake_force
@@ -114,7 +100,7 @@ CMakeFiles/ut_comm.dir/src/DCMotor.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o: ../src/DistanceSensor.cc
 CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o -MF CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o.d -o CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/DistanceSensor.cc
 
 CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/Encoder.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/Encoder.cc.o: ../src/Encoder.cc
 CMakeFiles/ut_comm.dir/src/Encoder.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ut_comm.dir/src/Encoder.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ut_comm.dir/src/Encoder.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/Encoder.cc.o -MF CMakeFiles/ut_comm.dir/src/Encoder.cc.o.d -o CMakeFiles/ut_comm.dir/src/Encoder.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/Encoder.cc
 
 CMakeFiles/ut_comm.dir/src/Encoder.cc.i: cmake_force
@@ -142,7 +128,7 @@ CMakeFiles/ut_comm.dir/src/Encoder.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/IMU.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/IMU.cc.o: ../src/IMU.cc
 CMakeFiles/ut_comm.dir/src/IMU.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ut_comm.dir/src/IMU.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ut_comm.dir/src/IMU.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/IMU.cc.o -MF CMakeFiles/ut_comm.dir/src/IMU.cc.o.d -o CMakeFiles/ut_comm.dir/src/IMU.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/IMU.cc
 
 CMakeFiles/ut_comm.dir/src/IMU.cc.i: cmake_force
@@ -156,7 +142,7 @@ CMakeFiles/ut_comm.dir/src/IMU.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/MotorManager.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/MotorManager.cc.o: ../src/MotorManager.cc
 CMakeFiles/ut_comm.dir/src/MotorManager.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ut_comm.dir/src/MotorManager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ut_comm.dir/src/MotorManager.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/MotorManager.cc.o -MF CMakeFiles/ut_comm.dir/src/MotorManager.cc.o.d -o CMakeFiles/ut_comm.dir/src/MotorManager.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/MotorManager.cc
 
 CMakeFiles/ut_comm.dir/src/MotorManager.cc.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/ut_comm.dir/src/MotorManager.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/Odometry.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/Odometry.cc.o: ../src/Odometry.cc
 CMakeFiles/ut_comm.dir/src/Odometry.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ut_comm.dir/src/Odometry.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ut_comm.dir/src/Odometry.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/Odometry.cc.o -MF CMakeFiles/ut_comm.dir/src/Odometry.cc.o.d -o CMakeFiles/ut_comm.dir/src/Odometry.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/Odometry.cc
 
 CMakeFiles/ut_comm.dir/src/Odometry.cc.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/ut_comm.dir/src/Odometry.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o: ../src/OdometryManager.cc
 CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o -MF CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o.d -o CMakeFiles/ut_comm.dir/src/OdometryManager.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/OdometryManager.cc
 
 CMakeFiles/ut_comm.dir/src/OdometryManager.cc.i: cmake_force
@@ -198,7 +184,7 @@ CMakeFiles/ut_comm.dir/src/OdometryManager.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/SensorManager.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/SensorManager.cc.o: ../src/SensorManager.cc
 CMakeFiles/ut_comm.dir/src/SensorManager.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ut_comm.dir/src/SensorManager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ut_comm.dir/src/SensorManager.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/SensorManager.cc.o -MF CMakeFiles/ut_comm.dir/src/SensorManager.cc.o.d -o CMakeFiles/ut_comm.dir/src/SensorManager.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/SensorManager.cc
 
 CMakeFiles/ut_comm.dir/src/SensorManager.cc.i: cmake_force
@@ -212,7 +198,7 @@ CMakeFiles/ut_comm.dir/src/SensorManager.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o: ../src/WiFiManager.cc
 CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o -MF CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o.d -o CMakeFiles/ut_comm.dir/src/WiFiManager.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/WiFiManager.cc
 
 CMakeFiles/ut_comm.dir/src/WiFiManager.cc.i: cmake_force
@@ -226,7 +212,7 @@ CMakeFiles/ut_comm.dir/src/WiFiManager.cc.s: cmake_force
 CMakeFiles/ut_comm.dir/src/driver.cc.o: CMakeFiles/ut_comm.dir/flags.make
 CMakeFiles/ut_comm.dir/src/driver.cc.o: ../src/driver.cc
 CMakeFiles/ut_comm.dir/src/driver.cc.o: CMakeFiles/ut_comm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ut_comm.dir/src/driver.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ut_comm.dir/src/driver.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ut_comm.dir/src/driver.cc.o -MF CMakeFiles/ut_comm.dir/src/driver.cc.o.d -o CMakeFiles/ut_comm.dir/src/driver.cc.o -c /home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/driver.cc
 
 CMakeFiles/ut_comm.dir/src/driver.cc.i: cmake_force
@@ -240,7 +226,6 @@ CMakeFiles/ut_comm.dir/src/driver.cc.s: cmake_force
 # Object files for target ut_comm
 ut_comm_OBJECTS = \
 "CMakeFiles/ut_comm.dir/test/ut_comm.cc.o" \
-"CMakeFiles/ut_comm.dir/src/CommManager.cc.o" \
 "CMakeFiles/ut_comm.dir/src/DCMotor.cc.o" \
 "CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o" \
 "CMakeFiles/ut_comm.dir/src/Encoder.cc.o" \
@@ -256,7 +241,6 @@ ut_comm_OBJECTS = \
 ut_comm_EXTERNAL_OBJECTS =
 
 ut_comm: CMakeFiles/ut_comm.dir/test/ut_comm.cc.o
-ut_comm: CMakeFiles/ut_comm.dir/src/CommManager.cc.o
 ut_comm: CMakeFiles/ut_comm.dir/src/DCMotor.cc.o
 ut_comm: CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o
 ut_comm: CMakeFiles/ut_comm.dir/src/Encoder.cc.o
@@ -272,7 +256,7 @@ ut_comm: /usr/local/lib/libgtest.a
 ut_comm: /usr/local/lib/libgtest_main.a
 ut_comm: /usr/local/lib/libgtest.a
 ut_comm: CMakeFiles/ut_comm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable ut_comm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ut_comm"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ut_comm.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

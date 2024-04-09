@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ut_driver.dir/src/CommManager.cc.o"
-  "CMakeFiles/ut_driver.dir/src/CommManager.cc.o.d"
   "CMakeFiles/ut_driver.dir/src/DCMotor.cc.o"
   "CMakeFiles/ut_driver.dir/src/DCMotor.cc.o.d"
   "CMakeFiles/ut_driver.dir/src/DistanceSensor.cc.o"

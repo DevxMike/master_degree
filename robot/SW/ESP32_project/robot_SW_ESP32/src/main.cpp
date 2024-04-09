@@ -4,28 +4,49 @@
 #include "global_defines.h"
 #include "array.h"
 #include <initializer_list>
-// put function declarations here:
+#include "stack.h"
 
-// static Comm::WiFiManager<String> wifiMgr(
-//   "M&N", "+q48uvdETJsT7c", WiFi
-// );
 WiFiClient espClient;
+custom::stack<constants::types::job_t, constants::jobStackDepth> jobStack;
 
 void MQTTcallback(char* topic, byte* payload, unsigned int length){
-  Serial.print("Received message on topic: \"");
-  Serial.print(topic);
-  Serial.println("\"");
+  using constants::types::mapping::topic_mapping;
 
-  for(unsigned int i = 0; i < length; ++i){
-    Serial.print((char)payload[i]);
+  String tmp{ topic };
+  constants::types::job_t job;
+
+  if(tmp == constants::topicsArray[topic_mapping::debugInfo]){
+    job.cback = [&](const String& s){
+      Serial.println("cback 1");
+      Serial.println(s);
+    };
+  }
+  else if(tmp == constants::topicsArray[topic_mapping::request]){
+    job.cback = [&](const String& s){
+      Serial.println("cback 2");
+      Serial.println(s);
+    };
   }
 
-  Serial.println("");
+  job.payload = String("");
+
+  for(unsigned int i = 0; i < length; ++i){
+    job.payload += (char)payload[i];
+  }
+
+  jobStack.push(std::move(job));
 }
 
-static Comm::MQTT::CommManager<String, 1> commMgr(
+
+
+static Comm::MQTT::CommManager<String, constants::subscribedTopics> commMgr(
   Comm::WiFiManager<String>("M&N", "+q48uvdETJsT7c", WiFi), 
-  "", "mqtt-dashboard.com", "", espClient, std::array<String, 1>{{ "robot/debug/input" }} , MQTTcallback
+  "", 
+  "mqtt-dashboard.com", 
+  "", 
+  espClient, 
+  std::array<String, constants::subscribedTopics>{ constants::topicsArray }, 
+  MQTTcallback
 );
 
 
@@ -55,4 +76,9 @@ void setup() {
 
 void loop() {
   commMgr.poolCommManager();
+  
+  while(!jobStack.empty()){
+    auto job = jobStack.pop();
+    job.cback(job.payload);
+  }
 }

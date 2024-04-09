@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/CommManager.cc" "CMakeFiles/ut_comm.dir/src/CommManager.cc.o" "gcc" "CMakeFiles/ut_comm.dir/src/CommManager.cc.o.d"
   "/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/DCMotor.cc" "CMakeFiles/ut_comm.dir/src/DCMotor.cc.o" "gcc" "CMakeFiles/ut_comm.dir/src/DCMotor.cc.o.d"
   "/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/DistanceSensor.cc" "CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o" "gcc" "CMakeFiles/ut_comm.dir/src/DistanceSensor.cc.o.d"
   "/home/michael/Documents/dev/master/master_degree/robot/SW/robot_software/src/Encoder.cc" "CMakeFiles/ut_comm.dir/src/Encoder.cc.o" "gcc" "CMakeFiles/ut_comm.dir/src/Encoder.cc.o.d"
