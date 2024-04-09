@@ -5,9 +5,11 @@
 #include "array.h"
 #include <initializer_list>
 #include "stack.h"
+#include "DistanceSensor.h"
 
 WiFiClient espClient;
 custom::stack<constants::types::job_t, constants::jobStackDepth> jobStack;
+
 
 void MQTTcallback(char* topic, byte* payload, unsigned int length){
   using constants::types::mapping::topic_mapping;
@@ -49,6 +51,7 @@ static Comm::MQTT::CommManager<String, constants::subscribedTopics> commMgr(
   MQTTcallback
 );
 
+static Sensor::DistanceSensor rear{ constants::echoRear, constants::triggerRear };
 
 void setup() {
   // // put your setup code here, to run once:
@@ -72,13 +75,28 @@ void setup() {
   );
 #endif
 
+  rear.init();
 }
 
 void loop() {
+  static unsigned long sensorTimer;
+
   commMgr.poolCommManager();
   
   while(!jobStack.empty()){
     auto job = jobStack.pop();
     job.cback(job.payload);
+  }
+
+  rear.poolSensor();
+
+  if(millis() - sensorTimer > 500){
+    using dst_type = Sensor::DistanceSensor::reading_t;
+    auto reading = *(static_cast<const dst_type*>(rear.getReadings()));
+
+    Serial.print("Measured distance rear: ");
+    Serial.println(reading);
+    
+    sensorTimer = millis();
   }
 }

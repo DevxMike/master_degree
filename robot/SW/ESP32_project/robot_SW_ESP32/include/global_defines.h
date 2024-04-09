@@ -12,6 +12,11 @@ namespace constants{
     constexpr uint32_t subscribedTopics = 2;
     constexpr uint32_t jobStackDepth = 10;
 
+    constexpr uint8_t triggerRear = 13;
+    constexpr uint8_t echoRear = 18;
+
+    constexpr float soundSpeed = 0.034; // cm/uS
+
     // cant make constexpr because String is not constexpr
     const std::array<String, subscribedTopics> topicsArray{
         { "robot/debug/input", "robot/request" }
