@@ -6,10 +6,26 @@
 #include <initializer_list>
 #include "stack.h"
 #include "DistanceSensor.h"
+#include "MotorManager.h"
+#include "ArduinoJson.h"
 
 WiFiClient espClient;
 custom::stack<constants::types::job_t, constants::jobStackDepth> jobStack;
 
+uint32_t mapper(uint32_t v){
+  return static_cast<uint32_t>(
+    v * 0.01 * (std::pow(2, constants::motorPWMResolution) - 1)
+  );
+}
+
+static Motor::DCMotor motorLeft{ mapper, constants::outputsLeft };
+static Motor::DCMotor motorRight{ mapper, constants::outputsRight };
+
+static Motor::MotorManager motorManager{ 
+  Motor::MotorManager::motor_array{{
+      &motorLeft, &motorRight
+    }} 
+  };
 
 void MQTTcallback(char* topic, byte* payload, unsigned int length){
   using constants::types::mapping::topic_mapping;
@@ -21,11 +37,30 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length){
     job.cback = [&](const String& s){
       Serial.println("cback 1");
       Serial.println(s);
+
+      // motorManager.setSpeed({{ 70, 70 }});
     };
   }
   else if(tmp == constants::topicsArray[topic_mapping::request]){
     job.cback = [&](const String& s){
       Serial.println("cback 2");
+      Serial.println(s);
+
+      // motorManager.setSpeed({{ 0, 0 }});
+    };
+  }
+  else if(tmp == constants::topicsArray[topic_mapping::setMotors]){
+    job.cback = [&](const String& s){
+      StaticJsonBuffer<100> JSONBuffer; 
+      JsonObject& parsed = JSONBuffer.parseObject(s);
+      
+      if(parsed.success()){
+        int32_t left = parsed["left"];
+        int32_t right = parsed["right"];
+
+        motorManager.setSpeed(Motor::MotorManager::speed_array{{ left, right }});
+      }
+
       Serial.println(s);
     };
   }
@@ -76,6 +111,8 @@ void setup() {
 #endif
 
   rear.init();
+
+  motorManager.init();
 }
 
 void loop() {
@@ -88,14 +125,27 @@ void loop() {
     job.cback(job.payload);
   }
 
-  rear.poolSensor();
+  // rear.poolSensor();
 
-  if(millis() - sensorTimer > 500){
-    using dst_type = Sensor::DistanceSensor::reading_t;
-    auto reading = *(static_cast<const dst_type*>(rear.getReadings()));
+  if(millis() - sensorTimer > 100){
+    // using dst_type = Sensor::DistanceSensor::reading_t;
+    // auto reading = *(static_cast<const dst_type*>(rear.getReadings()));
 
-    Serial.print("Measured distance rear: ");
-    Serial.println(reading);
+    // auto tmp1 = motorManager.DesiredSpeed();
+    motorManager.poolMotors();
+
+    // for(const auto& d: (*tmp1)){
+    //   Serial.print("desired: ");
+    //   Serial.println(d);
+    // }
+
+    // auto tmp2 = motorManager.CurrentSpeed();
+    // for(const auto& d: (*tmp1)){
+    //   Serial.print("current: ");
+    //   Serial.println(d);
+    // }
+
+    // Serial.println(reading);
     
     sensorTimer = millis();
   }

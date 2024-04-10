@@ -3,6 +3,7 @@
 
 #include "DCMotor.h"
 #include "array.h"
+#include <array>
 
 namespace Motor{
 
@@ -13,8 +14,8 @@ constexpr float inertia_coef = 0.9f;
 
 class MotorManager{
 public:
-    using motor_array = custom::array<IDCMotor*, motor_num>;
-    using speed_array = custom::array<int32_t, motor_num>; 
+    using motor_array = std::array<IDCMotor*, motor_num>;
+    using speed_array = std::array<int32_t, motor_num>; 
 
     void init() noexcept;
     void setSpeed(const speed_array& speeds) noexcept;
@@ -27,9 +28,9 @@ public:
 
 private:
     float m_inertiaCoef;
-    custom::array<IDCMotor*, motor_num> motors;
-    custom::array<int32_t, motor_num> desired_speed;
-    custom::array<int32_t, motor_num> current_speed;
+    std::array<IDCMotor*, motor_num> motors;
+    std::array<int32_t, motor_num> desired_speed;
+    std::array<int32_t, motor_num> current_speed;
 };
 
 }
