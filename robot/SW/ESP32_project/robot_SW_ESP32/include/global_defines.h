@@ -56,6 +56,8 @@ namespace constants{
 
     constexpr uint8_t enc1A = 15;
     constexpr uint8_t enc1B = 2;
+    constexpr uint8_t enc2A = 0;
+    constexpr uint8_t enc2B = 4;
 
 namespace types{
     struct job_t{

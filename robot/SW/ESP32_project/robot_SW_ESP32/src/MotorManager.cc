@@ -1,4 +1,5 @@
 #include "../include/MotorManager.h"
+#include "Arduino.h"
 
 namespace Motor{
 
@@ -40,6 +41,7 @@ void MotorManager::poolMotors() noexcept{
     static uint8_t state{ update_speed };
     auto x = m_inertiaCoef;
     auto y = 1.0f - m_inertiaCoef;
+    static unsigned long timer;
 
     switch(state){
     case update_speed:
@@ -48,12 +50,14 @@ void MotorManager::poolMotors() noexcept{
             motors[i]->setSpeed(current_speed[i]);
         }
 
+        timer = millis();
         state = timeout;
     break;
 
     case timeout:
-        // TBD
-        state = update_speed;
+        if(millis() - timer > 50){
+            state = update_speed;
+        }
     break;
     }
 }

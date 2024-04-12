@@ -94,6 +94,11 @@ static Sensor::Encoder encoderLeft{
   Sensor::Encoder::Instance::ENC0
 };
 
+static Sensor::Encoder encoderRight{
+  constants::enc2A, constants::enc2B,
+  Sensor::Encoder::Instance::ENC1
+};
+
 void setup() {
   // // put your setup code here, to run once:
   Serial.begin(9600);
@@ -118,6 +123,7 @@ void setup() {
 
   rear.init();
   encoderLeft.init();
+  encoderRight.init();
 
   motorManager.init();
 }
@@ -126,6 +132,7 @@ void loop() {
   static unsigned long sensorTimer;
 
   commMgr.poolCommManager();
+  motorManager.poolMotors();
   
   while(!jobStack.empty()){
     auto job = jobStack.pop();
@@ -134,12 +141,12 @@ void loop() {
 
   // rear.poolSensor();
 
-  if(millis() - sensorTimer > 100){
+  if(millis() - sensorTimer > 500){
     // using dst_type = Sensor::DistanceSensor::reading_t;
     // auto reading = *(static_cast<const dst_type*>(rear.getReadings()));
 
     // auto tmp1 = motorManager.DesiredSpeed();
-    motorManager.poolMotors();
+    
 
     // for(const auto& d: (*tmp1)){
     //   Serial.print("desired: ");
@@ -155,10 +162,14 @@ void loop() {
     // Serial.println(reading);
     
     sensorTimer = millis();
-    auto reading = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
+    auto reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
+    auto reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
 #if ENCODER_DEBUG
-    Serial.print("enc: ");
-    Serial.println(*reading);
+    Serial.print("enc left: ");
+    Serial.println(*reading1);
+
+    Serial.print("enc right: ");
+    Serial.println(*reading2);
 #endif
   }
 }
