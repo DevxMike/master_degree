@@ -4,6 +4,7 @@
 #define WIFI_DEBUG 1
 #define MQTT_DEBUG 1
 #define MOTOR_DEBUG 0
+#define ENCODER_DEBUG 1
 
 #include "Arduino.h"
 #include <array>
@@ -52,6 +53,9 @@ namespace constants{
         .frequency = motorPWMFrequency,
         .pwm_resolution = motorPWMResolution
     };
+
+    constexpr uint8_t enc1A = 15;
+    constexpr uint8_t enc1B = 2;
 
 namespace types{
     struct job_t{

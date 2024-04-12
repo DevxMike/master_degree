@@ -8,6 +8,7 @@
 #include "DistanceSensor.h"
 #include "MotorManager.h"
 #include "ArduinoJson.h"
+#include "Encoder.h"
 
 WiFiClient espClient;
 custom::stack<constants::types::job_t, constants::jobStackDepth> jobStack;
@@ -88,6 +89,11 @@ static Comm::MQTT::CommManager<String, constants::subscribedTopics> commMgr(
 
 static Sensor::DistanceSensor rear{ constants::echoRear, constants::triggerRear };
 
+static Sensor::Encoder encoderLeft{
+  constants::enc1A, constants::enc1B,
+  Sensor::Encoder::Instance::ENC0
+};
+
 void setup() {
   // // put your setup code here, to run once:
   Serial.begin(9600);
@@ -111,6 +117,7 @@ void setup() {
 #endif
 
   rear.init();
+  encoderLeft.init();
 
   motorManager.init();
 }
@@ -148,5 +155,10 @@ void loop() {
     // Serial.println(reading);
     
     sensorTimer = millis();
+    auto reading = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
+#if ENCODER_DEBUG
+    Serial.print("enc: ");
+    Serial.println(*reading);
+#endif
   }
 }
