@@ -10,6 +10,7 @@
 #include <array>
 #include <functional>
 #include "DCMotor.h"
+#include "stack.h"
 
 namespace constants{
 
@@ -19,6 +20,12 @@ namespace sensor{
 }
 
 namespace comm{
+    constexpr const char* SSID = "M&N";
+    constexpr const char* WiFiPassword = "+q48uvdETJsT7c";
+    constexpr const char* MQTTBroker = "mqtt-dashboard.com";
+    constexpr const char* MQTTPass = "";
+    constexpr const char* MQTTUname = "";
+    
     constexpr uint32_t subscribedTopics = 3;
     constexpr uint32_t jobStackDepth = 10;
 
@@ -27,10 +34,13 @@ namespace comm{
     };
 
 namespace types{
+
     struct job_t{
         std::function<void(const String&)> cback;
         String payload;
     };
+
+    using job_stack_t = custom::stack<constants::comm::types::job_t, constants::comm::jobStackDepth>;
 
     enum topic_mapping : uint32_t{
         debugInfo = 0,
@@ -41,6 +51,7 @@ namespace types{
 }
 
 namespace motors{
+    constexpr float inertia_coef = 0.7f;
     constexpr uint8_t enAPin = 12;
     constexpr uint8_t enBPin = 14;
     constexpr uint8_t in1Pin = 27;
