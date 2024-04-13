@@ -38,16 +38,12 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length){
     job.cback = [&](const String& s){
       Serial.println("cback 1");
       Serial.println(s);
-
-      // motorManager.setSpeed({{ 70, 70 }});
     };
   }
   else if(tmp == constants::comm::topicsArray[topic_mapping::request]){
     job.cback = [&](const String& s){
       Serial.println("cback 2");
       Serial.println(s);
-
-      // motorManager.setSpeed({{ 0, 0 }});
     };
   }
   else if(tmp == constants::comm::topicsArray[topic_mapping::setMotors]){
