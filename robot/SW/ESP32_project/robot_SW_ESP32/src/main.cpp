@@ -11,30 +11,30 @@
 #include "Encoder.h"
 
 WiFiClient espClient;
-custom::stack<constants::types::job_t, constants::jobStackDepth> jobStack;
+custom::stack<constants::comm::types::job_t, constants::comm::jobStackDepth> jobStack;
 
 uint32_t mapper(uint32_t v){
   return static_cast<uint32_t>(
-    v * 0.01 * (std::pow(2, constants::motorPWMResolution) - 1)
+    v * 0.01 * (std::pow(2, constants::motors::motorPWMResolution) - 1)
   );
 }
 
-static Motor::DCMotor motorLeft{ mapper, constants::outputsLeft };
-static Motor::DCMotor motorRight{ mapper, constants::outputsRight };
+static Motor::DCMotor motorLeft{ mapper, constants::motors::outputsLeft };
+static Motor::DCMotor motorRight{ mapper, constants::motors::outputsRight };
 
 static Motor::MotorManager motorManager{ 
   Motor::MotorManager::motor_array{{
       &motorLeft, &motorRight
-    }} 
+    }}, 0.7f 
   };
 
 void MQTTcallback(char* topic, byte* payload, unsigned int length){
-  using constants::types::mapping::topic_mapping;
+  using constants::comm::types::topic_mapping;
 
   String tmp{ topic };
-  constants::types::job_t job;
+  constants::comm::types::job_t job;
 
-  if(tmp == constants::topicsArray[topic_mapping::debugInfo]){
+  if(tmp == constants::comm::topicsArray[topic_mapping::debugInfo]){
     job.cback = [&](const String& s){
       Serial.println("cback 1");
       Serial.println(s);
@@ -42,7 +42,7 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length){
       // motorManager.setSpeed({{ 70, 70 }});
     };
   }
-  else if(tmp == constants::topicsArray[topic_mapping::request]){
+  else if(tmp == constants::comm::topicsArray[topic_mapping::request]){
     job.cback = [&](const String& s){
       Serial.println("cback 2");
       Serial.println(s);
@@ -50,7 +50,7 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length){
       // motorManager.setSpeed({{ 0, 0 }});
     };
   }
-  else if(tmp == constants::topicsArray[topic_mapping::setMotors]){
+  else if(tmp == constants::comm::topicsArray[topic_mapping::setMotors]){
     job.cback = [&](const String& s){
       StaticJsonBuffer<100> JSONBuffer; 
       JsonObject& parsed = JSONBuffer.parseObject(s);
@@ -77,25 +77,25 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length){
 
 
 
-static Comm::MQTT::CommManager<String, constants::subscribedTopics> commMgr(
+static Comm::MQTT::CommManager<String, constants::comm::subscribedTopics> commMgr(
   Comm::WiFiManager<String>("M&N", "+q48uvdETJsT7c", WiFi), 
   "", 
   "mqtt-dashboard.com", 
   "", 
   espClient, 
-  std::array<String, constants::subscribedTopics>{ constants::topicsArray }, 
+  std::array<String, constants::comm::subscribedTopics>{ constants::comm::topicsArray }, 
   MQTTcallback
 );
 
-static Sensor::DistanceSensor rear{ constants::echoRear, constants::triggerRear };
+static Sensor::DistanceSensor rear{ constants::sensor::echoRear, constants::sensor::triggerRear };
 
 static Sensor::Encoder encoderLeft{
-  constants::enc1A, constants::enc1B,
+  constants::motors::enc1A, constants::motors::enc1B,
   Sensor::Encoder::Instance::ENC0
 };
 
 static Sensor::Encoder encoderRight{
-  constants::enc2A, constants::enc2B,
+  constants::motors::enc2A, constants::motors::enc2B,
   Sensor::Encoder::Instance::ENC1
 };
 

@@ -12,19 +12,35 @@
 #include "DCMotor.h"
 
 namespace constants{
+
+namespace sensor{
+    constexpr uint8_t triggerRear = 13;
+    constexpr uint8_t echoRear = 18;
+}
+
+namespace comm{
     constexpr uint32_t subscribedTopics = 3;
     constexpr uint32_t jobStackDepth = 10;
 
-    constexpr uint8_t triggerRear = 13;
-    constexpr uint8_t echoRear = 18;
-
-    constexpr float soundSpeed = 0.034; // cm/uS
-
-    // cant make constexpr because String is not constexpr
     const std::array<String, subscribedTopics> topicsArray{
         { "robot/debug/input", "robot/request", "robot/set/motors" }
     };
 
+namespace types{
+    struct job_t{
+        std::function<void(const String&)> cback;
+        String payload;
+    };
+
+    enum topic_mapping : uint32_t{
+        debugInfo = 0,
+        request,
+        setMotors
+    };
+}
+}
+
+namespace motors{
     constexpr uint8_t enAPin = 12;
     constexpr uint8_t enBPin = 14;
     constexpr uint8_t in1Pin = 27;
@@ -58,21 +74,11 @@ namespace constants{
     constexpr uint8_t enc1B = 2;
     constexpr uint8_t enc2A = 0;
     constexpr uint8_t enc2B = 4;
-
-namespace types{
-    struct job_t{
-        std::function<void(const String&)> cback;
-        String payload;
-    };
-
-namespace mapping{
-    enum topic_mapping : uint32_t{
-        debugInfo = 0,
-        request,
-        setMotors
-    };
 }
-}
+
+    constexpr float soundSpeed = 0.034; // cm/uS
+
+    // cant make constexpr because String is not constexpr
 }
 
 #endif
