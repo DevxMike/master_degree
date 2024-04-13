@@ -51,6 +51,7 @@ namespace types{
 }
 
 namespace motors{
+    constexpr uint32_t impulsesPerRotation = 1920;
     constexpr float inertia_coef = 0.7f;
     constexpr uint8_t enAPin = 12;
     constexpr uint8_t enBPin = 14;
