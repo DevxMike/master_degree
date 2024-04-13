@@ -43,6 +43,11 @@ Each directory contains specific instructions and documentation regarding its us
     robot: to run unit tests you will need
         - cmake 3.10 or higher
         - GTest library
+    arduino software (required libraries):
+        - ArduinoJson
+        - String (Arduino)
+        - PubSubClient    
+        - internal arduino libs for use of digital I/O, ext INT or PWM 
 
     ROS2 system: 
 	TBD
