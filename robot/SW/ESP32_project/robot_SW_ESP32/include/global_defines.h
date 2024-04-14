@@ -13,6 +13,7 @@
 #include "stack.h"
 
 namespace constants{
+    constexpr uint8_t defaultResolution = 8;
 
 namespace sensor{
     constexpr uint8_t triggerRear = 13;
@@ -61,7 +62,7 @@ namespace motors{
     constexpr uint8_t in4Pin = 33;
     constexpr uint8_t motorAChannel = 0;
     constexpr uint8_t motorBChannel = 2;
-    constexpr uint8_t motorPWMResolution = 8;
+    constexpr uint8_t motorPWMResolution = defaultResolution;
     constexpr uint32_t motorPWMFrequency = 1000;
     
     constexpr Motor::DCMotor::outputs outputsLeft{
