@@ -19,14 +19,14 @@ void Kernel::main(){
 
   // rear.poolSensor();
 
-  if(millis() - sensorTimer >= static_cast<uint32_t>(pid.Sampling() * 1000) && start_experiment){
+  if(millis() - sensorTimer >= static_cast<uint32_t>(constants::experiment::samplingTime * 1000) && start_experiment){
     auto leftV = motorManager.DesiredSpeed()->at(0);
     sensorTimer = millis();
     auto reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
     auto reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
 
-    auto angLeft = (*reading1) / pid.Sampling();
-    auto angRight = (*reading2) / pid.Sampling();
+    auto angLeft = (*reading1) / constants::experiment::samplingTime;
+    auto angRight = (*reading2) / constants::experiment::samplingTime;
 
     angularVelocityLeft = angularVelocityLeft * 0.8 + angLeft * 0.2;
     angularVelocityRight = angularVelocityRight * 0.8 + angRight * 0.2;
@@ -43,7 +43,14 @@ void Kernel::main(){
     //   logTimer = millis();
     // }
 
-    String payload = "{ \"id\" : " + String(counter++) + ", \"error\" :" + String(angularVelocityLeft - angularVelocityRight) + " }";
+    String payload = 
+      "{ \"id\" : " 
+      + String(counter++) 
+      + ", \"target\" :" 
+      + String(angularVelocityLeft) 
+      + ", \"actual\" : "
+      + String(angularVelocityRight) 
+      + " }";
 
     commMgr.sendMessage(
       Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
@@ -96,9 +103,9 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
          float Kp = parsed["Kp"];
          float Ti = parsed["Ti"];
          float Td = parsed["Td"];
-         float Ts = parsed["Ts"];
+        //  float Ts = parsed["Ts"];
 
-         pid.reinit(Kp, Ti, Td, Ts);
+         pid.reinit(Kp, Ti, Td, constants::experiment::samplingTime);
       }
     };
   }

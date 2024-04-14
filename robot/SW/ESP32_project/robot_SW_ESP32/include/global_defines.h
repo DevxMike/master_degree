@@ -15,7 +15,7 @@
 
 namespace constants{
 namespace experiment{
-    constexpr float samplingTime = 0.005;
+    constexpr float samplingTime = 0.01;
 }
 
     constexpr uint8_t defaultResolution = 8;
