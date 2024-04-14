@@ -1,7 +1,13 @@
 #include "driver.h"
+#include "pid.h"
+
+static bool start_experiment = false;
+static float angularVelocityLeft = 0.0f;
+static float angularVelocityRight = 0.0f;
+
 
 void Kernel::main(){
-      static unsigned long sensorTimer;
+      static unsigned long sensorTimer, logTimer;
 
   commMgr.poolCommManager();
   motorManager.poolMotors();
@@ -13,36 +19,32 @@ void Kernel::main(){
 
   // rear.poolSensor();
 
-  if(millis() - sensorTimer > 500){
-    // using dst_type = Sensor::DistanceSensor::reading_t;
-    // auto reading = *(static_cast<const dst_type*>(rear.getReadings()));
-
-    // auto tmp1 = motorManager.DesiredSpeed();
-    
-
-    // for(const auto& d: (*tmp1)){
-    //   Serial.print("desired: ");
-    //   Serial.println(d);
-    // }
-
-    // auto tmp2 = motorManager.CurrentSpeed();
-    // for(const auto& d: (*tmp1)){
-    //   Serial.print("current: ");
-    //   Serial.println(d);
-    // }
-
-    // Serial.println(reading);
-    
+  if(millis() - sensorTimer >= static_cast<uint32_t>(pid.Sampling() * 1000) && start_experiment){
+    auto leftV = motorManager.DesiredSpeed()->at(0);
     sensorTimer = millis();
     auto reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
     auto reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
-#if ENCODER_DEBUG
-    Serial.print("enc left: ");
-    Serial.println(*reading1);
 
-    Serial.print("enc right: ");
-    Serial.println(*reading2);
-#endif
+    auto angLeft = (*reading1) / pid.Sampling();
+    auto angRight = (*reading2) / pid.Sampling();
+
+    angularVelocityLeft = angularVelocityLeft * 0.8 + angLeft * 0.2;
+    angularVelocityRight = angularVelocityRight * 0.8 + angRight * 0.2;
+
+    auto rightV = pid.getOutput(angularVelocityRight, angularVelocityLeft);
+
+    motorManager.setSpeed({{ leftV, rightV }});
+
+    if(millis() - logTimer > 500){
+      Serial.print("Angular left: ");
+      Serial.print(angularVelocityLeft);
+      Serial.print(", Angular right: ");
+      Serial.println(angularVelocityRight);
+      logTimer = millis();
+    }
+
+    encoderLeft.reset();
+    encoderRight.reset();
   }
 }
 
@@ -82,14 +84,23 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
 
   if(tmp == constants::comm::topicsArray[topic_mapping::debugInfo]){
     job.cback = [&](const String& s){
-      Serial.println("cback 1");
-      Serial.println(s);
+      StaticJsonBuffer<200> JSONBuffer; 
+      JsonObject& parsed = JSONBuffer.parseObject(s);
+      if(parsed.success()){
+         float Kp = parsed["Kp"];
+         float Ti = parsed["Ti"];
+         float Td = parsed["Td"];
+         float Ts = parsed["Ts"];
+
+         pid.reinit(Kp, Ti, Td, Ts);
+      }
     };
   }
   else if(tmp == constants::comm::topicsArray[topic_mapping::request]){
     job.cback = [&](const String& s){
       Serial.println("cback 2");
       Serial.println(s);
+      start_experiment = false;
     };
   }
   else if(tmp == constants::comm::topicsArray[topic_mapping::setMotors]){
@@ -100,7 +111,8 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
       if(parsed.success()){
         int32_t left = parsed["left"];
         int32_t right = parsed["right"];
-
+        start_experiment = true;
+        angularVelocityLeft = angularVelocityRight = 0.0f;
         motorManager.setSpeed(Motor::MotorManager::speed_array{{ left, right }});
       }
 

@@ -11,8 +11,13 @@
 #include <functional>
 #include "DCMotor.h"
 #include "stack.h"
+#include "pid.h"
 
 namespace constants{
+namespace experiment{
+    constexpr float samplingTime = 0.005;
+}
+
     constexpr uint8_t defaultResolution = 8;
 
 namespace sensor{
@@ -31,7 +36,7 @@ namespace comm{
     constexpr uint32_t jobStackDepth = 10;
 
     const std::array<String, subscribedTopics> topicsArray{
-        { "robot/debug/input", "robot/request", "robot/set/motors" }
+        { "robot/set/pid", "robot/request", "robot/set/motors" }
     };
 
 namespace types{
@@ -87,6 +92,10 @@ namespace motors{
     constexpr uint8_t enc1B = 2;
     constexpr uint8_t enc2A = 0;
     constexpr uint8_t enc2B = 4;
+
+namespace types{
+    using motor_pid = pid<float, int32_t, Motor::max_absolute_v, -Motor::max_absolute_v, 1000, -1000>;
+}
 }
 
     constexpr float soundSpeed = 0.034; // cm/uS

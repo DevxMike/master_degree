@@ -12,6 +12,7 @@
 #include "MotorManager.h"
 #include "ArduinoJson.h"
 #include "Encoder.h"
+#include "global_defines.h"
 
 class Kernel{
 public:
@@ -23,6 +24,7 @@ private:
     static Motor::DCMotor motorRight;
     static Motor::MotorManager motorManager;
     static uint32_t mapper(uint32_t);
+    static constants::motors::types::motor_pid pid;
 
     /* communications management */
     static constants::comm::types::job_stack_t jobStack;
