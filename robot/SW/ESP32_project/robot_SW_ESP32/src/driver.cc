@@ -4,7 +4,7 @@
 static bool start_experiment = false;
 static float angularVelocityLeft = 0.0f;
 static float angularVelocityRight = 0.0f;
-
+static uint32_t counter = 0;
 
 void Kernel::main(){
       static unsigned long sensorTimer, logTimer;
@@ -35,13 +35,19 @@ void Kernel::main(){
 
     motorManager.setSpeed({{ leftV, rightV }});
 
-    if(millis() - logTimer > 500){
-      Serial.print("Angular left: ");
-      Serial.print(angularVelocityLeft);
-      Serial.print(", Angular right: ");
-      Serial.println(angularVelocityRight);
-      logTimer = millis();
-    }
+    // if(millis() - logTimer > 500){
+    //   Serial.print("Angular left: ");
+    //   Serial.print(angularVelocityLeft);
+    //   Serial.print(", Angular right: ");
+    //   Serial.println(angularVelocityRight);
+    //   logTimer = millis();
+    // }
+
+    String payload = "{ \"id\" : " + String(counter++) + ", \"error\" :" + String(angularVelocityLeft - angularVelocityRight) + " }";
+
+    commMgr.sendMessage(
+      Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
+    );
 
     encoderLeft.reset();
     encoderRight.reset();
@@ -112,6 +118,7 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
         int32_t left = parsed["left"];
         int32_t right = parsed["right"];
         start_experiment = true;
+        counter = 0;
         angularVelocityLeft = angularVelocityRight = 0.0f;
         motorManager.setSpeed(Motor::MotorManager::speed_array{{ left, right }});
       }
