@@ -71,7 +71,10 @@ def calculate_errors(logs):
         if relative_error < 2:  # Możesz dostosować wartość graniczną według potrzeb
             settling_time = i * sampling_time
             settling_times.append(settling_time)
-
+    
+    if(len(settling_times) == 0):
+        return 500000, 500000
+    
     mean_error = sum(absolute_errors) / len(absolute_errors)
     mean_relative_error = sum(relative_errors) / len(relative_errors)
     rmse_error = math.sqrt(sum([(error ** 2) for error in absolute_errors]) / len(absolute_errors))
@@ -96,8 +99,8 @@ def fitness_func(ga_instance, solution, solution_idx):
 
 # Funkcja zapisująca najlepszego osobnika do pliku
 def save_best_solution(ga_instance, experiment_num):
-    best_solution = ga_instance.best_solution()
-    best_fitness = best_solution[1]
+    best_solution = ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)
+    best_fitness = ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)[1]
     generation_num = ga_instance.generations_completed
     filename = f"best_solution_experiment_{experiment_num}.txt"
     with open(filename, "a") as file:
@@ -108,7 +111,6 @@ def save_best_solution(ga_instance, experiment_num):
 def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mating, mutation_prob, experiment_num):
     # Definicja problemu optymalizacyjnego
     num_genes = 3  # Liczba genów w chromosomie (liczba parametrów PID)
-    gene_space = [{'low': 0, 'high': 50}]*num_genes  # Przestrzeń poszukiwań dla każdego parametru PID
 
     on_generation = lambda x: save_best_solution(x, experiment_num)
     # Inicjalizacja obiektu problemu
@@ -116,22 +118,36 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
                            num_parents_mating=num_parents_mating,
                            sol_per_pop=pop_size,
                            num_genes=num_genes,
-                           gene_space=gene_space,
+                           gene_space={'low': 0, 'high': 50},
                            crossover_probability=crossover_prob,
                            mutation_percent_genes='default',
                            mutation_probability=mutation_prob,
+                           mutation_by_replacement=True,
+                           K_tournament=num_parents_mating,
                            fitness_func=fitness_func,
-                           on_generation=on_generation)
+                           on_generation=on_generation,
+                           mutation_type='scramble',
+                           crossover_type="uniform",
+                           parent_selection_type='tournament',
+                           keep_parents=0,
+                           gene_type=float,
+                           random_mutation_min_val=10,
+                           random_mutation_max_val=40
+                           )
 
     # Uruchomienie algorytmu genetycznego
     ga_instance.run()
+    ga_instance.plot_fitness()
+    ga_instance.plot_genes()
+    ga_instance.plot_new_solution_rate()
+    
     best_solution = ga_instance.best_solution()
     return best_solution
 
 # Parametry eksperymentów
 experiments_params = [
-    {"pop_size": 25, "max_epochs": 100, "crossover_prob": 0.5, "num_parents_mating": 2, "mutation_prob": 0.02},
-    {"pop_size": 25, "max_epochs": 100, "crossover_prob": 0.33, "num_parents_mating": 5, "mutation_prob": 0.03}
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.50, "num_parents_mating": 2, "mutation_prob": 0.15},
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 5, "mutation_prob": 0.15}
 ]
 
 # Pętla przeprowadzająca eksperymenty
