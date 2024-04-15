@@ -56,10 +56,6 @@ public:
         }
     }
 
-    float Sampling() const noexcept{
-        return m_Ts;
-    }
-
 private:
     float m_Kp;
     float m_Ki;

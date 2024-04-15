@@ -5,7 +5,7 @@
 namespace Motor{
 
 
-constexpr int32_t max_absolute_v = 70;
+constexpr int32_t max_absolute_v = 90;
 constexpr int32_t epsilon_abs = 10;
 
 using map_function_type = uint32_t (*)(uint32_t);

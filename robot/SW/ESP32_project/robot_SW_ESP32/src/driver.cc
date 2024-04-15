@@ -25,23 +25,43 @@ void Kernel::main(){
     auto reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
     auto reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
 
-    auto angLeft = (*reading1) / constants::experiment::samplingTime;
-    auto angRight = (*reading2) / constants::experiment::samplingTime;
+    auto getAng = [&](int32_t numImpulses){
+      return 
+        (1.0f/constants::experiment::samplingTime)
+        * (static_cast<float>(numImpulses)/constants::motors::impulsesPerRotation)
+        * 2
+        * PI;
+    };
 
-    angularVelocityLeft = angularVelocityLeft * 0.8 + angLeft * 0.2;
-    angularVelocityRight = angularVelocityRight * 0.8 + angRight * 0.2;
+    auto angLeft = getAng(*reading1);
+    auto angRight = getAng(*reading2);
 
-    auto rightV = pid.getOutput(angularVelocityRight, angularVelocityLeft);
+    angularVelocityLeft = angularVelocityLeft * 0.7 + angLeft * 0.3;
+    angularVelocityRight = angularVelocityRight * 0.7 + angRight * 0.3;
+
+    // angularVelocityLeft = getAng(*reading1);
+    // angularVelocityRight = getAng(*reading2);
+
+    int32_t rightV;
+
+    if(leftV == 0){
+      rightV = 0;
+    }
+    else{
+      rightV = pid.getOutput(angularVelocityRight, angularVelocityLeft);
+    }
 
     motorManager.setSpeed({{ leftV, rightV }});
 
-    // if(millis() - logTimer > 500){
-    //   Serial.print("Angular left: ");
-    //   Serial.print(angularVelocityLeft);
-    //   Serial.print(", Angular right: ");
-    //   Serial.println(angularVelocityRight);
-    //   logTimer = millis();
-    // }
+    
+
+    if(millis() - logTimer > 500){
+      Serial.print("Angular left: ");
+      Serial.print(angularVelocityLeft);
+      Serial.print(", Angular right: ");
+      Serial.println(angularVelocityRight);
+      logTimer = millis();
+    }
 
     String payload = 
       "{ \"id\" : " 
@@ -104,6 +124,7 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
          float Ti = parsed["Ti"];
          float Td = parsed["Td"];
         //  float Ts = parsed["Ts"];
+         Serial.println("Changing pid coeffs");
 
          pid.reinit(Kp, Ti, Td, constants::experiment::samplingTime);
       }
