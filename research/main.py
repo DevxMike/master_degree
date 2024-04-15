@@ -123,8 +123,8 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
 
 # Parametry eksperymentów
 experiments_params = [
-    {"pop_size": 100, "max_epochs": 10000, "crossover_prob": 0.5, "num_parents_mating": 2, "mutation_prob": 0.02},
-    {"pop_size": 100, "max_epochs": 10000, "crossover_prob": 0.33, "num_parents_mating": 3, "mutation_prob": 0.03}
+    {"pop_size": 50, "max_epochs": 100, "crossover_prob": 0.5, "num_parents_mating": 2, "mutation_prob": 0.02},
+    {"pop_size": 50, "max_epochs": 100, "crossover_prob": 0.33, "num_parents_mating": 3, "mutation_prob": 0.03}
 ]
 
 # Pętla przeprowadzająca eksperymenty
