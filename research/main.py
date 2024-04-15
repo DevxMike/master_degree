@@ -14,7 +14,7 @@ MQTT_TOPIC_LOG = "robot/pid/log"
 MQTT_TOPIC_RESPONSE = "robot/request"
 
 # Połączenie z brokerem MQTT
-mqtt_client = mqtt.Client("PID_Controller")
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 mqtt_client.connect(MQTT_BROKER, MQTT_PORT)
 mqtt_client.subscribe(MQTT_TOPIC_LOG)
 
@@ -46,7 +46,7 @@ def run_experiment(Kp, Ti, Td):
     motors_speed = {"left": 0, "right": 0}
     send_mqtt_message(MQTT_TOPIC_MOTORS, motors_speed)
 
-    time.sleep(5)
+    time.sleep(2)
     
     send_mqtt_message(MQTT_TOPIC_RESPONSE, "")
 
@@ -97,7 +97,12 @@ def fitness_func(ga_instance, solution, solution_idx):
 # Funkcja zapisująca najlepszego osobnika do pliku
 def save_best_solution(ga_instance, experiment_num):
     best_solution = ga_instance.best_solution()
-    np.savetxt(f"best_solution_experiment_{experiment_num}.txt", best_solution)
+    best_fitness = best_solution[1]
+    generation_num = ga_instance.generations_completed
+    filename = f"best_solution_experiment_{experiment_num}.txt"
+    with open(filename, "a") as file:
+        file.write(f"Generation {generation_num}: Best solution: {best_solution}, Fitness: {best_fitness}\n")
+    print(f"Generation {generation_num} saved to {filename}")
 
 # Funkcja uruchamiająca algorytm genetyczny dla danego zestawu parametrów
 def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mating, mutation_prob, experiment_num):
@@ -105,6 +110,7 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
     num_genes = 3  # Liczba genów w chromosomie (liczba parametrów PID)
     gene_space = [{'low': 0, 'high': 50}]*num_genes  # Przestrzeń poszukiwań dla każdego parametru PID
 
+    on_generation = lambda x: save_best_solution(x, experiment_num)
     # Inicjalizacja obiektu problemu
     ga_instance = pygad.GA(num_generations=max_epochs,
                            num_parents_mating=num_parents_mating,
@@ -112,22 +118,23 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
                            num_genes=num_genes,
                            gene_space=gene_space,
                            crossover_probability=crossover_prob,
-                           mutation_percent_genes=mutation_prob,
-                           fitness_func=fitness_func)
-
-    # Ustawienie callbacka, który będzie wywoływany po zakończeniu każdej iteracji
-    ga_instance.run_iteration_callback = lambda x: save_best_solution(x, experiment_num)
+                           mutation_percent_genes='default',
+                           mutation_probability=mutation_prob,
+                           fitness_func=fitness_func,
+                           on_generation=on_generation)
 
     # Uruchomienie algorytmu genetycznego
     ga_instance.run()
+    best_solution = ga_instance.best_solution()
+    return best_solution
 
 # Parametry eksperymentów
 experiments_params = [
-    {"pop_size": 50, "max_epochs": 100, "crossover_prob": 0.5, "num_parents_mating": 2, "mutation_prob": 0.02},
-    {"pop_size": 50, "max_epochs": 100, "crossover_prob": 0.33, "num_parents_mating": 3, "mutation_prob": 0.03}
+    {"pop_size": 25, "max_epochs": 100, "crossover_prob": 0.5, "num_parents_mating": 2, "mutation_prob": 0.02},
+    {"pop_size": 25, "max_epochs": 100, "crossover_prob": 0.33, "num_parents_mating": 5, "mutation_prob": 0.03}
 ]
 
 # Pętla przeprowadzająca eksperymenty
 for i, params in enumerate(experiments_params):
-    run_genetic_algorithm(params["pop_size"], params["max_epochs"], params["crossover_prob"],
-                          params["num_parents_mating"], params["mutation_prob"], i+1)
+    print(run_genetic_algorithm(params["pop_size"], params["max_epochs"], params["crossover_prob"],
+                          params["num_parents_mating"], params["mutation_prob"], i+1))
