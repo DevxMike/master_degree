@@ -138,16 +138,14 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
     # Uruchomienie algorytmu genetycznego
     ga_instance.run()
     ga_instance.plot_fitness()
-    ga_instance.plot_genes()
-    ga_instance.plot_new_solution_rate()
     
     best_solution = ga_instance.best_solution()
     return best_solution
 
 # Parametry eksperymentów
 experiments_params = [
-    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.50, "num_parents_mating": 2, "mutation_prob": 0.15},
-    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 5, "mutation_prob": 0.15}
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 10, "mutation_prob": 0.4},
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 5, "mutation_prob": 0.4}
 ]
 
 # Pętla przeprowadzająca eksperymenty
