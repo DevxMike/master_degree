@@ -98,7 +98,7 @@ def save_best_solution(ga_instance, experiment_num):
     best_solution = ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)
     best_fitness = ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)[1]
     generation_num = ga_instance.generations_completed
-    filename = f"best_solution_experiment_{experiment_num}.txt"
+    filename = f"best_solution_experiment_{experiment_num}_mutation.txt"
     with open(filename, "a") as file:
         file.write(f"Generation {generation_num}: Best solution: {best_solution}, Fitness: {best_fitness}\n")
     print(f"Generation {generation_num} saved to {filename}")
@@ -139,8 +139,8 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
 
 # Parametry eksperymentów
 experiments_params = [
-    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 2, "mutation_prob": 0.15},
-    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 10, "mutation_prob": 0.15}
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 2, "mutation_prob": 0.30},
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 10, "mutation_prob": 0.30}
 ]
 
 # Pętla przeprowadzająca eksperymenty
