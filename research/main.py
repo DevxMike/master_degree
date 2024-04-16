@@ -58,25 +58,23 @@ def run_experiment(Kp, Ti, Td):
 def calculate_errors(logs):
     absolute_errors = []
     relative_errors = []
-    settling_times = []
-
-    sampling_time = 5
-
-    # print(logs)
 
     for i in range(len(logs)):
         measurement = logs[i]
         absolute_error = abs(measurement['target'] - measurement['actual'])
-        relative_error = (absolute_error / measurement['target']) * 100 if measurement['target'] != 0 else 0
+        
+        if measurement['target'] != 0:
+            relative_error = (absolute_error / measurement['target']) * 100
+        else:
+            if measurement['actual'] == 0:
+                relative_error = 0
+            else:
+                relative_error = float(100)  # Handle division by zero by setting relative error to infinity
+        
         absolute_errors.append(absolute_error)
         relative_errors.append(relative_error)
-        
-        # Sprawdzenie, czy wartość docelowa została osiągnięta
-        if relative_error < 2:  # Możesz dostosować wartość graniczną według potrzeb
-            settling_time = i * sampling_time
-            settling_times.append(settling_time)
 
-    mean_relative_error = sum(relative_errors) / len(relative_errors)
+    mean_relative_error = (sum(relative_errors) / len(relative_errors)) if(len(relative_errors)) != 0 else 10
 
     return mean_relative_error
 
@@ -92,7 +90,7 @@ def fitness_func(ga_instance, solution, solution_idx):
 
     # Im mniejsza wartość funkcji celu, tym lepsze parametry PID
     # W tym przypadku minimalizujemy błąd względny i czas osiągnięcia wartości docelowej
-    fitness = 1 / mean_relative_error
+    fitness = 1 / (mean_relative_error + 0.001)
     return fitness
 
 # Funkcja zapisująca najlepszego osobnika do pliku
@@ -120,7 +118,6 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
                            crossover_probability=crossover_prob,
                            mutation_percent_genes='default',
                            mutation_probability=mutation_prob,
-                           mutation_by_replacement=True,
                            K_tournament=num_parents_mating,
                            fitness_func=fitness_func,
                            on_generation=on_generation,
