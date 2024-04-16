@@ -37,11 +37,12 @@
 %%% promotor ze stopniami naukowymi po angielsku
 \supervisorEN{Dariusz Rzońca, dr. engineer}
 
-\abstract{Praca koncentruje się na badaniu różnych algorytmów nawigacyjnych z wykorzystaniem zbudowanego robota mobilnego, który został skonstruowany zgodnie z procedurami ASPICE. Celem jest ocena dokładności, szybkości wyznaczania trasy oraz ogólnej wydajności tych algorytmów. Badania obejmują również wpływ rodzaju algorytmu odometrii na dokładność nawigacji. Analiza wyników pozwoli wyciągnąć wnioski dotyczące skuteczności i efektywności badanych algorytmów nawigacyjnych. Dzięki zastosowaniu standardów ASPICE zapewniona została wysoka jakość procesu budowy robota, co umożliwia rzetelne i wiarygodne badania nad jego funkcjonalnością i algorytmami nawigacyjnymi.}
-\abstractEN{The work focuses on investigating different navigation algorithms using a built mobile robot that has been constructed according to ASPICE procedures. The aim is to evaluate the accuracy, routing speed and overall performance of these algorithms. The research also includes the influence of the type of odometry algorithm on navigation accuracy. Analysis of the results will allow conclusions to be drawn regarding the effectiveness and efficiency of the navigation algorithms under study. Through the use of ASPICE standards, the high quality of the robot's construction process is ensured, enabling reliable and credible research into its functionality and navigation algorithms.}
+\abstract{Praca koncentruje się na badaniu wybranych algorytmów nawigacyjnych oraz metod optymalizacji nastaw regulatorów PID z wykorzystaniem zbudowanego robota mobilnego, który został skonstruowany zgodnie z procedurami ASPICE. Celem jest ocena dokładności, szybkości wyznaczania trasy oraz ogólnej wydajności tych algorytmów. Badania obejmują również wpływ rodzaju algorytmu odometrii na dokładność nawigacji. Analiza wyników pozwoli wyciągnąć wnioski dotyczące skuteczności i efektywności badanych algorytmów nawigacyjnych. Dzięki zastosowaniu standardów ASPICE zapewniona została wysoka jakość procesu budowy robota, co umożliwia rzetelne i wiarygodne badania nad jego funkcjonalnością i algorytmami nawigacyjnymi.}
+\abstractEN{
+The work focuses on the study of selected navigation algorithms and methods for optimising PID controller settings using a built mobile robot that has been constructed according to ASPICE procedures. The aim is to evaluate the accuracy, routing speed and overall performance of these algorithms. The research also includes the influence of the type of odometry algorithm on navigation accuracy. Analysis of the results will allow conclusions to be drawn regarding the effectiveness and efficiency of the navigation algorithms studied. Through the use of ASPICE standards, the high quality of the robot construction process is ensured, enabling reliable and credible research into its functionality and navigation algorithms.}
 
-\keywords{Algorytmy nawigacyjne, Robot mobilny, Inżynieria, ASPICE, Badania}
-\keywordsEN{Navigation algorithms, Mobile robot, Engineering, ASPICE, Research}
+\keywords{Algorytmy nawigacyjne, Robot mobilny, Inżynieria, ASPICE, Machine Learning}
+\keywordsEN{Navigation algorithms, Mobile robot, Engineering, ASPICE, Machine Learning}
 
 
 \begin{document}
@@ -62,17 +63,21 @@
 
 
 \section{Wstęp}
-W dzisiejszych czasach, wraz z dynamicznym rozwojem technologii mobilnych, algorytmy nawigacyjne odgrywają kluczową rolę w różnorodnych aplikacjach, począwszy od systemów nawigacji GPS w samochodach po autonomiczne roboty poruszające się w różnych środowiskach. W niniejszej pracy skupimy się na badaniu algorytmów nawigacyjnych w kontekście ich dokładności, szybkości wyznaczania trasy oraz ogólnej wydajności, z wykorzystaniem zbudowanego robota mobilnego.
+W dzisiejszych czasach, wraz z dynamicznym rozwojem technologii mobilnych, algorytmy nawigacyjne i uczenia maszynowego \cite{deepLearning} odgrywają kluczową rolę w różnorodnych aplikacjach, począwszy od systemów nawigacji w samochodach po autonomiczne roboty poruszające się w różnych środowiskach. Biorąc pod uwagę aktualność tych zagadnień i rosnące zapotrzebowanie, zdecydowano o przeprowadzeniu badań dotyczących systemów nawigacyjnych.
+   
+Celem tej pracy jest zbadanie heurystycznych metod \cite{genetics} optymalizazcji regulatorów PID oraz porównanie wybranych algorytmów pod kątem kryteriów takich jak dokładność wyznaczania trasy oraz wydajność obliczeniowa w różnych warunkach terenowych.  
 
-Celem pracy jest przede wszystkim wykonanie i zaprogramowanie robota mobilnego, który będzie wykorzystywany do testowania różnych algorytmów nawigacyjnych. Praca koncentruje się na badaniu wybranych algorytmów pod kątem ich dokładności, szybkości wyznaczania trasy oraz ogólnej wydajności w praktycznych warunkach. Ponadto, zbadana zostanie dokładność nawigacji w zależności od wykorzystanego algorytmu wyznaczania odometrii.
+Zakres pracy obejmuje dwie części:
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item część inżynierska - wykonanie robota mobilnego, implementacja systemu wbudowanego oraz implementacja stacji operatorskiej opartej na systemie ROS2 \cite{ros}
+	\item część badawcza - badanie algorytmów uczenia maszynowego do optymalizacji nastaw regulatorów PID oraz porównanie wybranych algorytmów nawigacyjnych. 
+\end{enumerate}
 
-Zakres pracy obejmuje przede wszystkim konstrukcję i programowanie robota mobilnego, wybór, implementację i testowanie różnych algorytmów nawigacyjnych, oraz analizę wyników pod kątem z góry określonych kryteriów, takich jak dokładność, szybkość i wydajność. Praca będzie obejmować także badanie wpływu różnych czynników, takich jak rodzaj terenu czy charakterystyka środowiska, na działanie algorytmów nawigacyjnych oraz dokładność ich działania.
-
-W niniejszym wstępie zdefiniowano główne cele oraz zakres pracy, który obejmuje badanie algorytmów nawigacyjnych w kontekście ich dokładności, szybkości wyznaczania trasy oraz ogólnej wydajności. Kolejne rozdziały będą skupiały się na szczegółowym opisie procesu realizacji pracy oraz analizie uzyskanych wyników.
+Zastosowanie standardu ASPICE \cite{SPICE} zapewnia wysoką jakość procesu budowy robota oraz implementacji oprogramowania co pozwola na przeprowadzenie rzetelnych badań i wyciągnięcie wiarygodnych wniosków.
 
 \section{Inżynierska część projektu}
 
-W tym rozdziale przedstawiono kompleksowy opis prac związanych z implementacją oraz funkcjonowaniem robota. Niniejszy rozdział stanowi szczegółowe omówienie trzech kluczowych elementów projektu, które skupiały się na budowie fizycznej robota zgodnie z procedurami ASPICE, implementacji oprogramowania w języku C++ z uwzględnieniem unit testów oraz wykorzystaniu środowiska ROS2 i technologii Docker do sterowania robotem. Dzięki zastosowaniu tych trzech elementów możliwe było zapewnienie nie tylko skutecznej implementacji samego robota, ale również jego oprogramowania oraz efektywnego zarządzania nim w czasie rzeczywistym.
+W tym rozdziale przedstawiono kompleksowy opis prac związanych z implementacją oraz funkcjonowaniem robota. Niniejszy rozdział stanowi szczegółowe omówienie trzech kluczowych elementów projektu, które skupiały się na budowie fizycznej robota zgodnie z procedurami SPICE, implementacji oprogramowania w języku C++ z uwzględnieniem unit testów oraz wykorzystaniu środowiska ROS2 i technologii Docker do sterowania robotem. Dzięki zastosowaniu tych trzech elementów możliwe było zapewnienie nie tylko skutecznej implementacji samego robota, ale również jego oprogramowania oraz efektywnego zarządzania nim w czasie rzeczywistym.
 
 W dalszej części pracy szczegółowo omówione zostaną poszczególne etapy realizacji każdego z tych komponentów, prezentując zarówno teoretyczne założenia, jak i praktyczne wyniki osiągnięte w ramach projektu.
 
@@ -116,12 +121,13 @@ Przeprowadzone badania oraz uzyskane wyniki pozwolą wyciągnąć wnioski dotycz
 
 \addcontentsline{toc}{section}{Literatura}
 
-\begin{thebibliography}{4}
+\begin{thebibliography}{6}
 \bibitem{repo} https://github.com/DevxMike/master\_degree
-%\bibitem{Jakubczyk1997} Jakubczyk T., Klette A.: Pomiary w akustyce. WNT, Warszawa 1997.
-%\bibitem{Barski2011} Barski S.: Modele transmitancji. Elektronika praktyczna, nr 7/2011, str. 15-18.
-%\bibitem{dokum} Czujnik S200. Dokumentacja techniczno-ruchowa. Lumel, Zielona Góra, 2001.
-%\bibitem{Pawluk2001} Pawluk K.: Jak pisać teksty techniczne poprawnie, Wiadomości Elektrotechniczne, Nr 12, 2001, str. 513-515.
+\bibitem{ros} https://docs.ros.org/en/foxy/index.html
+\bibitem{deepLearning} Francois Chollet: Deep Learning. Praca z językiem Python i biblioteką Keras. Helion 2019
+\bibitem{RL} Paweł Cichosz: Systemy uczące się. WNT 2007 
+\bibitem{genetics}  Riccardo Poli, William B. Langdon, Nicholas F. McPhee, John R. Koza: A Field Guide to Genetic Programming. Lulu Enterprises Uk Ltd 2008
+\bibitem{SPICE} https://mfiles.pl/pl/index.php/Automotive\_SPICE
 \end{thebibliography}
 
 \clearpage
