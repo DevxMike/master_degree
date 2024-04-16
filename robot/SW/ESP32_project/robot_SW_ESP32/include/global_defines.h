@@ -69,6 +69,14 @@ namespace motors{
     constexpr uint8_t motorBChannel = 2;
     constexpr uint8_t motorPWMResolution = defaultResolution;
     constexpr uint32_t motorPWMFrequency = 1000;
+    // "Kp" : 22.75297759, "Ti" : 41.13985303, "Td" : 43.13750817
+namespace speed_ctl{
+    constexpr float Kp = 22.75297759f;
+    constexpr float Ti = 41.13985303f;
+    constexpr float Td = 43.13750817f;
+
+    constexpr float vMaxRadiansPerSecond = 16.7f;
+}
     
     constexpr Motor::DCMotor::outputs outputsLeft{
         .in1_pin = in1Pin,
