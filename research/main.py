@@ -14,9 +14,7 @@ MQTT_TOPIC_LOG = "robot/pid/log"
 MQTT_TOPIC_RESPONSE = "robot/request"
 
 # Połączenie z brokerem MQTT
-mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
-mqtt_client.connect(MQTT_BROKER, MQTT_PORT)
-mqtt_client.subscribe(MQTT_TOPIC_LOG)
+mqtt_client = []
 
 logs = []
 
@@ -25,14 +23,20 @@ def on_log_message(client, userdata, message):
     log_data = json.loads(message.payload.decode())
     logs.append(log_data)  
 
-mqtt_client.on_message = on_log_message
-
 # Funkcja wysyłająca wiadomość MQTT
 def send_mqtt_message(topic, message):
     mqtt_client.publish(topic, json.dumps(message))
 
 # Funkcja uruchamiająca eksperyment
 def run_experiment(Kp, Ti, Td):
+    global logs
+    global mqtt_client
+
+    mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+    mqtt_client.connect(MQTT_BROKER, MQTT_PORT)
+    mqtt_client.subscribe(MQTT_TOPIC_LOG)
+    mqtt_client.on_message = on_log_message
+
     pid_settings = {"Kp": Kp, "Ti": Ti, "Td": Td}
     send_mqtt_message(MQTT_TOPIC_PID, pid_settings)
 
@@ -71,16 +75,10 @@ def calculate_errors(logs):
         if relative_error < 2:  # Możesz dostosować wartość graniczną według potrzeb
             settling_time = i * sampling_time
             settling_times.append(settling_time)
-    
-    if(len(settling_times) == 0):
-        return 500000, 500000
-    
-    mean_error = sum(absolute_errors) / len(absolute_errors)
-    mean_relative_error = sum(relative_errors) / len(relative_errors)
-    rmse_error = math.sqrt(sum([(error ** 2) for error in absolute_errors]) / len(absolute_errors))
-    average_settling_time = sum(settling_times) / len(settling_times)
 
-    return mean_relative_error, average_settling_time
+    mean_relative_error = sum(relative_errors) / len(relative_errors)
+
+    return mean_relative_error
 
 # Funkcja obliczająca wartość funkcji celu
 def fitness_func(ga_instance, solution, solution_idx):
@@ -89,12 +87,12 @@ def fitness_func(ga_instance, solution, solution_idx):
     Kp, Ti, Td = solution
     run_experiment(Kp, Ti, Td)
 
-    mean_relative_error, average_settling_time = calculate_errors(logs)
+    mean_relative_error = calculate_errors(logs)
     logs = []
 
     # Im mniejsza wartość funkcji celu, tym lepsze parametry PID
     # W tym przypadku minimalizujemy błąd względny i czas osiągnięcia wartości docelowej
-    fitness = 1 / (mean_relative_error + average_settling_time)
+    fitness = 1 / mean_relative_error
     return fitness
 
 # Funkcja zapisująca najlepszego osobnika do pliku
@@ -144,7 +142,8 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
 
 # Parametry eksperymentów
 experiments_params = [
-    {"pop_size": 500, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 25, "mutation_prob": 0.4}
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 2, "mutation_prob": 0.15}
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 10, "mutation_prob": 0.15}
 ]
 
 # Pętla przeprowadzająca eksperymenty
