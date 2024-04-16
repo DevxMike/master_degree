@@ -14,7 +14,7 @@ MQTT_TOPIC_LOG = "robot/pid/log"
 MQTT_TOPIC_RESPONSE = "robot/request"
 
 # Połączenie z brokerem MQTT
-mqtt_client = []
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 
 logs = []
 
@@ -50,7 +50,7 @@ def run_experiment(Kp, Ti, Td):
     motors_speed = {"left": 0, "right": 0}
     send_mqtt_message(MQTT_TOPIC_MOTORS, motors_speed)
 
-    time.sleep(2)
+    time.sleep(1.5)
     
     send_mqtt_message(MQTT_TOPIC_RESPONSE, "")
 
@@ -142,7 +142,7 @@ def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mati
 
 # Parametry eksperymentów
 experiments_params = [
-    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 2, "mutation_prob": 0.15}
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 2, "mutation_prob": 0.15},
     {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.20, "num_parents_mating": 10, "mutation_prob": 0.15}
 ]
 
