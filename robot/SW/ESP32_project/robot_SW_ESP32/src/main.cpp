@@ -1,18 +1,33 @@
 #include "driver.h"
 
 WiFiClient espClient;
-constants::comm::types::job_stack_t Kernel::jobStack;
 
 /* motor motion management variables init */
 Motor::DCMotor Kernel::motorLeft{ Kernel::mapper, constants::motors::outputsLeft };
 Motor::DCMotor Kernel::motorRight{ Kernel::mapper, constants::motors::outputsRight };
 
-constants::motors::types::motor_pid Kernel::pid{ 5.0f, 25.0f, 5.0f, constants::experiment::samplingTime };
+// constants::motors::types::motor_pid Kernel::pidRight{ 
+//   constants::motors::speed_ctl::Kp, 
+//   constants::motors::speed_ctl::Ti, 
+//   constants::motors::speed_ctl::Td, 
+//   constants::experiment::samplingTime 
+// };
+
+// constants::motors::types::motor_pid Kernel::pidLeft{ 
+//   constants::motors::speed_ctl::Kp, 
+//   constants::motors::speed_ctl::Ti, 
+//   constants::motors::speed_ctl::Td, 
+//   constants::experiment::samplingTime 
+// };
 
 Motor::MotorManager Kernel::motorManager{ 
   Motor::MotorManager::motor_array{{
       &motorLeft, &motorRight
     }},
+  Motor::MotorManager::speed_pid_array{{
+    constants::motors::types::motor_pid{ constants::motors::speed_ctl::Kp, constants::motors::speed_ctl::Ti, constants::motors::speed_ctl::Td, constants::experiment::samplingTime },
+    constants::motors::types::motor_pid{ constants::motors::speed_ctl::Kp, constants::motors::speed_ctl::Ti, constants::motors::speed_ctl::Td, constants::experiment::samplingTime }
+  }},
     constants::motors::inertia_coef
 };
 

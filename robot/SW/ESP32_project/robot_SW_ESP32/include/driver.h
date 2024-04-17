@@ -24,10 +24,8 @@ private:
     static Motor::DCMotor motorRight;
     static Motor::MotorManager motorManager;
     static uint32_t mapper(uint32_t);
-    static constants::motors::types::motor_pid pid;
 
     /* communications management */
-    static constants::comm::types::job_stack_t jobStack;
     static Comm::MQTT::CommManager<String, constants::comm::subscribedTopics> commMgr;
     static void MQTTcallback(char*, byte*, unsigned int);
 

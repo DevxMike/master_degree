@@ -3,7 +3,6 @@
 
 #include <functional>
 #include <cmath>
-#include "global_defines.h"
 
 template <typename ValueType, typename outType, outType MaxOut, outType MinOut, int32_t maxErrorSum, int32_t minErrorSum>
 class pid{
@@ -31,7 +30,7 @@ public:
         auto error = desired - actual;
         float P = m_Kp * error;
         
-        m_errorSum += static_cast<int32_t>(error);
+        m_errorSum += static_cast<ValueType>(error);
 
         if(m_errorSum > maxErrorSum){
             m_errorSum = maxErrorSum;

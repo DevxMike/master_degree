@@ -3,7 +3,7 @@
 
 #define WIFI_DEBUG 1
 #define MQTT_DEBUG 1
-#define MOTOR_DEBUG 0
+#define MOTOR_DEBUG 1
 #define ENCODER_DEBUG 1
 
 #include "Arduino.h"
@@ -15,7 +15,8 @@
 
 namespace constants{
 namespace experiment{
-    constexpr float samplingTime = 0.005;
+    constexpr float samplingTime = 0.004;
+    constexpr uint32_t samplingTimeMs = samplingTime * 1000;
 }
 
     constexpr uint8_t defaultResolution = 8;
