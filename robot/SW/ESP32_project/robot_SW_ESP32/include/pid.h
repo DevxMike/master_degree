@@ -5,7 +5,7 @@
 #include <cmath>
 #include "global_defines.h"
 
-template <typename ValueType, typename outType, outType MaxOut, outType MinOut, int32_t maxErrorSum, int32_t minErrorSum>
+template <typename ValueType, typename outType, outType MaxOut, outType MinOut, int32_t maxErrorSum, int32_t minErrorSum, uint32_t samplingMs = 5>
 class pid{
 public:
     /*
@@ -15,15 +15,14 @@ public:
         Ts - sampling time in ms
     */
 
-    pid(float Kp, float Ti, float Td, float Ts) noexcept:
-        m_Kp{ Kp }, m_Ki{ (Kp / Ti) * Ts }, m_Kd{ (Kp * Td)/(Ts + 0.1f*Td) }, m_Ts{ Ts },
+    constexpr pid(float Kp, float Ti, float Td) noexcept:
+        m_Kp{ Kp }, m_Ki{ (Kp / Ti) * (samplingMs * 0.001f) }, m_Kd{ (Kp * Td)/(samplingMs * 0.001f + 0.1f*Td) },
         m_errorSum{ 0 }, m_previousError{ 0 } {}
     
-    void reinit(float Kp, float Ti, float Td, float Ts){
-        m_Ts = Ts;
+    void reinit(float Kp, float Ti, float Td){
         m_Kp = Kp;
-        m_Ki = (Kp / Ti) * Ts;
-        m_Kd = (Kp * Td)/(Ts + 0.1f*Td);
+        m_Ki = (Kp / Ti) * (samplingMs * 0.001f);
+        m_Kd = (Kp * Td)/((samplingMs * 0.001f) + 0.1f*Td);
         m_errorSum = m_previousError = 0;
     }
 
@@ -60,7 +59,6 @@ private:
     float m_Kp;
     float m_Ki;
     float m_Kd;
-    float m_Ts;
 
     ValueType m_errorSum;
     ValueType m_previousError;

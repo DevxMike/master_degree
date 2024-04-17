@@ -126,7 +126,7 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
         //  float Ts = parsed["Ts"];
          Serial.println("Changing pid coeffs");
 
-         pid.reinit(Kp, Ti, Td, constants::experiment::samplingTime);
+         pid.reinit(Kp, Ti, Td);
       }
     };
   }
