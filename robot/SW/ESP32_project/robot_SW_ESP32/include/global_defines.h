@@ -13,9 +13,13 @@
 #include "stack.h"
 #include "pid.h"
 
+#define TASK_DELAY_MS(x) vTaskDelay((x) / portTICK_PERIOD_MS)
+
 namespace constants{
+    constexpr uint32_t defaultStackSize = 1024;
 namespace experiment{
-    constexpr float samplingTime = 0.005;
+    constexpr float samplingTime = 0.005f;
+    constexpr uint32_t samplingTimeMs = static_cast<uint32_t>(samplingTime * 1000);
 }
 
     constexpr uint8_t defaultResolution = 8;

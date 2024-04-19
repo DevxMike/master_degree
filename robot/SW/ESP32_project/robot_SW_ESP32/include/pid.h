@@ -5,7 +5,7 @@
 #include <cmath>
 #include "global_defines.h"
 
-template <typename ValueType, typename outType, outType MaxOut, outType MinOut, int32_t maxErrorSum, int32_t minErrorSum, uint32_t samplingMs = 5>
+template <typename ValueType, typename outType, outType MaxOut, outType MinOut, int32_t maxErrorSum, int32_t minErrorSum, uint32_t samplingMs = 20>
 class pid{
 public:
     /*

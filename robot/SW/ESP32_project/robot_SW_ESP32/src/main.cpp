@@ -42,10 +42,71 @@ Sensor::Encoder Kernel::encoderRight{
   Sensor::Encoder::Instance::ENC1
 };
 
+void CommTask(void* p){
+  while(1){
+    Kernel::commMgr.poolCommManager();
+    TASK_DELAY_MS(5);
+  }
+}
+
+void MotorTask(void* p){
+  while(1){
+    Kernel::motorManager.poolMotors();
+    TASK_DELAY_MS(5);
+  }
+}
+
+void MainTask(void* p){
+  while(1){
+    Kernel::main();
+    TASK_DELAY_MS(5);
+  }
+}
+
+static StaticTask_t xCommTaskBuffer;
+static StaticTask_t xMotorTaskBuffer;
+static StaticTask_t xMainTaskBuffer;
+
+static StackType_t xCommStack[ constants::defaultStackSize * 4];
+static StackType_t xMotorStack[ constants::defaultStackSize * 4 ];
+static StackType_t xMainStack[ constants::defaultStackSize * 13 ];
+
 void setup() {
   Kernel::init();
+  
+  xTaskCreateStatic(
+    CommTask,
+    "comm",
+    constants::defaultStackSize * 4,
+    NULL,
+    2,
+    xCommStack,
+    &xCommTaskBuffer
+  );
+
+  xTaskCreateStaticPinnedToCore(
+    MotorTask,
+    "motor",
+    constants::defaultStackSize * 4,
+    NULL,
+    3,
+    xMotorStack,
+    &xMotorTaskBuffer,
+    1
+  );
+
+  xTaskCreateStaticPinnedToCore(
+    MainTask,
+    "main",
+    constants::defaultStackSize * 13,
+    NULL,
+    2,
+    xMainStack,
+    &xMainTaskBuffer,
+    1
+  );
 }
 
 void loop() {
-  Kernel::main();
+
 }

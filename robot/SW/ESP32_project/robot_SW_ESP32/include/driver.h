@@ -18,7 +18,7 @@ class Kernel{
 public:
     static void init();
     static void main();
-private:
+    
     /* motion management */
     static Motor::DCMotor motorLeft;
     static Motor::DCMotor motorRight;

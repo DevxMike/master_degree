@@ -6,11 +6,16 @@ static float angularVelocityLeft = 0.0f;
 static float angularVelocityRight = 0.0f;
 static uint32_t counter = 0;
 
-void Kernel::main(){
-      static unsigned long sensorTimer, logTimer;
+constexpr float getAng(int32_t numImpulses){
+      return 
+        (1.0f/constants::experiment::samplingTime)
+        * (static_cast<float>(numImpulses)/constants::motors::impulsesPerRotation)
+        * 2
+        * PI;
+    }
 
-  commMgr.poolCommManager();
-  motorManager.poolMotors();
+void Kernel::main(){
+  static unsigned long sensorTimer, logTimer;
   
   while(!jobStack.empty()){
     auto job = jobStack.pop();
@@ -19,22 +24,13 @@ void Kernel::main(){
 
   // rear.poolSensor();
 
-  if(millis() - sensorTimer >= static_cast<uint32_t>(constants::experiment::samplingTime * 1000) && start_experiment){
-    auto leftV = motorManager.DesiredSpeed()->at(0);
+    int32_t leftV = motorManager.DesiredSpeed()->at(0);
     sensorTimer = millis();
-    auto reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
-    auto reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
+    const int32_t* reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
+    const int32_t* reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
 
-    auto getAng = [&](int32_t numImpulses){
-      return 
-        (1.0f/constants::experiment::samplingTime)
-        * (static_cast<float>(numImpulses)/constants::motors::impulsesPerRotation)
-        * 2
-        * PI;
-    };
-
-    auto angLeft = getAng(*reading1);
-    auto angRight = getAng(*reading2);
+    float angLeft = getAng(*reading1);
+    float angRight = getAng(*reading2);
 
     angularVelocityLeft = angularVelocityLeft * 0.7 + angLeft * 0.3;
     angularVelocityRight = angularVelocityRight * 0.7 + angRight * 0.3;
@@ -63,26 +59,25 @@ void Kernel::main(){
       logTimer = millis();
     }
 
-    String payload = 
-      "{ \"id\" : " 
-      + String(counter++) 
-      + ", \"target\" :" 
-      + String(angularVelocityLeft) 
-      + ", \"actual\" : "
-      + String(angularVelocityRight) 
-      + " }";
+    // String payload = 
+    //   String("{ \"id\" : ") 
+    //   + String(counter++) 
+    //   + String(", \"target\" :") 
+    //   + String(angularVelocityLeft) 
+    //   + String(", \"actual\" : ")
+    //   + String(angularVelocityRight) 
+    //   + String(" }");
 
-    commMgr.sendMessage(
-      Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
-    );
+    // commMgr.sendMessage(
+    //   Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
+    // );
 
     encoderLeft.reset();
     encoderRight.reset();
-  }
 }
 
 void Kernel::init(){
-    Serial.begin(9600);
+    Serial.begin(115200);
 
     while(commMgr.poolCommManager() != Comm::MQTT::MQTTStatus::NetworkConnected);
 

@@ -50,7 +50,8 @@ public:
         m_internalState { ConnectingNetwork },
         m_topics{ std::move(topics) },
         m_message_cb{ cback },
-        m_mqttClient{ c } {}
+        m_mqttClient{ c },
+        MQTTQueueMutex{ xSemaphoreCreateMutex() } {}
 
     MQTTStatus poolCommManager() noexcept {
         static unsigned long timer;
@@ -120,6 +121,8 @@ public:
                 
                 m_mqttClient.loop();
 
+                xSemaphoreTake(MQTTQueueMutex, portMAX_DELAY);
+
                 while(!m_messageStack.empty()){
                     auto message = m_messageStack.pop();
                     auto topic = std::get<0>(message);
@@ -127,6 +130,8 @@ public:
 
                     m_mqttClient.publish(topic.c_str(), payload.c_str());
                 }
+
+                xSemaphoreGive(MQTTQueueMutex);
 
                 return MQTTStatus::BrokerConnected;
             break;
@@ -136,13 +141,20 @@ public:
     }
     
     bool sendMessage(messageType&& message) noexcept {
-        return m_messageStack.push(message);
+        xSemaphoreTake(MQTTQueueMutex, portMAX_DELAY);
+
+        bool ret = m_messageStack.push(message);
+        
+        xSemaphoreGive(MQTTQueueMutex);
+        
+        return ret;
     }
 
 private:
     NetworkStatus poolNetwork() noexcept {
         return m_wifiMgr.manageConnection();
     }
+    SemaphoreHandle_t MQTTQueueMutex;
 
     enum : uint8_t{
         ConnectingNetwork = 0,
