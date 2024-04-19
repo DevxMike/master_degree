@@ -45,7 +45,7 @@ Sensor::Encoder Kernel::encoderRight{
 void CommTask(void* p){
   while(1){
     Kernel::commMgr.poolCommManager();
-    TASK_DELAY_MS(5);
+    TASK_DELAY_MS(3);
   }
 }
 
