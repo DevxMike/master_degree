@@ -24,7 +24,8 @@ public:
     static Motor::DCMotor motorRight;
     static Motor::MotorManager motorManager;
     static uint32_t mapper(uint32_t);
-    static constants::motors::types::motor_pid pid;
+    static constants::motors::types::motor_pid pidLeft;
+    static constants::motors::types::motor_pid pidRight;
 
     /* communications management */
     static constants::comm::types::job_stack_t jobStack;

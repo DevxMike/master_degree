@@ -1,5 +1,6 @@
 #include "../include/MotorManager.h"
 #include "Arduino.h"
+#include "global_defines.h"
 
 namespace Motor{
 
@@ -16,24 +17,42 @@ void MotorManager::init() noexcept{
         (*m).init();
     }
 
-    for(auto& s : desired_speed){
+    for(auto& s : target_percent_speed){
         s = 0;
     }
 
-    for(auto& s : current_speed){
+    for(auto& s : current_percent_speed){
         s = 0;
+    }
+
+    for(auto& s : target_angular_speed){
+        s = 0.0f;
     }
 }
 
-void MotorManager::setSpeed(const speed_array& speeds) noexcept{
-    // auto d = desired_speed.begin();
-    // auto s = speeds.begin();
+static int32_t filter_speed(int32_t s){
+    if((s > -max_absolute_v && s < -epsilon_abs) || (s > epsilon_abs && s < max_absolute_v)){
+        return s;
+    }
+    else{
+        return 0;
+    }
+}
 
-    // for(; s != speeds.end() && d != desired_speed.end(); s++, d++){
-    //     *d = *s;
-    // }
+void MotorManager::setSpeed(const speed_array& speeds, settingType t) noexcept{
     for(std::size_t i = 0; i < motor_num; ++i){
-        desired_speed[i] = speeds[i];
+        if(t == settingType::setAngularTarget){
+            int32_t tmp = filter_speed(speeds[i]);
+            target_percent_speed[i] = tmp;
+            target_angular_speed[i] = (tmp * 0.01f) * constants::motors::speed_ctl::vMaxRadiansPerSecond;
+#if MOTOR_DEBUG
+    Serial.print("Desired: ");
+    Serial.println(target_angular_speed[i]);
+#endif
+        }
+        else if(t == settingType::updatePwm){
+            target_percent_speed[i] = speeds[i];
+        }
     }
 }
 
@@ -46,16 +65,16 @@ void MotorManager::poolMotors() noexcept{
     switch(state){
     case update_speed:
         for(std::size_t i = 0; i < motor_num; ++i){
-            current_speed[i] = current_speed[i] * x + desired_speed[i] * y;
-            motors[i]->setSpeed(current_speed[i]);
+            current_percent_speed[i] = current_percent_speed[i] * x + target_percent_speed[i] * y;
+            motors[i]->setSpeed(current_percent_speed[i]);
         }
 
-        timer = millis();
-        state = timeout;
+        // timer = millis();
+        // state = timeout;
     break;
 
     case timeout:
-        if(millis() - timer > 50){
+        if(millis() - timer >= 10){
             state = update_speed;
         }
     break;
@@ -71,11 +90,15 @@ float MotorManager::InertiaCoef() const noexcept{
 }
 
 const MotorManager::speed_array* MotorManager::CurrentSpeed() const noexcept{
-    return &current_speed;
+    return &current_percent_speed;
 }
 
 const MotorManager::speed_array* MotorManager::DesiredSpeed() const noexcept{
-    return &desired_speed;
+    return &target_percent_speed;
+}
+
+const MotorManager::angular_array* MotorManager::TargetAngular() const noexcept{
+    return &target_angular_speed;
 }
 
 }

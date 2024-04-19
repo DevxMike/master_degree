@@ -14,6 +14,10 @@ constexpr float getAng(int32_t numImpulses){
         * PI;
     }
 
+constexpr float getRelativeError(float expected, float actual){
+  return std::abs((expected - actual) / (expected + 0.001f));
+}
+
 void Kernel::main(){
   static unsigned long sensorTimer, logTimer;
   
@@ -24,8 +28,8 @@ void Kernel::main(){
 
   // rear.poolSensor();
 
-    int32_t leftV = motorManager.DesiredSpeed()->at(0);
-    sensorTimer = millis();
+    // int32_t leftV = motorManager.DesiredSpeed()->at(0);
+    // sensorTimer = millis();
     const int32_t* reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
     const int32_t* reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
 
@@ -38,18 +42,22 @@ void Kernel::main(){
     // angularVelocityLeft = getAng(*reading1);
     // angularVelocityRight = getAng(*reading2);
 
-    int32_t rightV;
+    // int32_t rightV;
 
-    if(leftV == 0){
-      rightV = 0;
-    }
-    else{
-      rightV = pid.getOutput(angularVelocityRight, angularVelocityLeft);
-    }
+    // if(leftV == 0){
+    //   rightV = 0;
+    // }
+    // else{
+    //   rightV = pid.getOutput(angularVelocityRight, angularVelocityLeft);
+    // }
 
-    motorManager.setSpeed({{ leftV, rightV }});
+    // motorManager.setSpeed({{ leftV, rightV }});
+    const Motor::MotorManager::angular_array* target = motorManager.TargetAngular();
 
+    int32_t leftV = pidLeft.getOutput(angularVelocityLeft, (*target)[0]);
+    int32_t rightV = pidRight.getOutput(angularVelocityRight, (*target)[1]);
     
+    motorManager.setSpeed({{ leftV, rightV }});
 
     if(millis() - logTimer > 500){
       Serial.print("Angular left: ");
@@ -121,7 +129,7 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
         //  float Ts = parsed["Ts"];
          Serial.println("Changing pid coeffs");
 
-         pid.reinit(Kp, Ti, Td);
+        //  pid.reinit(Kp, Ti, Td);
       }
     };
   }
@@ -143,7 +151,7 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
         start_experiment = true;
         counter = 0;
         angularVelocityLeft = angularVelocityRight = 0.0f;
-        motorManager.setSpeed(Motor::MotorManager::speed_array{{ left, right }});
+        motorManager.setSpeed(Motor::MotorManager::speed_array{{ left, right }}, Motor::MotorManager::settingType::setAngularTarget);
       }
 
       Serial.println(s);

@@ -3,7 +3,7 @@
 
 #define WIFI_DEBUG 1
 #define MQTT_DEBUG 1
-#define MOTOR_DEBUG 0
+#define MOTOR_DEBUG 1
 #define ENCODER_DEBUG 1
 
 #include "Arduino.h"
@@ -75,10 +75,13 @@ namespace motors{
     constexpr uint32_t motorPWMFrequency = 1000;
     // "Kp" : 22.75297759, "Ti" : 41.13985303, "Td" : 43.13750817
 namespace speed_ctl{
-    constexpr float Kp = 22.75297759f;
-    constexpr float Ti = 41.13985303f;
-    constexpr float Td = 43.13750817f;
-
+    // constexpr float Kp = 22.75297759f;
+    // constexpr float Ti = 41.13985303f;
+    // constexpr float Td = 43.13750817f;
+    constexpr float Kp = 5.75297759f;
+    constexpr float Ti = 20.13985303f;
+    constexpr float Td = 10.13750817f;
+    
     constexpr float vMaxRadiansPerSecond = 16.7f;
 }
     

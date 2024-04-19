@@ -7,7 +7,13 @@ constants::comm::types::job_stack_t Kernel::jobStack;
 Motor::DCMotor Kernel::motorLeft{ Kernel::mapper, constants::motors::outputsLeft };
 Motor::DCMotor Kernel::motorRight{ Kernel::mapper, constants::motors::outputsRight };
 
-constants::motors::types::motor_pid Kernel::pid{ 
+constants::motors::types::motor_pid Kernel::pidLeft{ 
+  constants::motors::speed_ctl::Kp, 
+  constants::motors::speed_ctl::Ti, 
+  constants::motors::speed_ctl::Td 
+};
+
+constants::motors::types::motor_pid Kernel::pidRight{ 
   constants::motors::speed_ctl::Kp, 
   constants::motors::speed_ctl::Ti, 
   constants::motors::speed_ctl::Td 

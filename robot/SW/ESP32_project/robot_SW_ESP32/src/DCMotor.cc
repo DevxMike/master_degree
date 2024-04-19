@@ -7,8 +7,8 @@ namespace Motor{
 
 void MotorMapper(int32_t v, motorSignals& m, map_function_type f) noexcept{
 #if MOTOR_DEBUG
-    Serial.print("Desired: ");
-    Serial.println(v);
+    // Serial.print("Desired: ");
+    // Serial.println(v);
 #endif
 
     if(v > epsilon_abs){ // rotate left
@@ -46,9 +46,9 @@ void DCMotor::setSpeed(int32_t v) noexcept{
         }
 
 #if MOTOR_DEBUG
-        Serial.print(m_signals.dir == false? "left" : "right");
-        Serial.print(", PWM: ");
-        Serial.println(m_signals.pwm);
+        // Serial.print(m_signals.dir == false? "left" : "right");
+        // Serial.print(", PWM: ");
+        // Serial.println(m_signals.pwm);
 #endif
 
         ledcWrite(m_outputs.pwm_channel, m_signals.pwm);

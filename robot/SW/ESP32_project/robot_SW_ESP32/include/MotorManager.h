@@ -14,23 +14,31 @@ constexpr float inertia_coef = 0.9f;
 
 class MotorManager{
 public:
+    enum class settingType{
+        setAngularTarget,
+        updatePwm
+    };
+
     using motor_array = std::array<IDCMotor*, motor_num>;
     using speed_array = std::array<int32_t, motor_num>; 
+    using angular_array = std::array<float, motor_num>;
 
     void init() noexcept;
-    void setSpeed(const speed_array& speeds) noexcept;
+    void setSpeed(const speed_array& speeds, settingType t = settingType::updatePwm) noexcept;
     MotorManager(motor_array&& m, float i = inertia_coef) noexcept;
     void InertiaCoef(float i) noexcept;
     float InertiaCoef() const noexcept;
     void poolMotors() noexcept;
     const speed_array* CurrentSpeed() const noexcept;
     const speed_array* DesiredSpeed() const noexcept;
+    const angular_array* TargetAngular() const noexcept;
 
 private:
     float m_inertiaCoef;
-    std::array<IDCMotor*, motor_num> motors;
-    std::array<int32_t, motor_num> desired_speed;
-    std::array<int32_t, motor_num> current_speed;
+    motor_array motors;
+    speed_array target_percent_speed;
+    speed_array current_percent_speed;
+    angular_array target_angular_speed;
 };
 
 }
