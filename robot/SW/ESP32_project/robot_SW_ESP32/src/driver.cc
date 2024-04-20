@@ -67,18 +67,18 @@ void Kernel::main(){
       logTimer = millis();
     }
 
-    // String payload = 
-    //   String("{ \"id\" : ") 
-    //   + String(counter++) 
-    //   + String(", \"target\" :") 
-    //   + String(angularVelocityLeft) 
-    //   + String(", \"actual\" : ")
-    //   + String(angularVelocityRight) 
-    //   + String(" }");
+    String payload = 
+      String("{ \"id\" : ") 
+      + String(counter++) 
+      + String(", \"target\" :") 
+      + String((*target)[1]) 
+      + String(", \"actual\" : ")
+      + String(angularVelocityRight) 
+      + String(" }");
 
-    // commMgr.sendMessage(
-    //   Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
-    // );
+    commMgr.sendMessage(
+      Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
+    );
 
     encoderLeft.reset();
     encoderRight.reset();
@@ -126,10 +126,10 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
          float Kp = parsed["Kp"];
          float Ti = parsed["Ti"];
          float Td = parsed["Td"];
-        //  float Ts = parsed["Ts"];
+
          Serial.println("Changing pid coeffs");
 
-        //  pid.reinit(Kp, Ti, Td);
+         pidRight.reinit(Kp, Ti, Td);
       }
     };
   }
@@ -138,6 +138,7 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
       Serial.println("cback 2");
       Serial.println(s);
       start_experiment = false;
+      motorManager.setSpeed(Motor::MotorManager::speed_array{{ 0, 0 }}, Motor::MotorManager::settingType::setAngularTarget);
     };
   }
   else if(tmp == constants::comm::topicsArray[topic_mapping::setMotors]){

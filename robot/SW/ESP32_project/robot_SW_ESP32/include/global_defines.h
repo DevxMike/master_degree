@@ -78,9 +78,9 @@ namespace speed_ctl{
     // constexpr float Kp = 22.75297759f;
     // constexpr float Ti = 41.13985303f;
     // constexpr float Td = 43.13750817f;
-    constexpr float Kp = 5.75297759f;
-    constexpr float Ti = 20.13985303f;
-    constexpr float Td = 10.13750817f;
+    constexpr float Kp = 6.48107301f;
+    constexpr float Ti = 2.93091131f;
+    constexpr float Td = 2.34173984f;
     
     constexpr float vMaxRadiansPerSecond = 16.7f;
 }

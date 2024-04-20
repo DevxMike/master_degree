@@ -11,7 +11,7 @@
 namespace Comm{
 namespace MQTT{
 
-constexpr std::size_t stack_depth = 20;
+constexpr std::size_t stack_depth = 1000;
 constexpr unsigned MQTT_port = 1883;
 
 enum class MQTTStatus{
