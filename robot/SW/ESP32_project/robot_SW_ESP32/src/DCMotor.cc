@@ -11,11 +11,11 @@ void MotorMapper(int32_t v, motorSignals& m, map_function_type f) noexcept{
     // Serial.println(v);
 #endif
 
-    if(v > epsilon_abs){ // rotate left
+    if(v >= epsilon_abs){ // rotate left
         v = (v > max_absolute_v)? max_absolute_v : v;
         m.dir = false;
     }
-    else if(v < -epsilon_abs){ // rotate right
+    else if(v <= -epsilon_abs){ // rotate right
         v = (v < -max_absolute_v)? max_absolute_v : -v;
         m.dir = true;
     }

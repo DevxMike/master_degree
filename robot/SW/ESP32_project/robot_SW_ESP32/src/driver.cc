@@ -14,10 +14,6 @@ constexpr float getAng(int32_t numImpulses){
         * PI;
     }
 
-constexpr float getRelativeError(float expected, float actual){
-  return std::abs((expected - actual) / (expected + 0.001f));
-}
-
 void Kernel::main(){
   static unsigned long sensorTimer, logTimer;
   
@@ -67,18 +63,18 @@ void Kernel::main(){
       logTimer = millis();
     }
 
-    String payload = 
-      String("{ \"id\" : ") 
-      + String(counter++) 
-      + String(", \"target\" :") 
-      + String((*target)[1]) 
-      + String(", \"actual\" : ")
-      + String(angularVelocityRight) 
-      + String(" }");
+    // String payload = 
+    //   String("{ \"id\" : ") 
+    //   + String(counter++) 
+    //   + String(", \"target\" :") 
+    //   + String((*target)[1]) 
+    //   + String(", \"actual\" : ")
+    //   + String(angularVelocityRight) 
+    //   + String(" }");
 
-    commMgr.sendMessage(
-      Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
-    );
+    // commMgr.sendMessage(
+    //   Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
+    // );
 
     encoderLeft.reset();
     encoderRight.reset();

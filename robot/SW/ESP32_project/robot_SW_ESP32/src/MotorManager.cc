@@ -31,7 +31,7 @@ void MotorManager::init() noexcept{
 }
 
 static int32_t filter_speed(int32_t s){
-    if((s > -max_absolute_v && s < -epsilon_abs) || (s > epsilon_abs && s < max_absolute_v)){
+    if((s > -max_absolute_v && s <= -epsilon_abs) || (s >= epsilon_abs && s < max_absolute_v)){
         return s;
     }
     else{
