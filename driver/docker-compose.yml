@@ -1,0 +1,8 @@
+version: '3'
+services:
+  driver:
+    image: osrf/ros:foxy-desktop
+    volumes:
+      - /home/michael/Documents/dev/master/master_degree/driver/ros2_ws:/ros2_ws
+    command: sleep infinity
+
