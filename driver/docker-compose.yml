@@ -4,5 +4,5 @@ services:
     image: osrf/ros:foxy-desktop
     volumes:
       - /home/michael/Documents/dev/master/master_degree/driver/ros2_ws:/ros2_ws
-    command: sleep infinity
+    command: bash -c "apt-get update && apt-get install vim -y && sleep infinity"
 
