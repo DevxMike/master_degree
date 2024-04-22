@@ -43,11 +43,24 @@ Each directory contains specific instructions and documentation regarding its us
     robot: to run unit tests you will need
         - cmake 3.10 or higher
         - GTest library
+	- easyEDA (Recommended)
+
     arduino software (required libraries):
         - ArduinoJson
         - String (Arduino)
         - PubSubClient    
         - internal arduino libs for use of digital I/O, ext INT or PWM 
+	- Platformio (visual studio plugin)
 
-    ROS2 system: 
-	TBD
+    ROS2 system:
+        Make sure that you installed docker on your system!
+                $ docker-compose up -d
+                $ Starting driver_driver_1 ... done
+                $ docker ps
+                $ 8ca53468d1c0   osrf/ros:foxy-desktop   "/ros_entrypoint.sh …"   6 minutes ago   Up 18 seconds             driver_driver_1
+                $ docker exec -it driver_driver_1 bash
+        Now we are inside docker image. If you need to pull ros2 image:
+                $ docker pull osrf/ros:foxy-desktop
+        Or refer to documentation:
+                https://docs.ros.org/en/foxy/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.html
+

@@ -3,6 +3,7 @@
 
 #include "interfaces/ISensor.h"
 #include "array.h"
+#include <array>
 
 namespace Sensor{
 
@@ -12,7 +13,7 @@ constexpr uint32_t num_dimensions = 9;
 
 class IMU : public ISensor{
 public: 
-    using reading_t = custom::array<float, num_dimensions>;
+    using reading_t = std::array<float, num_dimensions>;
 
     IMU(uint32_t sdaPin, uint32_t sclPin) noexcept;
     IMU(uint32_t sdaPin, uint32_t sclPin, uint32_t intPin) noexcept; 
