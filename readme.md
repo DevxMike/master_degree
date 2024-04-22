@@ -64,5 +64,5 @@ Each directory contains specific instructions and documentation regarding its us
         Or refer to documentation:
                 https://docs.ros.org/en/foxy/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.html
 	
-	Or simply type:
-		$ sh run_container.sh
+        Or simply type:
+                $ sh run_container.sh
