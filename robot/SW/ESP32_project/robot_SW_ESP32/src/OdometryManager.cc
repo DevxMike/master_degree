@@ -12,6 +12,13 @@ constexpr float getAng(int32_t numImpulses){
         * PI;
     }
 
+constexpr float getDist(int32_t numImpulses){
+    return(
+        (PI*numImpulses*constants::motors::wheel_diameter) 
+        / static_cast<float>(constants::motors::impulsesPerRotation)
+    );
+}
+
 simpleOdometry::simpleOdometry() noexcept{
     resetPosition();
 }
@@ -33,6 +40,16 @@ void simpleOdometry::poolOdometry(SensorManager& s) noexcept{
 
     new_pos.angularLeft = new_pos.angularLeft * 0.7 + 0.3 * angLeft;
     new_pos.angularRight = new_pos.angularRight * 0.7 + 0.3 * angRight;
+
+    float leftDistance = getDist(*reading1);
+    float rightDistance = getDist(*reading2);
+
+    float deltaDistance = (rightDistance + leftDistance) / 2;
+    float deltaTheta = (rightDistance - leftDistance) / constants::motors::wheel_base;
+
+    new_pos.x = pos.x + deltaDistance*cos(pos.theta);
+    new_pos.y = pos.y + deltaDistance*sin(pos.theta);
+    new_pos.theta = pos.theta + deltaTheta;
 
     leftEnc->reset();
     rightEnc->reset();

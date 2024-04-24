@@ -34,9 +34,6 @@ void Kernel::main(){
     int32_t rightV = pidRight.getOutput(readings.angularRight, (*target)[1]);
     
     motorManager.setSpeed({{ leftV, rightV }});
-
-    encoderLeft.reset();
-    encoderRight.reset();
 }
 
 void Kernel::init(){
@@ -78,7 +75,23 @@ bool processCMD(const String& s){
       return true;
     }
     else if(s == commands[cmd_mapping::getOdo]){
-      // send position
+      auto tmp = Kernel::odoMgr.getPosition();
+      String msg = 
+        String("{")
+        + String("\"x\" : ")
+        + String(tmp.x)
+        + String(", \"y\" : ")
+        + String(tmp.y)
+        + String(", \"theta\" : ")
+        + String(tmp.theta)
+        + String(" } ");
+
+      Kernel::commMgr.sendMessage(
+        Kernel::commMgr.createMessage(
+          constants::comm::pubTopicsArray[constants::comm::types::pub_topic_mapping::cmdResponse],
+          msg
+        )
+      );
 
       return true;
     }
