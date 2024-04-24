@@ -26,8 +26,8 @@ void Kernel::main(){
 
     // int32_t leftV = motorManager.DesiredSpeed()->at(0);
     // sensorTimer = millis();
-    const int32_t* reading1 = static_cast<const Sensor::Encoder::reading_t*>(encoderLeft.getReadings());
-    const int32_t* reading2 = static_cast<const Sensor::Encoder::reading_t*>(encoderRight.getReadings());
+    const int32_t* reading1 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderLeft);
+    const int32_t* reading2 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderRight);
 
     float angLeft = getAng(*reading1);
     float angRight = getAng(*reading2);
@@ -105,6 +105,42 @@ void Kernel::init(){
   sensorMgr.init();
 }
 
+bool processCMD(const String& s){
+    using constants::comm::commands;
+    using constants::comm::types::cmd_mapping;
+
+    if(s == commands[cmd_mapping::resetOdo]){
+      // reset odo
+
+      return true;
+    }
+    else if(s == commands[cmd_mapping::getOdo]){
+      // send position
+
+      return true;
+    }
+    else if(s == commands[cmd_mapping::getSensors]){
+      // send sensors
+
+      return true;
+    }
+    else if(s == commands[cmd_mapping::getAll]){
+      // send position and sensors
+
+      return true;
+    }
+    else if(s == commands[cmd_mapping::halt]){
+      Kernel::motorManager.setSpeed(
+        {{ 0, 0 }},
+        Motor::MotorManager::settingType::setAngularTarget
+      );
+
+      return true;
+    }
+
+    return false;
+}
+
 void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
   using constants::comm::types::sub_topic_mapping;
   using constants::comm::types::pub_topic_mapping;
@@ -113,30 +149,7 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
 
   String tmp{ topic };
   constants::comm::types::job_t job;
-  // obsolete but cool to keep just in case of the need to perform another experiments
-  // if(tmp == constants::comm::topicsArray[topic_mapping::debugInfo]){
-  //   job.cback = [&](const String& s){
-  //     StaticJsonBuffer<200> JSONBuffer; 
-  //     JsonObject& parsed = JSONBuffer.parseObject(s);
-  //     if(parsed.success()){
-  //        float Kp = parsed["Kp"];
-  //        float Ti = parsed["Ti"];
-  //        float Td = parsed["Td"];
 
-  //        Serial.println("Changing pid coeffs");
-
-  //        pidRight.reinit(Kp, Ti, Td);
-  //     }
-  //   };
-  // }
-  // else if(tmp == constants::comm::topicsArray[topic_mapping::request]){
-  //   job.cback = [&](const String& s){
-  //     Serial.println("cback 2");
-  //     Serial.println(s);
-  //     start_experiment = false;
-  //     motorManager.setSpeed(Motor::MotorManager::speed_array{{ 0, 0 }}, Motor::MotorManager::settingType::setAngularTarget);
-  //   };
-  // }
   if(tmp == subTopicsArray[sub_topic_mapping::setMotors]){
     job.cback = [&](const String& s){
       StaticJsonBuffer<100> JSONBuffer; 
@@ -161,6 +174,17 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
       );
 
       Kernel::commMgr.sendMessage(std::move(msg));
+    };
+  }
+  else if(tmp == subTopicsArray[sub_topic_mapping::cmdIn]){
+    job.cback = [&](const String& s){
+      if(!processCMD(s)){
+        auto msg = Comm::MQTT::CommManager<String, 1>::createMessage(
+          pubTopicsArray[pub_topic_mapping::cmdResponse], String("cmd not supported")
+        );
+
+        Kernel::commMgr.sendMessage(std::move(msg));
+      }
     };
   }
 

@@ -63,7 +63,7 @@ Sensor::SensorManager Kernel::sensorMgr{{
 void SensorTask(void* p){
   while(1){
     Kernel::sensorMgr.poolSensors();
-    TASK_DELAY_MS(100);
+    TASK_DELAY_MS(500);
   }
 }
 
@@ -111,16 +111,16 @@ void setup() {
     &xCommTaskBuffer
   );
 
-  // xTaskCreateStaticPinnedToCore(
-  //   SensorTask,
-  //   "sensor",
-  //   constants::defaultStackSize * 8,
-  //   NULL,
-  //   3,
-  //   xSensorStack,
-  //   &xSensorMgrTaskBuffer,
-  //   0
-  // );
+  xTaskCreateStaticPinnedToCore(
+    SensorTask,
+    "sensor",
+    constants::defaultStackSize * 8,
+    NULL,
+    3,
+    xSensorStack,
+    &xSensorMgrTaskBuffer,
+    0
+  );
 
   xTaskCreateStaticPinnedToCore(
     MotorTask,

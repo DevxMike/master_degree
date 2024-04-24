@@ -1,10 +1,10 @@
 #ifndef global_h
 #define global_h
 
-#define WIFI_DEBUG 1
-#define MQTT_DEBUG 1
-#define MOTOR_DEBUG 1
-#define ENCODER_DEBUG 1
+// #define WIFI_DEBUG 1
+// #define MQTT_DEBUG 1
+// #define MOTOR_DEBUG 1
+// #define ENCODER_DEBUG 1
 #define SENSOR_DEBUG 1
 
 #include "Arduino.h"
@@ -46,8 +46,9 @@ namespace comm{
     constexpr const char* MQTTPass = "";
     constexpr const char* MQTTUname = "";
     
-    constexpr uint32_t subscribedTopics = 4;
+    constexpr uint32_t subscribedTopics = 3;
     constexpr uint32_t publishedTopics = 2;
+    constexpr uint32_t cmdAvailable = 5;
 
     constexpr uint32_t jobStackDepth = 10;
 
@@ -57,8 +58,7 @@ namespace comm{
         {
             "robot/echo/in",
             "robot/cmd/in",
-            "robot/set/motors",
-            "robot/get/sensors"
+            "robot/set/motors"
         }
     };
 
@@ -66,6 +66,16 @@ namespace comm{
         {
             "robot/echo/out",
             "robot/cmd/response"
+        }
+    };
+
+    const std::array<String, cmdAvailable> commands{
+        {
+            "get_sensors",
+            "reset_odo",
+            "get_odo",
+            "get_all",
+            "halt"
         }
     };
 
@@ -85,13 +95,20 @@ namespace types{
         // setMotors
         echoIn,
         cmdIn,
-        setMotors,
-        getSensors
+        setMotors
     };
 
     enum pub_topic_mapping : uint32_t{
         echoOut,
         cmdResponse
+    };
+
+    enum cmd_mapping : uint32_t{
+        getSensors,
+        resetOdo,
+        getOdo,
+        getAll,
+        halt
     };
 }
 }

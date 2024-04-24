@@ -23,6 +23,11 @@ private:
     SensorStates state;
 };
 
+template<typename reading_t>
+const reading_t* get_reading(const ISensor& s){
+    return static_cast<const reading_t*>(s.getReadings());
+}
+
 } 
 
 #endif
