@@ -63,18 +63,18 @@ void Kernel::main(){
       logTimer = millis();
     }
 
-    // String payload = 
-    //   String("{ \"id\" : ") 
-    //   + String(counter++) 
-    //   + String(", \"target\" :") 
-    //   + String((*target)[1]) 
-    //   + String(", \"actual\" : ")
-    //   + String(angularVelocityRight) 
-    //   + String(" }");
+    String payload = 
+      String("{ \"id\" : ") 
+      + String(counter++) 
+      + String(", \"target\" :") 
+      + String((*target)[0]) 
+      + String(", \"actual\" : ")
+      + String(angularVelocityLeft) 
+      + String(" }");
 
-    // commMgr.sendMessage(
-    //   Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
-    // );
+    commMgr.sendMessage(
+      Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
+    );
 
     encoderLeft.reset();
     encoderRight.reset();
