@@ -60,10 +60,16 @@ Sensor::SensorManager Kernel::sensorMgr{{
   &Kernel::rear  
 }};
 
+Sensor::simpleOdometry Kernel::odoAgent;
+Sensor::OdometryManager Kernel::odoMgr{
+  {{&Kernel::odoAgent, &Kernel::odoAgent}},
+  Kernel::sensorMgr
+};
+
 void SensorTask(void* p){
   while(1){
     Kernel::sensorMgr.poolSensors();
-    TASK_DELAY_MS(500);
+    TASK_DELAY_MS(100);
   }
 }
 
@@ -81,6 +87,13 @@ void MotorTask(void* p){
   }
 }
 
+void OdometryTask(void* p){
+  while(1){
+    Kernel::odoMgr.updatePosition();
+    TASK_DELAY_MS(5);
+  }
+}
+
 void MainTask(void* p){
   while(1){
     Kernel::main();
@@ -92,11 +105,13 @@ static StaticTask_t xCommTaskBuffer;
 static StaticTask_t xMotorTaskBuffer;
 static StaticTask_t xMainTaskBuffer;
 static StaticTask_t xSensorMgrTaskBuffer;
+static StaticTask_t xOdometryMgrTaskBuffer;
 
 static StackType_t xCommStack[ constants::defaultStackSize * 4];
 static StackType_t xMotorStack[ constants::defaultStackSize * 4 ];
 static StackType_t xMainStack[ constants::defaultStackSize * 13 ];
 static StackType_t xSensorStack[ constants::defaultStackSize * 8 ];
+static StackType_t xOdometryStack[ constants::defaultStackSize * 13 ];
 
 void setup() {
   Kernel::init();
@@ -130,6 +145,17 @@ void setup() {
     3,
     xMotorStack,
     &xMotorTaskBuffer,
+    1
+  );
+
+  xTaskCreateStaticPinnedToCore(
+    OdometryTask,
+    "odometry",
+    constants::defaultStackSize * 13,
+    NULL,
+    3,
+    xOdometryStack,
+    &xOdometryMgrTaskBuffer,
     1
   );
 

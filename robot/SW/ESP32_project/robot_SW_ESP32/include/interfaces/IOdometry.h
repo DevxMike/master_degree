@@ -9,6 +9,8 @@ struct position{
         float x;
         float y;
         float theta;
+        float angularLeft;
+        float angularRight;
 };
 
 class IOdometry{

@@ -1,10 +1,10 @@
 #ifndef global_h
 #define global_h
 
-// #define WIFI_DEBUG 1
-// #define MQTT_DEBUG 1
-// #define MOTOR_DEBUG 1
-// #define ENCODER_DEBUG 1
+#define WIFI_DEBUG 0
+#define MQTT_DEBUG 0
+#define MOTOR_DEBUG 0
+#define ENCODER_DEBUG 0
 #define SENSOR_DEBUG 1
 
 #include "Arduino.h"

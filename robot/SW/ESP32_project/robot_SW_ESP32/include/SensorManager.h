@@ -36,7 +36,7 @@ public:
     void init(); // needed due to arduino/platformio framework
     SensorManager(std::array<sensorPointer, numSensors>&& s);
     void poolSensors();
-    const ISensor& getSensor(SensorMapping s);
+    ISensor& getSensor(SensorMapping s);
 
 private:
     std::array<sensorPointer, numSensors> sensors;

@@ -11,7 +11,7 @@ void SensorManager::init(){
     }
 }
 
-const ISensor& SensorManager::getSensor(SensorMapping s){
+ISensor& SensorManager::getSensor(SensorMapping s){
     auto sensor_index = translate(s);
 
     return *sensors[sensor_index];

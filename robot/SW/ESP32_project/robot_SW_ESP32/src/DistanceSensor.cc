@@ -34,10 +34,10 @@ Sensor::SensorStates DistanceSensor::poolSensor() noexcept {
             
             timer = millis();
             State(SensorStates::Timeout);
-            #if SENSOR_DEBUG
-            Serial.print("sensor reading: ");
-            Serial.println(reading);
-            #endif
+            // #if SENSOR_DEBUG
+            // Serial.print("sensor reading: ");
+            // Serial.println(reading);
+            // #endif
         break;
 
         case SensorStates::Timeout:

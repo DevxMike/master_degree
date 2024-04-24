@@ -6,13 +6,7 @@ static float angularVelocityLeft = 0.0f;
 static float angularVelocityRight = 0.0f;
 static uint32_t counter = 0;
 
-constexpr float getAng(int32_t numImpulses){
-      return 
-        (1.0f/constants::experiment::samplingTime)
-        * (static_cast<float>(numImpulses)/constants::motors::impulsesPerRotation)
-        * 2
-        * PI;
-    }
+
 
 void Kernel::main(){
   static unsigned long sensorTimer, logTimer;
@@ -26,55 +20,20 @@ void Kernel::main(){
 
     // int32_t leftV = motorManager.DesiredSpeed()->at(0);
     // sensorTimer = millis();
-    const int32_t* reading1 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderLeft);
-    const int32_t* reading2 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderRight);
+    // const int32_t* reading1 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderLeft);
+    // const int32_t* reading2 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderRight);
 
-    float angLeft = getAng(*reading1);
-    float angRight = getAng(*reading2);
+    // float angLeft = getAng(*reading1);
+    // float angRight = getAng(*reading2);
 
-    angularVelocityLeft = angularVelocityLeft * 0.7 + angLeft * 0.3;
-    angularVelocityRight = angularVelocityRight * 0.7 + angRight * 0.3;
+    auto readings = odoMgr.getPosition();
 
-    // angularVelocityLeft = getAng(*reading1);
-    // angularVelocityRight = getAng(*reading2);
-
-    // int32_t rightV;
-
-    // if(leftV == 0){
-    //   rightV = 0;
-    // }
-    // else{
-    //   rightV = pid.getOutput(angularVelocityRight, angularVelocityLeft);
-    // }
-
-    // motorManager.setSpeed({{ leftV, rightV }});
     const Motor::MotorManager::angular_array* target = motorManager.TargetAngular();
 
-    int32_t leftV = pidLeft.getOutput(angularVelocityLeft, (*target)[0]);
-    int32_t rightV = pidRight.getOutput(angularVelocityRight, (*target)[1]);
+    int32_t leftV = pidLeft.getOutput(readings.angularLeft, (*target)[0]);
+    int32_t rightV = pidRight.getOutput(readings.angularRight, (*target)[1]);
     
     motorManager.setSpeed({{ leftV, rightV }});
-
-    if(millis() - logTimer > 500){
-      Serial.print("Angular left: ");
-      Serial.print(angularVelocityLeft);
-      Serial.print(", Angular right: ");
-      Serial.println(angularVelocityRight);
-      logTimer = millis();
-    }
-
-    String payload = 
-      String("{ \"id\" : ") 
-      + String(counter++) 
-      + String(", \"target\" :") 
-      + String((*target)[0]) 
-      + String(", \"actual\" : ")
-      + String(angularVelocityLeft) 
-      + String(" }");
-
-    commMgr.sendMessage(
-      Comm::MQTT::CommManager<String, constants::comm::subscribedTopics>::createMessage("robot/pid/log", payload)
-    );
 
     encoderLeft.reset();
     encoderRight.reset();
@@ -103,6 +62,10 @@ void Kernel::init(){
 
   motorManager.init();
   sensorMgr.init();
+
+  commMgr.sendMessage(
+    commMgr.createMessage("robot/echo/out", "robot initialized")
+  );
 }
 
 bool processCMD(const String& s){

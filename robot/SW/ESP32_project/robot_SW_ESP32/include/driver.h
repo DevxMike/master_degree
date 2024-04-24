@@ -14,6 +14,7 @@
 #include "Encoder.h"
 #include "global_defines.h"
 #include "SensorManager.h"
+#include "OdometryManager.h"
 
 class Kernel{
 public:
@@ -38,12 +39,14 @@ public:
     static Sensor::DistanceSensor front_left;
     static Sensor::DistanceSensor front;
     static Sensor::DistanceSensor front_right;
-
     static Sensor::Encoder encoderLeft;
     static Sensor::Encoder encoderRight;
-    
+
     static Sensor::SensorManager sensorMgr;
-    // TODO
+
+    static Sensor::simpleOdometry odoAgent;
+    static Sensor::OdometryManager odoMgr;
+    
 
     /*  */
 };
