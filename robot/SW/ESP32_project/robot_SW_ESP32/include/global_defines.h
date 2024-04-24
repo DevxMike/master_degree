@@ -27,6 +27,15 @@ namespace experiment{
 namespace sensor{
     constexpr uint8_t triggerRear = 13;
     constexpr uint8_t echoRear = 18;
+    
+    constexpr uint8_t triggerFront1 = 19;
+    constexpr uint8_t echoFront1 = 5;
+
+    constexpr uint8_t triggerFront2 = 3;//RX pin;
+    constexpr uint8_t echoFront2 = 17;
+
+    constexpr uint8_t triggerFront3 = 23;
+    constexpr uint8_t echoFront3 = 16;
 }
 
 namespace comm{
