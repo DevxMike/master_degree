@@ -13,6 +13,7 @@
 #include "ArduinoJson.h"
 #include "Encoder.h"
 #include "global_defines.h"
+#include "SensorManager.h"
 
 class Kernel{
 public:
@@ -34,8 +35,14 @@ public:
 
     /* sensor management */
     static Sensor::DistanceSensor rear;
+    static Sensor::DistanceSensor front_left;
+    static Sensor::DistanceSensor front;
+    static Sensor::DistanceSensor front_right;
+
     static Sensor::Encoder encoderLeft;
     static Sensor::Encoder encoderRight;
+    
+    static Sensor::SensorManager sensorMgr;
     // TODO
 
     /*  */

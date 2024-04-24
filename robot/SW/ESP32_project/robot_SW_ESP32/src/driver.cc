@@ -101,43 +101,43 @@ void Kernel::init(){
   );
 #endif
 
-  rear.init();
-  encoderLeft.init();
-  encoderRight.init();
-
   motorManager.init();
+  sensorMgr.init();
 }
 
 void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
-  using constants::comm::types::topic_mapping;
+  using constants::comm::types::sub_topic_mapping;
+  using constants::comm::types::pub_topic_mapping;
+  using constants::comm::pubTopicsArray;
+  using constants::comm::subTopicsArray;
 
   String tmp{ topic };
   constants::comm::types::job_t job;
+  // obsolete but cool to keep just in case of the need to perform another experiments
+  // if(tmp == constants::comm::topicsArray[topic_mapping::debugInfo]){
+  //   job.cback = [&](const String& s){
+  //     StaticJsonBuffer<200> JSONBuffer; 
+  //     JsonObject& parsed = JSONBuffer.parseObject(s);
+  //     if(parsed.success()){
+  //        float Kp = parsed["Kp"];
+  //        float Ti = parsed["Ti"];
+  //        float Td = parsed["Td"];
 
-  if(tmp == constants::comm::topicsArray[topic_mapping::debugInfo]){
-    job.cback = [&](const String& s){
-      StaticJsonBuffer<200> JSONBuffer; 
-      JsonObject& parsed = JSONBuffer.parseObject(s);
-      if(parsed.success()){
-         float Kp = parsed["Kp"];
-         float Ti = parsed["Ti"];
-         float Td = parsed["Td"];
+  //        Serial.println("Changing pid coeffs");
 
-         Serial.println("Changing pid coeffs");
-
-         pidRight.reinit(Kp, Ti, Td);
-      }
-    };
-  }
-  else if(tmp == constants::comm::topicsArray[topic_mapping::request]){
-    job.cback = [&](const String& s){
-      Serial.println("cback 2");
-      Serial.println(s);
-      start_experiment = false;
-      motorManager.setSpeed(Motor::MotorManager::speed_array{{ 0, 0 }}, Motor::MotorManager::settingType::setAngularTarget);
-    };
-  }
-  else if(tmp == constants::comm::topicsArray[topic_mapping::setMotors]){
+  //        pidRight.reinit(Kp, Ti, Td);
+  //     }
+  //   };
+  // }
+  // else if(tmp == constants::comm::topicsArray[topic_mapping::request]){
+  //   job.cback = [&](const String& s){
+  //     Serial.println("cback 2");
+  //     Serial.println(s);
+  //     start_experiment = false;
+  //     motorManager.setSpeed(Motor::MotorManager::speed_array{{ 0, 0 }}, Motor::MotorManager::settingType::setAngularTarget);
+  //   };
+  // }
+  if(tmp == subTopicsArray[sub_topic_mapping::setMotors]){
     job.cback = [&](const String& s){
       StaticJsonBuffer<100> JSONBuffer; 
       JsonObject& parsed = JSONBuffer.parseObject(s);
@@ -152,6 +152,15 @@ void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
       }
 
       Serial.println(s);
+    };
+  }
+  else if(tmp == subTopicsArray[sub_topic_mapping::echoIn]){
+    job.cback = [&](const String& s){
+      auto msg = Comm::MQTT::CommManager<String, 1>::createMessage(
+        pubTopicsArray[pub_topic_mapping::echoOut], s
+      );
+
+      Kernel::commMgr.sendMessage(std::move(msg));
     };
   }
 

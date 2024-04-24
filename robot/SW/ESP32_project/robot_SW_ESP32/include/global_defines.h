@@ -5,6 +5,7 @@
 #define MQTT_DEBUG 1
 #define MOTOR_DEBUG 1
 #define ENCODER_DEBUG 1
+#define SENSOR_DEBUG 1
 
 #include "Arduino.h"
 #include <array>
@@ -45,11 +46,27 @@ namespace comm{
     constexpr const char* MQTTPass = "";
     constexpr const char* MQTTUname = "";
     
-    constexpr uint32_t subscribedTopics = 3;
+    constexpr uint32_t subscribedTopics = 4;
+    constexpr uint32_t publishedTopics = 2;
+
     constexpr uint32_t jobStackDepth = 10;
 
-    const std::array<String, subscribedTopics> topicsArray{
-        { "robot/set/pid", "robot/request", "robot/set/motors" }
+    const std::array<String, subscribedTopics> subTopicsArray{
+        // obsolete topic mapping
+        // { "robot/set/pid", "robot/request", "robot/set/motors" }
+        {
+            "robot/echo/in",
+            "robot/cmd/in",
+            "robot/set/motors",
+            "robot/get/sensors"
+        }
+    };
+
+    const std::array<String, publishedTopics> pubTopicsArray{
+        {
+            "robot/echo/out",
+            "robot/cmd/response"
+        }
     };
 
 namespace types{
@@ -61,10 +78,20 @@ namespace types{
 
     using job_stack_t = custom::stack<constants::comm::types::job_t, constants::comm::jobStackDepth>;
 
-    enum topic_mapping : uint32_t{
-        debugInfo = 0,
-        request,
-        setMotors
+    enum sub_topic_mapping : uint32_t{
+        // obsolete topic mapping
+        // debugInfo = 0,
+        // request,
+        // setMotors
+        echoIn,
+        cmdIn,
+        setMotors,
+        getSensors
+    };
+
+    enum pub_topic_mapping : uint32_t{
+        echoOut,
+        cmdResponse
     };
 }
 }

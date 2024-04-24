@@ -5,13 +5,14 @@
 
 #include <cstdint>
 #include "array.h"
+#include <array>
 #include <memory>
 
 namespace Sensor{
 
 // SWE_2_010
 
-constexpr uint8_t numSensors = 7;
+constexpr uint8_t numSensors = 6;
 using sensorPointer = ISensor*; // define pointer type
                                                 // in case of no STL support
 
@@ -22,8 +23,8 @@ enum class SensorMapping : uint8_t{  // indexes in array of sensors and
     DST_Front_1,
     DST_Front_2,
     DST_Front_3,
-    DST_Rear,
-    IMU
+    DST_Rear
+    // IMU - not supported
 };
 
 constexpr uint8_t translate(SensorMapping s){ // translate enum into uint
@@ -33,12 +34,12 @@ constexpr uint8_t translate(SensorMapping s){ // translate enum into uint
 class SensorManager{
 public:
     void init(); // needed due to arduino/platformio framework
-    SensorManager(custom::array<sensorPointer, numSensors>&& s);
+    SensorManager(std::array<sensorPointer, numSensors>&& s);
     void poolSensors();
     const ISensor& getSensor(SensorMapping s);
 
 private:
-    custom::array<sensorPointer, numSensors> sensors;
+    std::array<sensorPointer, numSensors> sensors;
 };
 
 }

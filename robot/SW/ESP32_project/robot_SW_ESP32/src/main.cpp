@@ -32,11 +32,14 @@ Comm::MQTT::CommManager<String, constants::comm::subscribedTopics> Kernel::commM
   constants::comm::MQTTBroker, 
   constants::comm::MQTTPass, 
   espClient, 
-  std::array<String, constants::comm::subscribedTopics>{ constants::comm::topicsArray }, 
+  std::array<String, constants::comm::subscribedTopics>{ constants::comm::subTopicsArray }, 
   Kernel::MQTTcallback
 );
 
 Sensor::DistanceSensor Kernel::rear{ constants::sensor::echoRear, constants::sensor::triggerRear };
+Sensor::DistanceSensor Kernel::front_left{ constants::sensor::echoFront1, constants::sensor::triggerFront1 };
+Sensor::DistanceSensor Kernel::front{ constants::sensor::echoFront2, constants::sensor::triggerFront2 };
+Sensor::DistanceSensor Kernel::front_right{ constants::sensor::echoFront3, constants::sensor::triggerFront3 };
 
 Sensor::Encoder Kernel::encoderLeft{
   constants::motors::enc1A, constants::motors::enc1B,
@@ -47,6 +50,22 @@ Sensor::Encoder Kernel::encoderRight{
   constants::motors::enc2A, constants::motors::enc2B,
   Sensor::Encoder::Instance::ENC1
 };
+
+Sensor::SensorManager Kernel::sensorMgr{{ 
+  &Kernel::encoderLeft,
+  &Kernel::encoderRight,
+  &Kernel::front_left,
+  &Kernel::front,
+  &Kernel::front_right,
+  &Kernel::rear  
+}};
+
+void SensorTask(void* p){
+  while(1){
+    Kernel::sensorMgr.poolSensors();
+    TASK_DELAY_MS(100);
+  }
+}
 
 void CommTask(void* p){
   while(1){
@@ -72,10 +91,12 @@ void MainTask(void* p){
 static StaticTask_t xCommTaskBuffer;
 static StaticTask_t xMotorTaskBuffer;
 static StaticTask_t xMainTaskBuffer;
+static StaticTask_t xSensorMgrTaskBuffer;
 
 static StackType_t xCommStack[ constants::defaultStackSize * 4];
 static StackType_t xMotorStack[ constants::defaultStackSize * 4 ];
 static StackType_t xMainStack[ constants::defaultStackSize * 13 ];
+static StackType_t xSensorStack[ constants::defaultStackSize * 8 ];
 
 void setup() {
   Kernel::init();
@@ -89,6 +110,17 @@ void setup() {
     xCommStack,
     &xCommTaskBuffer
   );
+
+  // xTaskCreateStaticPinnedToCore(
+  //   SensorTask,
+  //   "sensor",
+  //   constants::defaultStackSize * 8,
+  //   NULL,
+  //   3,
+  //   xSensorStack,
+  //   &xSensorMgrTaskBuffer,
+  //   0
+  // );
 
   xTaskCreateStaticPinnedToCore(
     MotorTask,
