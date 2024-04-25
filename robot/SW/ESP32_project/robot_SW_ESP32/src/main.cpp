@@ -69,7 +69,7 @@ Sensor::OdometryManager Kernel::odoMgr{
 void SensorTask(void* p){
   while(1){
     Kernel::sensorMgr.poolSensors();
-    TASK_DELAY_MS(100);
+    TASK_DELAY_MS(50);
   }
 }
 

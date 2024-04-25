@@ -16,16 +16,6 @@ void Kernel::main(){
     job.cback(job.payload);
   }
 
-  // rear.poolSensor();
-
-    // int32_t leftV = motorManager.DesiredSpeed()->at(0);
-    // sensorTimer = millis();
-    // const int32_t* reading1 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderLeft);
-    // const int32_t* reading2 = Sensor::get_reading<Sensor::Encoder::reading_t>(encoderRight);
-
-    // float angLeft = getAng(*reading1);
-    // float angRight = getAng(*reading2);
-
     auto readings = odoMgr.getPosition();
 
     const Motor::MotorManager::angular_array* target = motorManager.TargetAngular();
@@ -69,10 +59,10 @@ bool processCMD(const String& s){
     using constants::comm::commands;
     using constants::comm::types::cmd_mapping;
 
-    if(s == commands[cmd_mapping::resetOdo]){
-      // reset odo
+    bool ret = true;
 
-      return true;
+    if(s == commands[cmd_mapping::resetOdo]){
+      Kernel::odoMgr.resetActiveOdometry();
     }
     else if(s == commands[cmd_mapping::getOdo]){
       auto tmp = Kernel::odoMgr.getPosition();
@@ -92,29 +82,82 @@ bool processCMD(const String& s){
           msg
         )
       );
-
-      return true;
     }
     else if(s == commands[cmd_mapping::getSensors]){
-      // send sensors
+      using Sensor::SensorMapping;
+      using distance_t = Sensor::Encoder::reading_t;
+      using Sensor::get_reading;
 
-      return true;
+      auto front_left = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Front_1));
+      auto front = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Front_2));
+      auto front_right = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Front_3));
+      auto rear = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Rear));
+
+      String msg = 
+        String("{ \"front_left\" : ")
+        + String(*front_left)
+        + String(", \"front\" : ")
+        + String(*front)
+        + String(", \"front_right\" : ")
+        + String(*front_right)
+        + String(", \"rear\" : ")
+        + String(*rear)
+        + String("}");
+
+      Kernel::commMgr.sendMessage(
+        Kernel::commMgr.createMessage(
+          constants::comm::pubTopicsArray[constants::comm::types::pub_topic_mapping::cmdResponse],
+          msg
+        )
+      );
     }
     else if(s == commands[cmd_mapping::getAll]){
-      // send position and sensors
+      using Sensor::SensorMapping;
+      using distance_t = Sensor::Encoder::reading_t;
+      using Sensor::get_reading;
 
-      return true;
+      auto odo = Kernel::odoMgr.getPosition();
+      auto front_left = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Front_1));
+      auto front = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Front_2));
+      auto front_right = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Front_3));
+      auto rear = get_reading<distance_t>(Kernel::sensorMgr.getSensor(SensorMapping::DST_Rear));
+
+      String msg = 
+        String("{")
+        + String("\"x\" : ")
+        + String(odo.x)
+        + String(", \"y\" : ")
+        + String(odo.y)
+        + String(", \"theta\" : ")
+        + String(odo.theta)
+        + String(", \"front_left\" : ")
+        + String(*front_left)
+        + String(", \"front\" : ")
+        + String(*front)
+        + String(", \"front_right\" : ")
+        + String(*front_right)
+        + String(", \"rear\" : ")
+        + String(*rear)
+        + String("}");
+
+        Kernel::commMgr.sendMessage(
+          Kernel::commMgr.createMessage(
+            constants::comm::pubTopicsArray[constants::comm::types::pub_topic_mapping::cmdResponse],
+            msg
+          )
+        );
     }
     else if(s == commands[cmd_mapping::halt]){
       Kernel::motorManager.setSpeed(
         {{ 0, 0 }},
         Motor::MotorManager::settingType::setAngularTarget
       );
-
-      return true;
+    }
+    else{
+      ret = false;
     }
 
-    return false;
+    return ret;
 }
 
 void Kernel::MQTTcallback(char* topic, byte* payload, unsigned int len){
