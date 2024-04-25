@@ -81,6 +81,10 @@ void OdometryManager::setActiveOdometry(ActiveOdometry o) noexcept{
     m_odometryAgents[m_active]->resetPosition();
 }
 
+void OdometryManager::resetActiveOdometry() noexcept{
+    m_odometryAgents[m_active]->resetPosition();
+}
+
 void OdometryManager::updatePosition() noexcept{
     m_odometryAgents[m_active]->poolOdometry(m_sensorMgr);
 }

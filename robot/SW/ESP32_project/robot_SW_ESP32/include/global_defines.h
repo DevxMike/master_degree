@@ -5,7 +5,7 @@
 #define MQTT_DEBUG 0
 #define MOTOR_DEBUG 0
 #define ENCODER_DEBUG 0
-#define SENSOR_DEBUG 1
+#define SENSOR_DEBUG 0
 
 #include "Arduino.h"
 #include <array>

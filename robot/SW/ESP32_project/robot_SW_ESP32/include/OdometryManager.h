@@ -24,6 +24,7 @@ public:
     void setActiveOdometry(ActiveOdometry o) noexcept;
     std::size_t getActiveOdometry() const noexcept;
     const position getPosition() const noexcept;
+    void resetActiveOdometry() noexcept;
 private:
     std::array<IOdometry*, availableAlgorithms> m_odometryAgents;
     SensorManager& m_sensorMgr;
