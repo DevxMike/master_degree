@@ -1,9 +1,9 @@
 version: '3'
-services:
-  driver:
-    container_name: ros2_driver
-    image: osrf/ros:foxy-desktop
-    volumes:
-      - /home/michael/Documents/dev/master/master_degree/driver/ros2_ws:/ros2_ws
-    command: bash -c "apt-get update && apt install mosquitto mosquitto-clients -y && apt-get install -y python3 python3-pip && pip3 install paho-mqtt  && apt-get install vim -y && sleep infinity"
 
+services:
+  talker:
+    build:
+      context: .
+    command: sleep infinity
+    volumes:
+      - ./ros2_ws:/ros2_ws 
