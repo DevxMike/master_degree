@@ -11,9 +11,6 @@ This repository contains the code and documentation for a master's thesis focuse
     Robot Construction:
         Design and construction of the robot platform for experimental purposes.
 
-    ROS2 System Development:
-        Development of a Robot Operating System 2 (ROS2) based system for controlling the robot.
-
     Navigation Algorithm Study:
         Exploration and analysis of various navigation algorithms.
         Examination of different odometry algorithms for localization and movement estimation.
@@ -21,7 +18,7 @@ This repository contains the code and documentation for a master's thesis focuse
 # Repository Structure
 
     robot/: Contains documentation, schematics, and code related to the construction of the robot platform.
-    driver/: Includes ROS2 packages developed for controlling the robot.
+    driver/: Includes packages developed for controlling the robot.
     research/: Contains docs related to experiments.
     thesis/: Contains my thesis.
 
@@ -31,7 +28,6 @@ Each directory contains specific instructions and documentation regarding its us
 
     robot/HW - robot/HW/HW_desc
     robot/SW - robot/SW/SW_desc
-    ROS2 system - driver/DRIVER_desc
     research - research/research_desc
 
 # Thesis location
@@ -51,6 +47,3 @@ Each directory contains specific instructions and documentation regarding its us
         - PubSubClient    
         - internal arduino libs for use of digital I/O, ext INT or PWM 
 	- Platformio (visual studio plugin)
-
-    ROS2 system:
-	TBD
