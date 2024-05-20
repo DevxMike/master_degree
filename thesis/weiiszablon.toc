@@ -9,14 +9,15 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Wymagania dotyczące oprogramowania}{\footnotesize 12}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Implementacja}{\footnotesize 14}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Obsługiwane polecenia}{\footnotesize 18}{subsubsection.2.2.3}%
-\contentsline {section}{\numberline {3}Badane algorytmy}{\footnotesize 20}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Algorytm genetyczny}{\footnotesize 20}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Uczenie ze wzmocnieniem}{\footnotesize 20}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Algorytmy nawigacyjne}{\footnotesize 20}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Badania}{\footnotesize 21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Optymalizacja nastaw regulatora PID prędkości obrotowej}{\footnotesize 21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Optymalizacja nastaw regulatora położenia i orientacji}{\footnotesize 21}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Porównanie algorytmów nawigacyjnych w terenie bez przeszkód}{\footnotesize 21}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Porównanie algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 21}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Podsumowanie i wnioski końcowe}{\footnotesize 22}{section.5}%
-\contentsline {section}{Literatura}{\footnotesize 24}{section.5}%
+\contentsline {subsubsection}{\numberline {2.2.4}Testy oprogramowania}{\footnotesize 19}{subsubsection.2.2.4}%
+\contentsline {section}{\numberline {3}Badane algorytmy}{\footnotesize 21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Algorytm genetyczny}{\footnotesize 21}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Uczenie ze wzmocnieniem}{\footnotesize 21}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Algorytmy nawigacyjne}{\footnotesize 21}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Badania}{\footnotesize 22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Optymalizacja nastaw regulatora PID prędkości obrotowej}{\footnotesize 22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Optymalizacja nastaw regulatora położenia i orientacji}{\footnotesize 22}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Porównanie algorytmów nawigacyjnych w terenie bez przeszkód}{\footnotesize 22}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Porównanie algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 22}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Podsumowanie i wnioski końcowe}{\footnotesize 23}{section.5}%
+\contentsline {section}{Literatura}{\footnotesize 25}{section.5}%

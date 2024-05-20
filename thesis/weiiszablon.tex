@@ -62,7 +62,8 @@ The work focuses on the study of selected navigation algorithms and methods for 
 \section*{Wykaz symboli, oznaczeń i skrótów}
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item PID (eng. Proportional-Integral-Derivative) - skrót od Proporcjonalno-Całkująco-Różniczkującego regulatora, który jest powszechnie stosowany w systemach sterowania,
-	\item MCU (eng. Microcontroller Unit) - Jednostka Mikrokontrolera.
+	\item MCU (eng. Microcontroller Unit) - Jednostka Mikrokontrolera,
+	\item SQT (eng. Software Qualification Test) to proces testowania oprogramowania w celu zweryfikowania, czy spełnia ono określone wymagania i standardy jakościowe. SQT ma na celu potwierdzenie, że oprogramowanie działa zgodnie z założeniami i spełnia oczekiwania użytkowników oraz wymagania funkcjonalne i niefunkcjonalne.
 \end{enumerate}
 
 \section{Wstęp}
@@ -510,6 +511,73 @@ Sekcja przedstawia interfejs sieciowej komunikacji z robotem poprzez protokół 
 \end{table}	
 
 \newpage
+\subsubsection{Testy oprogramowania}
+W tej sekcji opisano przeprowadzone testy weryfikujące zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3.
+
+\begin{table}[ht]
+\caption{Test SQT\_01}
+\centering		
+	\begin{tabular}{|p{0.2\textwidth}|p{0.4\textwidth}|p{0.3\textwidth}|}	
+		\hline
+		Treść wymagania & Weryfikacja & Wynik testu \\
+		\hline
+		Oprogramowanie powinno odczytywać sensory co 50ms. & Zadanie odczytywania sensorów jest zaplanowane w systemie freeRTOS co 50ms. & Wynik pozytywny \\
+		\hline
+	\end{tabular}	
+	
+\label{Tab:TEST1}
+\end{table}	
+
+\begin{table}[ht]
+\caption{Test SQT\_02}
+\centering		
+	\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}	
+		\hline
+		Weryfikacja & Oczekiwane & Obserwacja \\
+		\hline
+		Podłączenie płytki do zasilania &
+		Płytka powinna być poprawnie zasilona &
+		Płytka została poprawnie zasilona \\
+		\hline
+		Wgranie najnowszej wersji oprogramowania na płytkę &
+		Najnowsze oprogramowanie powinno zostać wgranę na płytkę &
+		Najnowsze oprogramowanie zostało wgrane na płytkę \\
+		\hline
+		Oczekiwanie na wiadomość "robot initialized" na temacie robot/echo/out. &
+		Wiadomość powinna zostać odebrana. &
+		Wiadomość została odebrana. \\
+		\hline
+		Przesłanie wiadomości na temacie robot/set/motors, aby ustawić prędkość silników bliską 40\% prędkości maksymalnej. 			&
+		Silniki powinny kręcić się z prędkością bliską 40\% prędkości maksymalnej. &
+		Silniki kręcą się z prędkością bliską 40\% prędkości maksymalnej. \\
+		\hline
+		Przesłanie komendy halt na temacie robot/cmd/in. &
+		Silniki powinny się zatrzymać. &
+		Silniki zatrzymały się. \\
+		\hline
+		Przesłanie komendy get\_all w celu uzyskania wszystkich danych. &
+		Uzyskano dane z sensorów i pozycję robota. &
+		Uzyskano dane z sensorów i pozycję robota. \\
+		\hline
+		Przesłanie komendy reset\_odo w celu resetowania odometrii. &
+		Wiadomość powinna zostać wysłana. &
+		Wiadomość została wysłana. \\
+		\hline
+		Przesłanie komendy get\_odo w celu uzyskania pozycji robota. &
+		Uzyskano pozycję, która wskazuje na zero. &
+		Uzyskano pozycję, która wskazuje na zero. \\
+		\hline
+	\end{tabular}	
+	
+\label{Tab:TEST1}
+\end{table}	
+\newpage
+
+Test SQT\_01 miał na celu potwierdzenie, czy oprogramowanie regularnie odczytuje dane z czujników odległości co 50 ms, zgodnie z wymaganiami. Mimo że w projekcie nie wykorzystano IMU, to test został dostosowany do odczytu danych z czujników odległości, a zadanie zostało zaplanowane jako praca freeRTOS z interwałem 50 ms.
+
+Testy oznaczone jako SQT\_02SWE, skupiły się na weryfikacji podstawowych funkcji oprogramowania, w tym dostarczania zasilania i programowania sprzętu, wymiany danych, kontroli silników itp. Każde z tych wymagań zostało poddane testowi, a wynikiem było potwierdzenie, że oprogramowanie spełnia te kryteria.
+
+W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3. Oprócz przeprowadzenia testów kwalifikacyjnych, oprogramowanie zostało pokryte testami jednostkowymi.
 
 \section{Badane algorytmy}
 
