@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 MAY 2024 14:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 MAY 2024 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1888,13 +1888,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 251.
 
 [12]
-<figures/engSW/block.png, id=207, 830.10126pt x 629.35126pt>
+<figures/engSW/block.png, id=207, 502.87875pt x 392.46625pt>
 File: figures/engSW/block.png Graphic file (type png)
 <use figures/engSW/block.png>
 Package pdftex.def Info: figures/engSW/block.png  used on input line 257.
-(pdftex.def)             Requested size: 341.43306pt x 258.86154pt.
+(pdftex.def)             Requested size: 341.43306pt x 266.46628pt.
 
-Underfull \vbox (badness 2229) has occurred while \output is active []
+Underfull \vbox (badness 1472) has occurred while \output is active []
 
 
 
@@ -3132,9 +3132,9 @@ ts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 /public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on weiiszablon.pdf (28 pages, 1165748 bytes).
+Output written on weiiszablon.pdf (28 pages, 1132334 bytes).
 PDF statistics:
- 664 PDF objects out of 1000 (max. 8388607)
+ 665 PDF objects out of 1000 (max. 8388607)
  597 compressed objects within 6 object streams
  308 named destinations out of 1000 (max. 500000)
  201 words of extra memory for PDF output out of 10000 (max. 10000000)
