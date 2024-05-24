@@ -10,7 +10,7 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Implementacja}{\footnotesize 14}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Obsługiwane polecenia}{\footnotesize 18}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Testy oprogramowania}{\footnotesize 19}{subsubsection.2.2.4}%
-\contentsline {section}{\numberline {3}Badane algorytmy}{\footnotesize 21}{section.3}%
+\contentsline {section}{\numberline {3}Wprowadzenie do omawianych algorytmów}{\footnotesize 21}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Algorytm PID}{\footnotesize 21}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Algorytm genetyczny}{\footnotesize 23}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Algorytmy nawigacyjne}{\footnotesize 23}{subsection.3.3}%

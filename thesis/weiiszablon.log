@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 MAY 2024 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 MAY 2024 14:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3110,8 +3110,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `weiiszablon.out' has not changed.
-(rerunfilecheck)             Checksum: A1207A21D01578715B2E07DA0AAFBDD2;3788.
+
+Package rerunfilecheck Warning: File `weiiszablon.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `weiiszablon.out':
+(rerunfilecheck)             Before: A1207A21D01578715B2E07DA0AAFBDD2;3788
+(rerunfilecheck)             After:  6B935C58398E27BCE4CA866B36DB2A10;3902.
  ) 
 Here is how much of TeX's memory you used:
  27196 strings out of 478287
@@ -3132,7 +3138,7 @@ ts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 /public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on weiiszablon.pdf (28 pages, 1189670 bytes).
+Output written on weiiszablon.pdf (28 pages, 1189698 bytes).
 PDF statistics:
  662 PDF objects out of 1000 (max. 8388607)
  596 compressed objects within 6 object streams
