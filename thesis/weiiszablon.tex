@@ -696,6 +696,44 @@ W metodzie getOutput, algorytm oblicza sygnał sterujący na podstawie bieżące
 \end{enumerate}
 
 \subsection{Algorytm genetyczny}
+Algorytm genetyczny jest jednym z najpopularniejszych algorytmów ewolucyjnych, które są inspirowane procesami ewolucyjnymi w naturze. Główną ideą algorytmu genetycznego jest symulacja mechanizmów dziedziczenia, mutacji, selekcji naturalnej i krzyżowania genetycznego w celu rozwiązania problemów optymalizacyjnych.
+Podstawowe kroki działania algorytmu genetycznego obejmują:
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Inicjalizacja populacji - tworzenie początkowej populacji rozwiązań, zazwyczaj generowanych losowo,
+	
+	\item Selekcja - wybór jednostek najlepiej przystosowanych (najlepszych rozwiązań) do przetrwania i reprodukcji. Istnieje wiele różnych metod selekcji, takich jak ruletka ruletkowa, turniejowa, rankingowa itp.,
+	
+	\item Krzyżowanie - tworzenie nowych rozwiązań poprzez wymianę fragmentów między dwoma rodzicami. Jest to symulacja procesu krzyżowania genetycznego w naturze,
+	
+	\item Mutacja - losowa zmiana pewnych cech wybranych jednostek w celu wprowadzenia różnorodności genetycznej w populacji,
+	
+	\item Ocena przystosowania - określenie jakości każdego rozwiązania w populacji na podstawie funkcji oceny (funkcji przystosowania), która zazwyczaj opisuje, jak dobrze dany osobnik spełnia postawione wymagania,
+	
+	\item Zakończenie algorytmu - algorytm genetyczny zwykle kończy działanie po osiągnięciu określonego warunku stopu. Przykładowymi warunkami stopu mogą być przekroczenie założonej ilości generacji czy osiągnięcie rozwiązania optymalnego lokalnie lub globalnie. \\
+	
+\end{enumerate}
+
+Algorytmy genetyczne znajdują zastosowanie w różnych dziedzinach, takich jak optymalizacja kombinatoryczna, uczenie maszynowe, projektowanie sieci neuronowych, inżynieria ewolucyjna i wiele innych. Ich siła tkwi w zdolności do eksploracji przestrzeni rozwiązań w poszukiwaniu optymalnych lub zbliżonych do optymalnych wyników, nawet w przypadku problemów o dużym stopniu złożoności i wielowymiarowości.
+
+Najważniejszymi parametrami algorytmu genetycznego są:
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Rozmiar populacji - określa liczbę osobników w każdym pokoleniu. Wartość tego parametru wpływa na zróżnicowanie genetyczne populacji oraz szybkość działania algorytmu. Zbyt mała populacja może prowadzić do zbyt wąskiego przeszukiwania przestrzeni rozwiązań, podczas gdy zbyt duża populacja może prowadzić do długiego czasu obliczeń,
+	
+	\item Liczba generacji - określa, ile pokoleń zostanie maksymalnie wygenerowanych przez algorytm genetyczny przed zakończeniem działania,
+	
+	\item Funkcja oceny - przypisuje wartość przystosowania każdemu osobnikowi w populacji, opisując, jak dobrze dany osobnik rozwiązuje problem optymalizacyjny. Celem algorytmu jest maksymalizacja lub minimalizacja tej funkcji zależnie od charakteru rozwiązywanego problemu,
+	
+	\item Metoda selekcji - selekcja wybiera osobniki z populacji, które zostaną wykorzystane do reprodukcji w kolejnym pokoleniu. Popularne metody selekcji to ruletka ruletkowa, selekcja turniejowa, selekcja rankingowa i selekcja proporcjonalna,
+	
+	\item Operator krzyżowania - krzyżowanie jest operacją genetyczną, która łączy cechy dwóch rodziców, aby stworzyć potomstwo. Istnieje wiele różnych metod krzyżowania, takich jak jednopunktowe krzyżowanie, dwupunktowe krzyżowanie, jednorodne krzyżowanie, krzyżowanie arithmetic blend itp.,
+	
+	\item Operator mutacji - mutacja wprowadza losowe zmiany w genotypie osobników w populacji, aby zwiększyć różnorodność genetyczną i zapobiec zatrzymaniu się w lokalnych optimum,
+	
+	\item Prawdopodobieństwo mutacji i krzyżowania - określają one prawdopodobieństwo wystąpienia operacji krzyżowania i mutacji dla każdego osobnika w populacji. Zbyt wysokie prawdopodobieństwo może prowadzić do zbyt szybkiego zbiegania się algorytmu do lokalnego optimum, podczas gdy zbyt niskie może prowadzić do braku różnorodności w populacji.
+	
+\end{enumerate}
+
+
 \subsection{Algorytmy nawigacyjne}
 
 
