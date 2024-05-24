@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 MAY 2024 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 MAY 2024 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1597,11 +1597,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [8
 
 ]
-<figures/engHW/robotblock.png, id=168, 757.83125pt x 550.055pt>
+<figures/engHW/robotblock.png, id=168, 683.55376pt x 440.64626pt>
 File: figures/engHW/robotblock.png Graphic file (type png)
 <use figures/engHW/robotblock.png>
 Package pdftex.def Info: figures/engHW/robotblock.png  used on input line 153.
-(pdftex.def)             Requested size: 341.43306pt x 247.82462pt.
+(pdftex.def)             Requested size: 341.43306pt x 220.10742pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1676,78 +1676,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 163--167
 
  []
 
-<figures/engHW/robotschem.png, id=179, 1222.5675pt x 859.21pt>
+<figures/engHW/robotschem.png, id=180, 1222.5675pt x 859.21pt>
 File: figures/engHW/robotschem.png Graphic file (type png)
 <use figures/engHW/robotschem.png>
 Package pdftex.def Info: figures/engHW/robotschem.png  used on input line 172.
 (pdftex.def)             Requested size: 341.43306pt x 239.94786pt.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 185.
+(hyperref)                removing `\<let>-command' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 185.
+(hyperref)                removing `\@currsize' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 185.
+(hyperref)                removing `\abovedisplayskip' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 185.
+(hyperref)                removing `\p@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 185.
+(hyperref)                removing `\p@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 185.
+(hyperref)                removing `\p@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 185.
+(hyperref)                removing `\abovedisplayshortskip' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 185.
+(hyperref)                removing `\z@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 185.
+(hyperref)                removing `\p@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 185.
+(hyperref)                removing `\belowdisplayshortskip' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 185.
+(hyperref)                removing `\p@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 185.
+(hyperref)                removing `\p@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 185.
+(hyperref)                removing `\p@' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 185.
+(hyperref)                removing `\<def>-command' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 185.
+(hyperref)                removing `\@listi' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 185.
+(hyperref)                removing `\belowdisplayskip' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 185.
+(hyperref)                removing `\abovedisplayskip' on input line 186.
 
 [10 <./figures/engHW/robotblock.png>]
 
@@ -1888,7 +1888,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 251.
 
 [12]
-<figures/engSW/block.png, id=205, 830.10126pt x 629.35126pt>
+<figures/engSW/block.png, id=207, 830.10126pt x 629.35126pt>
 File: figures/engSW/block.png Graphic file (type png)
 <use figures/engSW/block.png>
 Package pdftex.def Info: figures/engSW/block.png  used on input line 257.
@@ -3110,19 +3110,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `weiiszablon.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `weiiszablon.out':
-(rerunfilecheck)             Before: A1207A21D01578715B2E07DA0AAFBDD2;3788
-(rerunfilecheck)             After:  6B935C58398E27BCE4CA866B36DB2A10;3902.
+Package rerunfilecheck Info: File `weiiszablon.out' has not changed.
+(rerunfilecheck)             Checksum: 6B935C58398E27BCE4CA866B36DB2A10;3902.
  ) 
 Here is how much of TeX's memory you used:
  27196 strings out of 478287
  490643 string characters out of 5849289
- 1438024 words of memory out of 5000000
+ 1438026 words of memory out of 5000000
  44604 multiletter control sequences out of 15000+600000
  534842 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3138,10 +3132,10 @@ ts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 /public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on weiiszablon.pdf (28 pages, 1189698 bytes).
+Output written on weiiszablon.pdf (28 pages, 1165748 bytes).
 PDF statistics:
- 662 PDF objects out of 1000 (max. 8388607)
- 596 compressed objects within 6 object streams
+ 664 PDF objects out of 1000 (max. 8388607)
+ 597 compressed objects within 6 object streams
  308 named destinations out of 1000 (max. 500000)
  201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
