@@ -581,19 +581,131 @@ W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność opr
 
 \section{Badane algorytmy}
 
+\subsection{Algorytm PID}
+Algorytm PID \cite{PID} jest podstawowym narzędziem używanym w systemach sterowania. Celem tego regulatora jest minimalizacja różnicy między wartością zadaną a rzeczywistą wartością procesu poprzez odpowiednie dostosowanie sygnału sterującego. Regulator PID składa się z trzech komponentów (wzór \ref{Eq:rownaniePID}):
+
+
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item składnik proporcjonalny (wzór \ref{Eq:rownanieP}) - generuje sygnał sterujący proporcjonalny do bieżącego błędu. Wyższa wartość współczynnika wzmocnienia prowadzi do szybszej reakcji systemu, ale może powodować oscylacje lub niestabilność,
+	
+	\item składnik całkujący (wzór \ref{Eq:rownanieI}) - eliminuje stałe odchylenie przez sumowanie błędów w czasie. Powoduje to wzrost sygnału sterującego, dopóki błąd nie zostanie zredukowany do zera. Współczynnik nie powinien być zbyt duży, ponieważ może powodować przeregulowania i oscylacje,
+	
+	\item składnik różniczkujący (wzór \ref{Eq:rownanieD}) - reaguje na szybkość zmiany odpowiednio korygując sygnał sterujący. Pomaga w tłumieniu oscylacji i poprawia stabilność systemu. Zbyt duża wartość wzmocnienia może jednak sprawić, że regulator będzie agresywnie zmieniał wartość sterującą.
+\end{enumerate}
+
+\begin{equation}
+P = K_p \cdot e(t)
+\label{Eq:rownanieP}
+\end{equation}
+
+\begin{equation}
+I = K_i \cdot \int_0^t \cdot e(\tau)d\tau
+\label{Eq:rownanieI}
+\end{equation}
+
+\begin{equation}
+D = K_d \cdot \frac{de(t)}{dt}
+\label{Eq:rownanieD}
+\end{equation}
+
+
+\begin{equation}
+PID = K_p \cdot e(t) + K_i \cdot \int_0^t \cdot e(\tau)d\tau + K_d \cdot \frac{de(t)}{dt}
+\label{Eq:rownaniePID}
+\end{equation}
+
+gdzie: $K_p$ -- wzmocnienie członu proporcjonalnego, $K_i$ -- wzmocnienie członu całkującego, $K_d$ -- wzmocnienie członu różniczkującego, $e(t)$ -- błąd regulacji \\
+
+W regulatorze analogowym PID wszystkie operacje matematyczne są wykonywane w sposób ciągły przy użyciu komponentów elektronicznych, takich jak oporniki, kondensatory i wzmacniacze operacyjne. Ze względu na wykorzystane technologie, w prezentowanym rozwiązaniu zastosowana została dyskretna wersja algorytmu, która w porównaniu do regulatora ciągłego, ograniczona jest niższą dokładnością całkowania i różniczkowania.
+
+\lstset{language=C++}
+
+\begin{lstlisting}[caption={Kod implementacji cyfrowego algorytmu PID}, label={lst:pid_algorithm}]
+template <typename ValueType, typename outType, outType MaxOut, outType MinOut, int32_t maxErrorSum, int32_t minErrorSum, uint32_t samplingMs = 20>
+class pid{
+public:
+    /*
+        Kp - proportional Gain
+        Ti - integrator constant
+        Td - derivative constant
+        Ts - sampling time in ms
+    */
+    constexpr pid(float Kp, float Ti, float Td) noexcept:
+        m_Kp{ Kp }, m_Ki{ (Kp / Ti) * (samplingMs * 0.001f) }, m_Kd{ (Kp * Td)/(samplingMs * 0.001f + 0.1f*Td) },
+        m_errorSum{ 0 }, m_previousError{ 0 } {}
+    
+    void reinit(float Kp, float Ti, float Td){
+        m_Kp = Kp;
+        m_Ki = (Kp / Ti) * (samplingMs * 0.001f);
+        m_Kd = (Kp * Td)/((samplingMs * 0.001f) + 0.1f*Td);
+        m_errorSum = m_previousError = 0;
+    }
+
+    outType getOutput(ValueType actual, ValueType desired){
+        auto error = desired - actual;
+        float P = m_Kp * error;
+        
+        m_errorSum += static_cast<int32_t>(error);
+
+        if(m_errorSum > maxErrorSum){
+            m_errorSum = maxErrorSum;
+        }
+        else if(m_errorSum < minErrorSum){
+            m_errorSum = minErrorSum; 
+        }
+
+        float I = m_Ki * m_errorSum;
+        float D = m_Kd * (error - m_previousError);
+
+        auto output = static_cast<outType>(P + I + D);
+
+        if(output > MaxOut){
+            return MaxOut;
+        }
+        else if(output < MinOut){
+            return MinOut;
+        }
+        else{
+            return output;
+        }
+    }
+
+private:
+    float m_Kp;
+    float m_Ki;
+    float m_Kd;
+    ValueType m_errorSum;
+    ValueType m_previousError;
+};
+\end{lstlisting}
+
+Kod ukazany na wyżej umieszczonym listingu \ref{lst:pid_algorithm} definiuje szablon klasy pid, który reprezentuje cyfrowy algorytm PID. Kluczowymi elementami tego algorytmu są trzy główne składowe: proporcjonalny, całkujący i różniczkujący.
+
+Algorytm ten jest parametryzowany przez różne wartości, takie jak wzmocnienia (Kp, Ki, Kd) oraz ograniczenia (MaxOut, MinOut). Wartości te pozwalają na dostosowanie algorytmu do specyfiki danego systemu.
+
+W metodzie getOutput, algorytm oblicza sygnał sterujący na podstawie bieżącej wartości i wartości zadanego stanu. Składa się na to trzy kroki:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Wyznaczenie składowej proporcjonalnej jako iloczynu wzmocnienia proporcjonalnego i aktualnego uchybu regulacji,
+	
+	\item Obliczenie składowej całkującej jako sumy błędów z poprzednich kroków, pomnożonej przez wzmocnienie całkujące,
+	
+	\item Obliczenie składowej różniczkującej jako różnicy błędu aktualnego i poprzedniego stanu, pomnożonej przez wzmocnienie różniczkujące. 
+	
+\end{enumerate}
+
 \subsection{Algorytm genetyczny}
-\subsection{Uczenie ze wzmocnieniem}
 \subsection{Algorytmy nawigacyjne}
+
 
 
 \section{Badania}
 \subsection{Optymalizacja nastaw regulatora PID prędkości obrotowej}
-\subsection{Optymalizacja nastaw regulatora położenia i orientacji}
 \subsection{Porównanie algorytmów nawigacyjnych w terenie bez przeszkód}
 \subsection{Porównanie algorytmów nawigacyjnych w terenie z przeszkodami}
 
 \section{Podsumowanie i wnioski końcowe}
-
 
 \section*{Załączniki}
 
@@ -603,7 +715,7 @@ W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność opr
 
 \addcontentsline{toc}{section}{Literatura}
 
-\begin{thebibliography}{6}
+\begin{thebibliography}{7}
 \bibitem{repo} https://github.com/DevxMike/master\_degree
 
 \bibitem{deepLearning} Francois Chollet: Deep Learning. Praca z językiem Python i biblioteką Keras. Helion 2019
@@ -615,6 +727,8 @@ W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność opr
 \bibitem{SPICE} https://mfiles.pl/pl/index.php/Automotive\_SPICE
 
 \bibitem{stdarray} https://en.cppreference.com/w/cpp/container/array
+
+\bibitem{PID} https://pl.wikipedia.org/wiki/Regulator\_PID
 
 \end{thebibliography}
 
