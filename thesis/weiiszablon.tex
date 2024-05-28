@@ -543,7 +543,7 @@ W tej sekcji opisano przeprowadzone testy weryfikujące zgodność oprogramowani
 		Najnowsze oprogramowanie powinno zostać wgranę na płytkę &
 		Najnowsze oprogramowanie zostało wgrane na płytkę \\
 		\hline
-		Oczekiwanie na wiadomość "robot initialized" na temacie robot/echo/out. &
+		Oczekiwanie na wiadomość 'robot initialized' na temacie robot/echo/out. &
 		Wiadomość powinna zostać odebrana. &
 		Wiadomość została odebrana. \\
 		\hline
@@ -551,19 +551,19 @@ W tej sekcji opisano przeprowadzone testy weryfikujące zgodność oprogramowani
 		Silniki powinny kręcić się z prędkością bliską 40\% prędkości maksymalnej. &
 		Silniki kręcą się z prędkością bliską 40\% prędkości maksymalnej. \\
 		\hline
-		Przesłanie komendy halt na temacie robot/cmd/in. &
+		Przesłanie komendy 'halt' na temacie robot/cmd/in. &
 		Silniki powinny się zatrzymać. &
 		Silniki zatrzymały się. \\
 		\hline
-		Przesłanie komendy get\_all w celu uzyskania wszystkich danych. &
+		Przesłanie komendy 'get\_all' w celu uzyskania wszystkich danych. &
 		Uzyskano dane z sensorów i pozycję robota. &
 		Uzyskano dane z sensorów i pozycję robota. \\
 		\hline
-		Przesłanie komendy reset\_odo w celu resetowania odometrii. &
+		Przesłanie komendy 'reset\_odo' w celu resetowania odometrii. &
 		Wiadomość powinna zostać wysłana. &
 		Wiadomość została wysłana. \\
 		\hline
-		Przesłanie komendy get\_odo w celu uzyskania pozycji robota. &
+		Przesłanie komendy 'get\_odo' w celu uzyskania pozycji robota. &
 		Uzyskano pozycję, która wskazuje na zero. &
 		Uzyskano pozycję, która wskazuje na zero. \\
 		\hline
@@ -575,7 +575,7 @@ W tej sekcji opisano przeprowadzone testy weryfikujące zgodność oprogramowani
 
 Test SQT\_01 miał na celu potwierdzenie, czy oprogramowanie regularnie odczytuje dane z czujników odległości co 50 ms, zgodnie z wymaganiami. Mimo że w projekcie nie wykorzystano IMU, to test został dostosowany do odczytu danych z czujników odległości, a zadanie zostało zaplanowane jako praca freeRTOS z interwałem 50 ms.
 
-Testy oznaczone jako SQT\_02SWE, skupiły się na weryfikacji podstawowych funkcji oprogramowania, w tym dostarczania zasilania i programowania sprzętu, wymiany danych, kontroli silników itp. Każde z tych wymagań zostało poddane testowi, a wynikiem było potwierdzenie, że oprogramowanie spełnia te kryteria.
+Testy oznaczone jako SQT\_02, skupiły się na weryfikacji podstawowych funkcji oprogramowania, w tym dostarczania zasilania i programowania sprzętu, wymiany danych, kontroli silników itp. Każde z tych wymagań zostało poddane testowi, a wynikiem było potwierdzenie, że oprogramowanie spełnia te kryteria.
 
 W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3. Oprócz przeprowadzenia testów kwalifikacyjnych, oprogramowanie zostało pokryte testami jednostkowymi.
 
@@ -701,7 +701,7 @@ Podstawowe kroki działania algorytmu genetycznego obejmują:
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item Inicjalizacja populacji - tworzenie początkowej populacji rozwiązań, zazwyczaj generowanych losowo,
 	
-	\item Selekcja - wybór jednostek najlepiej przystosowanych (najlepszych rozwiązań) do przetrwania i reprodukcji. Istnieje wiele różnych metod selekcji, takich jak ruletka ruletkowa, turniejowa, rankingowa itp.,
+	\item Selekcja - wybór jednostek najlepiej przystosowanych (najlepszych rozwiązań) do przetrwania i reprodukcji. Istnieje wiele różnych metod selekcji, takich jak ruletkowa, turniejowa, rankingowa itp.,
 	
 	\item Krzyżowanie - tworzenie nowych rozwiązań poprzez wymianę fragmentów między dwoma rodzicami. Jest to symulacja procesu krzyżowania genetycznego w naturze,
 	
@@ -736,10 +736,428 @@ Najważniejszymi parametrami algorytmu genetycznego są:
 
 \subsection{Algorytmy nawigacyjne}
 
+Algorytmy nawigacyjne są kluczowym elementem systemów robotycznych, nawigacji GPS, gier komputerowych oraz wszelkich innych aplikacji wymagających efektywnego wyznaczania tras. Działają one na zasadzie przeszukiwania grafów, gdzie węzły reprezentują punkty, a krawędzie reprezentują ścieżki między tymi punktami. W zależności od charakterystyki środowiska i wymagań aplikacji, można wyróżnić dwa główne rodzaje algorytmów nawigacyjnych: statyczne i dynamiczne.
 
+\subsubsection{Algorytmy statyczne}
+
+Algorytmy statyczne operują w środowiskach, które nie ulegają zmianom w trakcie działania algorytmu. Oznacza to, że raz zbudowany graf nie zmienia swojej struktury, a wszystkie wagi krawędzi pozostają stałe. Algorytmy te są bardzo efektywne w stabilnych środowiskach, gdzie trasy można wyznaczyć raz i wykorzystać je wielokrotnie bez konieczności przeliczania. Przykładami takich algorytmów są Dijkstra i A*.
+\\ \\
+Algorytm Dijkstry \cite{DIJKSTRA} jest jednym z najstarszych i najbardziej znanych algorytmów nawigacyjnych. Został zaproponowany przez E. W. Dijkstrę w 1956 roku. Jest to algorytm typu 'najpierw najlepszy' (ang. best-first), który znajduje najkrótszą ścieżkę z jednego węzła startowego do wszystkich innych węzłów w grafie z nieujemnymi wagami krawędzi.
+\\ \\
+
+Działanie algorytmu składa się z następujących kroków:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Inicjalizacja - ustawienie odległości do węzła startowego na 0, a do wszystkich innych węzłów na nieskończoność. Wszystkie węzły są oznaczone jako nieodwiedzone,
+	\item Wybór nieodwiedzonego węzła o najmniejszej znanej odległości (na początku jest to węzeł startowy),
+	\item Aktualizacja odległości - dla wybranego węzła, zaktualizowanie odległości do jego sąsiadów, jeśli nowo obliczona odległość jest mniejsza niż aktualnie znana,
+	\item Oznaczenie wybranego węzła jako odwiedzonego,
+	\item Powtórzenie kroków b-d, aż wszystkie węzły zostaną odwiedzone.
+	
+\end{enumerate}
+
+
+Algorytm A* \cite{ASTAR} jest rozszerzeniem algorytmu Dijkstry, który wykorzystuje heurystykę, aby poprawić efektywność wyszukiwania. Został opracowany przez Petera Hart'a, Nilsa Nilssona i Bertrama Raphaela w 1968 roku. A* jest algorytmem typu 'najpierw najlepszy', który łączy zalety wyszukiwania zachłannego i dynamicznego programowania.
+\\ \\
+Działanie algorytmu składa się z następujących kroków:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Inicjalizacja - ustawienie odległości do węzła startowego na 0 i obliczenie wartości heurystycznej dla wszystkich węzłów (przykładowo, odległość Manhattan lub euklidesowa do celu),
+	\item Wybór węzła o najmniejszej wartości funkcji f(x) = g(x) + h(x), gdzie g(x) jest koszt dotarcia do węzła x, a h(x) jest oszacowany koszt dotarcia z węzła x do celu,
+	\item Aktualizacja odległości do sąsiadów wybranego węzła i ich wartości funkcji f,
+	\item Oznaczenie wybranego węzła jako odwiedzonego,
+	\item Powtórzenie kroków b-d, aż węzeł celowy zostanie odwiedzony.
+\end{enumerate}
+
+\subsubsection{Algorytmy dynamiczne}
+
+Algorytmy dynamiczne są zaprojektowane do działania w zmieniających się środowiskach. Mogą one dostosowywać swoje obliczenia w odpowiedzi na zmiany w grafie, takie jak zmieniające się wagi krawędzi lub dodawanie/odejmowanie węzłów. Algorytmy te są bardziej złożone, ale niezbędne w sytuacjach, gdzie środowisko jest nieprzewidywalne lub zmienia się w czasie rzeczywistym. Przykładami algorytmów dynamicznych są D* i D* Lite.
+
+Algorytm D* (Dynamic A*) \cite{DSTAR} został zaproponowany przez Anthony'ego Stenz w 1994 roku. Jest to algorytm dynamicznego przeszukiwania grafów, który jest szczególnie użyteczny w środowiskach o zmieniających się warunkach. D* pozwala na aktualizację już obliczonych tras w odpowiedzi na zmiany w grafie.
+\\ \\
+Działanie algorytmu składa się z następujących kroków:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Inicjalizacja - wyznaczenie najkrótszej ścieżki do celu przy użyciu standardowych metod (np. Dijkstry),
+	\item Replanowanie - w przypadku zmiany w grafie (np. pojawienie się przeszkody), algorytm replanuje trasę od miejsca zmiany do celu, wykorzystując istniejące informacje i aktualizując tylko zmienione fragmenty grafu,
+	\item Aktualizacja kosztów - algorytm modyfikuje koszty krawędzi i dostosowuje trasę w odpowiedzi na zmiany,
+	\item Kontynuacja - powtarzanie procesu replanuwania w przypadku dalszych zmian, aż do osiągnięcia celu.
+	
+\end{enumerate}
+
+D* Lite \cite{DSTARLITE} jest uproszczoną i zoptymalizowaną wersją algorytmu D*, opracowaną przez Svena Koeniga i Maxa Likhacheva w 2002 roku. D* Lite zachowuje główne zalety D*, ale jest łatwiejszy do implementacji i bardziej efektywny obliczeniowo.
+\\ \\
+Działanie algorytmu składa się z następujących kroków:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Inicjalizacja - podobnie jak w D*, inicjalizowanie grafu i wyznaczanie początkowej trasy do celu,
+	\item Replanowanie - w przypadku zmiany w grafie, algorytm replanuje trasę, ale korzysta z bardziej zoptymalizowanego sposobu aktualizacji węzłów i krawędzi,
+	\item Aktualizacja kosztów - podobnie jak w D*, aktualizacja kosztów krawędzi i dostosowanie trasy, ale z wykorzystaniem efektywniejszych struktur danych i operacji,
+	\item Kontynuacja - powtarzanie procesu replanuwania w przypadku dalszych zmian, aż do osiągnięcia celu.
+	
+\end{enumerate}
 
 \section{Badania}
 \subsection{Optymalizacja nastaw regulatora PID prędkości obrotowej}
+
+Sekcja skupia się na opisie eksperymentu, który miał na celu porównanie jakości regulacji prędkości obrotowej silnika poprzez wyznaczenie nastaw metodą Zieglera-Nicholsa \cite{ZIEGLER} i algorytmem genetycznym.
+
+\subsubsection{Stanowisko pomiarowe}
+
+Do przeprowadzenia eksperymentu wykorzystano stanowisko składające się z silnika prądu stałego, enkodera do pomiaru prędkości obrotowej oraz kontrolera. Stanowisko umożliwiało kontrolowanie prędkości obrotowej silnika oraz pomiar jej wartości w czasie rzeczywistym.
+
+
+
+\subsubsection{Identyfikacja obiektu}
+
+Wykorzystując interfejs sieciowy kontrolera, przeprowadzono eksperyment, podczas którego monitorowano odpowiedź obiektu na skokowy sygnał sterujący. W trakcie tego eksperymentu rejestrowano zmiany prędkości obrotowej silnika w odpowiedzi na zmiany sygnału sterującego (figura \ref{Fig:noreg}). Dane te zostały następnie poddane analizie w celu wyznaczenia charakterystyki dynamicznej obiektu.
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/PID/noreg.png}%
+ \caption{Odpowiedź obiektu}%
+ \label{Fig:noreg}%
+\end{figure}
+
+Aby dopasować odpowiedź obiektu do modelu transmitancji pierwszego rzędu, zastosowano metodę aproksymacji. Polegała ona na dopasowaniu odpowiedniego modelu matematycznego do zebranych danych eksperymentalnych. W tym przypadku, model transmitancji pierwszego rzędu pozwolił na odpowiednie odwzorowanie zachowania obiektu w kontekście zmian sygnału sterującego. Dzięki temu można było przewidywać reakcję obiektu na różne zmiany sterowania.
+
+\begin{lstlisting}[language=Python, caption=Kod aproksymujący odpowiedź, label={lst:fit1}]
+import numpy as np
+from scipy.optimize import curve_fit
+
+time_step=5/1000
+  
+t = np.arange(0, len(actuals) * time_step, time_step)
+odpowiedz_skokowa=actuals 
+
+def first_order_transfer_function(t, K, T):
+    return K * (1 - np.exp(-t / T))
+
+popt, pcov = curve_fit(first_order_transfer_function, t, odpowiedz_skokowa)
+K, T=popt
+
+print("Wzmocnienie (K):", K)
+print("Stala czasowa (T):", T)
+\end{lstlisting}
+
+Wyżej przedstawiony kod (listing \ref{lst:fit1}) służy do analizy danych eksperymentalnych reprezentujących odpowiedź skokową obiektu oraz aproksymowania tych danych do modelu transmitancji pierwszego rzędu. Najpierw tworzone są dane czasowe t, a następnie dane odpowiedzi skokowej odpowiedz\_skokowa. Definiowana jest funkcja first\_order\_transfer\_function, która odpowiada transmitancji pierwszego rzędu. Następnie korzystając z funkcji curve\_fit z biblioteki scipy.optimize, dopasowywany jest model transmitancji pierwszego rzędu do danych odpowiedzi skokowej. Wynik dopasowania, czyli wartości wzmocnienia K i stałej czasowej T, są odczytywane z wyniku dopasowania i wyświetlane.
+
+Rysunek \ref{Fig:aprox} ukazuje aproksymację modelu transmitancji pierwszego rzędu do danych pomiarowych. Wyznaczoną transmitancję obiektu opisuje niżej umieszczony wzór \ref{Eq:trans}:
+
+\begin{equation}
+G(s) = \frac{6.37}{1 + 0.44s}
+\label{Eq:trans}
+\end{equation}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/PID/aprox.png}%
+ \caption{Aproksymacja transmitancji}%
+ \label{Fig:aprox}%
+\end{figure}
+
+\newpage
+
+\subsubsection{Wyznaczenie nastaw metodą klasyczną}
+
+Niżej umieszczony kod (listing \ref{lst:ziegler}) wykorzystuje bibliotekę numpy do obliczenia nastaw regulatora PID na podstawie zadanych wartości wzmocnienia i czasu wyprzedzenia. Na początku definiuje wartości stałych K i T, a następnie wykorzystuje je do obliczenia współczynnika krytycznego (Ku) oraz okresu oscylacji (Tu). Następnie na podstawie Ku i Tu wylicza nastawy dla regulatora PD oraz PID, gdzie dla regulatora PD oblicza tylko proporcjonalną i całkową część, a dla regulatora PID dodaje również składową różniczkującą. Na końcu wypisuje obliczone wartości nastaw dla obu rodzajów regulatorów.
+
+\begin{lstlisting}[caption={Kod z obliczeniami i wyświetleniem wyników}, label={lst:ziegler}]
+import numpy as np
+
+K = 6.365318519867311
+T = 0.4425290896955204
+
+Ku = 4 / (np.pi * K)
+
+Tu = np.pi * T
+
+Kp_PID = 0.20 * Ku
+Ti_PID = 0.50 * Tu
+Td_PID = 0.12 * Tu
+\end{lstlisting}
+
+\subsubsection{Algorytm genetyczny}
+
+Optymalizacja nastaw regulatora PID (Proporcjonalno-Integralno-Różniczkującego) jest kluczowym zagadnieniem w automatyce, mającym na celu poprawę wydajności systemów sterowania, w tym regulacji prędkości obrotowej silników. W kontekście fizycznego robota, możliwe jest utworzenie pętli uczącej, która będzie wprowadzać nowe współczynniki PID i testować je na rzeczywistym sprzęcie. Ogólny algorytm PID oraz komunikacja są obsługiwane przez oprogramowanie wgrane do mikrokontrolera robota. Poniżej przedstawiono schemat blokowy konfiguracji testowej.
+
+Z punktu widzenia automatyki, silnik prądu stałego jest stosunkowo prostym obiektem sterowania, co sprawia, że wiele zestawów parametrów może być odpowiednich do automatycznej regulacji prędkości. W związku z tym zdecydowano się na użycie algorytmu genetycznego do wyboru optymalnego zestawu współczynników PID.
+
+Skrypt w języku Python zawierający implementację algorytmu genetycznego będzie uruchomiony na lokalnym serwerze. Każdy osobnik w populacji będzie testowany na fizycznym robocie w celu sprawdzenia jego dopasowania (fitness). Algorytm będzie uruchamiany trzykrotnie z różnymi zestawami parametrów:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+    \item \textbf{Pierwszy eksperyment}
+    \begin{itemize}
+        \item Rozmiar populacji: 100
+        \item Maksymalna liczba epok: 25
+        \item Prawdopodobieństwo krzyżowania: 70\%
+        \item Liczba rodziców dla nowego osobnika: 10
+        \item Prawdopodobieństwo mutacji: 15\%
+    \end{itemize}
+    
+    \item \textbf{Drugi eksperyment}
+    \begin{itemize}
+        \item Rozmiar populacji: 200
+        \item Maksymalna liczba epok: 25
+        \item Prawdopodobieństwo krzyżowania: 70\%
+        \item Liczba rodziców dla nowego osobnika: 15
+        \item Prawdopodobieństwo mutacji: 15\%
+    \end{itemize}
+    
+    \item \textbf{Trzeci eksperyment}
+    \begin{itemize}
+        \item Rozmiar populacji: 300
+        \item Maksymalna liczba epok: 25
+        \item Prawdopodobieństwo krzyżowania: 70\%
+        \item Liczba rodziców dla nowego osobnika: 25
+        \item Prawdopodobieństwo mutacji: 15\%
+    \end{itemize}
+\end{enumerate}
+
+
+Ocena jakości regulacji będzie dokonywana na podstawie maksymalnego błędu regulacji, który musi być mniejszy lub równy 2\%. Algorytm zakończy swoje działanie po osiągnięciu maksymalnej liczby epok lub gdy zostanie spełniony warunek maksymalnego błędu regulacji.
+
+Funkcja dopasowania, którą algorytm będzie maksymalizować, została określona jako odwrotność średniego błędu względnego (wzór \ref{Eq:fitness}) .
+
+\begin{equation}
+Fitness = \frac{1}{error}
+\label{Eq:fitness}
+\end{equation}
+
+gdzie: $error$ - wartość średniego błędu względnego \\ \\
+
+\begin{lstlisting}[language=Python, caption=Konfiguracja MQTT, label={lst:genMQTT}]
+import paho.mqtt.client as mqtt
+import json
+import time
+
+MQTT_BROKER = "mqtt-dashboard.com"
+MQTT_PORT = 1883
+MQTT_TOPIC_PID = "robot/set/pid"
+MQTT_TOPIC_MOTORS = "robot/set/motors"
+MQTT_TOPIC_LOG = "robot/pid/log"
+MQTT_TOPIC_RESPONSE = "robot/request"
+
+mqtt_client = mqtt.Client("PID Ctl")
+
+logs = []
+experiment_ongoing = False
+
+def on_log_message(client, userdata, message):
+    global experiment_ongoing
+    log_data = json.loads(message.payload.decode())
+    if len(logs) != 0: 
+        logs.append(log_data) 
+    elif len(logs) == 0 and log_data["id"] == 0:
+        logs.append(log_data)
+
+def send_mqtt_message(topic, message):
+    mqtt_client.publish(topic, json.dumps(message))
+\end{lstlisting}
+
+Wyżej umieszczony kod (listing \ref{lst:genMQTT}) nawiązuje połączenie z brokerem MQTT, który umożliwia komunikację pomiędzy serwerem a robotem. Kluczowe elementy konfiguracji obejmują określenie adresu brokera oraz portu. Następnie zdefiniowano tematy MQTT do wysyłania i odbierania wiadomości dotyczących ustawień PID, sterowania silnikami oraz logowania. Dodatkowo zdefiniowano funkcje pomocnicze, takie jak send\_mqtt\_message do wysyłania wiadomości oraz on\_log\_message do obsługi wiadomości logowania.
+
+Ta sekcja przedstawia funkcję run\_experiment (listing \ref{lst:runExperiment}), która inicjalizuje i przeprowadza eksperymenty z nowymi nastawami PID na robocie. Kluczowe kroki obejmują ponowne połączenie z brokerem MQTT i subskrybowanie tematów logowania, wysłanie nowych wartości współczynników PID do robota, uruchomienie silników robota i monitorowanie ich przez określony czas oraz zbieranie danych logowania do późniejszej analizy.
+
+\begin{lstlisting}[language=Python, caption=Funkcja uruchamiająca eksperyment, label={lst:runExperiment}]
+def run_experiment(Kp, Ti, Td):
+    global logs
+    global mqtt_client
+    global experiment_ongoing
+    mqtt_client = mqtt.Client("PID ctl")
+    mqtt_client.connect(MQTT_BROKER, MQTT_PORT)
+    mqtt_client.subscribe(MQTT_TOPIC_LOG)
+    mqtt_client.on_message = on_log_message
+
+    mqtt_client.loop()
+    logs = []
+
+    pid_settings = {"Kp": Kp, "Ti": Ti, "Td": Td}
+    send_mqtt_message(MQTT_TOPIC_PID, pid_settings)
+
+    motors_speed = {"left": 0, "right": 50}
+    send_mqtt_message(MQTT_TOPIC_MOTORS, motors_speed)
+    experiment_ongoing = True
+    start_time = time.time()
+    while time.time() - start_time < 2:
+        mqtt_client.loop()
+
+    motors_speed = {"left": 0, "right": 0}
+    send_mqtt_message(MQTT_TOPIC_MOTORS, motors_speed)
+
+    start_time = time.time()
+
+    while time.time() - start_time < 1:
+        mqtt_client.loop()
+    
+    send_mqtt_message(MQTT_TOPIC_RESPONSE, "")
+    experiment_ongoing = False
+\end{lstlisting}
+
+Funkcja calculate\_errors (listing \ref{lst:calcErrors}) służy do obliczania błędów na podstawie danych logowania zebranych podczas eksperymentu. Kluczowe kroki obejmują obliczanie błędów absolutnych i względnych dla każdej próbki danych oraz obliczanie średniego błędu względnego, który jest używany jako miara jakości regulatora PID.
+
+\begin{lstlisting}[language=Python, caption=Funkcja obliczająca błędy, label={lst:calcErrors}]
+def calculate_errors(logs):
+    absolute_errors = []
+    relative_errors = []
+
+    for i in range(len(logs)):
+        measurement = logs[i]
+        absolute_error = abs(measurement['target'] - measurement['actual'])
+        
+        if measurement['target'] != 0:
+            relative_error = (absolute_error / measurement['target']) * 100
+        else:
+            if measurement['actual'] == measurement['target']:
+                relative_error = 0
+            else:
+                relative_error = float(100)  
+        
+        absolute_errors.append(absolute_error)
+        relative_errors.append(relative_error)
+
+    mean_relative_error = (sum(relative_errors) / len(relative_errors)) if(len(relative_errors)) != 0 else 10000
+
+    if(mean_relative_error) == 0.0:
+        return 10000
+
+    return mean_relative_error
+\end{lstlisting}
+
+Funkcja fitness\_func (listing \ref{lst:fitnessFunc}) ocenia jakość każdego zestawu współczynników PID, wykonując eksperyment z tymi współczynnikami i obliczając wynikowy błąd względny. Wynik jest używany przez algorytm genetyczny do wyboru najlepszych rozwiązań. Kluczowe elementy obejmują przeprowadzenie eksperymentu z podanymi współczynnikami PID, wyliczenie średniego błędu względnego oraz zwrócenie wartości funkcji dopasowania, która jest odwrotnością błędu względnego.
+
+\begin{lstlisting}[language=Python, caption=Funkcja dopasowania, label={lst:fitnessFunc}]
+def fitness_func(ga_instance, solution, solution_idx):
+    global logs
+    global log_file
+
+    Kp, Ti, Td = solution
+    run_experiment(Kp, Ti, Td)
+
+    mean_relative_error = calculate_errors(logs)
+    logs = []
+    append_data_to_csv(log_file, [Kp, Ti, Td, mean_relative_error, ga_instance.generations_completed])
+    print(mean_relative_error)
+
+    fitness = 1 / (mean_relative_error + 0.001)
+    return fitness
+\end{lstlisting}
+
+Funkcja run\_genetic\_algorithm (listing \ref{lst:runGA}) inicjalizuje i uruchamia algorytm genetyczny z podanymi parametrami. Kluczowe kroki obejmują definicję problemu optymalizacyjnego poprzez określenie liczby genów (współczynników PID) oraz przestrzeni poszukiwań, inicjalizację algorytmu genetycznego z parametrami takimi jak liczba pokoleń, liczba rodziców, prawdopodobieństwo krzyżowania i mutacji, oraz wykonanie algorytmu i zapisanie najlepszego rozwiązania.
+
+\begin{lstlisting}[language=Python, caption=Uruchamianie algorytmu genetycznego, label={lst:runGA}]
+def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mating, mutation_prob, experiment_num):
+    num_genes = 3 
+
+    on_generation = lambda x: save_best_solution(x, experiment_num)
+    
+    ga_instance = pygad.GA(num_generations=max_epochs,
+                           num_parents_mating=num_parents_mating,
+                           sol_per_pop=pop_size,
+                           num_genes=num_genes,
+                           gene_space={'low': 0, 'high': 30},
+                           crossover_probability=crossover_prob,
+                           mutation_percent_genes='default',
+                           mutation_probability=mutation_prob,
+                           K_tournament=num_parents_mating,
+                           fitness_func=fitness_func,
+                           on_generation=on_generation,
+                           mutation_type='scramble',
+                           crossover_type="uniform",
+                           parent_selection_type='tournament',
+                           keep_parents=0,
+                           gene_type=float,
+                           random_mutation_min_val=10,
+                           random_mutation_max_val=20
+                           )
+
+    ga_instance.run()
+    
+    best_solution = ga_instance.best_solution()
+    return best_solution
+\end{lstlisting}
+
+W tej sekcji (listing \ref{lst:experimentLoop}) kod inicjalizuje i przeprowadza serię eksperymentów z różnymi zestawami parametrów algorytmu genetycznego. Kluczowe kroki obejmują zdefiniowanie zestawów parametrów dla trzech różnych eksperymentów oraz iterację przez każdy zestaw parametrów, uruchamianie algorytmu genetycznego dla każdego z nich i zapisanie najlepszych rozwiązań.
+
+\begin{lstlisting}[language=Python, caption=Pętla przeprowadzająca eksperymenty, label={lst:experimentLoop}]
+experiments_params = [
+    {"pop_size": 100, "max_epochs": 25, "crossover_prob": 0.70, "num_parents_mating": 10, "mutation_prob": 0.15},
+    {"pop_size": 200, "max_epochs": 25, "crossover_prob": 0.70, "num_parents_mating": 15, "mutation_prob": 0.15},
+    {"pop_size": 300, "max_epochs": 25, crossover_prob: 0.70, num_parents_mating: 20, mutation_prob: 0.15}
+]
+
+for i, params in enumerate(experiments_params):
+    print(f"Starting experiment {i+1} with params: {params}")
+    best_solution = run_genetic_algorithm(
+        pop_size=params["pop_size"],
+        max_epochs=params["max_epochs"],
+        crossover_prob=params["crossover_prob"],
+        num_parents_mating=params["num_parents_mating"],
+        mutation_prob=params["mutation_prob"],
+        experiment_num=i+1
+    )
+    print(f"Best solution for experiment {i+1}: {best_solution}")
+\end{lstlisting}
+
+\newpage
+
+Uruchomienie tak przygotowanego skryptu pozwoliło na uzyskanie trzech zestawów nastaw regulatora PID. Rysunek \ref{Fig:gen} ukazuje dopasowanie najlepszego osobnika danej populacji w funkcji czasu (epok). Biorąc pod uwagę kształty wykresów, można dojśc do następującego wniosku: ze względu na prostotę obiektu, jakim jest silnik DC, wiele różnych od siebie zestawów nastaw regulatora jest w stanie usatysfakcjonować stawiane przed nim wymagania, przez co algorytm genetyczny popada w stagnację po osiągnięciu lokalnego minimum.
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/PID/gen.png}%
+ \caption{Dopasowanie w funkcji czasu}%
+ \label{Fig:gen}%
+\end{figure}
+
+\subsubsection{Porównanie otrzymanych wyników}
+TBD -
+Porównanie odpowiedzi dla różnych zestawów nastaw PID.
+
+%Podczas przeprowadzania eksperymentu otrzymano następujące nastawy regulatora PID:
+%
+%\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+%    \item \textbf{Ziegler-Nichols}
+%    \begin{itemize}
+%        \item Kp: 0.04
+%        \item Ti: 0.695
+%        \item Td: 0.166
+%    \end{itemize}
+%    
+%    \item \textbf{GA eksperyment 1}
+%    \begin{itemize}
+%        \item Kp: 6.48
+%        \item Ti: 2.93
+%        \item Td: 2.34
+%    \end{itemize}
+%    	
+%	\item \textbf{GA eksperyment 2}
+%    \begin{itemize}
+%        \item Kp: 29.50
+%        \item Ti: 14.54
+%        \item Td: 1.37
+%    \end{itemize}    	
+%    	
+%    	\item \textbf{GA eksperyment 3}
+%    \begin{itemize}
+%        \item Kp: 11.98
+%        \item Ti: 1.59
+%        \item Td: 1.34
+%    \end{itemize} 
+%    
+%\end{enumerate}
+%
+%
+%
+%By porównać jakość wyznaczonych nastaw, należało przestroić regulator i zbadać odpowiedź obiektu na zmianę sygnału sterującego.
+%
+%TBD
+%
+%fig1
+%fig2 
+%fig3
+%fig4
+
 \subsection{Porównanie algorytmów nawigacyjnych w terenie bez przeszkód}
 \subsection{Porównanie algorytmów nawigacyjnych w terenie z przeszkodami}
 
@@ -753,7 +1171,7 @@ Najważniejszymi parametrami algorytmu genetycznego są:
 
 \addcontentsline{toc}{section}{Literatura}
 
-\begin{thebibliography}{7}
+\begin{thebibliography}{12}
 \bibitem{repo} https://github.com/DevxMike/master\_degree
 
 \bibitem{deepLearning} Francois Chollet: Deep Learning. Praca z językiem Python i biblioteką Keras. Helion 2019
@@ -767,6 +1185,16 @@ Najważniejszymi parametrami algorytmu genetycznego są:
 \bibitem{stdarray} https://en.cppreference.com/w/cpp/container/array
 
 \bibitem{PID} https://pl.wikipedia.org/wiki/Regulator\_PID
+
+\bibitem{DIJKSTRA} http://algorytmy.ency.pl/artykul/algorytm\_dijkstry
+
+\bibitem{ASTAR} https://pl.wikipedia.org/wiki/Algorytm\_A*
+
+\bibitem{DSTAR} https://en.wikipedia.org/wiki/D*
+
+\bibitem{DSTARLITE} https://en.wikipedia.org/wiki/D*\#D*\_Lite
+
+\bibitem{ZIEGLER} https://en.wikipedia.org/wiki/Ziegler\%E2\%80\%93Nichols\_method
 
 \end{thebibliography}
 
