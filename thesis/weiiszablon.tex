@@ -806,7 +806,12 @@ Sekcja skupia się na opisie eksperymentu, który miał na celu porównanie jako
 
 Do przeprowadzenia eksperymentu wykorzystano stanowisko składające się z silnika prądu stałego, enkodera do pomiaru prędkości obrotowej oraz kontrolera. Stanowisko umożliwiało kontrolowanie prędkości obrotowej silnika oraz pomiar jej wartości w czasie rzeczywistym.
 
-
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/PID/pidEXP.png}%
+ \caption{Schemat blokowy stanowiska pomiarowego}%
+ \label{Fig:blockPID}%
+\end{figure}
 
 \subsubsection{Identyfikacja obiektu}
 
@@ -879,7 +884,7 @@ Td_PID = 0.12 * Tu
 
 \subsubsection{Algorytm genetyczny}
 
-Optymalizacja nastaw regulatora PID (Proporcjonalno-Integralno-Różniczkującego) jest kluczowym zagadnieniem w automatyce, mającym na celu poprawę wydajności systemów sterowania, w tym regulacji prędkości obrotowej silników. W kontekście fizycznego robota, możliwe jest utworzenie pętli uczącej, która będzie wprowadzać nowe współczynniki PID i testować je na rzeczywistym sprzęcie. Ogólny algorytm PID oraz komunikacja są obsługiwane przez oprogramowanie wgrane do mikrokontrolera robota. Poniżej przedstawiono schemat blokowy konfiguracji testowej.
+Optymalizacja nastaw regulatora PID jest kluczowym zagadnieniem w automatyce, mającym na celu poprawę wydajności systemów sterowania, w tym regulacji prędkości obrotowej silników. W kontekście fizycznego robota, możliwe jest utworzenie pętli uczącej, która będzie wprowadzać nowe współczynniki PID i testować je na rzeczywistym sprzęcie. Ogólny algorytm PID oraz komunikacja są obsługiwane przez oprogramowanie wgrane do mikrokontrolera robota. 
 
 Z punktu widzenia automatyki, silnik prądu stałego jest stosunkowo prostym obiektem sterowania, co sprawia, że wiele zestawów parametrów może być odpowiednich do automatycznej regulacji prędkości. W związku z tym zdecydowano się na użycie algorytmu genetycznego do wyboru optymalnego zestawu współczynników PID.
 
@@ -925,6 +930,8 @@ Fitness = \frac{1}{error}
 \end{equation}
 
 gdzie: $error$ - wartość średniego błędu względnego \\ \\
+
+\newpage
 
 \begin{lstlisting}[language=Python, caption=Konfiguracja MQTT, label={lst:genMQTT}]
 import paho.mqtt.client as mqtt
@@ -1099,16 +1106,16 @@ for i, params in enumerate(experiments_params):
     print(f"Best solution for experiment {i+1}: {best_solution}")
 \end{lstlisting}
 
-\newpage
-
-Uruchomienie tak przygotowanego skryptu pozwoliło na uzyskanie trzech zestawów nastaw regulatora PID. Rysunek \ref{Fig:gen} ukazuje dopasowanie najlepszego osobnika danej populacji w funkcji czasu (epok). Biorąc pod uwagę kształty wykresów, można dojśc do następującego wniosku: ze względu na prostotę obiektu, jakim jest silnik DC, wiele różnych od siebie zestawów nastaw regulatora jest w stanie usatysfakcjonować stawiane przed nim wymagania, przez co algorytm genetyczny popada w stagnację po osiągnięciu lokalnego minimum.
-
 \begin{figure}[ht]%
  \centering%
- \includegraphics[width=12cm]{figures/PID/gen.png}%
+ \includegraphics[width=10cm]{figures/PID/gen.png}%
  \caption{Dopasowanie w funkcji czasu}%
  \label{Fig:gen}%
 \end{figure}
+
+Uruchomienie tak przygotowanego skryptu pozwoliło na uzyskanie trzech zestawów nastaw regulatora PID. Rysunek \ref{Fig:gen} ukazuje dopasowanie najlepszego osobnika danej populacji w funkcji czasu (epok). Biorąc pod uwagę kształty wykresów, można dojśc do następującego wniosku: ze względu na prostotę obiektu, jakim jest silnik DC, wiele różnych od siebie zestawów nastaw regulatora jest w stanie usatysfakcjonować stawiane przed nim wymagania, przez co algorytm genetyczny popada w stagnację po osiągnięciu lokalnego minimum.
+
+
 
 \subsubsection{Porównanie otrzymanych wyników}
 TBD -
