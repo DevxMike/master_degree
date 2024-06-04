@@ -1,0 +1,25 @@
+Generation 1: Best solution: (array([26.93712933, 27.58195873, 30.4104399 ]), 1000.0, 0), Fitness: 1000.0
+Generation 2: Best solution: (array([26.93712933, 27.58195873, 30.4104399 ]), 1000.0, 0), Fitness: 1000.0
+Generation 3: Best solution: (array([26.93712933, 27.58195873, 30.4104399 ]), 1000.0, 0), Fitness: 1000.0
+Generation 4: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 5: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 6: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 7: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 8: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 9: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 10: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 11: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 12: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 13: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 14: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 15: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 16: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 17: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 18: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 19: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 20: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 21: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 22: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 23: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 24: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
+Generation 25: Best solution: (array([40.94357286, 28.49773496, 43.95695723]), 1000.0, 0), Fitness: 1000.0
