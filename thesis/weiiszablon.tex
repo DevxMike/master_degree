@@ -1212,9 +1212,201 @@ Po sprawdzeniu odpowiedzi obiektu na wyznaczone nastawy, podjęto decyzję o wyk
 
 
 
-\subsection{Porównanie algorytmów nawigacyjnych w terenie bez przeszkód}
-TODO
-\subsection{Porównanie algorytmów nawigacyjnych w terenie z przeszkodami}
+\subsection{Porównanie statycznych algorytmów nawigacyjnych}
+Niniejsza sekcja skupia się na opisie eksperymentu, który miał na celu porównanie wydajności algorytmu A* z różnymi heurystykami odległości (Manhattan, Euklidesowa, Max) oraz algorytmu Dijkstry na różnych rozmiarach grafów. Celem było zrozumienie, który algorytm lepiej nadaje się do rozwiązywania problemów przeszukiwania grafów w kontekście optymalizacji czasu działania. Przeprowadzenie tego eksperymentu umożliwiło dokonanie wyboru optymalnego algorytmu statycznego do wykorzystania w dalszych badaniach algorytmów dynamicznych.
+
+
+
+\subsubsection{Przebieg eksperymentu}
+Mapa, po której przemieszczał się robot, to prostokąt o wymiarach 200x50 cm. Aby dokładnie ocenić efektywność algorytmów wyznaczania trasy, eksperyment uwzględnił kilka różnych rozmiarów map
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item oprócz podstawowej mapy o wymiarach 200x50 cm, przygotowano również mapy o większych rozmiarach: 200x200 cm, 500x500 cm, 1000x1000 cm oraz 2000x2000 cm,
+	\item każda z tych map była reprezentowana jako graf, gdzie węzły odpowiadały punktom na mapie, a krawędzie określały możliwe połączenia między nimi.
+	
+\end{enumerate}
+
+\begin{lstlisting}[caption={Porównanie algorytmów}, label={lst:staticAlgos}]
+from graph_ops import load_graph_from_file
+graph_dims = [(200, 50), (200, 200), (500, 500), (1000, 1000), (2000, 2000)]
+graphs = {}
+
+for dim in graph_dims:
+    fname = f'graph_{dim[0]}_{dim[1]}.pkl'
+    graphs[fname] = load_graph_from_file(fname)
+
+start = (0, 0)
+goal = (198, 40)
+
+heuristics={
+    "manhattan" : manhattan_distance,
+    "euclidean" : euclidean_distance,
+    "max" : max_distance
+}
+
+for k, v in heuristics.items():
+    print(f"Funkcja obliczajaca odleglosc w algorytmie A*: {k}")
+    for gname, graph in graphs.items():
+        print(gname)
+        path1 = a_star(graph, start, goal, v)
+        path2 = dijkstra(graph, start, goal)
+        print('\n')
+\end{lstlisting}
+
+Wyżej przedstawiony listing \ref{lst:staticAlgos} ukazuje skrypt odpowiedzialny za zbadanie algorytmów przeszukujących grafy. Kod rozpoczyna się od wczytania wcześniej wygenerowanych grafów i zdefiniowania heruystyk wykorzystanych w eksperymencie:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item Manhattan (wzór \ref{Eq:manhattan}),
+	\item Euklidesowa (wzór \ref{Eq:euclidean}),
+	\item Czebyszewa (wzór \ref{Eq:czebyszewa}).
+	
+\end{enumerate}
+
+\begin{equation}
+d_{\text{Manhattan}}(p, q) = |p_x - q_x| + |p_y - q_y|
+\label{Eq:manhattan}
+\end{equation}
+
+\begin{equation}
+d_{\text{Euklidesowa}}(p, q) = \sqrt{(p_x - q_x)^2 + (p_y - q_y)^2}
+\label{Eq:euclidean}
+\end{equation}
+
+\begin{equation}
+d_{\text{Czebyszewa}}(p, q) = \max(|p_x - q_x|, |p_y - q_y|)
+\label{Eq:czebyszewa}
+\end{equation}
+
+gdzie: $p$, $q$ -- to punkty w dwuwymiarowej przestrzeni, gdzie każdy punkt jest reprezentowany przez parę współrzędnych $(p_x, p_y)$ i $(q_x, q_y)$, $d$ -- oznacza odległość pomiędzy punktem $p$ i $q$ \\
+
+\newpage
+
+Kolejnym krokiem jest przejście przez wszystkie heurystyki oraz wczytane grafy w celu przeprowadzenia eksperymentu porównawczego. Skrypt, dla każdego grafu, wyznacza trasę z punktu startowego 'start' do punktu docelowego 'goal' z wykorzystaniem określonej heurystyki.
+
+\subsubsection{Porównanie otrzymanych wyników}
+
+Na podstawie przedstawionych wyników eksperymentu porównującego algorytmy A* z różnymi heurystykami oraz algorytm Dijkstry (tabela \ref{Tab:comparison}), można wysunąć następujące wnioski:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item algorytm Dijkstry wypadł lepiej pod względem czasu wykonania w porównaniu do algorytmu A* z każdą z badanych heurystyk. Osiągnął on znacznie krótsze czasy wykonania dla wszystkich rozmiarów badanych grafów,
+	\item heurystyka Manhattan osiągała najkrótsze czasy wykonania algorytmu A* dla większości badanych przypadków. Z tego powodu, można stwierdzić, że dla tego konkretnego eksperymentu, heurystyka Manhattan była najlepsza pod względem szybkości działania.
+\end{enumerate}
+
+\begin{table}[ht]
+\caption{Wyniki algorytmu A* dla różnych heurystyk}
+\centering		
+\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}	
+\hline
+Heurystyka & Graf & Czas [s] \\
+\hline
+Manhattan & 
+graph\_200\_50.pkl & 
+0.0762 \\
+ & 
+graph\_200\_200.pkl & 
+0.0889 \\
+ & 
+graph\_500\_500.pkl & 
+0.2118 \\
+ & 
+graph\_1000\_1000.pkl & 
+0.7892 \\
+ & 
+graph\_2000\_2000.pkl & 
+3.0142 \\
+\hline
+Euclidean & 
+graph\_200\_50.pkl & 
+0.0952 \\
+ & 
+graph\_200\_200.pkl & 
+0.1070 \\
+ & 
+graph\_500\_500.pkl & 
+0.2364 \\
+ & 
+graph\_1000\_1000.pkl & 
+0.8041 \\
+ & 
+graph\_2000\_2000.pkl & 
+3.0193 \\
+\hline
+Max & 
+graph\_200\_50.pkl & 
+0.0964 \\
+ & 
+graph\_200\_200.pkl & 
+0.1067 \\
+ & 
+graph\_500\_500.pkl & 
+0.2229 \\
+ & 
+graph\_1000\_1000.pkl & 
+0.7815 \\
+ & 
+graph\_2000\_2000.pkl & 
+3.0381 \\
+\hline
+\end{tabular}	
+
+\label{Tab:Astar_results}
+\end{table}
+
+
+\begin{table}[ht]
+\caption{Wyniki algorytmu Dijkstry}
+\centering		
+\begin{tabular}{|p{0.5\textwidth}|p{0.4\textwidth}|}	
+\hline
+Graf & Czas [s] \\
+\hline
+graph\_200\_50.pkl & 
+0.0171 \\
+graph\_200\_200.pkl & 
+0.0593 \\
+graph\_500\_500.pkl & 
+0.1247 \\
+graph\_1000\_1000.pkl & 
+0.3985 \\
+graph\_2000\_2000.pkl & 
+1.5084 \\
+\hline
+\end{tabular}	
+
+\label{Tab:Dijkstra_results}
+\end{table}
+
+\begin{table}[ht]
+\caption{Tabela porównawcza najlepszych wyników A* i Dijkstry}
+\centering		
+\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}	
+\hline
+Graf & Najlepszy czas A* [s] & Czas Dijkstry [s] \\
+\hline
+graph\_200\_50.pkl & 
+0.0762 & 
+0.0171 \\
+graph\_200\_200.pkl & 
+0.0889 & 
+0.0593 \\
+graph\_500\_500.pkl & 
+0.2118 & 
+0.1247 \\
+graph\_1000\_1000.pkl & 
+0.7815 & 
+0.3985 \\
+graph\_2000\_2000.pkl & 
+3.0142 & 
+1.5084 \\
+\hline
+\end{tabular}	
+
+\label{Tab:comparison}
+\end{table}
+
+\clearpage
+
+\subsection{Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}
 TODO
 \section{Podsumowanie i wnioski końcowe}
 

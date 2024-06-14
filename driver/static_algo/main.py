@@ -15,7 +15,6 @@ def max_distance(node, goal):
     return max(abs(node[0] - goal[0]), abs(node[1] - goal[1]))
 
 def a_star(graph, start, goal, heuristic):
-    """Implementacja algorytmu A*."""
     start_time = time.time()
 
     open_list = []
@@ -54,7 +53,6 @@ def a_star(graph, start, goal, heuristic):
 
 
 def dijkstra(graph, start, goal):
-    """Implementacja algorytmu Dijkstry."""
     start_time = time.time()
     queue = []
     heapq.heappush(queue, (0, start))
