@@ -63,7 +63,8 @@ The work focuses on the study of selected navigation algorithms and methods for 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item PID (eng. Proportional-Integral-Derivative) - skrót od Proporcjonalno-Całkująco-Różniczkującego regulatora, który jest powszechnie stosowany w systemach sterowania,
 	\item MCU (eng. Microcontroller Unit) - Jednostka Mikrokontrolera,
-	\item SQT (eng. Software Qualification Test) to proces testowania oprogramowania w celu zweryfikowania, czy spełnia ono określone wymagania i standardy jakościowe. SQT ma na celu potwierdzenie, że oprogramowanie działa zgodnie z założeniami i spełnia oczekiwania użytkowników oraz wymagania funkcjonalne i niefunkcjonalne.
+	\item SQT (eng. Software Qualification Test) to proces testowania oprogramowania w celu zweryfikowania, czy spełnia ono określone wymagania i standardy jakościowe. SQT ma na celu potwierdzenie, że oprogramowanie działa zgodnie z założeniami i spełnia oczekiwania użytkowników oraz wymagania funkcjonalne i niefunkcjonalne,
+	\item GA (eng. Genetic Algorithm) - algorytm genetyczny.
 \end{enumerate}
 
 \section{Wstęp}
@@ -1118,56 +1119,103 @@ Uruchomienie tak przygotowanego skryptu pozwoliło na uzyskanie trzech zestawów
 
 
 \subsubsection{Porównanie otrzymanych wyników}
-TBD -
-Porównanie odpowiedzi dla różnych zestawów nastaw PID.
+Podczas przeprowadzania eksperymentu otrzymano następujące nastawy regulatora PID:
 
-%Podczas przeprowadzania eksperymentu otrzymano następujące nastawy regulatora PID:
-%
-%\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-%    \item \textbf{Ziegler-Nichols}
-%    \begin{itemize}
-%        \item Kp: 0.04
-%        \item Ti: 0.695
-%        \item Td: 0.166
-%    \end{itemize}
-%    
-%    \item \textbf{GA eksperyment 1}
-%    \begin{itemize}
-%        \item Kp: 6.48
-%        \item Ti: 2.93
-%        \item Td: 2.34
-%    \end{itemize}
-%    	
-%	\item \textbf{GA eksperyment 2}
-%    \begin{itemize}
-%        \item Kp: 29.50
-%        \item Ti: 14.54
-%        \item Td: 1.37
-%    \end{itemize}    	
-%    	
-%    	\item \textbf{GA eksperyment 3}
-%    \begin{itemize}
-%        \item Kp: 11.98
-%        \item Ti: 1.59
-%        \item Td: 1.34
-%    \end{itemize} 
-%    
-%\end{enumerate}
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+    \item \textbf{Ziegler-Nichols}
+    \begin{itemize}
+        \item Kp: 0.04
+        \item Ti: 0.695
+        \item Td: 0.166
+    \end{itemize}
+    
+    \item \textbf{GA eksperyment 1}
+    \begin{itemize}
+        \item Kp: 6.48
+        \item Ti: 2.93
+        \item Td: 2.34
+    \end{itemize}
+    	
+	\item \textbf{GA eksperyment 2}
+    \begin{itemize}
+        \item Kp: 29.50
+        \item Ti: 14.54
+        \item Td: 1.37
+    \end{itemize}    	
+    	
+    	\item \textbf{GA eksperyment 3}
+    \begin{itemize}
+        \item Kp: 11.98
+        \item Ti: 1.59
+        \item Td: 1.34
+    \end{itemize} 
+    
+\end{enumerate}
 %
 %
 %
-%By porównać jakość wyznaczonych nastaw, należało przestroić regulator i zbadać odpowiedź obiektu na zmianę sygnału sterującego.
-%
-%TBD
-%
-%fig1
-%fig2 
-%fig3
-%fig4
+By porównać jakość wyznaczonych nastaw, należało przestroić regulator i zbadać odpowiedź obiektu na zmianę sygnału sterującego.
+\begin{table}[ht]
+\caption{Zestawienie wyników}
+\centering		
+	\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}	
+		\hline
+		Metoda & Czas ustalania [ms] & Uwagi \\
+		\hline
+		Ziegler-Nichols & 190 & Niedoregulowanie \\
+		\hline
+		GA eksperyment 1 & 630 & Niedoregulowanie \\
+		\hline
+		GA eksperyment 2 & 600 & Satysfakcjonująca regulacja \\
+		\hline
+		GA eksperyment 3 & 600 & Satysfakcjonująca regulacja \\
+		\hline
+
+	\end{tabular}	
+	
+\label{Tab:HWE1}
+\end{table}	
+
+\newpage
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=10cm]{figures/PID/zieglerpid.png}%
+ \caption{Nastawy wyznaczone metodą Zieglera-Nicholsa}%
+ \label{Fig:zieglerpid}%
+\end{figure}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=10cm]{figures/PID/exp1pid.png}%
+ \caption{Nastawy wyznaczone przez algorytm genetyczny (1)}%
+ \label{Fig:exp1pid}%
+\end{figure}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=10cm]{figures/PID/exp2pid.png}%
+ \caption{Nastawy wyznaczone przez algorytm genetyczny (2)}%
+ \label{Fig:exp2pid}%
+\end{figure}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=10cm]{figures/PID/exp3pid.png}%
+ \caption{Nastawy wyznaczone przez algorytm genetyczny (3)}%
+ \label{Fig:exp3pid}%
+\end{figure}
+
+\clearpage
+
+Po sprawdzeniu odpowiedzi obiektu na wyznaczone nastawy, podjęto decyzję o wykorzystaniu wyniku trzeciego eksperymentu. Wybór jest uzasadniony kilkoma kluczowymi czynnikami. Przede wszystkim, w porównaniu z innymi metodami, nastawy te zapewniły satysfakcjonującą regulację systemu (Rysunek \ref{Fig:exp3pid}). Czas ustalania wynosił 600 ms, co jest wynikiem porównywalnym z najlepszymi nastawami uzyskanymi w innych eksperymentach. Dodatkowo, podczas eksperymentu nastawy GA 3 wykazały najlepszy wynik fitness, co oznacza, że algorytm genetyczny skutecznie dostroił parametry regulatora w celu optymalnej regulacji systemu. W związku z tym, można uznać, że nastawy te są najkorzystniejsze pod względem jakości regulacji i efektywności działania systemu. Podczas testów z nastawami wyznaczonymi metodą Zieglera-Nicholsa (Rysunek \ref{Fig:zieglerpid}) zaobserwowano, że jedno z kół nie chciało wystartować, co świadczy o niedostatecznej regulacji. Oznacza to, że te nastawy nie były w stanie zapewnić właściwej kontroli nad całym systemem, co może prowadzić do niestabilności i niesatysfakcjonującej wydajności. Czas ustalania wynoszący 190 ms jest krótki, ale ze względu na problem z jednym z kół, regulacja nie była wystarczająco dobra.
+
+
 
 \subsection{Porównanie algorytmów nawigacyjnych w terenie bez przeszkód}
+TODO
 \subsection{Porównanie algorytmów nawigacyjnych w terenie z przeszkodami}
-
+TODO
 \section{Podsumowanie i wnioski końcowe}
 
 \section*{Załączniki}
