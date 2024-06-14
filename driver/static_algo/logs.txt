@@ -1,0 +1,77 @@
+Funkcja obliczająca odległość w algorytmie A*: manhattan
+graph_200_50.pkl
+Czas działania algorytmu A*: 0.0762476921081543s
+Czas działania algorytmu Dijkstry: 0.017144441604614258s
+
+
+graph_200_200.pkl
+Czas działania algorytmu A*: 0.08893322944641113s
+Czas działania algorytmu Dijkstry: 0.05928540229797363s
+
+
+graph_500_500.pkl
+Czas działania algorytmu A*: 0.21181201934814453s
+Czas działania algorytmu Dijkstry: 0.12468385696411133s
+
+
+graph_1000_1000.pkl
+Czas działania algorytmu A*: 0.7891712188720703s
+Czas działania algorytmu Dijkstry: 0.3985273838043213s
+
+
+graph_2000_2000.pkl
+Czas działania algorytmu A*: 3.014174222946167s
+Czas działania algorytmu Dijkstry: 1.508371114730835s
+
+
+Funkcja obliczająca odległość w algorytmie A*: euclidean
+graph_200_50.pkl
+Czas działania algorytmu A*: 0.09518909454345703s
+Czas działania algorytmu Dijkstry: 0.017270565032958984s
+
+
+graph_200_200.pkl
+Czas działania algorytmu A*: 0.10696029663085938s
+Czas działania algorytmu Dijkstry: 0.05643963813781738s
+
+
+graph_500_500.pkl
+Czas działania algorytmu A*: 0.23644518852233887s
+Czas działania algorytmu Dijkstry: 0.12144136428833008s
+
+
+graph_1000_1000.pkl
+Czas działania algorytmu A*: 0.8041472434997559s
+Czas działania algorytmu Dijkstry: 0.39487743377685547s
+
+
+graph_2000_2000.pkl
+Czas działania algorytmu A*: 3.019270896911621s
+Czas działania algorytmu Dijkstry: 1.544790267944336s
+
+
+Funkcja obliczająca odległość w algorytmie A*: max
+graph_200_50.pkl
+Czas działania algorytmu A*: 0.09644436836242676s
+Czas działania algorytmu Dijkstry: 0.01639866828918457s
+
+
+graph_200_200.pkl
+Czas działania algorytmu A*: 0.1066749095916748s
+Czas działania algorytmu Dijkstry: 0.05543065071105957s
+
+
+graph_500_500.pkl
+Czas działania algorytmu A*: 0.22294068336486816s
+Czas działania algorytmu Dijkstry: 0.11800622940063477s
+
+
+graph_1000_1000.pkl
+Czas działania algorytmu A*: 0.7814934253692627s
+Czas działania algorytmu Dijkstry: 0.3986365795135498s
+
+
+graph_2000_2000.pkl
+Czas działania algorytmu A*: 3.038059949874878s
+Czas działania algorytmu Dijkstry: 1.5213634967803955s
+
