@@ -119,14 +119,14 @@ def draw_graph(graph, path=None):
     plt.show()
 
 from graph_ops import load_graph_from_file
-graph_dims = [(200, 50), (200, 200)]#, (500, 500), (1000, 1000), (2000, 2000)]
+graph_dims = [(200, 50), (200, 200), (500, 500), (1000, 1000), (2000, 2000)]
 graphs = {}
 
 for dim in graph_dims:
     fname = f'graph_{dim[0]}_{dim[1]}.pkl'
     graphs[fname] = load_graph_from_file(fname)
 
-start = (50, 20)
+start = (0, 0)
 goal = (198, 40)
 
 heuristics={

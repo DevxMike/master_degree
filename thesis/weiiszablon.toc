@@ -28,7 +28,7 @@
 \contentsline {subsubsection}{\numberline {4.2.2}Porównanie otrzymanych wyników}{\footnotesize 43}{subsubsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.3}Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 45}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Przebieg eksperymentu}{\footnotesize 45}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Porównanie otrzymanych wyników}{\footnotesize 46}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 46}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Podsumowanie i wnioski końcowe}{\footnotesize 47}{section.5}%
-\contentsline {section}{Literatura}{\footnotesize 49}{section.5}%
+\contentsline {subsubsection}{\numberline {4.3.2}Porównanie otrzymanych wyników}{\footnotesize 47}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 51}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Podsumowanie i wnioski końcowe}{\footnotesize 52}{section.5}%
+\contentsline {section}{Literatura}{\footnotesize 54}{section.5}%
