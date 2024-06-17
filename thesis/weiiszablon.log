@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  16 JUN 2024 19:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  17 JUN 2024 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4179,1087 +4179,987 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 1282.
 
 [42]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1407.
-
+<figures/static_algo/charts/nowalls/astar_heuristics.png, id=963, 722.7pt x 433
+.62pt>
+File: figures/static_algo/charts/nowalls/astar_heuristics.png Graphic file (typ
+e png)
+<use figures/static_algo/charts/nowalls/astar_heuristics.png>
+Package pdftex.def Info: figures/static_algo/charts/nowalls/astar_heuristics.pn
+g  used on input line 1297.
+(pdftex.def)             Requested size: 341.43306pt x 204.86006pt.
+<figures/static_algo/charts/nowalls/dijkstra.png, id=964, 722.7pt x 433.62pt>
+File: figures/static_algo/charts/nowalls/dijkstra.png Graphic file (type png)
+<use figures/static_algo/charts/nowalls/dijkstra.png>
+Package pdftex.def Info: figures/static_algo/charts/nowalls/dijkstra.png  used 
+on input line 1304.
+(pdftex.def)             Requested size: 341.43306pt x 204.86006pt.
+<figures/static_algo/charts/nowalls/astar_vs_dijkstra.png, id=965, 722.7pt x 43
+3.62pt>
+File: figures/static_algo/charts/nowalls/astar_vs_dijkstra.png Graphic file (ty
+pe png)
+<use figures/static_algo/charts/nowalls/astar_vs_dijkstra.png>
+Package pdftex.def Info: figures/static_algo/charts/nowalls/astar_vs_dijkstra.p
+ng  used on input line 1311.
+(pdftex.def)             Requested size: 341.43306pt x 204.86006pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1407.
+(hyperref)                removing `\<let>-command' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
+(hyperref)                removing `\@currsize' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1407.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
+(hyperref)                removing `\abovedisplayskip' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1407.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1407.
-
-[43]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1407.
+(hyperref)                removing `\abovedisplayshortskip' on input line 1316.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1407.
+(hyperref)                removing `\z@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1407.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1407.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1407.
-
-[44]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1428.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1428.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1428.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1428.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1428.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1428.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1428.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1316.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1428.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1428.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1428.
+(hyperref)                removing `\p@' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1316.
+
+[43 <./figures/static_algo/charts/nowalls/astar_heuristics.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1316.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1428.
+(hyperref)                removing `\z@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1428.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1428.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1316.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1428.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1428.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1428.
+(hyperref)                removing `\p@' on input line 1316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1428.
+(hyperref)                removing `\p@' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1316.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1316.
+
+[44 <./figures/static_algo/charts/nowalls/dijkstra.png> <./figures/static_algo/
+charts/nowalls/astar_vs_dijkstra.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1430.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1430.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1430.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1430.
 
 [45
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1458.
+(hyperref)                removing `\<let>-command' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1458.
+(hyperref)                removing `\@currsize' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1458.
+(hyperref)                removing `\abovedisplayskip' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1458.
+(hyperref)                removing `\p@' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1458.
+(hyperref)                removing `\p@' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1458.
+(hyperref)                removing `\p@' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1458.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1458.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1458.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1458.
+(hyperref)                removing `\abovedisplayshortskip' on input line 1451.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1458.
+(hyperref)                removing `\z@' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1458.
+(hyperref)                removing `\p@' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1458.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1451.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1458.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1458.
+(hyperref)                removing `\p@' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1458.
+(hyperref)                removing `\p@' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1458.
+(hyperref)                removing `\p@' on input line 1451.
 
-[46]
-Underfull \hbox (badness 1776) in paragraph at lines 1468--1468
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1451.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1451.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1451.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1451.
+
+[46
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1481.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1481.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1481.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1481.
+
+[47]
+Underfull \hbox (badness 1776) in paragraph at lines 1491--1491
 []\T1/lmr/bx/n/10 Czas dzia-ªa-nia al-go-
  []
 
-<figures/static_algo/map_0.png, id=1019, 144.54pt x 36.135pt>
-File: figures/static_algo/map_0.png Graphic file (type png)
-<use figures/static_algo/map_0.png>
-Package pdftex.def Info: figures/static_algo/map_0.png  used on input line 1566
-.
-(pdftex.def)             Requested size: 264.61333pt x 66.15668pt.
-<figures/static_algo/map_astar_manhattan_0.png, id=1020, 144.54pt x 36.135pt>
-File: figures/static_algo/map_astar_manhattan_0.png Graphic file (type png)
-<use figures/static_algo/map_astar_manhattan_0.png>
-Package pdftex.def Info: figures/static_algo/map_astar_manhattan_0.png  used on
- input line 1575.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_euclidean_0.png, id=1021, 144.54pt x 36.135pt>
-File: figures/static_algo/map_astar_euclidean_0.png Graphic file (type png)
-<use figures/static_algo/map_astar_euclidean_0.png>
-Package pdftex.def Info: figures/static_algo/map_astar_euclidean_0.png  used on
- input line 1582.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_dijkstra_0.png, id=1022, 144.54pt x 36.135pt>
-File: figures/static_algo/map_dijkstra_0.png Graphic file (type png)
-<use figures/static_algo/map_dijkstra_0.png>
-Package pdftex.def Info: figures/static_algo/map_dijkstra_0.png  used on input 
-line 1590.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_1.png, id=1023, 144.54pt x 36.135pt>
-File: figures/static_algo/map_1.png Graphic file (type png)
-<use figures/static_algo/map_1.png>
-Package pdftex.def Info: figures/static_algo/map_1.png  used on input line 1601
-.
-(pdftex.def)             Requested size: 264.61333pt x 66.15668pt.
-<figures/static_algo/map_astar_manhattan_1.png, id=1024, 144.54pt x 36.135pt>
-File: figures/static_algo/map_astar_manhattan_1.png Graphic file (type png)
-<use figures/static_algo/map_astar_manhattan_1.png>
-Package pdftex.def Info: figures/static_algo/map_astar_manhattan_1.png  used on
- input line 1610.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_euclidean_1.png, id=1025, 144.54pt x 36.135pt>
-File: figures/static_algo/map_astar_euclidean_1.png Graphic file (type png)
-<use figures/static_algo/map_astar_euclidean_1.png>
-Package pdftex.def Info: figures/static_algo/map_astar_euclidean_1.png  used on
- input line 1617.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_dijkstra_1.png, id=1026, 144.54pt x 36.135pt>
-File: figures/static_algo/map_dijkstra_1.png Graphic file (type png)
-<use figures/static_algo/map_dijkstra_1.png>
-Package pdftex.def Info: figures/static_algo/map_dijkstra_1.png  used on input 
-line 1625.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_2.png, id=1027, 144.54pt x 36.135pt>
-File: figures/static_algo/map_2.png Graphic file (type png)
-<use figures/static_algo/map_2.png>
-Package pdftex.def Info: figures/static_algo/map_2.png  used on input line 1636
-.
-(pdftex.def)             Requested size: 264.61333pt x 66.15668pt.
-<figures/static_algo/map_astar_manhattan_2.png, id=1028, 144.54pt x 36.135pt>
-File: figures/static_algo/map_astar_manhattan_2.png Graphic file (type png)
-<use figures/static_algo/map_astar_manhattan_2.png>
-Package pdftex.def Info: figures/static_algo/map_astar_manhattan_2.png  used on
- input line 1645.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_euclidean_2.png, id=1029, 144.54pt x 36.135pt>
-File: figures/static_algo/map_astar_euclidean_2.png Graphic file (type png)
-<use figures/static_algo/map_astar_euclidean_2.png>
-Package pdftex.def Info: figures/static_algo/map_astar_euclidean_2.png  used on
- input line 1652.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_dijkstra_2.png, id=1030, 144.54pt x 36.135pt>
-File: figures/static_algo/map_dijkstra_2.png Graphic file (type png)
-<use figures/static_algo/map_dijkstra_2.png>
-Package pdftex.def Info: figures/static_algo/map_dijkstra_2.png  used on input 
-line 1660.
-(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_3.png, id=1031, 144.54pt x 36.135pt>
+<figures/static_algo/charts/walls/algorithm_times_walls.png, id=1034, 722.7pt x
+ 433.62pt>
+File: figures/static_algo/charts/walls/algorithm_times_walls.png Graphic file (
+type png)
+<use figures/static_algo/charts/walls/algorithm_times_walls.png>
+Package pdftex.def Info: figures/static_algo/charts/walls/algorithm_times_walls
+.png  used on input line 1585.
+(pdftex.def)             Requested size: 341.43306pt x 204.86006pt.
+<figures/static_algo/map_3.png, id=1035, 144.54pt x 36.135pt>
 File: figures/static_algo/map_3.png Graphic file (type png)
 <use figures/static_algo/map_3.png>
-Package pdftex.def Info: figures/static_algo/map_3.png  used on input line 1671
+Package pdftex.def Info: figures/static_algo/map_3.png  used on input line 1724
 .
 (pdftex.def)             Requested size: 264.61333pt x 66.15668pt.
-<figures/static_algo/map_astar_manhattan_3.png, id=1032, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_manhattan_3.png, id=1036, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_manhattan_3.png Graphic file (type png)
 <use figures/static_algo/map_astar_manhattan_3.png>
 Package pdftex.def Info: figures/static_algo/map_astar_manhattan_3.png  used on
- input line 1680.
+ input line 1733.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_euclidean_3.png, id=1033, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_euclidean_3.png, id=1037, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_euclidean_3.png Graphic file (type png)
 <use figures/static_algo/map_astar_euclidean_3.png>
 Package pdftex.def Info: figures/static_algo/map_astar_euclidean_3.png  used on
- input line 1687.
+ input line 1740.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_dijkstra_3.png, id=1034, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_max_3.png, id=1038, 144.54pt x 36.135pt>
+File: figures/static_algo/map_astar_max_3.png Graphic file (type png)
+<use figures/static_algo/map_astar_max_3.png>
+Package pdftex.def Info: figures/static_algo/map_astar_max_3.png  used on input
+ line 1748.
+(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
+<figures/static_algo/map_dijkstra_3.png, id=1039, 144.54pt x 36.135pt>
 File: figures/static_algo/map_dijkstra_3.png Graphic file (type png)
 <use figures/static_algo/map_dijkstra_3.png>
 Package pdftex.def Info: figures/static_algo/map_dijkstra_3.png  used on input 
-line 1695.
+line 1755.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_4.png, id=1035, 144.54pt x 36.135pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1762.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1762.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1762.
+
+[48]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1762.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1762.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1762.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1762.
+
+[49 <./figures/static_algo/charts/walls/algorithm_times_walls.png> <./figures/s
+tatic_algo/map_3.png> <./figures/static_algo/map_astar_manhattan_3.png> <./figu
+res/static_algo/map_astar_euclidean_3.png> <./figures/static_algo/map_astar_max
+_3.png> <./figures/static_algo/map_dijkstra_3.png>]
+<figures/static_algo/map_4.png, id=1059, 144.54pt x 36.135pt>
 File: figures/static_algo/map_4.png Graphic file (type png)
 <use figures/static_algo/map_4.png>
-Package pdftex.def Info: figures/static_algo/map_4.png  used on input line 1706
+Package pdftex.def Info: figures/static_algo/map_4.png  used on input line 1767
 .
 (pdftex.def)             Requested size: 264.61333pt x 66.15668pt.
-<figures/static_algo/map_astar_manhattan_4.png, id=1036, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_manhattan_4.png, id=1060, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_manhattan_4.png Graphic file (type png)
 <use figures/static_algo/map_astar_manhattan_4.png>
 Package pdftex.def Info: figures/static_algo/map_astar_manhattan_4.png  used on
- input line 1715.
+ input line 1776.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_euclidean_4.png, id=1037, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_euclidean_4.png, id=1061, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_euclidean_4.png Graphic file (type png)
 <use figures/static_algo/map_astar_euclidean_4.png>
 Package pdftex.def Info: figures/static_algo/map_astar_euclidean_4.png  used on
- input line 1722.
+ input line 1783.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_dijkstra_4.png, id=1038, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_max_4.png, id=1062, 144.54pt x 36.135pt>
+File: figures/static_algo/map_astar_max_4.png Graphic file (type png)
+<use figures/static_algo/map_astar_max_4.png>
+Package pdftex.def Info: figures/static_algo/map_astar_max_4.png  used on input
+ line 1791.
+(pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
+<figures/static_algo/map_dijkstra_4.png, id=1063, 144.54pt x 36.135pt>
 File: figures/static_algo/map_dijkstra_4.png Graphic file (type png)
 <use figures/static_algo/map_dijkstra_4.png>
 Package pdftex.def Info: figures/static_algo/map_dijkstra_4.png  used on input 
-line 1730.
+line 1798.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1738.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1738.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
-
-[47]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1738.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1738.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
-
-[48 <./figures/static_algo/map_0.png> <./figures/static_algo/map_astar_manhatta
-n_0.png> <./figures/static_algo/map_astar_euclidean_0.png> <./figures/static_al
-go/map_dijkstra_0.png> <./figures/static_algo/map_1.png> <./figures/static_algo
-/map_astar_manhattan_1.png> <./figures/static_algo/map_astar_euclidean_1.png> <
-./figures/static_algo/map_dijkstra_1.png> <./figures/static_algo/map_2.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
+(hyperref)                removing `\<let>-command' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
+(hyperref)                removing `\@currsize' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1738.
+(hyperref)                removing `\abovedisplayskip' on input line 1810.
 
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1738.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1738.
+(hyperref)                removing `\p@' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1738.
+(hyperref)                removing `\p@' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1738.
+(hyperref)                removing `\p@' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
+(hyperref)                removing `\abovedisplayshortskip' on input line 1810.
 
-[49 <./figures/static_algo/map_astar_manhattan_2.png> <./figures/static_algo/ma
-p_astar_euclidean_2.png> <./figures/static_algo/map_dijkstra_2.png> <./figures/
-static_algo/map_3.png> <./figures/static_algo/map_astar_manhattan_3.png> <./fig
-ures/static_algo/map_astar_euclidean_3.png> <./figures/static_algo/map_dijkstra
-_3.png> <./figures/static_algo/map_4.png>]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
+(hyperref)                removing `\z@' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1738.
-
+(hyperref)                removing `\p@' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1738.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1810.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1738.
+(hyperref)                removing `\p@' on input line 1810.
 
 
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
+(hyperref)                removing `\p@' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
+(hyperref)                removing `\p@' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1738.
+(hyperref)                removing `\<def>-command' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1738.
+(hyperref)                removing `\@listi' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1738.
+(hyperref)                removing `\belowdisplayskip' on input line 1810.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1738.
+(hyperref)                removing `\abovedisplayskip' on input line 1810.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1738.
+[50
 
-[50 <./figures/static_algo/map_astar_manhattan_4.png> <./figures/static_algo/ma
-p_astar_euclidean_4.png> <./figures/static_algo/map_dijkstra_4.png>]
+ <./figures/static_algo/map_4.png> <./figures/static_algo/map_astar_manhattan_4
+.png> <./figures/static_algo/map_astar_euclidean_4.png> <./figures/static_algo/
+map_astar_max_4.png> <./figures/static_algo/map_dijkstra_4.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1742.
+(hyperref)                removing `\<let>-command' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1742.
+(hyperref)                removing `\@currsize' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1742.
+(hyperref)                removing `\abovedisplayskip' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1742.
+(hyperref)                removing `\p@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1742.
+(hyperref)                removing `\p@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1742.
+(hyperref)                removing `\p@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1742.
+(hyperref)                removing `\abovedisplayshortskip' on input line 1812.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1742.
+(hyperref)                removing `\z@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1742.
+(hyperref)                removing `\p@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1742.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1812.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1742.
+(hyperref)                removing `\p@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1742.
+(hyperref)                removing `\p@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1742.
+(hyperref)                removing `\p@' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1742.
+(hyperref)                removing `\<def>-command' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1742.
+(hyperref)                removing `\@listi' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1742.
+(hyperref)                removing `\belowdisplayskip' on input line 1812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1742.
+(hyperref)                removing `\abovedisplayskip' on input line 1812.
 
 [51
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1744.
+(hyperref)                removing `\<let>-command' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1744.
+(hyperref)                removing `\@currsize' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1744.
+(hyperref)                removing `\abovedisplayskip' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1744.
+(hyperref)                removing `\p@' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1744.
+(hyperref)                removing `\p@' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1744.
+(hyperref)                removing `\p@' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1744.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1744.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1744.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1744.
+(hyperref)                removing `\abovedisplayshortskip' on input line 1816.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1744.
+(hyperref)                removing `\z@' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1744.
+(hyperref)                removing `\p@' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1744.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1816.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1744.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1744.
+(hyperref)                removing `\p@' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1744.
+(hyperref)                removing `\p@' on input line 1816.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1744.
+(hyperref)                removing `\p@' on input line 1816.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1816.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1816.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1816.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1816.
 
 [52
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1748.
+(hyperref)                removing `\<let>-command' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1748.
+(hyperref)                removing `\@currsize' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1748.
+(hyperref)                removing `\abovedisplayskip' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1748.
+(hyperref)                removing `\p@' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1748.
+(hyperref)                removing `\p@' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1748.
+(hyperref)                removing `\p@' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1748.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1748.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1748.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1748.
+(hyperref)                removing `\abovedisplayshortskip' on input line 1847.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1748.
+(hyperref)                removing `\z@' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1748.
+(hyperref)                removing `\p@' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1748.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1847.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1748.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1748.
+(hyperref)                removing `\p@' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1748.
+(hyperref)                removing `\p@' on input line 1847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1748.
+(hyperref)                removing `\p@' on input line 1847.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1847.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1847.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1847.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1847.
 
 [53
 
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1779.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1779.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1779.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1779.
-
-[54
-
 
 ]
-Overfull \hbox (14.2264pt too wide) in paragraph at lines 1781--1781
+Overfull \hbox (14.2264pt too wide) in paragraph at lines 1849--1849
 [][]| 
  []
 
 
-Overfull \hbox (14.2264pt too wide) in paragraph at lines 1781--1781
+Overfull \hbox (14.2264pt too wide) in paragraph at lines 1849--1849
 [][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1781--1781
+Underfull \hbox (badness 10000) in paragraph at lines 1849--1849
 [][]
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1783.
+(hyperref)                removing `\<let>-command' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@currsize' on input line 1783.
+(hyperref)                removing `\@currsize' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1783.
+(hyperref)                removing `\abovedisplayskip' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1783.
+(hyperref)                removing `\p@' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1783.
+(hyperref)                removing `\p@' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1783.
+(hyperref)                removing `\p@' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayshortskip' on input line 1783.
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1783.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1783.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayshortskip' on input line 1783.
+(hyperref)                removing `\abovedisplayshortskip' on input line 1851.
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1783.
+(hyperref)                removing `\z@' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1783.
+(hyperref)                removing `\p@' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\p@' on input line 1783.
+(hyperref)                removing `\belowdisplayshortskip' on input line 1851.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1783.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@listi' on input line 1783.
+(hyperref)                removing `\p@' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\belowdisplayskip' on input line 1783.
+(hyperref)                removing `\p@' on input line 1851.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\abovedisplayskip' on input line 1783.
+(hyperref)                removing `\p@' on input line 1851.
 
-[55
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1851.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1851.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1851.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1851.
+
+[54
 
 ] (./weiiszablon.aux)
 
@@ -5269,10 +5169,10 @@ Package rerunfilecheck Info: File `weiiszablon.out' has not changed.
 (rerunfilecheck)             Checksum: D15DC5C0F4DF6B0B269E7835BC93B2BD;6628.
  ) 
 Here is how much of TeX's memory you used:
- 28211 strings out of 478287
- 509293 string characters out of 5849289
- 1456924 words of memory out of 5000000
- 45231 multiletter control sequences out of 15000+600000
+ 28159 strings out of 478287
+ 507748 string characters out of 5849289
+ 1456006 words of memory out of 5000000
+ 45186 multiletter control sequences out of 15000+600000
  537834 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,103p,1321b,1970s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -5287,10 +5187,10 @@ ts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 /public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on weiiszablon.pdf (55 pages, 1485074 bytes).
+Output written on weiiszablon.pdf (54 pages, 1625057 bytes).
 PDF statistics:
- 1312 PDF objects out of 1440 (max. 8388607)
- 1162 compressed objects within 12 object streams
- 663 named destinations out of 1000 (max. 500000)
- 437 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1294 PDF objects out of 1440 (max. 8388607)
+ 1157 compressed objects within 12 object streams
+ 660 named destinations out of 1000 (max. 500000)
+ 407 words of extra memory for PDF output out of 10000 (max. 10000000)
 

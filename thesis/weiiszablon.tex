@@ -1288,9 +1288,32 @@ Kolejnym krokiem jest przejście przez wszystkie heurystyki oraz wczytane grafy 
 Na podstawie przedstawionych wyników eksperymentu porównującego algorytmy A* z różnymi heurystykami oraz algorytm Dijkstry (tabela \ref{Tab:comparison}), można wysunąć następujące wnioski:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item algorytm Dijkstry wypadł lepiej pod względem czasu wykonania w porównaniu do algorytmu A* z każdą z badanych heurystyk. Osiągnął on znacznie krótsze czasy wykonania dla wszystkich rozmiarów badanych grafów,
-	\item heurystyka Manhattan osiągała najkrótsze czasy wykonania algorytmu A* dla większości badanych przypadków. Z tego powodu, można stwierdzić, że dla tego konkretnego eksperymentu, heurystyka Manhattan była najlepsza pod względem szybkości działania.
+	\item algorytm Dijkstry wypadł lepiej pod względem czasu wykonania w porównaniu do algorytmu A* (rysunek \ref{Fig:astar_vs_dijkstra}). Osiągnął on znacznie krótsze czasy wykonania dla wszystkich rozmiarów badanych grafów. Zwykle A* powinien działać szybciej, ponieważ używa heurystyki do prowadzenia wyszukiwania, co teoretycznie powinno ograniczyć liczbę odwiedzanych węzłów.
+	\item heurystyka Manhattan osiągała najkrótsze czasy wykonania dla większości badanych przypadków. Z tego powodu, można stwierdzić, że dla tego konkretnego eksperymentu, heurystyka Manhattan była najlepsza pod względem szybkości działania. Odległość manhattańska jest najprostszą heurystyką spośród używanych, ponieważ jest to suma różnic w poziomych i pionowych odległościach między punktami. To prowadzi do szybszych obliczeń w porównaniu z bardziej złożonymi heurystykami jak Euclidean czy Max.
 \end{enumerate}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/static_algo/charts/nowalls/astar_heuristics.png}%
+ \caption{Czas działania algorytmu A*}%
+ \label{Fig:astar_heuristics}%
+\end{figure}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/static_algo/charts/nowalls/dijkstra.png}%
+ \caption{Czas działania algorytmu Dijkstry}%
+ \label{Fig:dijkstra}%
+\end{figure}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/static_algo/charts/nowalls/astar_vs_dijkstra.png}%
+ \caption{Porównanie czasu działania algorytmów}%
+ \label{Fig:astar_vs_dijkstra}%
+\end{figure}
+
+\clearpage
 
 \begin{table}[ht]
 \caption{Wyniki algorytmu A* dla różnych heurystyk}
@@ -1459,7 +1482,7 @@ for i in range(5):
 
 \subsubsection{Porównanie otrzymanych wyników}
 
-Podsumowanie wyników przedstawionych w tabeli \ref{Tab:Astar_Dijkstra_results} wskazuje, że algorytm Dijkstry osiągnął najlepsze wyniki pod względem czasu działania dla wszystkich iteracji, utrzymując przy tym identyczną długość wyznaczonej trasy (247 dla iteracji 0, 1, 2, 4 oraz 233 dla iteracji 3). Algorytmy A* z różnymi heurystykami uzyskały takie same wyniki pod względem długości trasy, jednak wymagały więcej czasu obliczeniowego w porównaniu do Dijkstry.
+Podsumowanie wyników przedstawionych w tabeli \ref{Tab:Astar_Dijkstra_results} wskazuje, że algorytm Dijkstry osiągnął najlepsze wyniki pod względem czasu działania dla wszystkich iteracji, utrzymując przy tym identyczną długość wyznaczonej trasy (247 dla iteracji 0, 1, 2, 4 oraz 233 dla iteracji 3). Algorytmy A* z różnymi heurystykami uzyskały takie same wyniki pod względem długości trasy, jednak wymagały więcej czasu obliczeniowego w porównaniu do Dijkstry (rysunek \ref{Fig:astar_vs_dijkstra_walls}).
 
 \begin{table}[h]
 \centering
@@ -1557,113 +1580,143 @@ Dijkstra &
 \label{Tab:Astar_Dijkstra_results}
 \end{table}
 
-Na niżej ukazanych obrazkach przedstawiono wyniki działania algorytmów przeszukiwania grafu dla pięciu iteracji. Każdy zestaw obrazków składa się z dwóch głównych sekcji: mapy ogólnej, porównania ścieżek dla algorytmów A* z różnymi heurystykami oraz algorytmu Dijkstry.
-
-
-% Iteracja 0
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.6\textwidth]{figures/static_algo/map_0.png}
-    \caption{Mapa dla iteracji 0}
-    \label{fig:map_0}
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/static_algo/charts/walls/algorithm_times_walls.png}%
+ \caption{Porównanie czasu działania algorytmów}%
+ \label{Fig:astar_vs_dijkstra_walls}%
 \end{figure}
 
-\begin{figure}[ht]
-    \centering
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_manhattan_0.png}
-        \caption*{A* z heurystyką Manhattan}
-        \label{fig:map_astar_manhattan_0}
-    \end{minipage}
-    \hspace{0.1\textwidth}
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_euclidean_0.png}
-        \caption*{A* z heurystyką Euklidesową}
-        \label{fig:map_astar_euclidean_0}
-    \end{minipage}
-    \vspace{0.5cm}
-    
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_0.png}
-        \caption*{Dijkstra}
-        \label{fig:map_dijkstra_0}
-    \end{minipage}
-    \caption{Porównanie wyznaczonych ścieżek dla iteracji 0}
-    \label{fig:comparison_iteration_0}
-\end{figure}
+Na niżej ukazanych obrazkach przedstawiono wyniki działania algorytmów przeszukiwania grafu dla dwóch wybranych iteracji. Każdy zestaw obrazków składa się z dwóch głównych sekcji: mapy ogólnej, porównania ścieżek dla algorytmów A* z różnymi heurystykami oraz algorytmu Dijkstry.
 
-% Iteracja 1
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.6\textwidth]{figures/static_algo/map_1.png}
-    \caption{Mapa dla iteracji 1}
-    \label{fig:map_1}
-\end{figure}
 
-\begin{figure}[ht]
-    \centering
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_manhattan_1.png}
-        \caption*{A* z heurystyką Manhattan}
-        \label{fig:map_astar_manhattan_1}
-    \end{minipage}
-    \hspace{0.1\textwidth}
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_euclidean_1.png}
-        \caption*{A* z heurystyką Euklidesową}
-        \label{fig:map_astar_euclidean_1}
-    \end{minipage}
-    \vspace{0.5cm}
-    
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_1.png}
-        \caption*{Dijkstra}
-        \label{fig:map_dijkstra_1}
-    \end{minipage}
-    \caption{Porównanie wyznaczonych ścieżek dla iteracji 1}
-    \label{fig:comparison_iteration_1}
-\end{figure}
+%% Iteracja 0
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[width=0.6\textwidth]{figures/static_algo/map_0.png}
+%    \caption{Mapa dla iteracji 0}
+%    \label{fig:map_0}
+%\end{figure}
+%
+%\begin{figure}[ht]
+%    \centering
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_manhattan_0.png}
+%        \caption*{A* z heurystyką Manhattan}
+%        \label{fig:map_astar_manhattan_0}
+%    \end{minipage}
+%    \hspace{0.1\textwidth}
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_euclidean_0.png}
+%        \caption*{A* z heurystyką Euklidesową}
+%        \label{fig:map_astar_euclidean_0}
+%    \end{minipage}
+%    \vspace{0.5cm}
+%    
+%	\begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_max_0.png}
+%        \caption*{Max}
+%        \label{fig:map_astar_max_0}
+%    \end{minipage}    
+%    \hspace{0.1\textwidth}
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_0.png}
+%        \caption*{Dijkstra}
+%        \label{fig:map_dijkstra_0}
+%    \end{minipage}
+%    \caption{Porównanie wyznaczonych ścieżek dla iteracji 0}
+%    \label{fig:comparison_iteration_0}
+%\end{figure}
+%
+%\clearpage
 
-% Iteracja 2
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.6\textwidth]{figures/static_algo/map_2.png}
-    \caption{Mapa dla iteracji 2}
-    \label{fig:map_2}
-\end{figure}
+%% Iteracja 1
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[width=0.6\textwidth]{figures/static_algo/map_1.png}
+%    \caption{Mapa dla iteracji 1}
+%    \label{fig:map_0}
+%\end{figure}
+%
+%\begin{figure}[ht]
+%    \centering
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_manhattan_1.png}
+%        \caption*{A* z heurystyką Manhattan}
+%        \label{fig:map_astar_manhattan_1}
+%    \end{minipage}
+%    \hspace{0.1\textwidth}
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_euclidean_1.png}
+%        \caption*{A* z heurystyką Euklidesową}
+%        \label{fig:map_astar_euclidean_1}
+%    \end{minipage}
+%    \vspace{0.5cm}
+%    
+%	\begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_max_1.png}
+%        \caption*{Max}
+%        \label{fig:map_astar_max_1}
+%    \end{minipage}    
+%    \hspace{0.1\textwidth}
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_1.png}
+%        \caption*{Dijkstra}
+%        \label{fig:map_dijkstra_1}
+%    \end{minipage}
+%    \caption{Porównanie wyznaczonych ścieżek dla iteracji 1}
+%    \label{fig:comparison_iteration_1}
+%\end{figure}
 
-\begin{figure}[ht]
-    \centering
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_manhattan_2.png}
-        \caption*{A* z heurystyką Manhattan}
-        \label{fig:map_astar_manhattan_2}
-    \end{minipage}
-    \hspace{0.1\textwidth}
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_euclidean_2.png}
-        \caption*{A* z heurystyką Euklidesową}
-        \label{fig:map_astar_euclidean_2}
-    \end{minipage}
-    \vspace{0.5cm}
-    
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_2.png}
-        \caption*{Dijkstra}
-        \label{fig:map_dijkstra_2}
-    \end{minipage}
-    \caption{Porównanie wyznaczonych ścieżek dla iteracji 2}
-    \label{fig:comparison_iteration_2}
-\end{figure}
+%% Iteracja 2
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[width=0.6\textwidth]{figures/static_algo/map_2.png}
+%    \caption{Mapa dla iteracji 2}
+%    \label{fig:map_2}
+%\end{figure}
+%
+%\begin{figure}[ht]
+%    \centering
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_manhattan_2.png}
+%        \caption*{A* z heurystyką Manhattan}
+%        \label{fig:map_astar_manhattan_2}
+%    \end{minipage}
+%    \hspace{0.1\textwidth}
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_euclidean_2.png}
+%        \caption*{A* z heurystyką Euklidesową}
+%        \label{fig:map_astar_euclidean_2}
+%    \end{minipage}
+%    \vspace{0.5cm}
+%    
+%	\begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_max_2.png}
+%        \caption*{Max}
+%        \label{fig:map_astar_max_2}
+%    \end{minipage}    
+%    \hspace{0.1\textwidth}
+%    \begin{minipage}{0.4\textwidth}
+%        \centering
+%        \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_2.png}
+%        \caption*{Dijkstra}
+%        \label{fig:map_dijkstra_2}
+%    \end{minipage}
+%    \caption{Porównanie wyznaczonych ścieżek dla iteracji 2}
+%    \label{fig:comparison_iteration_2}
+%\end{figure}
 
 % Iteracja 3
 \begin{figure}[ht]
@@ -1690,6 +1743,13 @@ Na niżej ukazanych obrazkach przedstawiono wyniki działania algorytmów przesz
     \end{minipage}
     \vspace{0.5cm}
     
+	\begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_max_3.png}
+        \caption*{Max}
+        \label{fig:map_astar_max_3}
+    \end{minipage}    
+    \hspace{0.1\textwidth}
     \begin{minipage}{0.4\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_3.png}
@@ -1699,7 +1759,8 @@ Na niżej ukazanych obrazkach przedstawiono wyniki działania algorytmów przesz
     \caption{Porównanie wyznaczonych ścieżek dla iteracji 3}
     \label{fig:comparison_iteration_3}
 \end{figure}
-
+\clearpage
+%
 % Iteracja 4
 \begin{figure}[ht]
     \centering
@@ -1725,6 +1786,13 @@ Na niżej ukazanych obrazkach przedstawiono wyniki działania algorytmów przesz
     \end{minipage}
     \vspace{0.5cm}
     
+	\begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/static_algo/map_astar_max_4.png}
+        \caption*{Max}
+        \label{fig:map_astar_max_4}
+    \end{minipage}    
+    \hspace{0.1\textwidth}
     \begin{minipage}{0.4\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/static_algo/map_dijkstra_4.png}
@@ -1734,8 +1802,8 @@ Na niżej ukazanych obrazkach przedstawiono wyniki działania algorytmów przesz
     \caption{Porównanie wyznaczonych ścieżek dla iteracji 4}
     \label{fig:comparison_iteration_4}
 \end{figure}
-
-\clearpage
+%
+%\clearpage
 
 \subsection{Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}
 TODO
