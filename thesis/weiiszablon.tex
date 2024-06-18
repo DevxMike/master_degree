@@ -70,7 +70,7 @@ The work focuses on the study of selected navigation algorithms and methods for 
 \section{Wstęp}
 W dzisiejszych czasach, wraz z dynamicznym rozwojem technologii mobilnych, algorytmy nawigacyjne i uczenia maszynowego \cite{deepLearning} odgrywają kluczową rolę w różnorodnych aplikacjach, począwszy od systemów nawigacji w samochodach po autonomiczne roboty poruszające się w różnych środowiskach. Biorąc pod uwagę aktualność tych zagadnień i rosnące zapotrzebowanie, zdecydowano o przeprowadzeniu badań dotyczących systemów nawigacyjnych.
    
-Celem tej pracy jest zbadanie heurystycznych metod \cite{genetics} optymalizazcji regulatorów PID oraz porównanie wybranych algorytmów pod kątem kryteriów takich jak dokładność wyznaczania trasy oraz wydajność obliczeniowa w różnych warunkach terenowych.  
+Celem tej pracy jest zbadanie heurystycznych metod \cite{genetics} optymalizazcji regulatorów PID oraz wybranych algorytmów pod kątem kryteriów takich jak optymalizacja długości trasy oraz wydajność obliczeniowa w różnych warunkach terenowych.  
 
 Zakres pracy obejmuje dwie części:
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
@@ -80,13 +80,11 @@ Zakres pracy obejmuje dwie części:
 
 Zastosowanie standardu ASPICE \cite{SPICE} zapewnia wysoką jakość procesu budowy robota oraz implementacji oprogramowania co pozwola na przeprowadzenie rzetelnych badań i wyciągnięcie wiarygodnych wniosków.
 
-W dalszej części pracy szczegółowo omówione zostaną poszczególne etapy realizacji każdego z tych komponentów, prezentując zarówno teoretyczne założenia, jak i praktyczne wyniki osiągnięte w ramach projektu.
-
 W następnych rozdziałach pracy przedstawiono szczegółowy opis inżynierskiej części projektu oraz wyniki przeprowadzonych badań. W rozdziale poświęconym inżynierskiej części projektu omówiono budowę robota, jego system operacyjny oraz prostą stację operatorską, które stanowią podstawę do realizacji badań algorytmicznych. Następnie, w rozdziale dotyczącym badanych algorytmów, zaprezentowano teoretyczne i praktyczne aspekty algorytmu genetycznego, algorytmów nawigacyjnych statycznych oraz dynamicznych. Kolejny rozdział skupia się na opisie przeprowadzonych badań, w których dokonano optymalizacji nastaw regulatora PID oraz przeprowadzono porównanie skuteczności algorytmów nawigacyjnych. Te szczegółowe analizy mają na celu ocenę wydajności poszczególnych rozwiązań oraz identyfikację optymalnych metod nawigacyjnych dla zbudowanego robota.
 
 \section{Inżynierska część projektu}
 
-W tym rozdziale przedstawiono kompleksowy opis prac związanych z implementacją oraz funkcjonowaniem robota. Niniejszy rozdział stanowi szczegółowe omówienie trzech kluczowych elementów projektu, które skupiały się na budowie fizycznej robota zgodnie z procedurami SPICE, implementacji oprogramowania w języku C++ z uwzględnieniem unit testów oraz oprogramowania do sterowania robotem. Dzięki zastosowaniu tych trzech elementów możliwe było zapewnienie nie tylko skutecznej implementacji samego robota, ale również jego oprogramowania oraz efektywnego zarządzania nim w czasie rzeczywistym.
+W tym rozdziale przedstawiono kompleksowy opis prac związanych z implementacją oraz funkcjonowaniem robota. Niniejszy rozdział stanowi szczegółowe omówienie trzech kluczowych elementów projektu, które skupiały się na budowie fizycznej robota, implementacji oprogramowania w języku C++ z uwzględnieniem unit testów oraz oprogramowania do sterowania robotem. Dzięki zastosowaniu tych trzech elementów możliwe było zapewnienie nie tylko skutecznej implementacji samego robota, ale również jego oprogramowania oraz efektywnego zarządzania nim w czasie rzeczywistym.
 Dokładna dokumentacja wszystkich komponentów projektu oraz testów znajduje się na repozytorium Github \cite{repo}.
 
 \subsection{Budowa robota}
@@ -724,7 +722,7 @@ Najważniejszymi parametrami algorytmu genetycznego są:
 	
 	\item Funkcja oceny - przypisuje wartość przystosowania każdemu osobnikowi w populacji, opisując, jak dobrze dany osobnik rozwiązuje problem optymalizacyjny. Celem algorytmu jest maksymalizacja lub minimalizacja tej funkcji zależnie od charakteru rozwiązywanego problemu,
 	
-	\item Metoda selekcji - selekcja wybiera osobniki z populacji, które zostaną wykorzystane do reprodukcji w kolejnym pokoleniu. Popularne metody selekcji to ruletka ruletkowa, selekcja turniejowa, selekcja rankingowa i selekcja proporcjonalna,
+	\item Metoda selekcji - selekcja wybiera osobniki z populacji, które zostaną wykorzystane do reprodukcji w kolejnym pokoleniu. Popularne metody selekcji to ruletkowa, turniejowa, rankingowa i proporcjonalna,
 	
 	\item Operator krzyżowania - krzyżowanie jest operacją genetyczną, która łączy cechy dwóch rodziców, aby stworzyć potomstwo. Istnieje wiele różnych metod krzyżowania, takich jak jednopunktowe krzyżowanie, dwupunktowe krzyżowanie, jednorodne krzyżowanie, krzyżowanie arithmetic blend itp.,
 	
@@ -744,7 +742,7 @@ Algorytmy nawigacyjne są kluczowym elementem systemów robotycznych, nawigacji 
 Algorytmy statyczne operują w środowiskach, które nie ulegają zmianom w trakcie działania algorytmu. Oznacza to, że raz zbudowany graf nie zmienia swojej struktury, a wszystkie wagi krawędzi pozostają stałe. Algorytmy te są bardzo efektywne w stabilnych środowiskach, gdzie trasy można wyznaczyć raz i wykorzystać je wielokrotnie bez konieczności przeliczania. Przykładami takich algorytmów są Dijkstra i A*.
 \\ \\
 Algorytm Dijkstry \cite{DIJKSTRA} jest jednym z najstarszych i najbardziej znanych algorytmów nawigacyjnych. Został zaproponowany przez E. W. Dijkstrę w 1956 roku. Jest to algorytm typu 'najpierw najlepszy' (ang. best-first), który znajduje najkrótszą ścieżkę z jednego węzła startowego do wszystkich innych węzłów w grafie z nieujemnymi wagami krawędzi.
-\\ \\
+\newpage
 
 Działanie algorytmu składa się z następujących kroków:
 
