@@ -258,7 +258,9 @@ Kp = 1.0
 Kd = 0.1
 
 distance_to_go = 1.0  
-pd = PDController(Kp, Kd, 0.1)
+pd_drive = PDController(Kp, Kd, 0.02)
+pd_theta = PDController(Kp, Kd, 0.2)
+
 
 def deg_to_rad(degrees):
     return degrees * (math.pi / 180)
@@ -274,9 +276,9 @@ def create_task(magnitude, ROT_OR_DRIVE, drive_direction='forward'):
     fn = None
 
     if(mode == ROTATION):
-        return (magnitude, ROTATION, lambda pd_ctl : control_theta(magnitude, pd_ctl))
+        return (magnitude, ROTATION, lambda  : control_theta(magnitude, pd_theta))
     elif(mode == STRAIGHT_DRIVE):
-        return (magnitude, mode, lambda pd_ctl : control_drive(magnitude, pd_ctl, drive_direction))
+        return (magnitude, mode, lambda : control_drive(magnitude, pd_drive, drive_direction))
 
 
 # task_list = [
@@ -298,7 +300,7 @@ try:
     while True:
         publish_cmd(MQTT_client, RobotCommandsMapping.GET_ALL)
         _, mode, task = task_list[i]
-        if(task(pd)):
+        if(task()):
             i = i + 1
             initialize_odometry()
 
