@@ -129,18 +129,19 @@ publish_cmd(MQTT_client, RobotCommandsMapping.RESET_ODO)
 # )
 
 class PDController:
-    def __init__(self, Kp, Kd):
+    def __init__(self, Kp, Kd, deadzone):
         self.Kp = Kp
         self.Kd = Kd
         self.previous_error = 0
         self.previous_time = time.time()
+        self.deadzone = deadzone
 
     def update(self, setpoint, current_value):
         current_time = time.time()
         dt = current_time - self.previous_time
         error = setpoint - current_value
 
-        if abs(error) <= 0.05:
+        if abs(error) <= self.deadzone:
             return 0
 
         if dt == 0:
@@ -161,28 +162,50 @@ def calculate_distance():
     dy = odometry['y'] - initial_odometry['y']
     return math.sqrt(dx**2 + dy**2)
 
-def control_drive(distance_to_go, pd_controller):
+def control_drive(distance_to_go, pd_controller, direction):
     current_distance = calculate_distance()
-    
-    if (odometry['x'] - initial_odometry['x']) < 0:
+
+    if direction == 'backward':
         current_distance = -current_distance
 
     speed_command = pd_controller.update(distance_to_go, current_distance)
 
     if speed_command > 0:
-        print(f"Driving forward with speed: {speed_command}")
-        publish_raw(
-            MQTT_client,
-            RobotTopicsMappingIn.SET_MOTORS_TOPIC,
-            json.dumps({"left": 40, "right": 40})
-        )
+        if direction == 'forward':
+            print(f"Driving forward with speed: {speed_command}")
+            publish_raw(
+                MQTT_client,
+                RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+                json.dumps({"left": 43, "right": 40})
+            )
+        else:  # direction == 'backward'
+            print(f"Driving backward with speed: {abs(speed_command)}")
+            publish_raw(
+                MQTT_client,
+                RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+                json.dumps({"left": -43, "right": -40})
+            )
+
+        return False
+    
     elif speed_command < 0:
-        print(f"Driving backward with speed: {abs(speed_command)}")
-        publish_raw(
-            MQTT_client,
-            RobotTopicsMappingIn.SET_MOTORS_TOPIC,
-            json.dumps({"left": -40, "right": -40})
-        )
+        if direction == 'forward':
+            print(f"Driving backward with speed: {abs(speed_command)}")
+            publish_raw(
+                MQTT_client,
+                RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+                json.dumps({"left": -43, "right": -40})
+            )
+        else:  # direction == 'backward'
+            print(f"Driving forward with speed: {speed_command}")
+            publish_raw(
+                MQTT_client,
+                RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+                json.dumps({"left": 43, "right": 40})
+            )
+    
+        return False
+    
     else:
         print("Robot has reached the target distance.")
         publish_raw(
@@ -191,6 +214,42 @@ def control_drive(distance_to_go, pd_controller):
             json.dumps({"left": 0, "right": 0})
         )
 
+        return True
+
+def control_theta(theta_to_go, pd_controller):
+    current_theta = odometry['theta'] - initial_odometry['theta']
+    theta_command = pd_controller.update(theta_to_go, current_theta)
+
+    if theta_command > 0:
+        print(f"Turning clockwise with speed: {theta_command}")
+        publish_raw(
+            MQTT_client,
+            RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+            json.dumps({"left": -43, "right": 40})
+        )
+
+        return False
+    
+    elif theta_command < 0:
+        print(f"Turning counter-clockwise with speed: {abs(theta_command)}")
+        publish_raw(
+            MQTT_client,
+            RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+            json.dumps({"left": 43, "right": -40})
+        )
+
+        return False
+    
+    else:
+        print("Robot has reached the target theta.")
+        publish_raw(
+            MQTT_client,
+            RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+            json.dumps({"left": 0, "right": 0})
+        )
+
+        return True
+
 def initialize_odometry():
     global initial_odometry
     initial_odometry = odometry.copy()
@@ -198,15 +257,63 @@ def initialize_odometry():
 Kp = 1.0
 Kd = 0.1
 
-distance_to_go = -1.0  
-pd = PDController(Kp, Kd)
+distance_to_go = 1.0  
+pd = PDController(Kp, Kd, 0.1)
+
+def deg_to_rad(degrees):
+    return degrees * (math.pi / 180)
+
+def get_theta(degrees):
+    return deg_to_rad(degrees) / 1.1
+
+ROTATION = 1
+STRAIGHT_DRIVE = 2
+
+def create_task(magnitude, ROT_OR_DRIVE, drive_direction='forward'):
+    mode = ROT_OR_DRIVE
+    fn = None
+
+    if(mode == ROTATION):
+        return (magnitude, ROTATION, lambda pd_ctl : control_theta(magnitude, pd_ctl))
+    elif(mode == STRAIGHT_DRIVE):
+        return (magnitude, mode, lambda pd_ctl : control_drive(magnitude, pd_ctl, drive_direction))
+
+
+# task_list = [
+#     (distance_to_go, STRAIGHT_DRIVE, lambda pd_ctl : control_drive(distance_to_go, pd_ctl)),
+#     (theta_to_go, ROTATION, lambda pd_ctl : control_theta(theta_to_go, pd_ctl))
+# ]
+
+task_list = [
+    create_task(1.0, STRAIGHT_DRIVE, 'forward'),
+    create_task(get_theta(180), ROTATION),
+    create_task(0.5, STRAIGHT_DRIVE, 'forward')
+]
+
+i = 0
+
 initialize_odometry()
 
 try:
     while True:
-        control_drive(distance_to_go, pd)
         publish_cmd(MQTT_client, RobotCommandsMapping.GET_ALL)
+        _, mode, task = task_list[i]
+        if(task(pd)):
+            i = i + 1
+            initialize_odometry()
+
+            if(i >= len(task_list)):
+                break
         time.sleep(0.1)
+        
+        if(mode == ROTATION):
+            publish_raw(
+                MQTT_client,
+                RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+                json.dumps({ "left" : 0, "right" : 0})
+            )
+            time.sleep(0.03)
+
 except KeyboardInterrupt:
     publish_raw(
         MQTT_client,
@@ -216,3 +323,37 @@ except KeyboardInterrupt:
     print("Disconnecting...")
     MQTT_client.loop_stop()
     MQTT_client.disconnect()
+
+initialize_odometry()
+
+# try:
+#     while True:
+#         publish_cmd(MQTT_client, RobotCommandsMapping.GET_ALL)
+#         if(control_theta(theta_to_go, pd)):
+#             break
+#         time.sleep(0.1)
+#         publish_raw(
+#             MQTT_client,
+#             RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+#             json.dumps({"left": 0, "right": 0})
+#         )
+#         time.sleep(.02)
+# except KeyboardInterrupt:
+#     publish_raw(
+#         MQTT_client,
+#         RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+#         json.dumps({ "left" : 0, "right" : 0})
+#     )
+#     print("Disconnecting...")
+#     MQTT_client.loop_stop()
+#     MQTT_client.disconnect()
+
+publish_raw(
+        MQTT_client,
+        RobotTopicsMappingIn.SET_MOTORS_TOPIC,
+        json.dumps({ "left" : 0, "right" : 0})
+    )
+
+print("Disconnecting...")
+MQTT_client.loop_stop()
+MQTT_client.disconnect()
