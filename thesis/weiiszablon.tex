@@ -1802,8 +1802,85 @@ Na niżej ukazanych obrazkach przedstawiono wyniki działania algorytmów przesz
 %\clearpage
 
 \subsection{Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}
-TODO
+Niniejsza sekcja koncentruje się na opisie przeprowadzonego eksperymentu mającego na celu porównanie efektywności dwóch dynamicznych algorytmów nawigacyjnych: D* oraz D* Lite. Głównym celem badania jest ocena, który z tych algorytmów lepiej radzi sobie z nawigacją we wcześniej nieznanym środowisku, które może zawierać przeszkody.
+
+\subsubsection{Przebieg eksperymentu}
+Eksperyment skoncentrował się na porównaniu dwóch dynamicznych algorytmów nawigacyjnych: D* i D* Lite z algorytmem A* z metryką Manhattan słżącym jako algorytm bazowy. Badanie miało na celu ocenę, który z algorytmów dynamicznych lepiej radzi sobie z adaptacją do zmieniającego się środowiska oraz efektywnością znajdowania optymalnych ścieżek w terenie z przeszkodami. W każdej iteracji eksperymentu wykorzystano mapę o rozmiarach 100x100 cm z wyznaczonymi punktami startowymi i celowymi. Następnie, w zależności od iteracji, zmieniano rozmieszczenie i liczbę przeszkód w środowisku, po którym poruszał się robot.
+
+Algorytmy testowane były na tej samej mapie, tych samych punktach startowych i docelowych. Po wykryciu przeszkody, każdy z algorytmów rozpoczynał proces wyznaczania ścieżki od nowa, biorąc pod uwagę aktualne warunki terenowe.
+
+\subsubsection{Porównanie otrzymanych wyników}
+Na podstawie danych przedstawionych w tabeli \ref{tab:dstar_vs_dstarlite} można wysunąć następujące wnioski:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+    \item w przypadku wszystkich scenariuszy, algorytm D* Lite wykazał się minimalnie lepszym czasem działania w porównaniu do D* (rysunek \ref{Fig:dstar_vs_lite}). Taki wynik może być spowodowany tym, że w badanych scenariuszach występowała stosunkowo mała ilość napotkanych przeszkód oraz mapa była małych rozmiarów, co ograniczało liczbę operacji wymaganych do znalezienia optymalnej ścieżki,
+    \item robot pokonał praktycznie tę samą odległość w każdym z pięciu przeprowadzonych scenariuszy testowych. Z uwagi na minimalnie lepszy czas działania, jaki uzyskał algorytm D* Lite, warto zdecydować się na jego wybór, szczególnie w kontekście optymalizacji czasu obliczeń w bardziej wymagających środowiskach. 
+\end{enumerate}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=12cm]{figures/dynamic/dstar_vs_lite.png}%
+ \caption{Porównanie czasu działania algorytmów}%
+ \label{Fig:dstar_vs_lite}%
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|}
+\hline
+Iteracja & Ilość przeszkód & Czas działania dstar [s], Pokonana odległość & Czas działania dstar\_lite [s], Pokonana odległość \\
+\hline
+1 & 4 &
+0.0535, 112 & 
+0.0465, 112 \\
+\hline
+2 & 4 &
+0.0517, 105 & 
+0.0472, 105 \\
+\hline
+3 & 0 &
+0.0483, 101 & 
+0.0483, 101 \\
+\hline
+4 & 3 &
+0.0458, 106 & 
+0.0479, 107 \\
+\hline
+5 & 2 &
+0.0499, 115 & 
+0.0480, 115 \\
+\hline
+\end{tabular}
+\caption{Porównanie czasów działania i pokonanych odległości dla D* i D* Lite}
+\label{tab:dstar_vs_dstarlite}
+\end{table}
+
+
+
+
 \section{Podsumowanie i wnioski końcowe}
+W niniejszym rozdziale przedstawiono podsumowanie oraz wnioski końcowe wynikające z przeprowadzonych eksperymentów dotyczących optymalizacji nastaw regulatora PID oraz porównania różnych algorytmów statycznych i dynamicznych w kontekście nawigacji.
+
+\subsection{Optymalizacja nastaw regulatora PID}
+Podczas badań nad optymalizacją nastaw regulatora PID przeprowadzono szereg eksperymentów, których celem było znalezienie optymalnych parametrów regulacji. W szczególności, eksperyment z algorytmem genetycznym (GA 3) wykazał się najbardziej satysfakcjonującymi wynikami pod względem jakości regulacji oraz czasu ustalania. Nastawy te charakteryzowały się czasem ustalania na poziomie 600 ms, co jest akceptowalnym wynikiem w porównaniu do innych eksperymentów. W przeciwieństwie do tego, próby z nastawami metodą Zieglera-Nicholsa nie zapewniły odpowiedniej stabilności, co objawiało się problemami z działaniem jednego z elementów systemu.
+
+Podsumowując, najlepszym wyborem okazały się nastawy uzyskane z algorytmu genetycznego (GA 3), ze względu na skuteczność w regulacji systemu.
+
+\subsection{Porównanie statycznych algorytmów nawigacyjnych w terenie bez przeszkód}
+Analizując wyniki eksperymentu porównującego algorytmy A* z różnymi heurystykami oraz algorytm Dijkstry, można wysunąć kilka istotnych wniosków. Algorytm Dijkstry osiągnął znacznie lepsze czasy wykonania w porównaniu do A*, co może być zaskakującym wynikiem, biorąc pod uwagę, że A* powinien działać szybciej. Heurystyka Manhattan wykazała się jako najbardziej efektywna pod względem szybkości obliczeń, co czyni ją najlepszym wyborem dla tego konkretnego eksperymentu.
+
+Podsumowując, algorytm Dijkstry był najbardziej efektywny pod względem czasu wykonania i powinien być preferowany w przypadku prostych zastosowań nawigacyjnych bez przeszkód.
+
+\subsection{Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}
+Eksperymenty porównujące algorytmy A* z Dijkstrą w obecności przeszkód potwierdziły, że algorytm Dijkstry nadal był najbardziej efektywny pod względem czasu działania, przy jednoczesnym utrzymaniu identycznej długości wyznaczonej trasy. Wyniki te sugerują, że pomimo zastosowania różnych heurystyk w algorytmie A*, jego wydajność nadal była gorsza niż prosty algorytm Dijkstry w kontekście nawigacji w złożonym środowisku.
+
+Podsumowując, algorytm Dijkstry może być zaimplementowany do zastosowań nawigacyjnych w prostych środowiskach z przeszkodami, zapewniając zarówno efektywność czasową, jak i optymalizację długości trasy.
+
+\subsection{Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}
+Badania porównawcze algorytmów D* i D* Lite w różnych scenariuszach wykazały, że D* Lite osiąga nieznacznie lepsze czasy wykonania. Prawdopodobnie jest to rezultat mniejszej liczby przeszkód oraz mniejszej skali badanych map. Pomimo minimalnej różnicy w czasie działania, algorytm D* Lite wydaje się być bardziej efektywnym rozwiązaniem do zastosowań w bardziej wymagających środowiskach nawigacyjnych.
+
+Podsumowując, ze względu lepszą efektywność czasową i potencjał do skutecznego działania w złożonych scenariuszach nawigacyjnych, algorytm D* Lite może być preferowany jako rozwiązanie problemu nawigacyjnego.
+
 
 \section*{Załączniki}
 
