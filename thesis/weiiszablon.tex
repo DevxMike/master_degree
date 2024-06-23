@@ -11,7 +11,7 @@
 \documentclass[12pt,twoside]{article}
 
 \usepackage{weiiszablon}
-
+\captionsetup[table]{name=Tabela}
 \author{Michał Bazan}
 
 % np. EF-123456, EN-654321, ...
@@ -70,21 +70,21 @@ The work focuses on the study of selected navigation algorithms and methods for 
 \section{Wstęp}
 W dzisiejszych czasach, wraz z dynamicznym rozwojem technologii mobilnych, algorytmy nawigacyjne i uczenia maszynowego \cite{deepLearning} odgrywają kluczową rolę w różnorodnych aplikacjach, począwszy od systemów nawigacji w samochodach po autonomiczne roboty poruszające się w różnych środowiskach. Biorąc pod uwagę aktualność tych zagadnień i rosnące zapotrzebowanie, zdecydowano o przeprowadzeniu badań dotyczących systemów nawigacyjnych.
    
-Celem tej pracy jest zbadanie heurystycznych metod \cite{genetics} optymalizazcji regulatorów PID oraz wybranych algorytmów pod kątem kryteriów takich jak optymalizacja długości trasy oraz wydajność obliczeniowa w różnych warunkach terenowych.  
+Celem tej pracy jest zbadanie heurystycznych metod \cite{genetics} optymalizacji regulatorów PID oraz wybranych algorytmów pod kątem kryteriów takich jak optymalizacja długości trasy i wydajność obliczeniowa w różnych warunkach terenowych.  
 
 Zakres pracy obejmuje dwie części:
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item część inżynierska - wykonanie robota mobilnego, implementacja systemu wbudowanego oraz implementacja oprogramowania sterującego robotem poprzez dostępny interfejs,
+	\item część inżynierska - wykonanie robota mobilnego, implementacja systemu wbudowanego oraz implementacja oprogramowania sterującego robotem poprzez dostępny interfejs sieciowy,
 	\item część badawcza - badanie algorytmów uczenia maszynowego do optymalizacji nastaw regulatorów PID oraz porównanie wybranych algorytmów nawigacyjnych. 
 \end{enumerate}
 
-Zastosowanie standardu ASPICE \cite{SPICE} zapewnia wysoką jakość procesu budowy robota oraz implementacji oprogramowania co pozwola na przeprowadzenie rzetelnych badań i wyciągnięcie wiarygodnych wniosków.
+Przy realizacji części inżynierskiej zastosowano procedury ASPICE \cite{SPICE}, co  zapewniło wysoką jakość procesu budowy robota oraz implementacji oprogramowania. Takie podejście pozwoliło na przeprowadzenie rzetelnych badań i wyciągnięcie wiarygodnych wniosków.
 
 W następnych rozdziałach pracy przedstawiono szczegółowy opis inżynierskiej części projektu oraz wyniki przeprowadzonych badań. W rozdziale poświęconym inżynierskiej części projektu omówiono budowę robota, jego system operacyjny oraz prostą stację operatorską, które stanowią podstawę do realizacji badań algorytmicznych. Następnie, w rozdziale dotyczącym badanych algorytmów, zaprezentowano teoretyczne i praktyczne aspekty algorytmu genetycznego, algorytmów nawigacyjnych statycznych oraz dynamicznych. Kolejny rozdział skupia się na opisie przeprowadzonych badań, w których dokonano optymalizacji nastaw regulatora PID oraz przeprowadzono porównanie skuteczności algorytmów nawigacyjnych. Te szczegółowe analizy mają na celu ocenę wydajności poszczególnych rozwiązań oraz identyfikację optymalnych metod nawigacyjnych dla zbudowanego robota.
 
 \section{Inżynierska część projektu}
 
-W tym rozdziale przedstawiono kompleksowy opis prac związanych z implementacją oraz funkcjonowaniem robota. Niniejszy rozdział stanowi szczegółowe omówienie trzech kluczowych elementów projektu, które skupiały się na budowie fizycznej robota, implementacji oprogramowania w języku C++ z uwzględnieniem unit testów oraz oprogramowania do sterowania robotem. Dzięki zastosowaniu tych trzech elementów możliwe było zapewnienie nie tylko skutecznej implementacji samego robota, ale również jego oprogramowania oraz efektywnego zarządzania nim w czasie rzeczywistym.
+W tym rozdziale przedstawiono kompleksowy opis prac związanych z implementacją oraz funkcjonowaniem robota. Niniejszy rozdział stanowi szczegółowe omówienie dwóch kluczowych elementów projektu, które skupiały się na budowie fizycznej robota oraz implementacji oprogramowania w języku C++ z uwzględnieniem unit testów.
 Dokładna dokumentacja wszystkich komponentów projektu oraz testów znajduje się na repozytorium Github \cite{repo}.
 
 \subsection{Budowa robota}
@@ -93,7 +93,7 @@ Pierwszym aspektem, który został przedstawiony, jest proces budowy robota. Opi
 
 \subsubsection{Wymagania sprzętowe}
 
-W celu dobrania właściwych elementów do budowy robota, sformułowano niżej umieszczone wymagania wysokiego poziomu. Te wymagania określają kluczowe funkcje i cechy, jakie powinny posiadać komponenty sprzętowe robota, aby zapewnić jego pełną funkcjonalność i niezawodność. W tabeli \ref{Tab:HWE1} zestawiono najważniejsze z tych wymagań, które dotyczą obsługi czujników, komunikacji bezprzewodowej, napędu oraz zarządzania zasilaniem.
+W celu dobrania właściwych elementów do budowy robota sformułowano niżej umieszczone wymagania wysokiego poziomu. Te wymagania określają kluczowe funkcje i cechy, jakie powinny posiadać komponenty sprzętowe robota, aby zapewnić jego pełną funkcjonalność i niezawodność. W tabeli \ref{Tab:HWE1} zestawiono najważniejsze z tych wymagań, które dotyczą obsługi czujników, komunikacji bezprzewodowej, napędu oraz zarządzania zasilaniem.
 
 \begin{table}[ht]
 \caption{Wymagania wysokiego poziomu HWE1}
@@ -120,7 +120,7 @@ W celu dobrania właściwych elementów do budowy robota, sformułowano niżej u
 
 \newpage
 
-Na podstawie wyżej ukazanych wymagań wysokiego poziomu, sformułowano następujące wymagania niskiego poziomu. Te szczegółowe wymagania określają dokładne specyfikacje techniczne i parametry, które muszą być spełnione przez komponenty, aby zapewnić zgodność z ogólnymi celami projektu. W tabeli \ref{Tab:HWE2} zestawiono kluczowe wymagania dotyczące interfejsów komunikacyjnych, zasilania oraz czujników.
+Na podstawie wymagań wysokiego poziomu ukazanych w tabeli \ref{Tab:HWE1}, sformułowano wymagania niskiego poziomu. Te szczegółowe wymagania określają dokładne specyfikacje techniczne i parametry, które muszą być spełnione przez komponenty, aby zapewnić zgodność z ogólnymi celami projektu. W tabeli \ref{Tab:HWE2} zestawiono kluczowe wymagania dotyczące interfejsów komunikacyjnych, zasilania oraz czujników.
 
 
 \begin{table}[ht]
@@ -154,7 +154,7 @@ Na podstawie wyżej ukazanych wymagań wysokiego poziomu, sformułowano następu
  \label{Fig:schemat}%
 \end{figure}
 
-Niżej umieszczona figura \ref{Fig:schemat} ukazuje schemat blokowy utworzony na podstawie wcześniej zdefiniowanych wymagań sprzętowych. Wskazuje, jakie interfejsy i poziomy napięć zasilania zostały wykorzystane pomiędzy poszczególnymi blokami. Sprzęt zdefiniowany w ten sposób oraz zbiór wymagań stawianych przed urządzeniem umożliwił dobór właściwych komponentów.
+Rysunek \ref{Fig:schemat} ukazuje schemat blokowy utworzony na podstawie wcześniej zdefiniowanych wymagań sprzętowych. Wskazuje, jakie interfejsy i poziomy napięć zasilania zostały wykorzystane pomiędzy poszczególnymi blokami. Sprzęt zdefiniowany w ten sposób oraz zbiór wymagań stawianych przed urządzeniem umożliwił dobór właściwych komponentów.
 
 \newpage
 
@@ -173,7 +173,7 @@ W celu ułatwienia procesu implementacji i zmitygowaniu potencjalnych błędów,
  \label{Fig:elektryczny}%
 \end{figure}
 
-Wyżej umieszczona ilustracja \ref{Fig:elektryczny} ukazuje połączenia pomiędzy blokami schematu:
+Rysunek \ref{Fig:elektryczny} ukazuje połączenia pomiędzy blokami schematu:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item MCU - blok definiuje wejścia i wyjścia sterujące oraz połączenia interfejsów komunikacyjnych,
@@ -192,11 +192,11 @@ Testowanie tej części projektu polegało głównie na weryfikacji założeń i
 
 \subsection{System operacyjny robota}
 
-Ta sekcja skupia się na implementacji oprogramowania w języku C++, obejmującej zarówno projektowanie, jak i implementację funkcjonalności. System operacyjny robota zarządza wszystkimi aspektami operacyjnymi robota, od odczytu danych z czujników, poprzez przetwarzanie i analizę tych danych, aż po sterowanie silnikami i komunikację zewnętrzną.
+Niniejsza sekcja skupia się na implementacji oprogramowania w języku C++, obejmującej zarówno projektowanie, jak i implementację funkcjonalności. System operacyjny robota zarządza wszystkimi aspektami operacyjnymi robota, od odczytu danych z czujników, poprzez przetwarzanie i analizę tych danych, aż po sterowanie silnikami i komunikację  przez interfejs sieciowy.
 
 \subsubsection{Wymagania dotyczące oprogramowania}
 
-Na podstawie wcześniej omówionych wymagań sprzętowych oraz celów tego projektu, sformułowano następujące wymagania wysokiego poziomu. Wymagania te definiują kluczowe funkcjonalności, jakie powinno posiadać oprogramowanie, aby zapewnić niezawodność działania robota.
+Na podstawie wcześniej omówionych wymagań sprzętowych oraz celów tego projektu, sformułowano następujące wymagania wysokiego poziomu (tabela \ref{Tab:SWE2}). Wymagania te definiują kluczowe funkcjonalności, jakie powinno posiadać oprogramowanie, aby zapewnić niezawodność działania robota.
 
 \begin{table}[ht]
 \caption{Wymagania wysokiego poziomu SWE2}
@@ -221,7 +221,7 @@ Na podstawie wcześniej omówionych wymagań sprzętowych oraz celów tego proje
 \label{Tab:SWE2}
 \end{table}	
 
-W celu wyłonienia konkretnych bloków, z jakich powinno składać się oprogramowanie, zdefiniowano następujące wymagania niskiego poziomu. Te szczegółowe wymagania określają specyficzne zadania i interfejsy, które muszą być zaimplementowane, aby spełnić wymagania wysokiego poziomu.
+W celu wyłonienia konkretnych bloków, z jakich powinno składać się oprogramowanie, zdefiniowano następujące wymagania niskiego poziomu (tabela \ref{Tab:SWE3}). Te szczegółowe wymagania określają specyficzne zadania i interfejsy, które muszą być zaimplementowane, aby spełnić założenia projektowe.
 
 \begin{table}[ht]
 \caption{Wymagania niskiego poziomu SWE3}
@@ -249,8 +249,6 @@ W celu wyłonienia konkretnych bloków, z jakich powinno składać się oprogram
 
 \newpage
 
-Na podstawie wymagań umieszczonych w tabeli \ref{Tab:SWE3} zdefiniowano niżej ukazaną architekturę systemu operacyjnego robota. 
-
 \begin{figure}[ht]%
  \centering%
  \includegraphics[width=12cm]{figures/engSW/block.png}%
@@ -258,7 +256,7 @@ Na podstawie wymagań umieszczonych w tabeli \ref{Tab:SWE3} zdefiniowano niżej 
  \label{Fig:architektura}%
 \end{figure}
 
-Na rysunku \ref{Fig:architektura} przedstawiono architekturę systemu operacyjnego robota, która została zaprojektowana w oparciu o zdefiniowane wymagania niskiego poziomu. Architektura ta składa się z kilku kluczowych modułów:
+Na rysunku \ref{Fig:architektura} przedstawiono architekturę systemu operacyjnego robota, która została zaprojektowana w oparciu o wcześniej zdefiniowane wymagania niskiego poziomu (tabela \ref{Tab:SWE3}). Architektura ta składa się z kilku kluczowych modułów:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item CommManager - odpowiada za połączenie sieciowe i komunikację za pośrednictwem protokołu MQTT,
@@ -269,7 +267,7 @@ Na rysunku \ref{Fig:architektura} przedstawiono architekturę systemu operacyjne
 \end{enumerate}
 
 \subsubsection{Implementacja}
-Implementacja systemu operacyjnego robota składa się z 12 klas, z których każda pełni określoną rolę w funkcjonowaniu robota. Klasy te są odpowiedzialne za zarządzanie różnymi aspektami operacyjnymi, od odczytu danych z czujników po sterowanie silnikami. Jednym z ważnych elementów implementacji jest także zaimplementowany prosty szablon regulatora PID oraz stos oparty o std::array\cite{stdarray}.
+Implementacja systemu operacyjnego robota składa się z 12 klas, z których każda pełni określoną rolę w funkcjonowaniu robota. Klasy te zarządzają różnymi aspektami operacyjnymi, od odczytu danych z czujników po sterowanie silnikami. Ważnym elementem implementacji jest również prosty szablon regulatora PID oraz stos oparty na std::array\cite{stdarray}.
 
 \begin{lstlisting}[language=C++, caption={Klasa CommManager}, label={lst:CommManager}]
 template<class StringType, std::size_t topic_num>
@@ -318,7 +316,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa CommManager (Listing \ref{lst:CommManager}) zarządza komunikacją między robotem a oprogramowaniem sterującym poprzez protokół MQTT i połączenie WiFi. Oferuje funkcje odczytu danych z czujników, wysyłania komunikatów i reakcji na przychodzące komunikaty. Metoda createMessage tworzy nową wiadomość MQTT na podstawie tematu i treści. W konstruktorze inicjalizowane są połączenie WiFi, parametry MQTT i lista subskrybowanych tematów. poolCommManager zarządza połączeniem z WiFi i brokerem MQTT, podejmując odpowiednie działania w zależności od stanu połączenia. sendMessage dodaje wiadomość do kolejki komunikatów. Klasa zapewnia niezawodne połączenie i efektywną komunikację, co jest kluczowe dla funkcjonowania robota w różnych scenariuszach działania.
+Klasa CommManager (listing \ref{lst:CommManager}) zarządza komunikacją między robotem a oprogramowaniem sterującym poprzez protokół MQTT i połączenie WiFi. Oferuje funkcje odczytu danych z czujników, wysyłania komunikatów i reakcji na przychodzące komunikaty. Metoda createMessage tworzy nową wiadomość MQTT na podstawie tematu i treści. W konstruktorze inicjalizowane są połączenie WiFi, parametry MQTT i lista subskrybowanych tematów. poolCommManager zarządza połączeniem z WiFi i brokerem MQTT, podejmując odpowiednie działania w zależności od stanu połączenia. sendMessage dodaje wiadomość do kolejki komunikatów. Klasa zapewnia niezawodne połączenie i efektywną komunikację, co jest kluczowe dla funkcjonowania robota w różnych scenariuszach działania.
 
 \begin{lstlisting}[language=C++, caption={Klasa SensorManager}, label={lst:SensorManager}]
 enum class SensorMapping : uint8_t{ 
@@ -346,7 +344,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa SensorManager (Listing \ref{lst:SensorManager}) zarządza sensorami robota, przechowując ich wskaźniki i udostępniając interfejs odczytu danych. Typ SensorMapping reprezentuje indeksy sensorów, ułatwiając dostęp do nich. Metoda translate przekształca enum na liczby całkowite, co umożliwia łatwiejszy dostęp do konkretnego urządzenia. Konstruktor inicjuje obiekt, a init inicjuje sensory. poolSensors odpytuje sensory, a getSensor zwraca referencję do konkretnego sensora.
+Klasa SensorManager (listing \ref{lst:SensorManager}) zarządza sensorami robota przechowując ich wskaźniki i udostępniając interfejs odczytu danych. Typ SensorMapping reprezentuje indeksy sensorów, ułatwiając dostęp do nich. Metoda translate przekształca enum na liczby całkowite, co umożliwia łatwiejszy dostęp do konkretnego urządzenia. Konstruktor inicjuje obiekt tablicą uchwytów reprezentujących urządzenia, a init inicjuje sensory. poolSensors odpytuje sensory, a getSensor zwraca referencję do konkretnego sensora.
 
 \newpage
 
@@ -377,7 +375,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa OdometryManager zarządza różnymi algorytmami odometrii robota i aktualizuje jego pozycję na podstawie danych z sensorów. Enum ActiveOdometry definiuje dostępne algorytmy odometrii, lecz w tej implementacji dostępna jest tylko prosta odometria. Konstruktor przyjmuje tablicę wskaźników do obiektów IOdometry reprezentujących różne algorytmy odometrii oraz referencję do obiektu SensorManager. Metoda updatePosition aktualizuje pozycję robota na podstawie danych z sensorów i aktywnego algorytmu odometrii. setActiveOdometry ustawia aktywny algorytm odometrii, getActiveOdometry zwraca jego indeks, a getPosition zwraca aktualną pozycję. Metoda resetActiveOdometry resetuje aktywny algorytm i ustawia zerowe współrzędne. Klasa zapewnia elastyczne zarządzanie algorytmem odometrii i precyzyjne poruszanie się robota.
+Klasa OdometryManager (listing \ref{lst:OdometryManager}) zarządza różnymi algorytmami odometrii robota i aktualizuje jego pozycję na podstawie danych z sensorów. Enum ActiveOdometry definiuje dostępne algorytmy odometrii, lecz w tej implementacji dostępna jest tylko prosta odometria. Konstruktor przyjmuje tablicę wskaźników do obiektów IOdometry reprezentujących różne algorytmy odometrii oraz referencję do obiektu SensorManager. Metoda updatePosition aktualizuje pozycję robota na podstawie danych z sensorów i aktywnego algorytmu odometrii. setActiveOdometry ustawia aktywny algorytm odometrii, getActiveOdometry zwraca jego indeks, a getPosition zwraca aktualną pozycję. Metoda resetActiveOdometry resetuje aktywny algorytm i ustawia zerowe współrzędne. Klasa zapewnia elastyczne zarządzanie algorytmem odometrii i precyzyjne poruszanie się robota.
 
 
 \begin{lstlisting}[language=C++, caption={Klasa MotorManager}, label={lst:MotorManager}]
@@ -411,7 +409,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa MotorManager zarządza silnikami prądu stałego robota, kontrolując ich prędkość obrotową i kierunek. settingType definiuje różne typy ustawień silników, a motor\_array, speed\_array, i angular\_array to odpowiednio tablice wskaźników do silników, prędkości silników i prędkości kątowych. Metoda init inicjuje silniki, setSpeed ustawia prędkość zależnie od typu ustawienia, a konstruktor inicjuje obiekt, przyjmując tablicę wskaźników do silników i opcjonalny współczynnik inercji. poolMotors aktualizuje stany silników, a CurrentSpeed, DesiredSpeed, i TargetAngular zwracają odpowiednio aktualną prędkość, docelową prędkość i prędkości kątowe silników. Klasa zapewnia elastyczne zarządzanie silnikami i kontrolę nad ich prędkościami, kluczową dla ruchu i sterowania robotem.
+Klasa MotorManager (listing \ref{lst:MotorManager}) zarządza silnikami prądu stałego robota, kontrolując ich prędkość obrotową i kierunek. settingType definiuje różne typy ustawień silników, a motor\_array, speed\_array, i angular\_array to odpowiednio tablice wskaźników do silników, prędkości silników i prędkości kątowych. Metoda init inicjuje silniki, setSpeed ustawia prędkość zależnie od typu ustawienia, a konstruktor inicjuje obiekt, przyjmując tablicę wskaźników do silników i opcjonalny współczynnik inercji. poolMotors aktualizuje stany silników, a CurrentSpeed, DesiredSpeed, i TargetAngular zwracają odpowiednio aktualną prędkość, docelową prędkość i prędkości kątowe silników. Klasa zapewnia elastyczne zarządzanie silnikami i kontrolę nad ich prędkościami, kluczową dla ruchu i sterowania robotem.
 
 \begin{lstlisting}[language=C++, caption={Klasa Kernel}, label={lst:Kernel}]
 class Kernel{
@@ -447,11 +445,11 @@ public:
 };    
 \end{lstlisting}
 
-Klasa Kernel pełni kluczową rolę jako centralny moduł zarządzający systemem. Odpowiada za inicjalizację systemu oraz koordynację jego głównych funkcji. Metoda init przygotowuje system do działania, a main zarządza jego główną logiką. Kluczowe funkcje obejmują zarządzanie ruchem (silniki, regulator PID), komunikacją (MQTT), sensorami (odległości, enkodery) oraz odometrią. Kernel integruje te komponenty, zapewniając ich współpracę i efektywną działalność.
+Klasa Kernel (listing \ref{lst:Kernel}) pełni kluczową rolę jako centralny moduł zarządzający systemem. Odpowiada za inicjalizację systemu oraz koordynację jego głównych funkcji. Metoda init przygotowuje system do działania, a main zarządza jego główną logiką. Kluczowe funkcje obejmują zarządzanie ruchem (silniki, regulator PID), komunikacją (MQTT), sensorami (odległości, enkodery) oraz odometrią. Kernel integruje te komponenty, zapewniając ich współpracę i efektywny podział czasu procesora.
 
 \subsubsection{Obsługiwane polecenia}
 
-Sekcja przedstawia interfejs sieciowej komunikacji z robotem poprzez protokół MQTT. Tabela \ref{Tab:RobotSub} zawiera tematy subskrybowane przez robota wraz z opisem ich przeznaczenia oraz przykładowymi danymi. Tabela ta obejmuje kanały do debugowania, przesyłania komend oraz ustawiania prędkości silników. Natomiast w tabeli \ref{Tab:RobotPub} znajdują się tematy publikowane przez robota, wraz z opisem i typowymi danymi przesyłanymi przez te kanały, takimi jak odpowiedzi na komendy i wiadomości debugujące. W tabeli \ref{Tab:RobotCMD} znajdują się dostępne komendy, ich opisy oraz oczekiwane odpowiedzi. Komendy obejmują pobieranie odczytów z czujników, resetowanie pozycji, pobieranie danych odometrycznych oraz zatrzymywanie silników.
+Sekcja przedstawia interfejs sieciowej komunikacji z robotem poprzez protokół MQTT. Tabela \ref{Tab:RobotSub} zawiera tematy subskrybowane przez robota wraz z opisem ich przeznaczenia oraz przykładowymi danymi. Tabela ta obejmuje kanały do debugowania, przesyłania komend oraz ustawiania prędkości silników. Natomiast w tabeli \ref{Tab:RobotPub} przedstawione zostały tematy publikowane przez robota wraz z opisem i typowymi danymi przesyłanymi przez te kanały takie jak odpowiedzi na komendy i wiadomości służące do debugowania. W tabeli \ref{Tab:RobotCMD} znajdują się dostępne komendy, ich opisy oraz oczekiwane odpowiedzi. Komendy obejmują pobieranie odczytów z czujników, resetowanie pozycji, pobieranie danych odometrycznych oraz zatrzymywanie silników.
 
 \begin{table}[ht]
 \caption{Tematy subskrybowane przez robota}
@@ -511,7 +509,7 @@ Sekcja przedstawia interfejs sieciowej komunikacji z robotem poprzez protokół 
 
 \newpage
 \subsubsection{Testy oprogramowania}
-W tej sekcji opisano przeprowadzone testy weryfikujące zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3.
+Niniejsza sekcja skupia się na opisie przeprowadzonych testów weryfikujących zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3.
 
 \begin{table}[ht]
 \caption{Test SQT\_01}
@@ -574,9 +572,9 @@ W tej sekcji opisano przeprowadzone testy weryfikujące zgodność oprogramowani
 
 Test SQT\_01 miał na celu potwierdzenie, czy oprogramowanie regularnie odczytuje dane z czujników odległości co 50 ms, zgodnie z wymaganiami. Mimo że w projekcie nie wykorzystano IMU, to test został dostosowany do odczytu danych z czujników odległości, a zadanie zostało zaplanowane jako praca freeRTOS z interwałem 50 ms.
 
-Testy oznaczone jako SQT\_02, skupiły się na weryfikacji podstawowych funkcji oprogramowania, w tym dostarczania zasilania i programowania sprzętu, wymiany danych, kontroli silników itp. Każde z tych wymagań zostało poddane testowi, a wynikiem było potwierdzenie, że oprogramowanie spełnia te kryteria.
+Testy oznaczone jako SQT\_02 skupiły się na weryfikacji podstawowych funkcji oprogramowania, w tym dostarczania zasilania i programowania sprzętu, wymiany danych, kontroli silników itp. Każde z tych wymagań zostało poddane testowi, a wynikiem było potwierdzenie, że oprogramowanie spełnia te kryteria.
 
-W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3. Oprócz przeprowadzenia testów kwalifikacyjnych, oprogramowanie zostało pokryte testami jednostkowymi.
+W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3. Oprócz przeprowadzenia testów kwalifikacyjnych oprogramowanie zostało pokryte testami jednostkowymi.
 
 \section{Wprowadzenie do omawianych algorytmów}
 
@@ -590,7 +588,7 @@ Algorytm PID \cite{PID} jest podstawowym narzędziem używanym w systemach stero
 	
 	\item składnik całkujący (wzór \ref{Eq:rownanieI}) - eliminuje stałe odchylenie przez sumowanie błędów w czasie. Powoduje to wzrost sygnału sterującego, dopóki błąd nie zostanie zredukowany do zera. Współczynnik nie powinien być zbyt duży, ponieważ może powodować przeregulowania i oscylacje,
 	
-	\item składnik różniczkujący (wzór \ref{Eq:rownanieD}) - reaguje na szybkość zmiany odpowiednio korygując sygnał sterujący. Pomaga w tłumieniu oscylacji i poprawia stabilność systemu. Zbyt duża wartość wzmocnienia może jednak sprawić, że regulator będzie agresywnie zmieniał wartość sterującą.
+	\item składnik różniczkujący (wzór \ref{Eq:rownanieD}) - reaguje na szybkość zmiany odpowiednio korygując sygnał sterujący. Pomaga w tłumieniu oscylacji i poprawia stabilność systemu. Zbyt duża wartość wzmocnienia może jednak sprawić, że regulator będzie zbyt agresywnie zmieniał wartość sterującą.
 \end{enumerate}
 
 \begin{equation}
@@ -616,7 +614,7 @@ PID = K_p \cdot e(t) + K_i \cdot \int_0^t \cdot e(\tau)d\tau + K_d \cdot \frac{d
 
 gdzie: $K_p$ -- wzmocnienie członu proporcjonalnego, $K_i$ -- wzmocnienie członu całkującego, $K_d$ -- wzmocnienie członu różniczkującego, $e(t)$ -- błąd regulacji \\
 
-W regulatorze analogowym PID wszystkie operacje matematyczne są wykonywane w sposób ciągły przy użyciu komponentów elektronicznych, takich jak oporniki, kondensatory i wzmacniacze operacyjne. Ze względu na wykorzystane technologie, w prezentowanym rozwiązaniu zastosowana została dyskretna wersja algorytmu, która w porównaniu do regulatora ciągłego, ograniczona jest niższą dokładnością całkowania i różniczkowania.
+W regulatorze analogowym PID wszystkie operacje matematyczne są wykonywane w sposób ciągły przy użyciu komponentów elektronicznych takich jak oporniki, kondensatory i wzmacniacze operacyjne. Ze względu na wykorzystane technologie, w prezentowanym rozwiązaniu zastosowana została dyskretna wersja algorytmu, która w porównaniu do regulatora ciągłego, ograniczona jest niższą dokładnością całkowania i różniczkowania.
 
 \lstset{language=C++}
 
@@ -679,18 +677,18 @@ private:
 };
 \end{lstlisting}
 
-Kod ukazany na wyżej umieszczonym listingu \ref{lst:pid_algorithm} definiuje szablon klasy pid, który reprezentuje cyfrowy algorytm PID. Kluczowymi elementami tego algorytmu są trzy główne składowe: proporcjonalny, całkujący i różniczkujący.
+Kod ukazany na listingu \ref{lst:pid_algorithm} definiuje szablon klasy pid, który reprezentuje cyfrowy algorytm PID. Kluczowymi elementami tego algorytmu są trzy główne składowe: proporcjonalny, całkujący i różniczkujący.
 
-Algorytm ten jest parametryzowany przez różne wartości, takie jak wzmocnienia (Kp, Ki, Kd) oraz ograniczenia (MaxOut, MinOut). Wartości te pozwalają na dostosowanie algorytmu do specyfiki danego systemu.
+Algorytm ten jest parametryzowany przez wartości takie jak wzmocnienia (Kp, Ki, Kd) oraz ograniczenia (MaxOut, MinOut). Wartości te pozwalają na dostosowanie algorytmu do specyfiki danego systemu.
 
-W metodzie getOutput, algorytm oblicza sygnał sterujący na podstawie bieżącej wartości i wartości zadanego stanu. Składa się na to trzy kroki:
+W metodzie getOutput algorytm oblicza sygnał sterujący na podstawie bieżącej wartości i wartości zadanego stanu. Składa się na to trzy kroki:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item Wyznaczenie składowej proporcjonalnej jako iloczynu wzmocnienia proporcjonalnego i aktualnego uchybu regulacji,
 	
-	\item Obliczenie składowej całkującej jako sumy błędów z poprzednich kroków, pomnożonej przez wzmocnienie całkujące,
+	\item Obliczenie składowej całkującej jako sumy błędów z poprzednich kroków pomnożonej przez wzmocnienie całkujące,
 	
-	\item Obliczenie składowej różniczkującej jako różnicy błędu aktualnego i poprzedniego stanu, pomnożonej przez wzmocnienie różniczkujące. 
+	\item Obliczenie składowej różniczkującej jako różnicy błędu aktualnego i poprzedniego stanu pomnożonej przez wzmocnienie różniczkujące. 
 	
 \end{enumerate}
 
@@ -698,17 +696,17 @@ W metodzie getOutput, algorytm oblicza sygnał sterujący na podstawie bieżące
 Algorytm genetyczny jest jednym z najpopularniejszych algorytmów ewolucyjnych, które są inspirowane procesami ewolucyjnymi w naturze. Główną ideą algorytmu genetycznego jest symulacja mechanizmów dziedziczenia, mutacji, selekcji naturalnej i krzyżowania genetycznego w celu rozwiązania problemów optymalizacyjnych.
 Podstawowe kroki działania algorytmu genetycznego obejmują:
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item Inicjalizacja populacji - tworzenie początkowej populacji rozwiązań, zazwyczaj generowanych losowo,
+	\item inicjalizacja populacji - tworzenie początkowej populacji rozwiązań, zazwyczaj generowanych losowo,
 	
-	\item Selekcja - wybór jednostek najlepiej przystosowanych (najlepszych rozwiązań) do przetrwania i reprodukcji. Istnieje wiele różnych metod selekcji, takich jak ruletkowa, turniejowa, rankingowa itp.,
+	\item selekcja - wybór jednostek najlepiej przystosowanych (najlepszych rozwiązań) do przetrwania i reprodukcji. Istnieje wiele różnych metod selekcji, takich jak ruletkowa, turniejowa, rankingowa itp.,
 	
-	\item Krzyżowanie - tworzenie nowych rozwiązań poprzez wymianę fragmentów między dwoma rodzicami. Jest to symulacja procesu krzyżowania genetycznego w naturze,
+	\item krzyżowanie - tworzenie nowych rozwiązań poprzez wymianę fragmentów między dwoma rodzicami. Jest to symulacja procesu krzyżowania genetycznego w naturze,
 	
-	\item Mutacja - losowa zmiana pewnych cech wybranych jednostek w celu wprowadzenia różnorodności genetycznej w populacji,
+	\item mutacja - losowa zmiana pewnych cech wybranych jednostek w celu wprowadzenia różnorodności genetycznej w populacji,
 	
-	\item Ocena przystosowania - określenie jakości każdego rozwiązania w populacji na podstawie funkcji oceny (funkcji przystosowania), która zazwyczaj opisuje, jak dobrze dany osobnik spełnia postawione wymagania,
+	\item ocena przystosowania - określenie jakości każdego rozwiązania w populacji na podstawie funkcji oceny (funkcji przystosowania), która zazwyczaj opisuje, jak dobrze dany osobnik spełnia postawione wymagania,
 	
-	\item Zakończenie algorytmu - algorytm genetyczny zwykle kończy działanie po osiągnięciu określonego warunku stopu. Przykładowymi warunkami stopu mogą być przekroczenie założonej ilości generacji czy osiągnięcie rozwiązania optymalnego lokalnie lub globalnie. \\
+	\item zakończenie algorytmu - algorytm genetyczny zwykle kończy działanie po osiągnięciu określonego warunku stopu. Przykładowymi warunkami stopu mogą być przekroczenie założonej ilości generacji czy osiągnięcie rozwiązania optymalnego lokalnie lub globalnie. \\
 	
 \end{enumerate}
 
@@ -716,30 +714,30 @@ Algorytmy genetyczne znajdują zastosowanie w różnych dziedzinach, takich jak 
 
 Najważniejszymi parametrami algorytmu genetycznego są:
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item Rozmiar populacji - określa liczbę osobników w każdym pokoleniu. Wartość tego parametru wpływa na zróżnicowanie genetyczne populacji oraz szybkość działania algorytmu. Zbyt mała populacja może prowadzić do zbyt wąskiego przeszukiwania przestrzeni rozwiązań, podczas gdy zbyt duża populacja może prowadzić do długiego czasu obliczeń,
+	\item rozmiar populacji - określa liczbę osobników w każdym pokoleniu. Wartość tego parametru wpływa na zróżnicowanie genetyczne populacji oraz szybkość działania algorytmu. Zbyt mała populacja może prowadzić do zbyt wąskiego przeszukiwania przestrzeni rozwiązań, podczas gdy zbyt duża populacja może prowadzić do długiego czasu obliczeń,
 	
-	\item Liczba generacji - określa, ile pokoleń zostanie maksymalnie wygenerowanych przez algorytm genetyczny przed zakończeniem działania,
+	\item liczba generacji - określa, ile pokoleń zostanie maksymalnie wygenerowanych przez algorytm genetyczny przed zakończeniem działania,
 	
-	\item Funkcja oceny - przypisuje wartość przystosowania każdemu osobnikowi w populacji, opisując, jak dobrze dany osobnik rozwiązuje problem optymalizacyjny. Celem algorytmu jest maksymalizacja lub minimalizacja tej funkcji zależnie od charakteru rozwiązywanego problemu,
+	\item funkcja oceny - przypisuje wartość przystosowania każdemu osobnikowi w populacji, opisując, jak dobrze dany osobnik rozwiązuje problem optymalizacyjny. Celem algorytmu jest maksymalizacja lub minimalizacja tej funkcji zależnie od charakteru rozwiązywanego problemu,
 	
-	\item Metoda selekcji - selekcja wybiera osobniki z populacji, które zostaną wykorzystane do reprodukcji w kolejnym pokoleniu. Popularne metody selekcji to ruletkowa, turniejowa, rankingowa i proporcjonalna,
+	\item metoda selekcji - selekcja wybiera osobniki z populacji, które zostaną wykorzystane do reprodukcji w kolejnym pokoleniu. Popularne metody selekcji to ruletkowa, turniejowa, rankingowa i proporcjonalna,
 	
-	\item Operator krzyżowania - krzyżowanie jest operacją genetyczną, która łączy cechy dwóch rodziców, aby stworzyć potomstwo. Istnieje wiele różnych metod krzyżowania, takich jak jednopunktowe krzyżowanie, dwupunktowe krzyżowanie, jednorodne krzyżowanie, krzyżowanie arithmetic blend itp.,
+	\item operator krzyżowania - krzyżowanie jest operacją genetyczną, która łączy cechy dwóch rodziców, aby stworzyć potomstwo. Istnieje wiele różnych metod krzyżowania, takich jak jednopunktowe krzyżowanie, dwupunktowe krzyżowanie, jednorodne krzyżowanie, krzyżowanie arithmetic blend itp.,
 	
-	\item Operator mutacji - mutacja wprowadza losowe zmiany w genotypie osobników w populacji, aby zwiększyć różnorodność genetyczną i zapobiec zatrzymaniu się w lokalnych optimum,
+	\item operator mutacji - mutacja wprowadza losowe zmiany w genotypie osobników w populacji aby zwiększyć różnorodność genetyczną i zapobiec zatrzymaniu się w lokalnych optimum,
 	
-	\item Prawdopodobieństwo mutacji i krzyżowania - określają one prawdopodobieństwo wystąpienia operacji krzyżowania i mutacji dla każdego osobnika w populacji. Zbyt wysokie prawdopodobieństwo może prowadzić do zbyt szybkiego zbiegania się algorytmu do lokalnego optimum, podczas gdy zbyt niskie może prowadzić do braku różnorodności w populacji.
+	\item prawdopodobieństwo mutacji i krzyżowania - określają one prawdopodobieństwo wystąpienia operacji krzyżowania i mutacji dla każdego osobnika w populacji. Zbyt wysokie prawdopodobieństwo może prowadzić do zbyt szybkiego zbiegania się algorytmu do lokalnego optimum, podczas gdy zbyt niskie może prowadzić do braku różnorodności w populacji.
 	
 \end{enumerate}
 
 
 \subsection{Algorytmy nawigacyjne}
 
-Algorytmy nawigacyjne są kluczowym elementem systemów robotycznych, nawigacji GPS, gier komputerowych oraz wszelkich innych aplikacji wymagających efektywnego wyznaczania tras. Działają one na zasadzie przeszukiwania grafów, gdzie węzły reprezentują punkty, a krawędzie reprezentują ścieżki między tymi punktami. W zależności od charakterystyki środowiska i wymagań aplikacji, można wyróżnić dwa główne rodzaje algorytmów nawigacyjnych: statyczne i dynamiczne.
+Algorytmy nawigacyjne są kluczowym elementem systemów robotycznych, nawigacji GPS, gier komputerowych oraz wszelkich innych aplikacji wymagających efektywnego wyznaczania tras. Działają one na zasadzie przeszukiwania grafów, gdzie węzły reprezentują punkty a krawędzie reprezentują ścieżki między tymi punktami. W zależności od charakterystyki środowiska i wymagań aplikacji można wyróżnić dwa główne rodzaje algorytmów nawigacyjnych: statyczne i dynamiczne.
 
 \subsubsection{Algorytmy statyczne}
 
-Algorytmy statyczne operują w środowiskach, które nie ulegają zmianom w trakcie działania algorytmu. Oznacza to, że raz zbudowany graf nie zmienia swojej struktury, a wszystkie wagi krawędzi pozostają stałe. Algorytmy te są bardzo efektywne w stabilnych środowiskach, gdzie trasy można wyznaczyć raz i wykorzystać je wielokrotnie bez konieczności przeliczania. Przykładami takich algorytmów są Dijkstra i A*.
+Algorytmy statyczne operują w środowiskach, które nie ulegają zmianom w trakcie działania algorytmu. Oznacza to, że raz zbudowany graf nie zmienia swojej struktury a wszystkie wagi krawędzi pozostają stałe. Algorytmy te są bardzo efektywne w stabilnych środowiskach, gdzie trasy można wyznaczyć raz i wykorzystać je wielokrotnie bez konieczności przeliczania. Przykładami takich algorytmów są Dijkstra i A*.
 \\ \\
 Algorytm Dijkstry \cite{DIJKSTRA} jest jednym z najstarszych i najbardziej znanych algorytmów nawigacyjnych. Został zaproponowany przez E. W. Dijkstrę w 1956 roku. Jest to algorytm typu 'najpierw najlepszy' (ang. best-first), który znajduje najkrótszą ścieżkę z jednego węzła startowego do wszystkich innych węzłów w grafie z nieujemnymi wagami krawędzi.
 \newpage
@@ -747,52 +745,52 @@ Algorytm Dijkstry \cite{DIJKSTRA} jest jednym z najstarszych i najbardziej znany
 Działanie algorytmu składa się z następujących kroków:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item Inicjalizacja - ustawienie odległości do węzła startowego na 0, a do wszystkich innych węzłów na nieskończoność. Wszystkie węzły są oznaczone jako nieodwiedzone,
-	\item Wybór nieodwiedzonego węzła o najmniejszej znanej odległości (na początku jest to węzeł startowy),
-	\item Aktualizacja odległości - dla wybranego węzła, zaktualizowanie odległości do jego sąsiadów, jeśli nowo obliczona odległość jest mniejsza niż aktualnie znana,
-	\item Oznaczenie wybranego węzła jako odwiedzonego,
-	\item Powtórzenie kroków b-d, aż wszystkie węzły zostaną odwiedzone.
+	\item inicjalizacja - ustawienie odległości do węzła startowego na 0, a do wszystkich innych węzłów na nieskończoność. Wszystkie węzły są oznaczone jako nieodwiedzone,
+	\item wybór nieodwiedzonego węzła o najmniejszej znanej odległości (na początku jest to węzeł startowy),
+	\item aktualizacja odległości - dla wybranego węzła, zaktualizowanie odległości do jego sąsiadów, jeśli nowo obliczona odległość jest mniejsza niż aktualnie znana,
+	\item oznaczenie wybranego węzła jako odwiedzonego,
+	\item powtórzenie kroków b-d, aż wszystkie węzły zostaną odwiedzone.
 	
 \end{enumerate}
 
 
-Algorytm A* \cite{ASTAR} jest rozszerzeniem algorytmu Dijkstry, który wykorzystuje heurystykę, aby poprawić efektywność wyszukiwania. Został opracowany przez Petera Hart'a, Nilsa Nilssona i Bertrama Raphaela w 1968 roku. A* jest algorytmem typu 'najpierw najlepszy', który łączy zalety wyszukiwania zachłannego i dynamicznego programowania.
+Algorytm A* \cite{ASTAR} jest rozszerzeniem algorytmu Dijkstry, który wykorzystuje heurystykę w celu poprawienia efektywności wyszukiwania. Został opracowany przez Petera Hart'a, Nilsa Nilssona i Bertrama Raphaela w 1968 roku. A* jest algorytmem typu 'najpierw najlepszy', który łączy zalety wyszukiwania zachłannego i dynamicznego programowania.
 \\ \\
 Działanie algorytmu składa się z następujących kroków:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item Inicjalizacja - ustawienie odległości do węzła startowego na 0 i obliczenie wartości heurystycznej dla wszystkich węzłów (przykładowo, odległość Manhattan lub euklidesowa do celu),
-	\item Wybór węzła o najmniejszej wartości funkcji f(x) = g(x) + h(x), gdzie g(x) jest koszt dotarcia do węzła x, a h(x) jest oszacowany koszt dotarcia z węzła x do celu,
-	\item Aktualizacja odległości do sąsiadów wybranego węzła i ich wartości funkcji f,
-	\item Oznaczenie wybranego węzła jako odwiedzonego,
-	\item Powtórzenie kroków b-d, aż węzeł celowy zostanie odwiedzony.
+	\item inicjalizacja - ustawienie odległości do węzła startowego na 0 i obliczenie wartości heurystycznej dla wszystkich węzłów (przykładowo, odległość Manhattan lub euklidesowa do celu),
+	\item wybór węzła o najmniejszej wartości funkcji f(x) = g(x) + h(x), gdzie g(x) jest koszt dotarcia do węzła x, a h(x) jest oszacowany koszt dotarcia z węzła x do celu,
+	\item aktualizacja odległości do sąsiadów wybranego węzła i ich wartości funkcji f,
+	\item oznaczenie wybranego węzła jako odwiedzonego,
+	\item powtórzenie kroków b-d, aż węzeł celowy zostanie odwiedzony.
 \end{enumerate}
 
 \subsubsection{Algorytmy dynamiczne}
 
-Algorytmy dynamiczne są zaprojektowane do działania w zmieniających się środowiskach. Mogą one dostosowywać swoje obliczenia w odpowiedzi na zmiany w grafie, takie jak zmieniające się wagi krawędzi lub dodawanie/odejmowanie węzłów. Algorytmy te są bardziej złożone, ale niezbędne w sytuacjach, gdzie środowisko jest nieprzewidywalne lub zmienia się w czasie rzeczywistym. Przykładami algorytmów dynamicznych są D* i D* Lite.
+Algorytmy dynamiczne są zaprojektowane do działania w zmieniających się środowiskach. Mogą one dostosowywać swoje obliczenia w odpowiedzi na zmiany w grafie takie jak zmieniające się wagi krawędzi lub dodawanie/odejmowanie węzłów. Algorytmy te są bardziej złożone, ale niezbędne w sytuacjach, gdzie środowisko jest nieprzewidywalne lub zmienia się w czasie rzeczywistym. Przykładami algorytmów dynamicznych są D* i D* Lite.
 
 Algorytm D* (Dynamic A*) \cite{DSTAR} został zaproponowany przez Anthony'ego Stenz w 1994 roku. Jest to algorytm dynamicznego przeszukiwania grafów, który jest szczególnie użyteczny w środowiskach o zmieniających się warunkach. D* pozwala na aktualizację już obliczonych tras w odpowiedzi na zmiany w grafie.
 \\ \\
 Działanie algorytmu składa się z następujących kroków:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item Inicjalizacja - wyznaczenie najkrótszej ścieżki do celu przy użyciu standardowych metod (np. Dijkstry),
-	\item Replanowanie - w przypadku zmiany w grafie (np. pojawienie się przeszkody), algorytm replanuje trasę od miejsca zmiany do celu, wykorzystując istniejące informacje i aktualizując tylko zmienione fragmenty grafu,
-	\item Aktualizacja kosztów - algorytm modyfikuje koszty krawędzi i dostosowuje trasę w odpowiedzi na zmiany,
-	\item Kontynuacja - powtarzanie procesu replanuwania w przypadku dalszych zmian, aż do osiągnięcia celu.
+	\item inicjalizacja - wyznaczenie najkrótszej ścieżki do celu przy użyciu standardowych metod (np. Dijkstry),
+	\item replanowanie - w przypadku zmiany w grafie (np. pojawienie się przeszkody), algorytm replanuje trasę od miejsca zmiany do celu, wykorzystując istniejące informacje i aktualizując tylko zmienione fragmenty grafu,
+	\item aktualizacja kosztów - algorytm modyfikuje koszty krawędzi i dostosowuje trasę w odpowiedzi na zmiany,
+	\item kontynuacja - powtarzanie procesu replanowania w przypadku dalszych zmian, aż do osiągnięcia celu.
 	
 \end{enumerate}
 
-D* Lite \cite{DSTARLITE} jest uproszczoną i zoptymalizowaną wersją algorytmu D*, opracowaną przez Svena Koeniga i Maxa Likhacheva w 2002 roku. D* Lite zachowuje główne zalety D*, ale jest łatwiejszy do implementacji i bardziej efektywny obliczeniowo.
+D* Lite \cite{DSTARLITE} jest uproszczoną i zoptymalizowaną wersją algorytmu D*  opracowaną przez Svena Koeniga i Maxa Likhacheva w 2002 roku. D* Lite zachowuje główne zalety D*, ale jest łatwiejszy do implementacji i bardziej efektywny obliczeniowo.
 \\ \\
 Działanie algorytmu składa się z następujących kroków:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item Inicjalizacja - podobnie jak w D*, inicjalizowanie grafu i wyznaczanie początkowej trasy do celu,
-	\item Replanowanie - w przypadku zmiany w grafie, algorytm replanuje trasę, ale korzysta z bardziej zoptymalizowanego sposobu aktualizacji węzłów i krawędzi,
-	\item Aktualizacja kosztów - podobnie jak w D*, aktualizacja kosztów krawędzi i dostosowanie trasy, ale z wykorzystaniem efektywniejszych struktur danych i operacji,
-	\item Kontynuacja - powtarzanie procesu replanuwania w przypadku dalszych zmian, aż do osiągnięcia celu.
+	\item inicjalizacja - podobnie jak w D*, inicjalizowanie grafu i wyznaczanie początkowej trasy do celu,
+	\item replanowanie - w przypadku zmiany w grafie, algorytm replanuje trasę, ale korzysta z bardziej zoptymalizowanego sposobu aktualizacji węzłów i krawędzi,
+	\item aktualizacja kosztów - podobnie jak w D*, aktualizacja kosztów krawędzi i dostosowanie trasy, ale z wykorzystaniem efektywniejszych struktur danych i operacji,
+	\item kontynuacja - powtarzanie procesu replanowania w przypadku dalszych zmian, aż do osiągnięcia celu.
 	
 \end{enumerate}
 
@@ -814,7 +812,7 @@ Do przeprowadzenia eksperymentu wykorzystano stanowisko składające się z siln
 
 \subsubsection{Identyfikacja obiektu}
 
-Wykorzystując interfejs sieciowy kontrolera, przeprowadzono eksperyment, podczas którego monitorowano odpowiedź obiektu na skokowy sygnał sterujący. W trakcie tego eksperymentu rejestrowano zmiany prędkości obrotowej silnika w odpowiedzi na zmiany sygnału sterującego (figura \ref{Fig:noreg}). Dane te zostały następnie poddane analizie w celu wyznaczenia charakterystyki dynamicznej obiektu.
+Wykorzystując interfejs sieciowy kontrolera, przeprowadzono eksperyment, podczas którego monitorowano odpowiedź obiektu na skokowy sygnał sterujący. W trakcie tego eksperymentu rejestrowano zmiany prędkości obrotowej silnika w odpowiedzi na zmiany sygnału sterującego (rysunek \ref{Fig:noreg}). Dane te zostały następnie poddane analizie w celu wyznaczenia charakterystyki dynamicznej obiektu.
 
 \begin{figure}[ht]%
  \centering%
@@ -844,9 +842,9 @@ print("Wzmocnienie (K):", K)
 print("Stala czasowa (T):", T)
 \end{lstlisting}
 
-Wyżej przedstawiony kod (listing \ref{lst:fit1}) służy do analizy danych eksperymentalnych reprezentujących odpowiedź skokową obiektu oraz aproksymowania tych danych do modelu transmitancji pierwszego rzędu. Najpierw tworzone są dane czasowe t, a następnie dane odpowiedzi skokowej odpowiedz\_skokowa. Definiowana jest funkcja first\_order\_transfer\_function, która odpowiada transmitancji pierwszego rzędu. Następnie korzystając z funkcji curve\_fit z biblioteki scipy.optimize, dopasowywany jest model transmitancji pierwszego rzędu do danych odpowiedzi skokowej. Wynik dopasowania, czyli wartości wzmocnienia K i stałej czasowej T, są odczytywane z wyniku dopasowania i wyświetlane.
+Kod przedstawiony na listingu \ref{lst:fit1} służy do analizy danych eksperymentalnych reprezentujących odpowiedź skokową obiektu oraz aproksymowania tych danych do modelu transmitancji pierwszego rzędu. Najpierw tworzone są dane czasowe t, a następnie dane odpowiedzi skokowej odpowiedz\_skokowa. Definiowana jest funkcja first\_order\_transfer\_function, która odpowiada transmitancji pierwszego rzędu. Następnie korzystając z funkcji curve\_fit z biblioteki scipy.optimize, dopasowywany jest model transmitancji pierwszego rzędu do danych odpowiedzi skokowej. Funkcja, jako wynik działania, zwraca wartość wzmocnienia K oraz stałą czasową T.
 
-Rysunek \ref{Fig:aprox} ukazuje aproksymację modelu transmitancji pierwszego rzędu do danych pomiarowych. Wyznaczoną transmitancję obiektu opisuje niżej umieszczony wzór \ref{Eq:trans}:
+Rysunek \ref{Fig:aprox} ukazuje aproksymację modelu transmitancji pierwszego rzędu do danych pomiarowych. Wyznaczoną transmitancję obiektu opisuje wzór \ref{Eq:trans}.
 
 \begin{equation}
 G(s) = \frac{6.37}{1 + 0.44s}
@@ -864,7 +862,7 @@ G(s) = \frac{6.37}{1 + 0.44s}
 
 \subsubsection{Wyznaczenie nastaw metodą klasyczną}
 
-Niżej umieszczony kod (listing \ref{lst:ziegler}) wykorzystuje bibliotekę numpy do obliczenia nastaw regulatora PID na podstawie zadanych wartości wzmocnienia i czasu wyprzedzenia. Na początku definiuje wartości stałych K i T, a następnie wykorzystuje je do obliczenia współczynnika krytycznego (Ku) oraz okresu oscylacji (Tu). Następnie na podstawie Ku i Tu wylicza nastawy dla regulatora PD oraz PID, gdzie dla regulatora PD oblicza tylko proporcjonalną i całkową część, a dla regulatora PID dodaje również składową różniczkującą. Na końcu wypisuje obliczone wartości nastaw dla obu rodzajów regulatorów.
+Kod umieszczony na listingu \ref{lst:ziegler} wykorzystuje bibliotekę numpy do obliczenia nastaw regulatora PID na podstawie zadanych wartości wzmocnienia i czasu wyprzedzenia. Na początku definiuje wartości stałych K i T, a następnie wykorzystuje je do obliczenia współczynnika krytycznego (Ku) oraz okresu oscylacji (Tu). Następnie na podstawie Ku i Tu wylicza nastawy PID..
 
 \begin{lstlisting}[caption={Kod z obliczeniami i wyświetleniem wyników}, label={lst:ziegler}]
 import numpy as np
@@ -883,7 +881,7 @@ Td_PID = 0.12 * Tu
 
 \subsubsection{Algorytm genetyczny}
 
-Optymalizacja nastaw regulatora PID jest kluczowym zagadnieniem w automatyce, mającym na celu poprawę wydajności systemów sterowania, w tym regulacji prędkości obrotowej silników. W kontekście fizycznego robota, możliwe jest utworzenie pętli uczącej, która będzie wprowadzać nowe współczynniki PID i testować je na rzeczywistym sprzęcie. Ogólny algorytm PID oraz komunikacja są obsługiwane przez oprogramowanie wgrane do mikrokontrolera robota. 
+Optymalizacja nastaw regulatora PID jest kluczowym zagadnieniem w automatyce, które ma na celu poprawę wydajności systemów sterowania, w tym regulacji prędkości obrotowej silników. W kontekście fizycznego robota, możliwe jest utworzenie pętli uczącej, która będzie wprowadzać nowe współczynniki PID i testować je na rzeczywistym sprzęcie. Ogólny algorytm PID oraz komunikacja są obsługiwane przez oprogramowanie wgrane do mikrokontrolera robota. 
 
 Z punktu widzenia automatyki, silnik prądu stałego jest stosunkowo prostym obiektem sterowania, co sprawia, że wiele zestawów parametrów może być odpowiednich do automatycznej regulacji prędkości. W związku z tym zdecydowano się na użycie algorytmu genetycznego do wyboru optymalnego zestawu współczynników PID.
 
@@ -919,7 +917,7 @@ Skrypt w języku Python zawierający implementację algorytmu genetycznego będz
 \end{enumerate}
 
 
-Ocena jakości regulacji będzie dokonywana na podstawie maksymalnego błędu regulacji, który musi być mniejszy lub równy 2\%. Algorytm zakończy swoje działanie po osiągnięciu maksymalnej liczby epok lub gdy zostanie spełniony warunek maksymalnego błędu regulacji.
+Ocena jakości regulacji będzie dokonywana na podstawie maksymalnego błędu regulacji, który docelowo musi być mniejszy lub równy 2\%. Algorytm zakończy swoje działanie po osiągnięciu maksymalnej liczby epok lub gdy zostanie spełniony warunek maksymalnego błędu regulacji.
 
 Funkcja dopasowania, którą algorytm będzie maksymalizować, została określona jako odwrotność średniego błędu względnego (wzór \ref{Eq:fitness}) .
 
@@ -961,7 +959,7 @@ def send_mqtt_message(topic, message):
     mqtt_client.publish(topic, json.dumps(message))
 \end{lstlisting}
 
-Wyżej umieszczony kod (listing \ref{lst:genMQTT}) nawiązuje połączenie z brokerem MQTT, który umożliwia komunikację pomiędzy serwerem a robotem. Kluczowe elementy konfiguracji obejmują określenie adresu brokera oraz portu. Następnie zdefiniowano tematy MQTT do wysyłania i odbierania wiadomości dotyczących ustawień PID, sterowania silnikami oraz logowania. Dodatkowo zdefiniowano funkcje pomocnicze, takie jak send\_mqtt\_message do wysyłania wiadomości oraz on\_log\_message do obsługi wiadomości logowania.
+Kod przedstawiony na listingu \ref{lst:genMQTT} nawiązuje połączenie z brokerem MQTT, który umożliwia komunikację pomiędzy serwerem a robotem. Kluczowe elementy konfiguracji obejmują określenie adresu brokera oraz portu. Następnie zdefiniowano tematy MQTT do wysyłania i odbierania wiadomości dotyczących ustawień PID, sterowania silnikami oraz logowania. Dodatkowo zdefiniowano funkcje pomocnicze, takie jak send\_mqtt\_message do wysyłania wiadomości oraz on\_log\_message do obsługi wiadomości logowania.
 
 Ta sekcja przedstawia funkcję run\_experiment (listing \ref{lst:runExperiment}), która inicjalizuje i przeprowadza eksperymenty z nowymi nastawami PID na robocie. Kluczowe kroki obejmują ponowne połączenie z brokerem MQTT i subskrybowanie tematów logowania, wysłanie nowych wartości współczynników PID do robota, uruchomienie silników robota i monitorowanie ich przez określony czas oraz zbieranie danych logowania do późniejszej analizy.
 
@@ -1049,7 +1047,7 @@ def fitness_func(ga_instance, solution, solution_idx):
     return fitness
 \end{lstlisting}
 
-Funkcja run\_genetic\_algorithm (listing \ref{lst:runGA}) inicjalizuje i uruchamia algorytm genetyczny z podanymi parametrami. Kluczowe kroki obejmują definicję problemu optymalizacyjnego poprzez określenie liczby genów (współczynników PID) oraz przestrzeni poszukiwań, inicjalizację algorytmu genetycznego z parametrami takimi jak liczba pokoleń, liczba rodziców, prawdopodobieństwo krzyżowania i mutacji, oraz wykonanie algorytmu i zapisanie najlepszego rozwiązania.
+Funkcja run\_genetic\_algorithm (listing \ref{lst:runGA}) inicjalizuje i uruchamia algorytm genetyczny z podanymi parametrami. Kluczowe kroki obejmują definicję problemu optymalizacyjnego poprzez określenie liczby genów (współczynników PID) oraz przestrzeni poszukiwań, inicjalizację algorytmu genetycznego z parametrami takimi jak liczba pokoleń, liczba rodziców, prawdopodobieństwo krzyżowania i mutacji oraz wykonanie algorytmu i zapisanie najlepszego rozwiązania.
 
 \begin{lstlisting}[language=Python, caption=Uruchamianie algorytmu genetycznego, label={lst:runGA}]
 def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mating, mutation_prob, experiment_num):
@@ -1171,7 +1169,7 @@ By porównać jakość wyznaczonych nastaw, należało przestroić regulator i z
 
 	\end{tabular}	
 	
-\label{Tab:HWE1}
+\label{Tab:PID_comparision}
 \end{table}	
 
 \newpage
@@ -1206,17 +1204,17 @@ By porównać jakość wyznaczonych nastaw, należało przestroić regulator i z
 
 \clearpage
 
-Po sprawdzeniu odpowiedzi obiektu na wyznaczone nastawy, podjęto decyzję o wykorzystaniu wyniku trzeciego eksperymentu. Wybór jest uzasadniony kilkoma kluczowymi czynnikami. Przede wszystkim, w porównaniu z innymi metodami, nastawy te zapewniły satysfakcjonującą regulację systemu (Rysunek \ref{Fig:exp3pid}). Czas ustalania wynosił 600 ms, co jest wynikiem porównywalnym z najlepszymi nastawami uzyskanymi w innych eksperymentach. Dodatkowo, podczas eksperymentu nastawy GA 3 wykazały najlepszy wynik fitness, co oznacza, że algorytm genetyczny skutecznie dostroił parametry regulatora w celu optymalnej regulacji systemu. W związku z tym, można uznać, że nastawy te są najkorzystniejsze pod względem jakości regulacji i efektywności działania systemu. Podczas testów z nastawami wyznaczonymi metodą Zieglera-Nicholsa (Rysunek \ref{Fig:zieglerpid}) zaobserwowano, że jedno z kół nie chciało wystartować, co świadczy o niedostatecznej regulacji. Oznacza to, że te nastawy nie były w stanie zapewnić właściwej kontroli nad całym systemem, co może prowadzić do niestabilności i niesatysfakcjonującej wydajności. Czas ustalania wynoszący 190 ms jest krótki, ale ze względu na problem z jednym z kół, regulacja nie była wystarczająco dobra.
+Po sprawdzeniu odpowiedzi obiektu na wyznaczone nastawy, podjęto decyzję o wykorzystaniu wyniku trzeciego eksperymentu. Wybór jest uzasadniony kilkoma kluczowymi czynnikami. Przede wszystkim, w porównaniu z innymi metodami, nastawy te zapewniły satysfakcjonującą regulację systemu (rysunek \ref{Fig:exp3pid}). Czas ustalania wynosił 600 ms, co jest wynikiem porównywalnym z najlepszymi nastawami uzyskanymi w innych eksperymentach. Dodatkowo, podczas eksperymentu nastawy GA 3 wykazały najlepszy wynik fitness, co oznacza, że algorytm genetyczny skutecznie dostroił parametry regulatora w celu optymalnej regulacji systemu. W związku z tym, można uznać, że nastawy te są najkorzystniejsze pod względem jakości regulacji i efektywności działania systemu. Podczas testów z nastawami wyznaczonymi metodą Zieglera-Nicholsa (rysunek \ref{Fig:zieglerpid}) zaobserwowano, że jedno z kół nie chciało wystartować, co świadczy o niedostatecznej regulacji. Oznacza to, że te nastawy nie były w stanie zapewnić właściwej kontroli nad całym systemem, co może prowadzić do niestabilności i niesatysfakcjonującej wydajności. Czas ustalania wynoszący 190 ms jest krótki, ale ze względu na problem z jednym z kół, regulacja nie była wystarczająco dobra.
 
 
 
 \subsection{Porównanie statycznych algorytmów nawigacyjnych w terenie bez przeszkód}
-Niniejsza sekcja skupia się na opisie eksperymentu, który miał na celu porównanie wydajności algorytmu A* z różnymi heurystykami odległości (Manhattan, Euklidesowa, Max) oraz algorytmu Dijkstry na różnych rozmiarach grafów. Celem było zrozumienie, który algorytm lepiej nadaje się do rozwiązywania problemów przeszukiwania grafów w kontekście optymalizacji czasu działania. 
+Niniejsza sekcja skupia się na opisie eksperymentu, który miał na celu porównanie wydajności algorytmu A* z różnymi heurystykami odległości (Manhattan, Euklidesowa, Max) oraz algorytmu Dijkstry na różnych rozmiarach grafów. Celem było zrozumienie, który algorytm lepiej nadaje się do rozwiązywania problemów przeszukiwania grafów w kontekście optymalizacji czasu działania i długości trasy, jaką ma pokonać robot. 
 
 
 
 \subsubsection{Przebieg eksperymentu}
-Mapa, po której przemieszczał się robot, to prostokąt o wymiarach 200x50 cm. Aby dokładnie ocenić efektywność algorytmów wyznaczania trasy, eksperyment uwzględnił kilka różnych rozmiarów map
+Mapa, po której przemieszczał się robot, to prostokąt o wymiarach 200x50 cm. Aby dokładnie ocenić efektywność algorytmów wyznaczania trasy, eksperyment uwzględnił kilka różnych rozmiarów map:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item oprócz podstawowej mapy o wymiarach 200x50 cm, przygotowano również mapy o większych rozmiarach: 200x200 cm, 500x500 cm, 1000x1000 cm oraz 2000x2000 cm,
@@ -1251,7 +1249,7 @@ for k, v in heuristics.items():
         print('\n')
 \end{lstlisting}
 
-Wyżej przedstawiony listing \ref{lst:staticAlgos} ukazuje skrypt odpowiedzialny za zbadanie algorytmów przeszukujących grafy. Kod rozpoczyna się od wczytania wcześniej wygenerowanych grafów i zdefiniowania heruystyk wykorzystanych w eksperymencie:
+Kod przedstawiony na listingu \ref{lst:staticAlgos} ukazuje skrypt odpowiedzialny za zbadanie algorytmów przeszukujących grafy. Kod rozpoczyna się od wczytania wcześniej wygenerowanych grafów i zdefiniowania heruystyk wykorzystanych w eksperymencie:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item Manhattan (wzór \ref{Eq:manhattan}),
@@ -1429,7 +1427,7 @@ graph\_2000\_2000.pkl &
 
 \subsection{Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}
 
-W niniejszej sekcji przedstawiono opis eksperymentu, który rozszerza badanie efektywności algorytmów A* z różnymi heurystykami oraz algorytmu Dijkstry na teren z przeszkodami. Celem eksperymentu było porównanie, który z tych algorytmów lepiej radzi sobie z znajdowaniem najkrótszej trasy w grafach reprezentujących mapę z przeszkodami. Dodatkowo, oprócz optymalizacji czasu działania, analizowano zdolność algorytmów do efektywnego omijania przeszkód i wyznaczania tras optymalnych pod względem długości. Eksperyment ten ma na celu dostarczenie danych na temat wyboru odpowiedniego algorytmu nawigacyjnego w różnych warunkach terenowych.
+W niniejszej sekcji przedstawiono opis eksperymentu, który rozszerza badanie efektywności algorytmów A* z różnymi heurystykami oraz algorytmu Dijkstry na teren z przeszkodami. Celem eksperymentu było porównanie, który z tych algorytmów lepiej radzi sobie ze znajdowaniem najkrótszej trasy w grafach reprezentujących mapę z przeszkodami. Dodatkowo, oprócz optymalizacji czasu działania, analizowano zdolność algorytmów do efektywnego omijania przeszkód i wyznaczania tras optymalnych pod względem długości. Eksperyment ten ma na celu dostarczenie danych na temat wyboru odpowiedniego algorytmu nawigacyjnego w różnych warunkach terenowych.
 
 \subsubsection{Przebieg eksperymentu}
 
