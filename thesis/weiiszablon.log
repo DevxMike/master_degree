@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  23 JUN 2024 23:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 JUN 2024 21:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5317,7 +5317,7 @@ Package rerunfilecheck Info: File `weiiszablon.out' has not changed.
 Here is how much of TeX's memory you used:
  28188 strings out of 478287
  508335 string characters out of 5849289
- 1457500 words of memory out of 5000000
+ 1457519 words of memory out of 5000000
  45201 multiletter control sequences out of 15000+600000
  537834 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -5333,7 +5333,7 @@ ts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 /public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on weiiszablon.pdf (56 pages, 1668866 bytes).
+Output written on weiiszablon.pdf (56 pages, 1669070 bytes).
 PDF statistics:
  1353 PDF objects out of 1440 (max. 8388607)
  1211 compressed objects within 13 object streams
