@@ -1290,7 +1290,7 @@ Na podstawie przedstawionych wyników eksperymentu porównującego algorytmy A* 
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item algorytm Dijkstry wypadł lepiej pod względem czasu wykonania w porównaniu do algorytmu A* (rysunek \ref{Fig:astar_vs_dijkstra}). Osiągnął on znacznie krótsze czasy wykonania dla wszystkich rozmiarów badanych grafów. Zwykle A* powinien działać szybciej, ponieważ używa heurystyki do prowadzenia wyszukiwania, co teoretycznie powinno ograniczyć liczbę odwiedzanych węzłów.
-	\item heurystyka Manhattan osiągała najkrótsze czasy wykonania dla większości badanych przypadków. Z tego powodu, można stwierdzić, że dla tego konkretnego eksperymentu, heurystyka Manhattan była najlepsza pod względem szybkości działania. Odległość manhattańska jest najprostszą heurystyką spośród używanych, ponieważ jest to suma różnic w poziomych i pionowych odległościach między punktami. To prowadzi do szybszych obliczeń w porównaniu z bardziej złożonymi heurystykami jak Euclidean czy Max.
+	\item heurystyka Manhattan osiągała najkrótsze czasy wykonania dla większości badanych przypadków jednocześnie minimalnie odstając od pozostałych. W bardziej złożonym środowisku może to prowadzić do oszczędności czasu, ponieważ odległość manhattańska jest obliczeniowo najmniej złożoną heurystyką spośród badanych.
 \end{enumerate}
 
 \begin{figure}[ht]%
@@ -1890,7 +1890,12 @@ Badania porównawcze algorytmów D* i D* Lite w różnych scenariuszach wykazał
 Podsumowując, ze względu lepszą efektywność czasową i potencjał do skutecznego działania w złożonych scenariuszach nawigacyjnych, algorytm D* Lite może być preferowany jako rozwiązanie problemu nawigacyjnego.
 
 \subsection{Wkład własny}
-
+Za wkład własny autor uważa:
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+\item projekt, implementację oraz testy elektroniki i oprogramowania robota zgodnie z procedurami ASPICE,
+\item fizyczną realizację konstrukcji robota,
+\item implementację skryptów niezbędnych do przeprowadzenia opisanych w tej pracy badań.
+\end{enumerate}
 
 
 \clearpage

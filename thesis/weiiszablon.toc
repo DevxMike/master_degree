@@ -39,4 +39,4 @@
 \contentsline {subsection}{\numberline {5.3}Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 54}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 54}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Wkład własny}{\footnotesize 54}{subsection.5.5}%
-\contentsline {section}{Literatura}{\footnotesize 55}{subsection.5.5}%
+\contentsline {section}{Literatura}{\footnotesize 55}{Item.79}%
