@@ -188,7 +188,34 @@ Rysunek \ref{Fig:elektryczny} ukazuje połączenia pomiędzy blokami schematu:
 \subsubsection{Testy}
 Testowanie tej części projektu polegało głównie na weryfikacji założeń i projektu płytki, dlatego aspekt ten nie został poruszony w tej sekcji. Szczegółowa dokumentacja znajduje się w zdalnym repozytorium \cite{repo}. Testy obejmowały sprawdzenie zgodności z wymaganiami, poprawność połączeń oraz funkcjonalność poszczególnych bloków.
 
-\newpage
+\subsubsection{Konstrukcja mechaniczna}
+Konstrukcja mechaniczna robota (rysunek \ref{Fig:robot_const1}) została zaprojektowana jako trzykołowy pojazd, gdzie zastosowano dwa koła sterowalne oraz jedno koło niesterowalne, pełniące funkcję podpory konstrukcji. Komponenty elektroniczne zostały solidnie zamocowane na drewnianej płycie montażowej. Położenie każdego elementu zostało starannie zaplanowane w celu maksymalnego wykorzystania dostępnej przestrzeni. Kluczowym aspektem było minimalizowanie odległości między poszczególnymi blokami, co pozwoliło uniknąć problemów z połączeniami i zapewniło efektywną integrację bloków funkcjonalnych robota. Projekt konstrukcji uwzględniał również ergonomiczne rozmieszczenie elementów w celu ułatwienia dostępu do poszczególnych części w przypadku konserwacji i napraw. Dzięki szczegółowemu planowaniu, robot nie tylko spełniał wymagania funkcjonalne, ale również charakteryzował się kompaktowym i przejrzystym układem komponentów, co zwiększało jego niezawodność i łatwość obsługi. Rysunek \ref{Fig:robot_const2} ukazuje rozmieszczenie bloków funkcjonalnych robota:
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item czujnik odległości tył,
+	\item płytka z mikrokontrolerem odpowiedzialna za komunikację i sterowanie blokami,
+	\item silniki prądu stałego z enkoderami,
+	\item dwukanałowy sterownik silników prądu stałego,
+	\item akumulatory zasilające elektronikę i silniki,
+	\item czujniki odległości przód.
+\end{enumerate}
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=9cm]{figures/robot/robot_up.jpg}%
+ \caption{Rozmieszczenie bloków}%
+ \label{Fig:robot_const2}%
+\end{figure}
+
+
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=9cm]{figures/robot/robot2.jpg}%
+ \caption{Wykonany robot mobilny}%
+ \label{Fig:robot_const1}%
+\end{figure}
+
+\clearpage
 
 \subsection{System operacyjny robota}
 
@@ -577,34 +604,6 @@ Testy oznaczone jako \textit{SQT\_02} skupiły się na weryfikacji podstawowych 
 W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3. Oprócz przeprowadzenia testów kwalifikacyjnych oprogramowanie zostało pokryte testami jednostkowymi.
 
 \clearpage
-
-\subsection{Konstrukcja mechaniczna}
-Konstrukcja mechaniczna robota (rysunek \ref{Fig:robot_const1}) została zaprojektowana jako trzykołowy pojazd, gdzie zastosowano dwa koła sterowalne oraz jedno koło niesterowalne, pełniące funkcję podpory konstrukcji. Komponenty elektroniczne zostały solidnie zamocowane na drewnianej płycie montażowej. Położenie każdego elementu zostało starannie zaplanowane w celu maksymalnego wykorzystania dostępnej przestrzeni. Kluczowym aspektem było minimalizowanie odległości między poszczególnymi blokami, co pozwoliło uniknąć problemów z połączeniami i zapewniło efektywną integrację bloków funkcjonalnych robota. Projekt konstrukcji uwzględniał również ergonomiczne rozmieszczenie elementów w celu ułatwienia dostępu do poszczególnych części w przypadku konserwacji i napraw. Dzięki szczegółowemu planowaniu, robot nie tylko spełniał wymagania funkcjonalne, ale również charakteryzował się kompaktowym i przejrzystym układem komponentów, co zwiększało jego niezawodność i łatwość obsługi.
-
-\begin{figure}[ht]%
- \centering%
- \includegraphics[width=9cm]{figures/robot/robot_up.jpg}%
- \caption{Rozmieszczenie bloków}%
- \label{Fig:robot_const2}%
-\end{figure}
-
-Rysunek \ref{Fig:robot_const2} ukazuje rozmieszczenie bloków funkcjonalnych robota:
-\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item czujnik odległości tył,
-	\item płytka z mikrokontrolerem odpowiedzialna za komunikację i sterowanie blokami,
-	\item silniki prądu stałego z enkoderami,
-	\item dwukanałowy sterownik silników prądu stałego,
-	\item akumulatory zasilające elektronikę i silniki,
-	\item czujniki odległości przód.
-\end{enumerate}
-
-
-\begin{figure}[ht]%
- \centering%
- \includegraphics[width=9cm]{figures/robot/robot2.jpg}%
- \caption{Wykonany robot mobilny}%
- \label{Fig:robot_const1}%
-\end{figure}
 
 \section{Wprowadzenie do omawianych algorytmów}
 
