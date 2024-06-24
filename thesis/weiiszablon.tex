@@ -579,7 +579,32 @@ W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność opr
 \clearpage
 
 \subsection{Konstrukcja mechaniczna}
+Konstrukcja mechaniczna robota (rysunek \ref{Fig:robot_const1}) została zaprojektowana jako trzykołowy pojazd, gdzie zastosowano dwa koła sterowalne oraz jedno koło niesterowalne, pełniące funkcję podpory konstrukcji. Komponenty elektroniczne zostały solidnie zamocowane na drewnianej płycie montażowej. Położenie każdego elementu zostało starannie zaplanowane w celu maksymalnego wykorzystania dostępnej przestrzeni. Kluczowym aspektem było minimalizowanie odległości między poszczególnymi blokami, co pozwoliło uniknąć problemów z połączeniami i zapewniło efektywną integrację bloków funkcjonalnych robota. Projekt konstrukcji uwzględniał również ergonomiczne rozmieszczenie elementów w celu ułatwienia dostępu do poszczególnych części w przypadku konserwacji i napraw. Dzięki szczegółowemu planowaniu, robot nie tylko spełniał wymagania funkcjonalne, ale również charakteryzował się kompaktowym i przejrzystym układem komponentów, co zwiększało jego niezawodność i łatwość obsługi.
 
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=9cm]{figures/robot/robot_up.jpg}%
+ \caption{Rozmieszczenie bloków}%
+ \label{Fig:robot_const2}%
+\end{figure}
+
+Rysunek \ref{Fig:robot_const2} ukazuje rozmieszczenie bloków funkcjonalnych robota:
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item czujnik odległości tył,
+	\item płytka z mikrokontrolerem odpowiedzialna za komunikację i sterowanie blokami,
+	\item silniki prądu stałego z enkoderami,
+	\item dwukanałowy sterownik silników prądu stałego,
+	\item akumulatory zasilające elektronikę i silniki,
+	\item czujniki odległości przód.
+\end{enumerate}
+
+
+\begin{figure}[ht]%
+ \centering%
+ \includegraphics[width=9cm]{figures/robot/robot2.jpg}%
+ \caption{Wykonany robot mobilny}%
+ \label{Fig:robot_const1}%
+\end{figure}
 
 \section{Wprowadzenie do omawianych algorytmów}
 
@@ -1919,7 +1944,7 @@ Za wkład własny autor uważa:
 
 \bibitem{SPICE}Standard ASPICE: https://mfiles.pl/pl/index.php/Automotive\_SPICE
 
-\bibitem{stdarray}Dokumentacja std::array: https://en.cppreference.com/w/cpp/container/array
+\bibitem{stdarray}Dokumentacja \textit{std::array}: https://en.cppreference.com/w/cpp/container/array
 
 \bibitem{PID}Regulator PID: https://pl.wikipedia.org/wiki/Regulator\_PID
 
@@ -1931,7 +1956,7 @@ Za wkład własny autor uważa:
 
 \bibitem{DSTARLITE}Algorytm D*Lite: https://en.wikipedia.org/wiki/D*\#D*\_Lite
 
-\bibitem{ZIEGLER}Metoda Ziegler-Nichols: https://en.wikipedia.org/wiki/Ziegler\%E2\%80\%93Nichols\_method
+\bibitem{ZIEGLER}Metoda Ziegler-Nichols: \\https://en.wikipedia.org/wiki/Ziegler\%E2\%80\%93Nichols\_method
 
 \end{thebibliography}
 
