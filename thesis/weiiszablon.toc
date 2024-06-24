@@ -10,32 +10,33 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Implementacja}{\footnotesize 13}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Obsługiwane polecenia}{\footnotesize 18}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Testy oprogramowania}{\footnotesize 19}{subsubsection.2.2.4}%
-\contentsline {section}{\numberline {3}Wprowadzenie do omawianych algorytmów}{\footnotesize 21}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Algorytm PID}{\footnotesize 21}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Algorytm genetyczny}{\footnotesize 23}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Algorytmy nawigacyjne}{\footnotesize 25}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Algorytmy statyczne}{\footnotesize 25}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Algorytmy dynamiczne}{\footnotesize 26}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}Badania}{\footnotesize 28}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Optymalizacja nastaw regulatora PID prędkości obrotowej}{\footnotesize 28}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Stanowisko pomiarowe}{\footnotesize 28}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Identyfikacja obiektu}{\footnotesize 28}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Wyznaczenie nastaw metodą klasyczną}{\footnotesize 31}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Algorytm genetyczny}{\footnotesize 31}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Porównanie otrzymanych wyników}{\footnotesize 37}{subsubsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.2}Porównanie statycznych algorytmów nawigacyjnych w terenie bez przeszkód}{\footnotesize 40}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Przebieg eksperymentu}{\footnotesize 40}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Porównanie otrzymanych wyników}{\footnotesize 42}{subsubsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.3}Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 45}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Przebieg eksperymentu}{\footnotesize 45}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Porównanie otrzymanych wyników}{\footnotesize 47}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 49}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Przebieg eksperymentu}{\footnotesize 49}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Porównanie otrzymanych wyników}{\footnotesize 50}{subsubsection.4.4.2}%
-\contentsline {section}{\numberline {5}Podsumowanie i wnioski końcowe}{\footnotesize 52}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Optymalizacja nastaw regulatora PID}{\footnotesize 52}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Porównanie statycznych algorytmów nawigacyjnych w terenie bez przeszkód}{\footnotesize 52}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 53}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 53}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Wkład własny}{\footnotesize 53}{subsection.5.5}%
-\contentsline {section}{Literatura}{\footnotesize 54}{subsection.5.5}%
+\contentsline {subsection}{\numberline {2.3}Konstrukcja mechaniczna}{\footnotesize 21}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Wprowadzenie do omawianych algorytmów}{\footnotesize 22}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Algorytm PID}{\footnotesize 22}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Algorytm genetyczny}{\footnotesize 24}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Algorytmy nawigacyjne}{\footnotesize 26}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Algorytmy statyczne}{\footnotesize 26}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Algorytmy dynamiczne}{\footnotesize 27}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}Badania}{\footnotesize 29}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Optymalizacja nastaw regulatora PID prędkości obrotowej}{\footnotesize 29}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Stanowisko pomiarowe}{\footnotesize 29}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Identyfikacja obiektu}{\footnotesize 29}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Wyznaczenie nastaw metodą klasyczną}{\footnotesize 32}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Algorytm genetyczny}{\footnotesize 32}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Porównanie otrzymanych wyników}{\footnotesize 38}{subsubsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}Porównanie statycznych algorytmów nawigacyjnych w terenie bez przeszkód}{\footnotesize 41}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Przebieg eksperymentu}{\footnotesize 41}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Porównanie otrzymanych wyników}{\footnotesize 43}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 46}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Przebieg eksperymentu}{\footnotesize 46}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Porównanie otrzymanych wyników}{\footnotesize 48}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 50}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Przebieg eksperymentu}{\footnotesize 50}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Porównanie otrzymanych wyników}{\footnotesize 51}{subsubsection.4.4.2}%
+\contentsline {section}{\numberline {5}Podsumowanie i wnioski końcowe}{\footnotesize 53}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Optymalizacja nastaw regulatora PID}{\footnotesize 53}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Porównanie statycznych algorytmów nawigacyjnych w terenie bez przeszkód}{\footnotesize 53}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Porównanie statycznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 54}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Porównanie dynamicznych algorytmów nawigacyjnych w terenie z przeszkodami}{\footnotesize 54}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Wkład własny}{\footnotesize 54}{subsection.5.5}%
+\contentsline {section}{Literatura}{\footnotesize 55}{subsection.5.5}%

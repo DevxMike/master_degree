@@ -80,7 +80,7 @@ Zakres pracy obejmuje dwie części:
 
 Przy realizacji części inżynierskiej zastosowano procedury ASPICE \cite{SPICE}, co  zapewniło wysoką jakość procesu budowy robota oraz implementacji oprogramowania. Takie podejście pozwoliło na przeprowadzenie rzetelnych badań i wyciągnięcie wiarygodnych wniosków.
 
-W następnych rozdziałach pracy przedstawiono szczegółowy opis inżynierskiej części projektu oraz wyniki przeprowadzonych badań. W rozdziale poświęconym inżynierskiej części projektu omówiono budowę robota, jego system operacyjny oraz prostą stację operatorską, które stanowią podstawę do realizacji badań algorytmicznych. Następnie, w rozdziale dotyczącym badanych algorytmów, zaprezentowano teoretyczne i praktyczne aspekty algorytmu genetycznego, algorytmów nawigacyjnych statycznych oraz dynamicznych. Kolejny rozdział skupia się na opisie przeprowadzonych badań, w których dokonano optymalizacji nastaw regulatora PID oraz przeprowadzono porównanie skuteczności algorytmów nawigacyjnych. Te szczegółowe analizy mają na celu ocenę wydajności poszczególnych rozwiązań oraz identyfikację optymalnych metod nawigacyjnych dla zbudowanego robota.
+W następnych rozdziałach pracy przedstawiono szczegółowy opis inżynierskiej części projektu oraz wyniki przeprowadzonych badań. W rozdziale poświęconym inżynierskiej części projektu omówiono budowę robota oraz jego system operacyjny. Komponenty te stanowią podstawę do realizacji badań algorytmicznych. Następnie, w rozdziale dotyczącym badanych algorytmów, zaprezentowano teoretyczne i praktyczne aspekty algorytmu genetycznego, algorytmów nawigacyjnych statycznych oraz dynamicznych. Kolejny rozdział skupia się na opisie przeprowadzonych badań, w których dokonano optymalizacji nastaw regulatora PID oraz przeprowadzono porównanie skuteczności algorytmów nawigacyjnych. Te szczegółowe analizy mają na celu ocenę wydajności poszczególnych rozwiązań oraz identyfikację optymalnych metod nawigacyjnych dla zbudowanego robota.
 
 \section{Inżynierska część projektu}
 
@@ -89,7 +89,7 @@ Dokładna dokumentacja wszystkich komponentów projektu oraz testów znajduje si
 
 \subsection{Budowa robota}
 
-Pierwszym aspektem, który został przedstawiony, jest proces budowy robota. Opisane zostały tutaj szczegóły dotyczące wyboru komponentów oraz implementacji elektroniki sterującej. Proces ten obejmuje kilka kluczowych etapów, które mają na celu zapewnienie, że robot będzie w stanie spełniać wszystkie założone funkcje i wymagania. W szczególności skupiono się na doborze odpowiednich czujników, kontrolerów, silników oraz systemu zasilania, które umożliwią robotowi prawidłowe działanie w różnych warunkach.
+Pierwszym aspektem, który został przedstawiony, jest proces budowy robota. Opisane zostały tutaj szczegóły dotyczące wyboru komponentów, implementacji elektroniki sterującej oraz budowy konstrukcji mechanicznej. Proces ten obejmuje kilka kluczowych etapów, które mają na celu zapewnienie, że robot będzie w stanie spełniać wszystkie założone funkcje i wymagania. W szczególności skupiono się na doborze odpowiednich czujników, kontrolerów, silników oraz systemu zasilania, które umożliwią robotowi prawidłowe działanie w różnych warunkach.
 
 \subsubsection{Wymagania sprzętowe}
 
@@ -176,13 +176,13 @@ W celu ułatwienia procesu implementacji i zmitygowaniu potencjalnych błędów,
 Rysunek \ref{Fig:elektryczny} ukazuje połączenia pomiędzy blokami schematu:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item MCU - blok definiuje wejścia i wyjścia sterujące oraz połączenia interfejsów komunikacyjnych,
-	\item Power - sekcja odpowiedzialna za dystrybucję zasilania,
-	\item Level shifters - konwertery poziomów logicznych, które zapewniają kompatybilność poziomów sygnałów elektrycznych,
-	\item Distance sensors - blok definiuje połączenia pomiędzy mikrokontrolerem i czujnikami odległości,
-	\item Motors - sekcja ukazuje sygnały sterujące silnikami,
-	\item MPU9255 - blok został zaimplementowany, ale nie jest wykorzystywany,
-	\item Encoders - ta sekcja ukazuje sygnały wyjściowe z enkoderów.
+	\item \textit{MCU} - blok definiuje wejścia i wyjścia sterujące oraz połączenia interfejsów komunikacyjnych,
+	\item \textit{Power} - sekcja odpowiedzialna za dystrybucję zasilania,
+	\item \textit{Level shifters} - konwertery poziomów logicznych, które zapewniają kompatybilność poziomów sygnałów elektrycznych,
+	\item \textit{Distance sensors} - blok definiuje połączenia pomiędzy mikrokontrolerem i czujnikami odległości,
+	\item \textit{Motors} - sekcja ukazuje sygnały sterujące silnikami,
+	\item \textit{MPU9255} - blok został zaimplementowany, ale nie jest wykorzystywany,
+	\item \textit{Encoders} - ta sekcja ukazuje sygnały wyjściowe z enkoderów.
 \end{enumerate}
 
 \subsubsection{Testy}
@@ -192,7 +192,7 @@ Testowanie tej części projektu polegało głównie na weryfikacji założeń i
 
 \subsection{System operacyjny robota}
 
-Niniejsza sekcja skupia się na implementacji oprogramowania w języku C++, obejmującej zarówno projektowanie, jak i implementację funkcjonalności. System operacyjny robota zarządza wszystkimi aspektami operacyjnymi robota, od odczytu danych z czujników, poprzez przetwarzanie i analizę tych danych, aż po sterowanie silnikami i komunikację  przez interfejs sieciowy.
+Niniejsza sekcja skupia się na implementacji oprogramowania w języku C++\cite{cpp}, obejmującej zarówno projektowanie, jak i implementację funkcjonalności. System operacyjny robota zarządza wszystkimi aspektami operacyjnymi robota, od odczytu danych z czujników, poprzez przetwarzanie i analizę tych danych, aż po sterowanie silnikami i komunikację  przez interfejs sieciowy.
 
 \subsubsection{Wymagania dotyczące oprogramowania}
 
@@ -259,15 +259,15 @@ W celu wyłonienia konkretnych bloków, z jakich powinno składać się oprogram
 Na rysunku \ref{Fig:architektura} przedstawiono architekturę systemu operacyjnego robota, która została zaprojektowana w oparciu o wcześniej zdefiniowane wymagania niskiego poziomu (tabela \ref{Tab:SWE3}). Architektura ta składa się z kilku kluczowych modułów:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item CommManager - odpowiada za połączenie sieciowe i komunikację za pośrednictwem protokołu MQTT,
-	\item SensorManager - posiada uchwyt do wszystkich dostępnych sensorów, które obsługuje periodycznie,
-	\item OdometryManager - posiada uchwyt do obiektu typu SensorManager i realizuje odometrię na podstawie odczytów z czujników,
-	\item MotorManager - steruje silnikami zależnie od nadchodzących komunikatów,
-	\item Driver - odpowiada za poprawną inicjalizację systemu, wywoływanie funkcji callbackowych z bloku odpowiedzialnego za komunikację oraz ustawienie prędkości obrotowej silników zależnie od uchybu regulacji.  
+	\item \textit{CommManager} - odpowiada za połączenie sieciowe i komunikację za pośrednictwem protokołu MQTT,
+	\item \textit{SensorManager} - posiada uchwyt do wszystkich dostępnych sensorów, które obsługuje periodycznie,
+	\item \textit{OdometryManager} - posiada uchwyt do obiektu typu \textit{SensorManager} i realizuje odometrię na podstawie odczytów z czujników,
+	\item \textit{MotorManager} - steruje silnikami zależnie od nadchodzących komunikatów,
+	\item \textit{Driver} - odpowiada za poprawną inicjalizację systemu, wywoływanie funkcji callbackowych z bloku odpowiedzialnego za komunikację oraz ustawienie prędkości obrotowej silników zależnie od uchybu regulacji.  
 \end{enumerate}
 
 \subsubsection{Implementacja}
-Implementacja systemu operacyjnego robota składa się z 12 klas, z których każda pełni określoną rolę w funkcjonowaniu robota. Klasy te zarządzają różnymi aspektami operacyjnymi, od odczytu danych z czujników po sterowanie silnikami. Ważnym elementem implementacji jest również prosty szablon regulatora PID oraz stos oparty na std::array\cite{stdarray}.
+Implementacja systemu operacyjnego robota składa się z 12 klas, z których każda pełni określoną rolę w funkcjonowaniu robota. Klasy te zarządzają różnymi aspektami operacyjnymi, od odczytu danych z czujników po sterowanie silnikami. Ważnym elementem implementacji jest również prosty szablon regulatora PID oraz stos oparty na \textit{std::array}\cite{stdarray}.
 
 \begin{lstlisting}[language=C++, caption={Klasa CommManager}, label={lst:CommManager}]
 template<class StringType, std::size_t topic_num>
@@ -316,7 +316,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa CommManager (listing \ref{lst:CommManager}) zarządza komunikacją między robotem a oprogramowaniem sterującym poprzez protokół MQTT i połączenie WiFi. Oferuje funkcje odczytu danych z czujników, wysyłania komunikatów i reakcji na przychodzące komunikaty. Metoda createMessage tworzy nową wiadomość MQTT na podstawie tematu i treści. W konstruktorze inicjalizowane są połączenie WiFi, parametry MQTT i lista subskrybowanych tematów. poolCommManager zarządza połączeniem z WiFi i brokerem MQTT, podejmując odpowiednie działania w zależności od stanu połączenia. sendMessage dodaje wiadomość do kolejki komunikatów. Klasa zapewnia niezawodne połączenie i efektywną komunikację, co jest kluczowe dla funkcjonowania robota w różnych scenariuszach działania.
+Klasa \textit{CommManager} (listing \ref{lst:CommManager}) zarządza komunikacją między robotem a oprogramowaniem sterującym poprzez protokół MQTT i połączenie WiFi. Oferuje funkcje odczytu danych z czujników, wysyłania komunikatów i reakcji na przychodzące komunikaty. Metoda \textit{createMessage} tworzy nową wiadomość MQTT na podstawie tematu i treści. W konstruktorze inicjalizowane są połączenie WiFi, parametry MQTT i lista subskrybowanych tematów. \textit{poolCommManager} zarządza połączeniem z WiFi i brokerem MQTT, podejmując odpowiednie działania w zależności od stanu połączenia. \textit{sendMessage} dodaje wiadomość do kolejki komunikatów. Klasa zapewnia niezawodne połączenie i efektywną komunikację, co jest kluczowe dla funkcjonowania robota w różnych scenariuszach działania.
 
 \begin{lstlisting}[language=C++, caption={Klasa SensorManager}, label={lst:SensorManager}]
 enum class SensorMapping : uint8_t{ 
@@ -344,7 +344,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa SensorManager (listing \ref{lst:SensorManager}) zarządza sensorami robota przechowując ich wskaźniki i udostępniając interfejs odczytu danych. Typ SensorMapping reprezentuje indeksy sensorów, ułatwiając dostęp do nich. Metoda translate przekształca enum na liczby całkowite, co umożliwia łatwiejszy dostęp do konkretnego urządzenia. Konstruktor inicjuje obiekt tablicą uchwytów reprezentujących urządzenia, a init inicjuje sensory. poolSensors odpytuje sensory, a getSensor zwraca referencję do konkretnego sensora.
+Klasa \textit{SensorManager} (listing \ref{lst:SensorManager}) zarządza sensorami robota przechowując ich wskaźniki i udostępniając interfejs odczytu danych. Typ \textit{SensorMapping} reprezentuje indeksy sensorów, ułatwiając dostęp do nich. Metoda \textit{translate} przekształca enumerator na liczby całkowite, co umożliwia łatwiejszy dostęp do konkretnego urządzenia. Konstruktor inicjuje obiekt tablicą uchwytów reprezentujących urządzenia, a \textit{init} inicjuje sensory. Metoda \textit{poolSensors} odpytuje sensory, a \textit{getSensor} zwraca referencję do konkretnego sensora.
 
 \newpage
 
@@ -375,7 +375,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa OdometryManager (listing \ref{lst:OdometryManager}) zarządza różnymi algorytmami odometrii robota i aktualizuje jego pozycję na podstawie danych z sensorów. Enum ActiveOdometry definiuje dostępne algorytmy odometrii, lecz w tej implementacji dostępna jest tylko prosta odometria. Konstruktor przyjmuje tablicę wskaźników do obiektów IOdometry reprezentujących różne algorytmy odometrii oraz referencję do obiektu SensorManager. Metoda updatePosition aktualizuje pozycję robota na podstawie danych z sensorów i aktywnego algorytmu odometrii. setActiveOdometry ustawia aktywny algorytm odometrii, getActiveOdometry zwraca jego indeks, a getPosition zwraca aktualną pozycję. Metoda resetActiveOdometry resetuje aktywny algorytm i ustawia zerowe współrzędne. Klasa zapewnia elastyczne zarządzanie algorytmem odometrii i precyzyjne poruszanie się robota.
+Klasa \textit{OdometryManager} (listing \ref{lst:OdometryManager}) zarządza różnymi algorytmami odometrii robota i aktualizuje jego pozycję na podstawie danych z sensorów. Enumerator \textit{ActiveOdometry} definiuje dostępne algorytmy odometrii, lecz w tej implementacji dostępna jest tylko prosta odometria. Konstruktor przyjmuje tablicę wskaźników do obiektów \textit{IOdometry} reprezentujących różne algorytmy odometrii oraz referencję do obiektu \textit{SensorManager}. Metoda \textit{updatePosition} aktualizuje pozycję robota na podstawie danych z sensorów i aktywnego algorytmu odometrii. \textit{setActiveOdometry} ustawia aktywny algorytm odometrii, \textit{getActiveOdometry} zwraca jego indeks, a \textit{getPosition} zwraca aktualną pozycję. Metoda \textit{resetActiveOdometry} resetuje aktywny algorytm i ustawia zerowe współrzędne. Klasa zapewnia elastyczne zarządzanie algorytmem odometrii i precyzyjne poruszanie się robota.
 
 
 \begin{lstlisting}[language=C++, caption={Klasa MotorManager}, label={lst:MotorManager}]
@@ -409,7 +409,7 @@ private:
 };
 \end{lstlisting}
 
-Klasa MotorManager (listing \ref{lst:MotorManager}) zarządza silnikami prądu stałego robota, kontrolując ich prędkość obrotową i kierunek. settingType definiuje różne typy ustawień silników, a motor\_array, speed\_array, i angular\_array to odpowiednio tablice wskaźników do silników, prędkości silników i prędkości kątowych. Metoda init inicjuje silniki, setSpeed ustawia prędkość zależnie od typu ustawienia, a konstruktor inicjuje obiekt, przyjmując tablicę wskaźników do silników i opcjonalny współczynnik inercji. poolMotors aktualizuje stany silników, a CurrentSpeed, DesiredSpeed, i TargetAngular zwracają odpowiednio aktualną prędkość, docelową prędkość i prędkości kątowe silników. Klasa zapewnia elastyczne zarządzanie silnikami i kontrolę nad ich prędkościami, kluczową dla ruchu i sterowania robotem.
+Klasa \textit{MotorManager} (listing \ref{lst:MotorManager}) zarządza silnikami prądu stałego robota, kontrolując ich prędkość obrotową i kierunek. \textit{settingType} definiuje różne typy ustawień silników, a \textit{motor\_array}, \textit{speed\_array}, i \textit{angular\_array} to odpowiednio tablice wskaźników do silników, prędkości silników i prędkości kątowych. Metoda \textit{init} inicjuje silniki, \textit{setSpeed} ustawia prędkość zależnie od typu ustawienia, a konstruktor inicjuje obiekt, przyjmując tablicę wskaźników do silników i opcjonalny współczynnik inercji. \textit{poolMotors} aktualizuje stany silników, a \textit{CurrentSpeed}, \textit{DesiredSpeed}, i \textit{TargetAngular} zwracają odpowiednio aktualną prędkość, docelową prędkość i prędkości kątowe silników. Klasa zapewnia elastyczne zarządzanie silnikami i kontrolę nad ich prędkościami, kluczową dla ruchu i sterowania robotem.
 
 \begin{lstlisting}[language=C++, caption={Klasa Kernel}, label={lst:Kernel}]
 class Kernel{
@@ -445,7 +445,7 @@ public:
 };    
 \end{lstlisting}
 
-Klasa Kernel (listing \ref{lst:Kernel}) pełni kluczową rolę jako centralny moduł zarządzający systemem. Odpowiada za inicjalizację systemu oraz koordynację jego głównych funkcji. Metoda init przygotowuje system do działania, a main zarządza jego główną logiką. Kluczowe funkcje obejmują zarządzanie ruchem (silniki, regulator PID), komunikacją (MQTT), sensorami (odległości, enkodery) oraz odometrią. Kernel integruje te komponenty, zapewniając ich współpracę i efektywny podział czasu procesora.
+Klasa \textit{Kernel} (listing \ref{lst:Kernel}) pełni kluczową rolę jako centralny moduł zarządzający systemem. Odpowiada za inicjalizację systemu oraz koordynację jego głównych funkcji. Metoda \textit{init} przygotowuje system do działania, a \textit{main} zarządza jego główną logiką. Kluczowe funkcje obejmują zarządzanie ruchem (silniki, regulator PID), komunikacją (MQTT), sensorami (odległości, enkodery) oraz odometrią. \textit{Kernel} integruje te komponenty, zapewniając ich współpracę i efektywny podział czasu procesora.
 
 \subsubsection{Obsługiwane polecenia}
 
@@ -570,11 +570,16 @@ Niniejsza sekcja skupia się na opisie przeprowadzonych testów weryfikujących 
 \end{table}	
 \newpage
 
-Test SQT\_01 miał na celu potwierdzenie, czy oprogramowanie regularnie odczytuje dane z czujników odległości co 50 ms, zgodnie z wymaganiami. Mimo że w projekcie nie wykorzystano IMU, to test został dostosowany do odczytu danych z czujników odległości, a zadanie zostało zaplanowane jako praca freeRTOS z interwałem 50 ms.
+Test \textit{SQT\_01} miał na celu potwierdzenie, czy oprogramowanie regularnie odczytuje dane z czujników odległości co 50 ms, zgodnie z wymaganiami. Mimo że w projekcie nie wykorzystano IMU, to test został dostosowany do odczytu danych z czujników odległości, a zadanie zostało zaplanowane jako praca \textit{freeRTOS} \cite{freeRTOS} z interwałem 50 ms.
 
-Testy oznaczone jako SQT\_02 skupiły się na weryfikacji podstawowych funkcji oprogramowania, w tym dostarczania zasilania i programowania sprzętu, wymiany danych, kontroli silników itp. Każde z tych wymagań zostało poddane testowi, a wynikiem było potwierdzenie, że oprogramowanie spełnia te kryteria.
+Testy oznaczone jako \textit{SQT\_02} skupiły się na weryfikacji podstawowych funkcji oprogramowania, w tym dostarczania zasilania i programowania sprzętu, wymiany danych, kontroli silników itp. Każde z tych wymagań zostało poddane testowi, a wynikiem było potwierdzenie, że oprogramowanie spełnia te kryteria.
 
 W obu przypadkach testy zakończyły się sukcesem, co potwierdza zgodność oprogramowania z wymaganiami określonymi w specyfikacji SWE3. Oprócz przeprowadzenia testów kwalifikacyjnych oprogramowanie zostało pokryte testami jednostkowymi.
+
+\clearpage
+
+\subsection{Konstrukcja mechaniczna}
+
 
 \section{Wprowadzenie do omawianych algorytmów}
 
@@ -677,11 +682,11 @@ private:
 };
 \end{lstlisting}
 
-Kod ukazany na listingu \ref{lst:pid_algorithm} definiuje szablon klasy pid, który reprezentuje cyfrowy algorytm PID. Kluczowymi elementami tego algorytmu są trzy główne składowe: proporcjonalny, całkujący i różniczkujący.
+Kod ukazany na listingu \ref{lst:pid_algorithm} definiuje szablon klasy \textit{pid}, który reprezentuje cyfrowy algorytm PID. Kluczowymi elementami tego algorytmu są trzy główne składowe: proporcjonalny, całkujący i różniczkujący.
 
-Algorytm ten jest parametryzowany przez wartości takie jak wzmocnienia (Kp, Ki, Kd) oraz ograniczenia (MaxOut, MinOut). Wartości te pozwalają na dostosowanie algorytmu do specyfiki danego systemu.
+Algorytm ten jest parametryzowany przez wartości takie jak wzmocnienia (\textit{Kp}, \textit{Ki}, \textit{Kd}) oraz ograniczenia (\textit{MaxOut}, \textit{MinOut}). Wartości te pozwalają na dostosowanie algorytmu do specyfiki danego systemu.
 
-W metodzie getOutput algorytm oblicza sygnał sterujący na podstawie bieżącej wartości i wartości zadanego stanu. Składa się na to trzy kroki:
+W metodzie \textit{getOutput} algorytm oblicza sygnał sterujący na podstawie bieżącej wartości i wartości zadanego stanu. Składa się na to trzy kroki:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
 	\item Wyznaczenie składowej proporcjonalnej jako iloczynu wzmocnienia proporcjonalnego i aktualnego uchybu regulacji,
@@ -821,7 +826,7 @@ Wykorzystując interfejs sieciowy kontrolera, przeprowadzono eksperyment, podcza
  \label{Fig:noreg}%
 \end{figure}
 
-Aby dopasować odpowiedź obiektu do modelu transmitancji pierwszego rzędu, zastosowano metodę aproksymacji. Polegała ona na dopasowaniu odpowiedniego modelu matematycznego do zebranych danych eksperymentalnych. W tym przypadku, model transmitancji pierwszego rzędu pozwolił na odpowiednie odwzorowanie zachowania obiektu w kontekście zmian sygnału sterującego. Dzięki temu można było przewidywać reakcję obiektu na różne zmiany sterowania.
+Aby dopasować odpowiedź obiektu do modelu transmitancji pierwszego rzędu, zastosowano metodę aproksymacji \cite{automatyka}. Polegała ona na dopasowaniu odpowiedniego modelu matematycznego do zebranych danych eksperymentalnych. W tym przypadku, model transmitancji pierwszego rzędu pozwolił na odpowiednie odwzorowanie zachowania obiektu w kontekście zmian sygnału sterującego. Dzięki temu można było przewidywać reakcję obiektu na różne zmiany sterowania.
 
 \begin{lstlisting}[language=Python, caption=Kod aproksymujący odpowiedź, label={lst:fit1}]
 import numpy as np
@@ -842,7 +847,7 @@ print("Wzmocnienie (K):", K)
 print("Stala czasowa (T):", T)
 \end{lstlisting}
 
-Kod przedstawiony na listingu \ref{lst:fit1} służy do analizy danych eksperymentalnych reprezentujących odpowiedź skokową obiektu oraz aproksymowania tych danych do modelu transmitancji pierwszego rzędu. Najpierw tworzone są dane czasowe t, a następnie dane odpowiedzi skokowej odpowiedz\_skokowa. Definiowana jest funkcja first\_order\_transfer\_function, która odpowiada transmitancji pierwszego rzędu. Następnie korzystając z funkcji curve\_fit z biblioteki scipy.optimize, dopasowywany jest model transmitancji pierwszego rzędu do danych odpowiedzi skokowej. Funkcja, jako wynik działania, zwraca wartość wzmocnienia K oraz stałą czasową T.
+Kod przedstawiony na listingu \ref{lst:fit1} służy do analizy danych eksperymentalnych reprezentujących odpowiedź skokową obiektu oraz aproksymowania tych danych do modelu transmitancji pierwszego rzędu. Najpierw tworzone są dane czasowe \textit{t}, a następnie dane odpowiedzi skokowej \textit{odpowiedz\_skokowa}. Definiowana jest funkcja \textit{first\_order\_transfer\_function}, która odpowiada transmitancji pierwszego rzędu. Następnie korzystając z funkcji \textit{curve\_fit} z biblioteki \textit{scipy.optimize}, dopasowywany jest model transmitancji pierwszego rzędu do danych odpowiedzi skokowej. Funkcja, jako wynik działania, zwraca wartość wzmocnienia \textit{K} oraz stałą czasową \textit{T}.
 
 Rysunek \ref{Fig:aprox} ukazuje aproksymację modelu transmitancji pierwszego rzędu do danych pomiarowych. Wyznaczoną transmitancję obiektu opisuje wzór \ref{Eq:trans}.
 
@@ -862,7 +867,7 @@ G(s) = \frac{6.37}{1 + 0.44s}
 
 \subsubsection{Wyznaczenie nastaw metodą klasyczną}
 
-Kod umieszczony na listingu \ref{lst:ziegler} wykorzystuje bibliotekę numpy do obliczenia nastaw regulatora PID na podstawie zadanych wartości wzmocnienia i czasu wyprzedzenia. Na początku definiuje wartości stałych K i T, a następnie wykorzystuje je do obliczenia współczynnika krytycznego (Ku) oraz okresu oscylacji (Tu). Następnie na podstawie Ku i Tu wylicza nastawy PID..
+Kod umieszczony na listingu \ref{lst:ziegler} wykorzystuje bibliotekę \textit{numpy} do obliczenia nastaw regulatora PID na podstawie zadanych wartości wzmocnienia i czasu wyprzedzenia. Na początku definiuje wartości stałych \textit{K} i \textit{T}, a następnie wykorzystuje je do obliczenia współczynnika krytycznego (\textit{Ku}) oraz okresu oscylacji (\textit{Tu}). Następnie na podstawie \textit{Ku} i \textit{Tu} wyznacza nastawy PID.
 
 \begin{lstlisting}[caption={Kod z obliczeniami i wyświetleniem wyników}, label={lst:ziegler}]
 import numpy as np
@@ -885,7 +890,7 @@ Optymalizacja nastaw regulatora PID jest kluczowym zagadnieniem w automatyce, kt
 
 Z punktu widzenia automatyki, silnik prądu stałego jest stosunkowo prostym obiektem sterowania, co sprawia, że wiele zestawów parametrów może być odpowiednich do automatycznej regulacji prędkości. W związku z tym zdecydowano się na użycie algorytmu genetycznego do wyboru optymalnego zestawu współczynników PID.
 
-Skrypt w języku Python zawierający implementację algorytmu genetycznego będzie uruchomiony na lokalnym serwerze. Każdy osobnik w populacji będzie testowany na fizycznym robocie w celu sprawdzenia jego dopasowania (fitness). Algorytm będzie uruchamiany trzykrotnie z różnymi zestawami parametrów:
+Skrypt w języku Python zawierający implementację algorytmu genetycznego będzie uruchomiony na lokalnym serwerze. Każdy osobnik w populacji będzie testowany na fizycznym robocie w celu sprawdzenia jego dopasowania (\textit{fitness}). Algorytm będzie uruchamiany trzykrotnie z różnymi zestawami parametrów:
 
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm]
     \item \textbf{Pierwszy eksperyment}
@@ -959,9 +964,9 @@ def send_mqtt_message(topic, message):
     mqtt_client.publish(topic, json.dumps(message))
 \end{lstlisting}
 
-Kod przedstawiony na listingu \ref{lst:genMQTT} nawiązuje połączenie z brokerem MQTT, który umożliwia komunikację pomiędzy serwerem a robotem. Kluczowe elementy konfiguracji obejmują określenie adresu brokera oraz portu. Następnie zdefiniowano tematy MQTT do wysyłania i odbierania wiadomości dotyczących ustawień PID, sterowania silnikami oraz logowania. Dodatkowo zdefiniowano funkcje pomocnicze, takie jak send\_mqtt\_message do wysyłania wiadomości oraz on\_log\_message do obsługi wiadomości logowania.
+Kod przedstawiony na listingu \ref{lst:genMQTT} nawiązuje połączenie z brokerem MQTT, który umożliwia komunikację pomiędzy serwerem a robotem. Kluczowe elementy konfiguracji obejmują określenie adresu brokera oraz portu. Następnie zdefiniowano tematy MQTT do wysyłania i odbierania wiadomości dotyczących ustawień PID, sterowania silnikami oraz logowania. Dodatkowo zdefiniowano funkcje pomocnicze, takie jak \textit{send\_mqtt\_message} do wysyłania wiadomości oraz \textit{on\_log\_message} do obsługi wiadomości logowania.
 
-Ta sekcja przedstawia funkcję run\_experiment (listing \ref{lst:runExperiment}), która inicjalizuje i przeprowadza eksperymenty z nowymi nastawami PID na robocie. Kluczowe kroki obejmują ponowne połączenie z brokerem MQTT i subskrybowanie tematów logowania, wysłanie nowych wartości współczynników PID do robota, uruchomienie silników robota i monitorowanie ich przez określony czas oraz zbieranie danych logowania do późniejszej analizy.
+Ta sekcja przedstawia funkcję \textit{run\_experiment} (listing \ref{lst:runExperiment}), która inicjalizuje i przeprowadza eksperymenty z nowymi nastawami PID na robocie. Kluczowe kroki obejmują ponowne połączenie z brokerem MQTT i subskrybowanie tematów logowania, wysłanie nowych wartości współczynników PID do robota, uruchomienie silników robota i monitorowanie ich przez określony czas oraz zbieranie danych logowania do późniejszej analizy.
 
 \begin{lstlisting}[language=Python, caption=Funkcja uruchamiająca eksperyment, label={lst:runExperiment}]
 def run_experiment(Kp, Ti, Td):
@@ -998,7 +1003,7 @@ def run_experiment(Kp, Ti, Td):
     experiment_ongoing = False
 \end{lstlisting}
 
-Funkcja calculate\_errors (listing \ref{lst:calcErrors}) służy do obliczania błędów na podstawie danych logowania zebranych podczas eksperymentu. Kluczowe kroki obejmują obliczanie błędów absolutnych i względnych dla każdej próbki danych oraz obliczanie średniego błędu względnego, który jest używany jako miara jakości regulatora PID.
+Funkcja \textit{calculate\_errors} (listing \ref{lst:calcErrors}) służy do obliczania błędów na podstawie danych logowania zebranych podczas eksperymentu. Kluczowe kroki obejmują obliczanie błędów absolutnych i względnych dla każdej próbki danych oraz obliczanie średniego błędu względnego, który jest używany jako miara jakości regulatora PID.
 
 \begin{lstlisting}[language=Python, caption=Funkcja obliczająca błędy, label={lst:calcErrors}]
 def calculate_errors(logs):
@@ -1028,7 +1033,7 @@ def calculate_errors(logs):
     return mean_relative_error
 \end{lstlisting}
 
-Funkcja fitness\_func (listing \ref{lst:fitnessFunc}) ocenia jakość każdego zestawu współczynników PID, wykonując eksperyment z tymi współczynnikami i obliczając wynikowy błąd względny. Wynik jest używany przez algorytm genetyczny do wyboru najlepszych rozwiązań. Kluczowe elementy obejmują przeprowadzenie eksperymentu z podanymi współczynnikami PID, wyliczenie średniego błędu względnego oraz zwrócenie wartości funkcji dopasowania, która jest odwrotnością błędu względnego.
+Funkcja \textit{fitness\_func} (listing \ref{lst:fitnessFunc}) ocenia jakość każdego zestawu współczynników PID, wykonując eksperyment z tymi współczynnikami i obliczając wynikowy błąd względny. Wynik jest używany przez algorytm genetyczny do wyboru najlepszych rozwiązań. Kluczowe elementy obejmują przeprowadzenie eksperymentu z podanymi współczynnikami PID, wyliczenie średniego błędu względnego oraz zwrócenie wartości funkcji dopasowania, która jest odwrotnością błędu względnego.
 
 \begin{lstlisting}[language=Python, caption=Funkcja dopasowania, label={lst:fitnessFunc}]
 def fitness_func(ga_instance, solution, solution_idx):
@@ -1047,7 +1052,7 @@ def fitness_func(ga_instance, solution, solution_idx):
     return fitness
 \end{lstlisting}
 
-Funkcja run\_genetic\_algorithm (listing \ref{lst:runGA}) inicjalizuje i uruchamia algorytm genetyczny z podanymi parametrami. Kluczowe kroki obejmują definicję problemu optymalizacyjnego poprzez określenie liczby genów (współczynników PID) oraz przestrzeni poszukiwań, inicjalizację algorytmu genetycznego z parametrami takimi jak liczba pokoleń, liczba rodziców, prawdopodobieństwo krzyżowania i mutacji oraz wykonanie algorytmu i zapisanie najlepszego rozwiązania.
+Funkcja \textit{run\_genetic\_algorithm} (listing \ref{lst:runGA}) inicjalizuje i uruchamia algorytm genetyczny z podanymi parametrami. Kluczowe kroki obejmują definicję problemu optymalizacyjnego poprzez określenie liczby genów (współczynników PID) oraz przestrzeni poszukiwań, inicjalizację algorytmu genetycznego z parametrami takimi jak liczba pokoleń, liczba rodziców, prawdopodobieństwo krzyżowania i mutacji oraz wykonanie algorytmu i zapisanie najlepszego rozwiązania.
 
 \begin{lstlisting}[language=Python, caption=Uruchamianie algorytmu genetycznego, label={lst:runGA}]
 def run_genetic_algorithm(pop_size, max_epochs, crossover_prob, num_parents_mating, mutation_prob, experiment_num):
@@ -1204,7 +1209,7 @@ By porównać jakość wyznaczonych nastaw, należało przestroić regulator i z
 
 \clearpage
 
-Po sprawdzeniu odpowiedzi obiektu na wyznaczone nastawy, podjęto decyzję o wykorzystaniu wyniku trzeciego eksperymentu. Wybór jest uzasadniony kilkoma kluczowymi czynnikami. Przede wszystkim, w porównaniu z innymi metodami, nastawy te zapewniły satysfakcjonującą regulację systemu (rysunek \ref{Fig:exp3pid}). Czas ustalania wynosił 600 ms, co jest wynikiem porównywalnym z najlepszymi nastawami uzyskanymi w innych eksperymentach. Dodatkowo, podczas eksperymentu nastawy GA 3 wykazały najlepszy wynik fitness, co oznacza, że algorytm genetyczny skutecznie dostroił parametry regulatora w celu optymalnej regulacji systemu. W związku z tym, można uznać, że nastawy te są najkorzystniejsze pod względem jakości regulacji i efektywności działania systemu. Podczas testów z nastawami wyznaczonymi metodą Zieglera-Nicholsa (rysunek \ref{Fig:zieglerpid}) zaobserwowano, że jedno z kół nie chciało wystartować, co świadczy o niedostatecznej regulacji. Oznacza to, że te nastawy nie były w stanie zapewnić właściwej kontroli nad całym systemem, co może prowadzić do niestabilności i niesatysfakcjonującej wydajności. Czas ustalania wynoszący 190 ms jest krótki, ale ze względu na problem z jednym z kół, regulacja nie była wystarczająco dobra.
+Po sprawdzeniu odpowiedzi obiektu na wyznaczone nastawy, podjęto decyzję o wykorzystaniu wyniku trzeciego eksperymentu. Wybór jest uzasadniony kilkoma kluczowymi czynnikami. Przede wszystkim, w porównaniu z innymi metodami, nastawy te zapewniły satysfakcjonującą regulację systemu (rysunek \ref{Fig:exp3pid}). Czas ustalania wynosił 600 ms, co jest wynikiem porównywalnym z najlepszymi nastawami uzyskanymi w innych eksperymentach. Dodatkowo, podczas eksperymentu nastawy GA 3 wykazały najlepszy wynik \textit{fitness}, co oznacza, że algorytm genetyczny skutecznie dostroił parametry regulatora w celu optymalnej regulacji systemu. W związku z tym, można uznać, że nastawy te są najkorzystniejsze pod względem jakości regulacji i efektywności działania systemu. Podczas testów z nastawami wyznaczonymi metodą Zieglera-Nicholsa (rysunek \ref{Fig:zieglerpid}) zaobserwowano, że jedno z kół nie chciało wystartować, co świadczy o niedostatecznej regulacji. Oznacza to, że te nastawy nie były w stanie zapewnić właściwej kontroli nad całym systemem, co może prowadzić do niestabilności i niesatysfakcjonującej wydajności. Czas ustalania wynoszący 190 ms jest krótki, ale ze względu na problem z jednym z kół, regulacja nie była wystarczająco dobra.
 
 
 
@@ -1277,7 +1282,7 @@ gdzie: $p$, $q$ -- to punkty w dwuwymiarowej przestrzeni, gdzie każdy punkt jes
 
 \newpage
 
-Kolejnym krokiem jest przejście przez wszystkie heurystyki oraz wczytane grafy w celu przeprowadzenia eksperymentu porównawczego. Skrypt, dla każdego grafu, wyznacza trasę z punktu startowego 'start' do punktu docelowego 'goal' z wykorzystaniem określonej heurystyki.
+Kolejnym krokiem jest przejście przez wszystkie heurystyki oraz wczytane grafy w celu przeprowadzenia eksperymentu porównawczego. Skrypt, dla każdego grafu, wyznacza trasę z punktu startowego \textit{start} do punktu docelowego \textit{goal} z wykorzystaniem określonej heurystyki.
 
 \subsubsection{Porównanie otrzymanych wyników}
 
@@ -1889,14 +1894,20 @@ Podsumowując, ze względu lepszą efektywność czasową i potencjał do skutec
 
 \addcontentsline{toc}{section}{Literatura}
 
-\begin{thebibliography}{12}
+\begin{thebibliography}{15}
 \bibitem{repo}Repozytorium z projektem: https://github.com/DevxMike/master\_degree
 
 \bibitem{deepLearning} Francois Chollet: Deep Learning. Praca z językiem Python i biblioteką Keras. Helion 2019
 
+\bibitem{cpp} Bjarne Stroustrup: The C++ Programming Language. Addison-Wesley Professional 2013
+
 \bibitem{RL} Paweł Cichosz: Systemy uczące się. WNT 2007 
 
+\bibitem{freeRTOS} Warren Gay: FreeRTOS for ESP32-Arduino. Elektor International Media b.v. 2020
+
 \bibitem{genetics}  Riccardo Poli, William B. Langdon, Nicholas F. McPhee, John R. Koza: A Field Guide to Genetic Programming. Lulu Enterprises Uk Ltd 2008
+
+\bibitem{automatyka} Andrzej Dębowski: Automatyka. Podstawy teorii. Wydawnictwo Naukowe PWN 2008
 
 \bibitem{SPICE}Standard ASPICE: https://mfiles.pl/pl/index.php/Automotive\_SPICE
 
