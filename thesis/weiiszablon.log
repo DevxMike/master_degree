@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 JUN 2024 21:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.11)  24 JUN 2024 21:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,7 +955,7 @@ LaTeX Info: Redefining \nameref on input line 48.
 \c@lstlisting=\count333
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<auxiliary/logoweii.jpg, id=162, 400.1349pt x 117.67966pt>
+<auxiliary/logoweii.jpg, id=166, 400.1349pt x 117.67966pt>
 File: auxiliary/logoweii.jpg Graphic file (type jpg)
 <use auxiliary/logoweii.jpg>
 Package pdftex.def Info: auxiliary/logoweii.jpg  used on input line 51.
@@ -1600,7 +1600,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [8
 
 ]
-<figures/engHW/robotblock.png, id=267, 683.55376pt x 440.64626pt>
+<figures/engHW/robotblock.png, id=272, 683.55376pt x 440.64626pt>
 File: figures/engHW/robotblock.png Graphic file (type png)
 <use figures/engHW/robotblock.png>
 Package pdftex.def Info: figures/engHW/robotblock.png  used on input line 152.
@@ -1679,7 +1679,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 162--166
 
  []
 
-<figures/engHW/robotschem.png, id=279, 1222.5675pt x 859.21pt>
+<figures/engHW/robotschem.png, id=284, 1222.5675pt x 859.21pt>
 File: figures/engHW/robotschem.png Graphic file (type png)
 <use figures/engHW/robotschem.png>
 Package pdftex.def Info: figures/engHW/robotschem.png  used on input line 171.
@@ -1891,7 +1891,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 250.
 
 [12]
-<figures/engSW/block.png, id=307, 502.87875pt x 392.46625pt>
+<figures/engSW/block.png, id=312, 502.87875pt x 392.46625pt>
 File: figures/engSW/block.png Graphic file (type png)
 <use figures/engSW/block.png>
 Package pdftex.def Info: figures/engSW/block.png  used on input line 254.
@@ -3042,12 +3042,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 797.
 
 [27]
-<figures/PID/pidEXP.png, id=676, 522.95375pt x 261.97874pt>
+<figures/PID/pidEXP.png, id=681, 522.95375pt x 261.97874pt>
 File: figures/PID/pidEXP.png Graphic file (type png)
 <use figures/PID/pidEXP.png>
 Package pdftex.def Info: figures/PID/pidEXP.png  used on input line 808.
 (pdftex.def)             Requested size: 341.43306pt x 171.04768pt.
-<figures/PID/noreg.png, id=678, 551.05875pt x 453.695pt>
+<figures/PID/noreg.png, id=683, 551.05875pt x 453.695pt>
 File: figures/PID/noreg.png Graphic file (type png)
 <use figures/PID/noreg.png>
 Package pdftex.def Info: figures/PID/noreg.png  used on input line 819.
@@ -3195,7 +3195,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 847.
 
 [29 <./figures/PID/noreg.png>]
-<figures/PID/aprox.png, id=711, 551.05875pt x 449.68pt>
+<figures/PID/aprox.png, id=716, 551.05875pt x 449.68pt>
 File: figures/PID/aprox.png Graphic file (type png)
 <use figures/PID/aprox.png>
 Package pdftex.def Info: figures/PID/aprox.png  used on input line 856.
@@ -3628,7 +3628,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 1085.
 
 [35]
-<figures/PID/gen.png, id=897, 571.13374pt x 449.68pt>
+<figures/PID/gen.png, id=902, 571.13374pt x 449.68pt>
 File: figures/PID/gen.png Graphic file (type png)
 <use figures/PID/gen.png>
 Package pdftex.def Info: figures/PID/gen.png  used on input line 1108.
@@ -3776,22 +3776,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 1175.
 
 [37]
-<figures/PID/zieglerpid.png, id=932, 558.085pt x 446.66875pt>
+<figures/PID/zieglerpid.png, id=937, 558.085pt x 446.66875pt>
 File: figures/PID/zieglerpid.png Graphic file (type png)
 <use figures/PID/zieglerpid.png>
 Package pdftex.def Info: figures/PID/zieglerpid.png  used on input line 1179.
 (pdftex.def)             Requested size: 284.52756pt x 227.72989pt.
-<figures/PID/exp1pid.png, id=933, 549.05125pt x 451.6875pt>
+<figures/PID/exp1pid.png, id=938, 549.05125pt x 451.6875pt>
 File: figures/PID/exp1pid.png Graphic file (type png)
 <use figures/PID/exp1pid.png>
 Package pdftex.def Info: figures/PID/exp1pid.png  used on input line 1186.
 (pdftex.def)             Requested size: 284.52756pt x 234.07935pt.
-<figures/PID/exp2pid.png, id=934, 549.05125pt x 448.67625pt>
+<figures/PID/exp2pid.png, id=939, 549.05125pt x 448.67625pt>
 File: figures/PID/exp2pid.png Graphic file (type png)
 <use figures/PID/exp2pid.png>
 Package pdftex.def Info: figures/PID/exp2pid.png  used on input line 1193.
 (pdftex.def)             Requested size: 284.52756pt x 232.51883pt.
-<figures/PID/exp3pid.png, id=935, 552.0625pt x 446.66875pt>
+<figures/PID/exp3pid.png, id=940, 552.0625pt x 446.66875pt>
 File: figures/PID/exp3pid.png Graphic file (type png)
 <use figures/PID/exp3pid.png>
 Package pdftex.def Info: figures/PID/exp3pid.png  used on input line 1200.
@@ -4092,21 +4092,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 1278.
 
 [41]
-<figures/static_algo/charts/nowalls/astar_heuristics.png, id=998, 722.7pt x 433
-.62pt>
+<figures/static_algo/charts/nowalls/astar_heuristics.png, id=1003, 722.7pt x 43
+3.62pt>
 File: figures/static_algo/charts/nowalls/astar_heuristics.png Graphic file (typ
 e png)
 <use figures/static_algo/charts/nowalls/astar_heuristics.png>
 Package pdftex.def Info: figures/static_algo/charts/nowalls/astar_heuristics.pn
 g  used on input line 1293.
 (pdftex.def)             Requested size: 341.43306pt x 204.86006pt.
-<figures/static_algo/charts/nowalls/dijkstra.png, id=999, 722.7pt x 433.62pt>
+<figures/static_algo/charts/nowalls/dijkstra.png, id=1004, 722.7pt x 433.62pt>
 File: figures/static_algo/charts/nowalls/dijkstra.png Graphic file (type png)
 <use figures/static_algo/charts/nowalls/dijkstra.png>
 Package pdftex.def Info: figures/static_algo/charts/nowalls/dijkstra.png  used 
 on input line 1300.
 (pdftex.def)             Requested size: 341.43306pt x 204.86006pt.
-<figures/static_algo/charts/nowalls/astar_vs_dijkstra.png, id=1000, 722.7pt x 4
+<figures/static_algo/charts/nowalls/astar_vs_dijkstra.png, id=1005, 722.7pt x 4
 33.62pt>
 File: figures/static_algo/charts/nowalls/astar_vs_dijkstra.png Graphic file (ty
 pe png)
@@ -4479,7 +4479,7 @@ Underfull \hbox (badness 1776) in paragraph at lines 1487--1487
 []\T1/lmr/bx/n/10 Czas dzia-ªa-nia al-go-
  []
 
-<figures/static_algo/charts/walls/algorithm_times_walls.png, id=1070, 722.7pt x
+<figures/static_algo/charts/walls/algorithm_times_walls.png, id=1075, 722.7pt x
  433.62pt>
 File: figures/static_algo/charts/walls/algorithm_times_walls.png Graphic file (
 type png)
@@ -4487,31 +4487,31 @@ type png)
 Package pdftex.def Info: figures/static_algo/charts/walls/algorithm_times_walls
 .png  used on input line 1581.
 (pdftex.def)             Requested size: 341.43306pt x 204.86006pt.
-<figures/static_algo/map_3.png, id=1071, 144.54pt x 36.135pt>
+<figures/static_algo/map_3.png, id=1076, 144.54pt x 36.135pt>
 File: figures/static_algo/map_3.png Graphic file (type png)
 <use figures/static_algo/map_3.png>
 Package pdftex.def Info: figures/static_algo/map_3.png  used on input line 1720
 .
 (pdftex.def)             Requested size: 264.61333pt x 66.15668pt.
-<figures/static_algo/map_astar_manhattan_3.png, id=1072, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_manhattan_3.png, id=1077, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_manhattan_3.png Graphic file (type png)
 <use figures/static_algo/map_astar_manhattan_3.png>
 Package pdftex.def Info: figures/static_algo/map_astar_manhattan_3.png  used on
  input line 1729.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_euclidean_3.png, id=1073, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_euclidean_3.png, id=1078, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_euclidean_3.png Graphic file (type png)
 <use figures/static_algo/map_astar_euclidean_3.png>
 Package pdftex.def Info: figures/static_algo/map_astar_euclidean_3.png  used on
  input line 1736.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_max_3.png, id=1074, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_max_3.png, id=1079, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_max_3.png Graphic file (type png)
 <use figures/static_algo/map_astar_max_3.png>
 Package pdftex.def Info: figures/static_algo/map_astar_max_3.png  used on input
  line 1744.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_dijkstra_3.png, id=1075, 144.54pt x 36.135pt>
+<figures/static_algo/map_dijkstra_3.png, id=1080, 144.54pt x 36.135pt>
 File: figures/static_algo/map_dijkstra_3.png Graphic file (type png)
 <use figures/static_algo/map_dijkstra_3.png>
 Package pdftex.def Info: figures/static_algo/map_dijkstra_3.png  used on input 
@@ -4662,31 +4662,31 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 tatic_algo/map_3.png> <./figures/static_algo/map_astar_manhattan_3.png> <./figu
 res/static_algo/map_astar_euclidean_3.png> <./figures/static_algo/map_astar_max
 _3.png> <./figures/static_algo/map_dijkstra_3.png>]
-<figures/static_algo/map_4.png, id=1094, 144.54pt x 36.135pt>
+<figures/static_algo/map_4.png, id=1099, 144.54pt x 36.135pt>
 File: figures/static_algo/map_4.png Graphic file (type png)
 <use figures/static_algo/map_4.png>
 Package pdftex.def Info: figures/static_algo/map_4.png  used on input line 1763
 .
 (pdftex.def)             Requested size: 264.61333pt x 66.15668pt.
-<figures/static_algo/map_astar_manhattan_4.png, id=1095, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_manhattan_4.png, id=1100, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_manhattan_4.png Graphic file (type png)
 <use figures/static_algo/map_astar_manhattan_4.png>
 Package pdftex.def Info: figures/static_algo/map_astar_manhattan_4.png  used on
  input line 1772.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_euclidean_4.png, id=1096, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_euclidean_4.png, id=1101, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_euclidean_4.png Graphic file (type png)
 <use figures/static_algo/map_astar_euclidean_4.png>
 Package pdftex.def Info: figures/static_algo/map_astar_euclidean_4.png  used on
  input line 1779.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_astar_max_4.png, id=1097, 144.54pt x 36.135pt>
+<figures/static_algo/map_astar_max_4.png, id=1102, 144.54pt x 36.135pt>
 File: figures/static_algo/map_astar_max_4.png Graphic file (type png)
 <use figures/static_algo/map_astar_max_4.png>
 Package pdftex.def Info: figures/static_algo/map_astar_max_4.png  used on input
  line 1787.
 (pdftex.def)             Requested size: 176.40439pt x 44.10335pt.
-<figures/static_algo/map_dijkstra_4.png, id=1098, 144.54pt x 36.135pt>
+<figures/static_algo/map_dijkstra_4.png, id=1103, 144.54pt x 36.135pt>
 File: figures/static_algo/map_dijkstra_4.png Graphic file (type png)
 <use figures/static_algo/map_dijkstra_4.png>
 Package pdftex.def Info: figures/static_algo/map_dijkstra_4.png  used on input 
@@ -4771,7 +4771,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
  <./figures/static_algo/map_4.png> <./figures/static_algo/map_astar_manhattan_4
 .png> <./figures/static_algo/map_astar_euclidean_4.png> <./figures/static_algo/
 map_astar_max_4.png> <./figures/static_algo/map_dijkstra_4.png>]
-<figures/dynamic/dstar_vs_lite.png, id=1113, 722.7pt x 433.62pt>
+<figures/dynamic/dstar_vs_lite.png, id=1118, 722.7pt x 433.62pt>
 File: figures/dynamic/dstar_vs_lite.png Graphic file (type png)
 <use figures/dynamic/dstar_vs_lite.png>
 Package pdftex.def Info: figures/dynamic/dstar_vs_lite.png  used on input line 
@@ -5074,6 +5074,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\abovedisplayskip' on input line 1888.
 
 [53]
+Overfull \hbox (52.82335pt too wide) in paragraph at lines 1915--1916
+[]\T1/lmr/m/n/12 Metoda Ziegler-Nichols: https://en.wikipedia.org/wiki/Ziegler%
+E2%80%93Nichols_method 
+ []
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\<let>-command' on input line 1919.
@@ -5238,20 +5243,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `weiiszablon.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `weiiszablon.out':
-(rerunfilecheck)             Before: 000516223D9D239E8A267A8A1169AF2D;8619
-(rerunfilecheck)             After:  FB379F2556DF5F3D93CD6E72E89DF9AE;8746.
+Package rerunfilecheck Info: File `weiiszablon.out' has not changed.
+(rerunfilecheck)             Checksum: FB379F2556DF5F3D93CD6E72E89DF9AE;8746.
  ) 
 Here is how much of TeX's memory you used:
- 28182 strings out of 478287
- 508266 string characters out of 5849289
+ 28183 strings out of 478287
+ 508282 string characters out of 5849289
  1457519 words of memory out of 5000000
- 45195 multiletter control sequences out of 15000+600000
+ 45196 multiletter control sequences out of 15000+600000
  537834 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,103p,1321b,1970s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -5266,10 +5265,10 @@ ts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 /public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on weiiszablon.pdf (55 pages, 1668601 bytes).
+Output written on weiiszablon.pdf (55 pages, 1669113 bytes).
 PDF statistics:
- 1350 PDF objects out of 1440 (max. 8388607)
- 1209 compressed objects within 13 object streams
+ 1354 PDF objects out of 1440 (max. 8388607)
+ 1213 compressed objects within 13 object streams
  672 named destinations out of 1000 (max. 500000)
- 460 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 468 words of extra memory for PDF output out of 10000 (max. 10000000)
 
