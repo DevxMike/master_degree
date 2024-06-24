@@ -1321,55 +1321,55 @@ Na podstawie przedstawionych wyników eksperymentu porównującego algorytmy A* 
 \centering		
 \begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}	
 \hline
-Heurystyka & Graf & Czas [s] \\
+Heurystyka & Graf & Czas [ms] \\
 \hline
 Manhattan & 
 graph\_200\_50.pkl & 
-0.0762 \\
+76.2 \\
  & 
 graph\_200\_200.pkl & 
-0.0889 \\
+88.9 \\
  & 
 graph\_500\_500.pkl & 
-0.2118 \\
+211.8 \\
  & 
 graph\_1000\_1000.pkl & 
-0.7892 \\
+789.2 \\
  & 
 graph\_2000\_2000.pkl & 
-3.0142 \\
+3014.2 \\
 \hline
 Euclidean & 
 graph\_200\_50.pkl & 
-0.0952 \\
+95.2 \\
  & 
 graph\_200\_200.pkl & 
-0.1070 \\
+107.0 \\
  & 
 graph\_500\_500.pkl & 
-0.2364 \\
+236.4 \\
  & 
 graph\_1000\_1000.pkl & 
-0.8041 \\
+804.1 \\
  & 
 graph\_2000\_2000.pkl & 
-3.0193 \\
+3019.3 \\
 \hline
 Max & 
 graph\_200\_50.pkl & 
-0.0964 \\
+96.4 \\
  & 
 graph\_200\_200.pkl & 
-0.1067 \\
+106.7 \\
  & 
 graph\_500\_500.pkl & 
-0.2229 \\
+222.9 \\
  & 
 graph\_1000\_1000.pkl & 
-0.7815 \\
+781.5 \\
  & 
 graph\_2000\_2000.pkl & 
-3.0381 \\
+3038.1 \\
 \hline
 \end{tabular}	
 
@@ -1377,51 +1377,53 @@ graph\_2000\_2000.pkl &
 \end{table}
 
 
+
 \begin{table}[ht]
 \caption{Wyniki algorytmu Dijkstry}
 \centering		
 \begin{tabular}{|p{0.5\textwidth}|p{0.4\textwidth}|}	
 \hline
-Graf & Czas [s] \\
+Graf & Czas [ms] \\
 \hline
 graph\_200\_50.pkl & 
-0.0171 \\
+17.1 \\
 graph\_200\_200.pkl & 
-0.0593 \\
+59.3 \\
 graph\_500\_500.pkl & 
-0.1247 \\
+124.7 \\
 graph\_1000\_1000.pkl & 
-0.3985 \\
+398.5 \\
 graph\_2000\_2000.pkl & 
-1.5084 \\
+1508.4 \\
 \hline
 \end{tabular}	
 
 \label{Tab:Dijkstra_results}
 \end{table}
 
+
 \begin{table}[ht]
 \caption{Tabela porównawcza najlepszych wyników A* i Dijkstry}
 \centering		
 \begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}	
 \hline
-Graf & Najlepszy czas A* [s] & Czas Dijkstry [s] \\
+Graf & Najlepszy czas A* [ms] & Czas Dijkstry [ms] \\
 \hline
 graph\_200\_50.pkl & 
-0.0762 & 
-0.0171 \\
+76.2 & 
+17.1 \\
 graph\_200\_200.pkl & 
-0.0889 & 
-0.0593 \\
+88.9 & 
+59.3 \\
 graph\_500\_500.pkl & 
-0.2118 & 
-0.1247 \\
+211.8 & 
+124.7 \\
 graph\_1000\_1000.pkl & 
-0.7815 & 
-0.3985 \\
+781.5 & 
+398.5 \\
 graph\_2000\_2000.pkl & 
-3.0142 & 
-1.5084 \\
+3014.2 & 
+1508.4 \\
 \hline
 \end{tabular}	
 
@@ -1489,97 +1491,98 @@ Podsumowanie wyników przedstawionych w tabeli \ref{Tab:Astar_Dijkstra_results} 
 \centering
 \begin{tabular}{|p{0.1\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}    
 \hline
-\textbf{Iteracja} & \textbf{Algorytm} & \textbf{Czas działania algorytmu [s]} & \textbf{Długość trasy} \\
+\textbf{Iteracja} & \textbf{Algorytm} & \textbf{Czas działania algorytmu [ms]} & \textbf{Długość trasy} \\
 \hline
 0 & 
 A* Manhattan & 
-0.1140 & 
+114.0 & 
 247 \\
  & 
 A* Euclidean & 
-0.1030 & 
+103.0 & 
 247 \\
  & 
 A* Max & 
-0.0991 & 
+99.1 & 
 247 \\
  & 
 Dijkstra & 
-0.0234 & 
+23.4 & 
 247 \\
 \hline
 1 & 
 A* Manhattan & 
-0.1030 & 
+103.0 & 
 243 \\
  & 
 A* Euclidean & 
-0.1216 & 
+121.6 & 
 243 \\
  & 
 A* Max & 
-0.1197 & 
+119.7 & 
 243 \\
  & 
 Dijkstra & 
-0.0169 & 
+16.9 & 
 243 \\
 \hline
 2 & 
 A* Manhattan & 
-0.1224 & 
+122.4 & 
 247 \\
  & 
 A* Euclidean & 
-0.1309 & 
+130.9 & 
 247 \\
  & 
 A* Max & 
-0.1425 & 
+142.5 & 
 247 \\
  & 
 Dijkstra & 
-0.0187 & 
+18.7 & 
 247 \\
 \hline
 3 & 
 A* Manhattan & 
-0.0568 & 
+56.8 & 
 233 \\
  & 
 A* Euclidean & 
-0.1048 & 
+104.8 & 
 233 \\
  & 
 A* Max & 
-0.1020 & 
+102.0 & 
 233 \\
  & 
 Dijkstra & 
-0.0184 & 
+18.4 & 
 233 \\
 \hline
 4 & 
 A* Manhattan & 
-0.0854 & 
+85.4 & 
 243 \\
  & 
 A* Euclidean & 
-0.0923 & 
+92.3 & 
 243 \\
  & 
 A* Max & 
-0.0984 & 
+98.4 & 
 243 \\
  & 
 Dijkstra & 
-0.0182 & 
+18.2 & 
 243 \\
 \hline
 \end{tabular}
 \caption{Porównanie czasu działania i długości trasy dla algorytmu A* z różnymi heurystykami oraz algorytmu Dijkstry}
 \label{Tab:Astar_Dijkstra_results}
 \end{table}
+
 
 \begin{figure}[ht]%
  \centering%
@@ -1833,27 +1836,27 @@ Na podstawie danych przedstawionych w tabeli \ref{tab:dstar_vs_dstarlite} można
 \centering
 \begin{tabular}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|}
 \hline
-Iteracja & Ilość przeszkód & Czas działania dstar [s], Pokonana odległość & Czas działania dstar\_lite [s], Pokonana odległość \\
+Iteracja & Ilość przeszkód & Czas działania dstar [ms], Pokonana odległość & Czas działania dstar\_lite [ms], Pokonana odległość \\
 \hline
 1 & 4 &
-0.0535, 112 & 
-0.0465, 112 \\
+53.5, 112 & 
+46.5, 112 \\
 \hline
 2 & 4 &
-0.0517, 105 & 
-0.0472, 105 \\
+51.7, 105 & 
+47.2, 105 \\
 \hline
 3 & 0 &
-0.0483, 101 & 
-0.0483, 101 \\
+48.3, 101 & 
+48.3, 101 \\
 \hline
 4 & 3 &
-0.0458, 106 & 
-0.0479, 107 \\
+45.8, 106 & 
+47.9, 107 \\
 \hline
 5 & 2 &
-0.0499, 115 & 
-0.0480, 115 \\
+49.9, 115 & 
+48.0, 115 \\
 \hline
 \end{tabular}
 \caption{Porównanie czasów działania i pokonanych odległości dla D* i D* Lite}
